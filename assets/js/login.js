@@ -21,7 +21,7 @@ $(document).ready(function()
 	$('#btn-login').click(function(e){ /// agregar un producto 
 	e.preventDefault();
 	$.ajax({
-			url: "http://localhost/justomarket/application/includes/process_login.php",
+			url: "https://justomarket.com/application/includes/process_login.php",
 			method: "POST",
 			data: $("#form-login").serialize(),
 			beforeSend: function () {
