@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{SERVER_PORT} 80 
+RewriteRule ^(.*)$ https://justomarket.com/$1 [R,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+
+
+RewriteRule ^categoria/([0-9a-z]+)$ ?categoria&categoria=$1
+RewriteRule ^detalle/([0-9a-z]+)$ ?detalle&id=$1
+RewriteRule ^promociones$ ?promociones
+RewriteRule ^contacto$ ?contacto
+
+
+</IfModule>

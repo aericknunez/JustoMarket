@@ -1,0 +1,146 @@
+@font-face{
+    font-family: "Gotham-Light";
+    src: url(../Tipografia/Gotham-Light.otf);
+
+}
+@font-face{
+    font-family: "Gotham-Black";
+    src: url(../Tipografia/Gotham-Black.otf);
+
+}
+@font-face{
+    font-family: "Gotham-Bold";
+    src: url(../Tipografia/Gotham-Bold.otf);
+
+}
+.bg-amarillo {
+    background-color: #FBC430 !important;
+  }
+  .bg-naranja {
+    background-color: #F08341 !important;
+  }
+  .bg-verde {
+    background-color: #A2C640 !important;
+  }
+  .bg-vino {
+    background-color: #75163B !important;
+  }
+
+ 
+  .amarillo {
+    color: #FBC430 !important;
+  }
+  .naranja {
+    color: #F08341 !important;
+  }
+  .verde {
+    color: #A2C640 !important;
+  }
+  .vino {
+    color: #75163B !important;
+  }
+
+
+.letra-gotham-light{
+  font-family: Gotham-Light;
+  
+}
+.letra-gotham-bold{
+  font-family: Gotham-Bold;
+  
+}
+.letra-gotham-black{
+  font-family: Gotham-Black;
+  
+}
+
+
+
+.outline-naranja {
+  color: gray !important;
+  }
+
+.outline-naranja:hover {
+  color: #fff !important;
+  background-color: #F08341;
+  
+}
+.outline-vino {
+  color: #75163B !important;
+  }
+
+.outline-vino:hover {
+  color: #fff !important;
+  background-color: #75163B;
+  
+}
+
+.buscar-right {
+  border-top-right-radius: 1rem !important;
+  border-bottom-right-radius: 1rem  !important;
+}
+.buscar-left {
+  border-top-left-radius: 1rem !important;
+  border-bottom-left-radius: 1rem  !important;
+}
+
+.ancho-total{
+  width: 1200px !important;
+}
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.margen-categoria {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.popover-body {
+  padding: 0 !important;
+  margin: 0 !important;
+  }
+
+  
+  .carousel-control-next{
+     
+    right: -8%;
+    height: 50%;
+}
+.carousel-control-prev{
+      left: -8%;
+      height: 50%;
+}
+
+.modal-border-rounded{
+  border-radius: 4rem !important;
+}
+
+.modal-border-rounded-cart{
+  border-radius: 2rem !important;
+}
+
+#prev{
+  transform: rotate(-180deg);
+}
+
+
+
+
+/* Mensaje de agotado*/
+.mensaje-agotado {
+     background-color: #FF8800;
+     position: absolute;
+     bottom: 65%;
+     left: 40%;
+     z-index: 20;
+     color: white;
+     text-shadow: 0 1px 2px rgba(0,0,0,.6);
+     font-family: Gotham-bold;
+     font-size: 14px;
+}
+  
+
+
