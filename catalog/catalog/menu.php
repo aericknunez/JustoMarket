@@ -131,7 +131,7 @@ if($_SESSION["user"]){
                                     class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100">
                                     Abarrotes
                                 </a> <br>
-                                <a href="<?php echo BASE_URL ?>categoria"
+                                <a href="<?php echo BASE_URL ?>categoria/mariscos"
                                     class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100">
                                     Mariscos
                                 </a> <br>

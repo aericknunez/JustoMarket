@@ -1,5 +1,5 @@
 <?php 
-class Inicio{
+class Categorias{
 
 	public function __construct(){
 
@@ -7,166 +7,125 @@ class Inicio{
 
 
 
+public function ObtenerData($url){
+	$db = new dbConn();
 
-	public function CreaCodigos($fecha){
-		$db = new dbConn();
+    $response = array();
 
-		echo '<div class="row d-flex justify-content-center text-center text-danger p-4">
-			  <div class="col-sm-4 border border-light">
-				'.Encrypt::Encrypt(Fechas::Format($fecha),$_SESSION['secret_key']).'
-			  </div>
-			</div>';
-	}
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    $response = curl_exec($ch);
 
+    curl_close($ch);
 
-	public function RegisterInOut($edo){
-		$db = new dbConn();
-		    $datos = array();
-		    $datos["user"] = $_SESSION['user'];
-		    $datos["nombre"] = $_SESSION['nombre'];
-		    $datos["accion"] = $edo;
-		    $datos["ip"] = Helpers::GetIp();
-		    $datos["navegador"] = $_SERVER["HTTP_USER_AGENT"];
-		    $datos["fecha"] = date("d-m-Y");
-		    $datos["fechaF"] = Fechas::Format(date("d-m-Y"));
-		    $datos["hora"] = date("H:i:s");
-		    $datos["td"] = $_SESSION["td"];
-		    $db->insert("login_inout", $datos); 		
-	}
-
-
-	public function Validar($fecha,$codigo){
-		$db = new dbConn();
-
-		if($fecha != NULL or $codigo != NULL){
-			$codigo = str_replace(' ', '', $codigo); // elimina espacios
-
-			if(Fechas::Format($fecha) == Encrypt::Decrypt($codigo,$_SESSION['secret_key'])){
-				
-				    $cambio = array();
-				    $cambio["expira"] = Encrypt::Encrypt($fecha,$_SESSION['secret_key']);
-				    $cambio["expiracion"] = $codigo;
-				    if ($db->update("config_root", $cambio, "WHERE td = ".$_SESSION["td"]."")) {
-				        
-				        Alerts::Alerta("success","Cambios realizados","Ha introducido su codigo correctamente");
-				    } else {
-				    	Alerts::Alerta("warning","Ocurrio algo","Ha ocurrido un inconveniente, introduzca su codigo nuevamente");
-				    }
-
-				
-			} else {
-				Alerts::Alerta("error","Error","Los codigos introducidos no son correctos, asegurese de tener codigos validos");
-			}
-	} else {
-	Alerts::Alerta("error","Error","Ha enviado datos vacios");
-	}	
-		$this->Caduca();
-		$this->NoAcceso();
-		echo '<div class="row d-flex justify-content-center text-center">
-		<a href="" class="btn btn-success">Volver a Intentarlo</a></div>';
-
-	}
-
-
-
-	public function Caduca(){ // ver si esta caducado el sistema
-        $db = new dbConn();
-        $r = $db->select("*", "config_root", "where td = ".$_SESSION['td']."");
-        $encrypt = new Encrypt;
-        $fechas = new Fechas;
-
-
-            if($_SESSION['tipo_cuenta'] != 1){ // si no es root
-
-                $key1 = $encrypt->Decrypt($r["expira"],$_SESSION['secret_key']);
-                $key2 = $encrypt->Decrypt($r["expiracion"],$_SESSION['secret_key']);
-                $key1 = $fechas->Format($key1);
-
-
-                    if($key1 == $key2){ // si son iguales verifico que no esten vencidas
-                            $ahora = $fechas->Format(date("d-m-Y"));
-
-                            if($ahora < $key1){ // esta bien // CADUCA 0 = bien, 1 = 5 dias, 2 = paso
-                                $_SESSION["caduca"] = 0;
-                            } if($ahora > $key1 - 432000 and $ahora <= $key1){ // entre los 5
-                                $_SESSION["caduca"] = 1;
-                            } if($ahora > $key1 and $ahora <= $key1 + 432000){ // faltan 5
-                                $_SESSION["caduca"] = 2;
-                            }if($ahora > $key1 + 432000){ // se paso
-                                $_SESSION["caduca"] = 3;
-                            } 
-
-                        } else { //  No son iguales. de una vez las declaro invalidas
-                            $_SESSION["caduca"] = 3;
-                        }
-            
-            } else { // usuario root nunca vence
-                $_SESSION["caduca"] = 0; 
-            }  
-
-            unset($r);  
-       }
-
-
-
-
-
-
-	public function Formulario(){
-		echo '<div class="row d-flex justify-content-center text-center">
-				  <div class="col-sm-4">
-				<h3>C&oacutedigo de validaci&oacuten</h3>	
-
-				<form class="text-center border border-light p-2" method="post" id="form-validar" name="form-validar">
-				    <input placeholder="Seleccione una fecha" type="text" id="fecha" name="fecha" class="form-control datepicker my-2">
-				    <label for="fecha">Fecha a buscar</label>
-				    <input type="text" id="codigo" name="codigo" class="form-control mb-1" placeholder="Codigo">
-				    <button class="btn btn-success" type="submit" id="btn-validar" name="btn-validar">Validar</button>
-				</form>
-
-				  </div>
-				</div>';
-	}
-
-
-	public function FormularioCodigos(){
-		echo '<div class="row d-flex justify-content-center text-center">
-				  <div class="col-sm-4">
-				<h3>Crear C&oacutedigos</h3>	
-
-				<form class="text-center border border-light p-2" method="post" id="form-codigo" name="form-codigo">
-				    <input placeholder="Seleccione una fecha" type="text" id="fecha" name="fecha" class="form-control datepicker my-2">
-				    <label for="fecha">Fecha a buscar</label>
-				    <br>
-				    <button class="btn btn-success" type="submit" id="btn-codigo" name="btn-codigo">Crear Codigo</button>
-				</form>
-
-				  </div>
-				</div>';
-	}
-
-
-	public function NoAcceso(){
-		$db = new dbConn();
-
-		$r = $db->select("*", "config_root", "where td = ".$_SESSION['td']."");
-
-if($_SESSION["caduca"] == 0){
-	echo Alerts::Mensaje("Su cuenta esta desbloqueada y activa hasta el " . Encrypt::Decrypt($r["expira"],$_SESSION['secret_key']),"success",'<a href="?" class="btn btn-info waves-effect waves-light">Continuar...</a>',NUll);
-}
-if($_SESSION["caduca"] == 1){
-	echo Alerts::Mensaje("Su cuenta esta a punto de expirar, caduca el " . Encrypt::Decrypt($r["expira"],$_SESSION['secret_key']),"danger",'<a id="habilitar" op="130" class="btn btn-info waves-effect waves-light">Continuar Usandolo</a>','<a href="application/includes/logout.php" class="btn btn-danger waves-effect waves-light">Salir del Sistema</a>');
-}
-if($_SESSION["caduca"] == 2){
-	echo Alerts::Mensaje("Su cuenta ha expirado desde " . Encrypt::Decrypt($r["expira"],$_SESSION['secret_key']) . " Es Necesario que ingrese un codigo de activacion v&aacutelido para poder siguir usando el sistema o &eacuteste ser&aacute bloqueado. Ultima fecha para ingresar un c&oacutedigo es: ". Fechas::DiaSuma(Encrypt::Decrypt($r["expira"],$_SESSION['secret_key']), 5).". Cualquier duda contacte al administrador.","danger",'<a id="habilitar" op="130" class="btn btn-info waves-effect waves-light">Continuar Usandolo</a>','<a href="application/includes/logout.php" class="btn btn-danger waves-effect waves-light">Salir del Sistema</a>');
-}
-if($_SESSION["caduca"] == 3){
-	echo Alerts::Mensaje("Su cuenta ha sido Bloqueada desde " . Encrypt::Decrypt($r["expira"],$_SESSION['secret_key']) . ". Para poder seguir usando el sistema debe ingresar un nuevo c&oacutedigo de activaci&oacuten v&aacutelido.","danger",'<a href="application/includes/logout.php" class="btn btn-danger waves-effect waves-light">Salir del Sistema</a>',NUll);
+    return $response;
 }
 
- unset($r); 
 
-	}
+
+
+public function ProductosCategoria($url){
+	$jsondata = $this->ObtenerData($url);
+
+	$datos = json_decode($jsondata, true); 
+
+
+echo '<section>
+  <div class="row no-gutters d-flex justify-content-center mb-3">';
+
+
+
+ $this->ProductoView($datos, 0, 12, NULL);
+
+
+echo '</div>
+	</section>';
+}
+
+
+
+
+
+public function ProductoView($datos, $inicio, $fin, $active = NULL){
+
+
+	//bucle para recorrer los elementos del array
+	 for ($i = $inicio; $i < $fin; $i++){
+
+  echo '<div class="col-12 col-sm-6 col-md-4 col-lg-3 border-right border-left mt-4">
+      <div class="card mb-1 z-depth-0">';
+    
+        // echo '<span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
+ 
+  echo '<a class="waves-effect waves-light" href="'.BASE_URL.'detalle/'.$datos["productos"][$i]["codigo"].'/'.Helpers::FormatearTexto($datos["productos"][$i]["producto"]).'">
+          <img class="card-img-top p-3" src="'.BASE_URL.'assets/img/productos/'.$datos["productos"][$i]["imagenes"][0].'"
+            alt="Card image cap"></a>
+        <div class="card-body">
+          <div class="row">
+            <div class="col text-center">
+              <h3 class="h3-responsive" style="font-family: Gotham-Light;">'.$datos["productos"][$i]["producto"].'</h3>
+            </div>
+          </div>
+
+          <div class="row align-items-center ">
+
+            <div class="col-6 col-md-6 col-lg-6 nopadding">
+
+              <h4 class="h4-responsive letra-gotham-black vino">'.Helpers::Dinero($datos["productos"][$i]["precios"]).'</h4>
+
+              <h6 class="letra-gotham-light grey-text">Antes '.Helpers::Dinero($datos["productos"][$i]["precios"]).'</h6>
+            </div>
+            <div class="col-6 col-md-6 col-lg-6 nopadding">
+              <div class="row no-gutters align-items-center">
+                <div class="col-3 text-center nopadding">
+                  <a id="accion-producto" iden="'.$datos["productos"][$i]["codigo"].'" accion="1" lugar="1"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
+                </div>
+                <div class="col-6 text-center nopadding">
+                  <input id="1cantidad'.$datos["productos"][$i]["codigo"].'" class="h4-responsive 
+z-depth-1 rounded-pill mt-0 w-75 text-center border-0" value="1"></input>
+                </div>
+                <div class="col-3 text-center nopadding">
+                  <a id="accion-producto" iden="'.$datos["productos"][$i]["codigo"].'" accion="2" lugar="1"><i class="fa fa-plus-circle fa-lg naranja p-1 border-0"></i></a>
+                </div>
+              </div>
+              <div class="row no-gutters text-center">
+                <div class="col">
+                  <button type="button" class="btn btn-sm btn-warning btn-rounded bg-naranja"><i
+                      class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>';
+
+
+	 }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

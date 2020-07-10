@@ -36,9 +36,9 @@ $('[data-toggle="popover-click"]').popover({
 
 /// modifica la cantidad de productos de cada form (iden = id del form, action =  (mas o menos))
   
-   function Mcantidad(iden, action){ 
+   function Mcantidad(iden, action, lugar){ 
 
-      var valuex = parseInt($('#cantidad' + iden).val());
+      var valuex = parseInt($('#' + lugar + 'cantidad' + iden).val());
 
       if(action == "1"){
         if(valuex != 1){
@@ -50,8 +50,8 @@ $('[data-toggle="popover-click"]').popover({
         var valor = parseInt(valuex) + 1;
       }
 
-      // $('#cantidad' + iden).attr("value", valor);
-      $('#cantidad' + iden).val(valor)
+       $('#' + lugar + 'cantidad' + iden).attr("value", valor);
+       // $('#' + lugar + 'cantidad' + iden).val(valor)
     }
 
 
@@ -61,9 +61,10 @@ $('[data-toggle="popover-click"]').popover({
         
         var iden = $(this).attr('iden');
         var accion = $(this).attr('accion'); 
+        var lugar = $(this).attr('lugar'); 
         // 1 = restar .  2 = sumar 
      
-        Mcantidad(iden, accion);
+        Mcantidad(iden, accion, lugar);
     });
 
 

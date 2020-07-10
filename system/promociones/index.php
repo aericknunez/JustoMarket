@@ -3,7 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 include_once 'application/common/Alerts.php';
 include_once 'application/common/Fechas.php';
-
+include_once 'system/categorias/Inicio.php';
+	$cat = new Categorias(); 
+include_once 'system/index/InicioModal.php';
+	$indexM = new IndexModal(); 
 
 
 ?>
@@ -16,8 +19,7 @@ include_once 'application/common/Fechas.php';
 
   require_once 'system/promociones/Orderby.php';
 
-  require_once 'system/promociones/Cuerpo.php';
-
+	$cat->ProductosCategoria(BASE_URL . "jsonproductos.json");
 
 ?>
 </div>

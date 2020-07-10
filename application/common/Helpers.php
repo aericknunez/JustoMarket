@@ -24,7 +24,13 @@ class Helpers{
     }
 
 
-
+    public static function FormatearTexto($texto){ // formatear texto sin caracteres especiales
+      $text = str_replace(" ", "-", $texto);
+      $text = strtolower($text);
+      $text = preg_replace('([^A-Za-z0-9])', '', $text);
+      $text = trim($text);
+      return $text;
+    }
 
 
 
@@ -85,7 +91,7 @@ class Helpers{
 
 
     public function Dinero($numero){  
-        $format= $_SESSION['config_moneda_simbolo'] ." " . number_format($numero,2,'.',',');
+        $format=  "$ " . number_format($numero,2,'.',',');
         return $format;
      } 
 

@@ -1,149 +1,166 @@
-[
-  {
-    "id": 1,
-    "name": "Billetera",
-    "description": "Billetera de cuero negro",
-    "reference": "REF-005",
-    "status" : "inactive",
-    "inventory": {
-      "unit" : "piece",
-      "availableQuantity" : 150,
-      "unitCost" : 560,
-      "initialQuantity" : 320,
-      "warehouses" : [
-        {
-          "id": "1",
-          "name": "Bodega Norte",
-          "observations": null,
-          "isDefault": true,
-          "address":"Dirección de la bodega Norte",
-          "status": "active",
-          "initialQuantity": "320.0",
-          "availableQuantity": "150",
-          "minQuantity": "100",
-          "maxQuantity": "400"
-          }
-        ]
-      },
-    "tax" : [
-      {
-        "id" : 6,
-        "name" : "IVA",
-        "percentage" : 16,
-        "description" : "Impuesto de valor agregado",
-        "status": "active"
-        }
-      ],
-    "category" : {
-      "id": 54,
-      "name" : "Ventas"
-      },
-    "price" : [
-      {
-        "idPriceList" : 1,
-        "name" : "General",
-        "price" : 1200
-        },
-      {
-        "idPriceList" : 2,
-        "name" : "Distribuidor",
-        "price" : 1050
-        }
-    ]
-  },
-  {
-    "id": 2,
-    "name": "Cartera",
-    "description": "Cartera de cuero color café",
-    "reference": "CAR-195",
-    "status" : "active",
-    "inventory": {
-      "unit" : "piece",
-      "availableQuantity" : 160,
-      "unitCost" : 2560,
-      "initialQuantity" : 120,
-      "warehouses" : [
-        {
-          "id": "1",
-          "name": "Bodega Norte",
-          "observations": null,
-          "isDefault": true,
-          "address":"Dirección de la bodega Norte",
-          "status": "active",
-          "initialQuantity": "20.0",
-          "availableQuantity": "100",
-          "minQuantity": "10",
-          "maxQuantity": "120"
-        },
-        {
-          "id": "3",
-          "name": "Bodega Sur",
-          "observations": "Bodega ubicada en la zona sur",
-          "isDefault": false,
-          "address": null,
-          "status": "active",
-          "initialQuantity": "100.0",
-          "availableQuantity": "600",
-          "minQuantity": "80"
-          }
-        ]
-      },
-    "tax" : [
-      {
-        "id" : 6,
-        "name" : "IVA",
-        "percentage" : 16,
-        "description" : "Impuesto de valor agregado",
-        "status": "active"
-        }
-      ],
-    "category" : {
-      "id": 54,
-      "name" : "Ventas"
-      },
-    "price" : [
-      {
-        "idPriceList" : 1,
-        "name" : "General",
-        "price" : 1200
-        },
-      {
-        "idPriceList" : 2,
-        "name" : "Distribuidor",
-        "price" : 3900
-        },
-      {
-        "name" : "Mayorista",
-        "idPriceList" : 6,
-        "price" : 3700
-        }
-     ]
-  },
-  {
-    "id": 3,
-    "name": "Diseño de monedero ",
-    "description": "Diseño de monedero en cuero.",
-    "reference": "",
-    "status" : "active",
-    "tax" : [
-      {
-        "id" : 6,
-        "name" : "IVA",
-        "percentage" : 16,
-        "description" : "Impuesto de valor agregado",
-        "status": "active"
-        }
-      ],
-    "category" : {
-      "id": 54,
-      "name" : "Ventas"
-      },
-    "price" : [
-      {
-        "idPriceList" : 1,
-        "name" : "General",
-        "price" : 1200
-       }
-     ]
-  }
-]
+{
+  "productos": [
+    {
+      "codigo": "1001",
+      "producto": "Cebolla Grande",
+      "informacion": "Cabolla Morada Libras",
+      "cantidad": 16,
+      "categoria": "Verduras",
+      "unidadmedida": "Lbs",
+      "imagenes": [
+                  "cebollas.jpg",
+                  "cebollas2.jpg",
+                  "cebollas3.jpg"
+              ],
+      "precios": 1.20
+    },
+    {
+      "codigo": "1002",
+      "producto": "Chile Jalapeño",
+      "informacion": "Chile Jalapeño Libra",
+      "cantidad": 39,
+      "categoria": "Verduras",
+      "unidadmedida": "Lbs",
+      "imagenes": [
+                  "jalapenos.jpg",
+                  "jalapenos2.jpg"
+              ],
+      "precios": 1.35
+    },
+    {
+      "codigo": "1003",
+      "producto": "Chile Morron",
+      "informacion": "Chile Morron 4 Unidades Bandeja",
+      "cantidad": 28,
+      "categoria": "Verduras",
+      "unidadmedida": "Bandeja",
+      "imagenes": [
+                  "chiles.jpg",
+                  "chiles2.jpg"
+              ],
+      "precios": 3.45
+    },
+    {
+      "codigo": "1004",
+      "producto": "Lechuga",
+      "informacion": "Lechuga Repollada Libra",
+      "cantidad": 45,
+      "categoria": "Verduras",
+      "unidadmedida": "Lbs",
+      "imagenes": [
+                  "lechugas.jpg",
+                  "lechugas2.jpg"
+              ],
+      "precios": 1.15
+    },        
+    {
+      "codigo": "1005",
+      "producto": "Papa Russet",
+      "informacion": "La papa rojiza (Russet) es la variedad de papa usada mayormente en los Estados Unidos. Una gran mayoría se cosecha en el noroeste. Estas papas están disponibles todo el año, son altas en almidón y se caracterizan por su piel café y carne blanca. Debido a sus altos niveles de almidón, tienen una textura harinosa al cocinarse, lo que las hace ideales para hornear y majar. También se consideran papas buenas para todo propósito. Las principales variedades incluyen: Burbank, Norkotah, Ranger, Shepody.",
+      "cantidad": 85,
+      "categoria": "Verduras",
+      "unidadmedida": "Lbs",
+      "imagenes": [
+                  "papas.jpg",
+                  "papas2.jpg",
+                  "papas3.jpg"
+              ],
+      "precios": 1.05
+    },  
+    {
+      "codigo": "1006",
+      "producto": "Tomate",
+      "informacion": "Tomate grande para ensalada",
+      "cantidad": 45,
+      "categoria": "Verduras",
+      "unidadmedida": "Lbs",
+      "imagenes": [
+                  "tomates.jpg",
+                  "tomates2.jpg",
+                  "tomates3.jpg"
+              ],
+      "precios": 0.99
+    },
+    {
+      "codigo": "1007",
+      "producto": "Manzana Fuji",
+      "informacion": "Manzana Fuji grande por libras",
+      "cantidad": 78,
+      "categoria": "Frutas",
+      "unidadmedida": "Lbs",
+      "imagenes": [
+                  "manzanas.jpg",
+                  "manzanas2.jpg"
+              ],
+      "precios": 1.65
+    },
+    {
+      "codigo": "1008",
+      "producto": "Chile Jalapeño",
+      "informacion": "Chile Jalapeño Libra",
+      "cantidad": 39,
+      "categoria": "Verduras",
+      "unidadmedida": "Lbs",
+      "imagenes": [
+                  "jalapenos.jpg",
+                  "jalapenos2.jpg"
+              ],
+      "precios": 1.35
+    },
+    {
+      "codigo": "1009",
+      "producto": "Manzana Fuji",
+      "informacion": "Manzana Fuji grande por libras",
+      "cantidad": 78,
+      "categoria": "Frutas",
+      "unidadmedida": "Lbs",
+      "imagenes": [
+                  "manzanas.jpg",
+                  "manzanas2.jpg"
+              ],
+      "precios": 1.65
+    }, 
+    {
+      "codigo": "1010",
+      "producto": "Cebolla Grande",
+      "informacion": "Cabolla Morada Libras",
+      "cantidad": 16,
+      "categoria": "Verduras",
+      "unidadmedida": "Lbs",
+      "imagenes": [
+                  "cebollas.jpg",
+                  "cebollas2.jpg",
+                  "cebollas3.jpg"
+              ],
+      "precios": 1.20
+    }, 
+    {
+      "codigo": "1011",
+      "producto": "Papa Russet",
+      "informacion": "La papa rojiza (Russet) es la variedad de papa usada mayormente en los Estados Unidos. Una gran mayoría se cosecha en el noroeste. Estas papas están disponibles todo el año, son altas en almidón y se caracterizan por su piel café y carne blanca. Debido a sus altos niveles de almidón, tienen una textura harinosa al cocinarse, lo que las hace ideales para hornear y majar. También se consideran papas buenas para todo propósito. Las principales variedades incluyen: Burbank, Norkotah, Ranger, Shepody.",
+      "cantidad": 85,
+      "categoria": "Verduras",
+      "unidadmedida": "Lbs",
+      "imagenes": [
+                  "papas.jpg",
+                  "papas2.jpg",
+                  "papas3.jpg"
+              ],
+      "precios": 1.05
+    },  
+    {
+      "codigo": "1012",
+      "producto": "Fresa Libra",
+      "informacion": "Fragaria, llamado comúnmente fresa o frutilla, es un género de plantas rastreras estoloniferas de la familia Rosaceae. Son cultivadas por su fruto (eterio) comestible llamado de la misma manera, fresa o frutilla. Las fresas y los fresones son poco calóricos. Su valor energético por 100 g de peso de fruto fresco comestible oscila entre 27 y 34 kcal. Después del agua, su principal constituyente son los hidratos de carbono. La fructosa significa prácticamente la mitad de sus glúcidos y el resto es glucosa en su mayor parte. Posee un bajo porcentaje de proteínas. Esta baya constituye una excelente fuente de vitamina C.",
+      "cantidad": 156,
+      "categoria": "Frutas",
+      "unidadmedida": "Lbs",
+      "imagenes": [
+                  "fresas.jpg",
+                  "fresas2.jpg",
+                  "fresas3.jpg"
+              ],
+      "precios": 1.99
+    }
+  ]
+}

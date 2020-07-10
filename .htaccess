@@ -9,7 +9,7 @@ RewriteRule ^(.*)$ $1.php
 
 
 RewriteRule ^categoria/([0-9a-z]+)$ ?categoria&categoria=$1
-RewriteRule ^detalle/([0-9a-z]+)$ ?detalle&id=$1
+RewriteRule ^detalle/([0-9a-z]+)/([0-9a-z]+)$ ?detalle&id=$1
 RewriteRule ^promociones$ ?promociones
 RewriteRule ^contacto$ ?contacto
 

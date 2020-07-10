@@ -8,7 +8,7 @@ $seslog = new Login();
 $seslog->sec_session_start();
 
 include_once '../common/Fechas.php';
-include_once '../../system/index/Inicio.php';
+include_once '../../system/config/Inicio.php';
 
 $redirect = $_SESSION["last_url"];
 

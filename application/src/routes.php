@@ -19,10 +19,10 @@ switch ($_REQUEST["op"]) {
 
 
 
-case "405": // agragar Abono
-include_once '../../system/cuentas/Cuentas.php';
-	$cuenta = new Cuentas(); 
-	$cuenta->AddAbono($_POST);
+case "50": // agragar Abono
+include_once '../../system/index/Inicio.php';
+	$ind = new Index(); 
+	$ind->ProductosDestacados(BASE_URL . "jsonproductos.json");
 break;
 
 

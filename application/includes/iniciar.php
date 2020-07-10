@@ -10,7 +10,7 @@ $seslog->sec_session_start();
 include_once '../common/Encrypt.php';
 include_once '../common/Alerts.php';
 include_once '../common/Fechas.php';
-include_once '../../system/index/Inicio.php';
+include_once '../../system/config/Inicio.php';
 
 
 if($_SESSION['username'] == NULL){
