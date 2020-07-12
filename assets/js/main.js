@@ -83,32 +83,104 @@ $('[data-toggle="popover-click"]').popover({
 
 
 
-/// llamar modal ver
+/// llamar modal producto
   $("body").on("click","#xproducto",function(){ 
     
     $('#ModalProductos').modal('show');
     
-    // var factura = $(this).attr('factura');
-    // var credito = $(this).attr('credito');
-    // var tx = $(this).attr('tx');
-    // var op = $(this).attr('op');
-    // var dataString = 'op='+op+'&credito='+credito+'&factura='+factura+'&tx='+tx;
+    var cod = $(this).attr('cod');
+    var dataString = 'op=14&cod=' + cod;
+    $.ajax({
+            type: "POST",
+            url: "http://localhost/justomarket/application/src/routes.php",
+            data: dataString,
+            beforeSend: function () {
+               $("#detalle-producto").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
+            },
+            success: function(data) {            
+                $("#detalle-producto").html(data); // lo que regresa de la busquea     
+            }
+        });
 
-    // $.ajax({
-    //         type: "POST",
-    //         url: "application/src/routes.php",
-    //         data: dataString,
-    //         beforeSend: function () {
-    //            $("#vista").html('<div class="row justify-content-center" ><img src="assets/img/loa.gif" alt=""></div>');
-    //         },
-    //         success: function(data) {            
-    //             $("#vista").html(data); // lo que regresa de la busquea     
-    //         }
-    //     });
-    // $("#cerrarmodal").before('<a href="?modal=abonos&cre='+credito+'&factura='+factura+'&tx='+tx+'" id="btn-ra" class="btn btn-secondary btn-rounded">Realizar Abonos</a>');
-    
+    ModalRecomendados();
+
   });
+
+
+function ModalRecomendados(){
+
+    var dataString = 'op=15';
+    $.ajax({
+            type: "POST",
+            url: "http://localhost/justomarket/application/src/routes.php",
+            data: dataString,
+            beforeSend: function () {
+               $("#detalle-reomendados").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
+            },
+            success: function(data) {            
+                $("#detalle-reomendados").html(data); // lo que regresa de la busquea     
+            }
+        });
+}
+
+
+
+
     
+
+
+
+function ProductosDestacados(){
+
+    var dataString = 'op=11';
+    $.ajax({
+            type: "POST",
+            url: "http://localhost/justomarket/application/src/routes.php",
+            data: dataString,
+            beforeSend: function () {
+               $("#productos-destacados").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
+            },
+            success: function(data) {            
+                $("#productos-destacados").html(data); // lo que regresa de la busquea     
+            }
+        });
+}
+
+ProductosDestacados();
+
+
+
+
+
+function Promociones(){
+
+    var dataString = 'op=13';
+    $.ajax({
+            type: "POST",
+            url: "http://localhost/justomarket/application/src/routes.php",
+            data: dataString,
+            beforeSend: function () {
+               $("#todas-promociones").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
+            },
+            success: function(data) {            
+                $("#todas-promociones").html(data); // lo que regresa de la busquea     
+            }
+        });
+}
+
+Promociones();
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 });

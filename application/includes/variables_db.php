@@ -25,4 +25,6 @@ define("SECURE", FALSE);    // For development purposes only!!!!
 
 define("BASEPATH", "https://justomarket.com/");  
 
+define("URL_SERVER", "http://localhost/cozto/"); 
+define("TD_SERVER", "10"); 
 ?>

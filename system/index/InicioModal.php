@@ -54,7 +54,7 @@ echo '<div class="carousel-inner" role="listbox">';
 		} else {
 		echo '<div class="carousel-item">';
 		}
-		echo '<img class="d-block w-100" src="'.BASE_URL .'assets/img/productos/'.$datos["imagenes"][$i].'"
+		echo '<img class="d-block w-100" src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["imagenes"][$i].'"
 	         alt="Third slide">';
 		echo '</div>';
 
@@ -81,7 +81,7 @@ echo '<ol class="carousel-indicators">';
 		if($i == 0){ $c = 'class="active"';	 } else { $c = ''; }
 
 		echo '<li data-target="#carousel-thumb-modal" data-slide-to="'.$i.'" '.$c.'>
-		      <img src="'.BASE_URL .'assets/img/productos/'.$datos["imagenes"][$i].'" width="100">
+		      <img src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["imagenes"][$i].'" width="100">
 		    </li>';
 	}
 
@@ -97,10 +97,10 @@ echo '<div class="col-lg-6 text-center text-md-left p-1">
 
                         <h2 class="h2-responsive text-center text-md-left product-name 
                           font-weight-bold grey-text mb-1 ml-xl-0 ml-4 letra-gotham-bold">
-                            '.$datos["producto"] .'</h2>
+                            '.$datos["descripcion"] .'</h2>
                         <h3 class="h3-responsive text-center text-md-left mb-2 ml-xl-0 ml-4 
                       letra-gotham-light">
-                            <span class="grey-text">'.$datos["unidadmedida"] .'</span>
+                            <span class="grey-text">'.$datos["medida"] .'</span>
                         </h3>
 
                         <div class="font-weight-normal">
@@ -108,22 +108,22 @@ echo '<div class="col-lg-6 text-center text-md-left p-1">
                             <p class="ml-xl-0 ml-0 letra-gotham-light">'.$datos["informacion"] .'</p>
 
                             <h2 class="h2-responsive letra-gotham-black vino ml-xl-0 ml-0">
-                            '. Helpers::Dinero($datos["precios"]) .'
+                            '. Helpers::Dinero($datos["precio"]) .'
                             </h2>
                             <h5 class="h5-responsive letra-gotham-light ml-xl-0 ml-0">
-                            Antes '. Helpers::Dinero($datos["precios"]) .'
+                            Antes '. Helpers::Dinero($datos["precio"]) .'
                             </h5>
 
                             <div class="row no-gutters align-items-center">
                                 <div class="col-3 text-right nopadding">
-                                    <a id="accion-producto" iden="'.$datos["codigo"].'" accion="1" lugar="2"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
+                                    <a id="accion-producto" iden="'.$datos["cod"].'" accion="1" lugar="2"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
                                 </div>
                                 <div class="col-6 text-center nopadding">
-                                    <input id="2cantidad'.$datos["codigo"].'" class="h4-responsive 
+                                    <input id="2cantidad'.$datos["cod"].'" class="h4-responsive 
 z-depth-1 rounded-pill mt-0 w-75 text-center border-0" value="1"></input>
                                 </div>
                                 <div class="col-3 text-left nopadding">
-                                    <a id="accion-producto" iden="'.$datos["codigo"].'" accion="2" lugar="2"><i class="fa fa-plus-circle fa-lg naranja p-1 border-0"></i></a>
+                                    <a id="accion-producto" iden="'.$datos["cod"].'" accion="2" lugar="2"><i class="fa fa-plus-circle fa-lg naranja p-1 border-0"></i></a>
                                 </div>
                             </div>
                             <div class="row no-gutters text-center">
@@ -198,9 +198,10 @@ role="button" data-slide="next">
   <div class="carousel-inner mdb-lightbox" role="listbox">
     <div id="mdb-lightbox-ui"></div>';
 
-	$this->ProductoView($datos, 0, 4, "active");
-	$this->ProductoView($datos, 4, 8, NULL);
-	$this->ProductoView($datos, 8, 12, NULL);
+	$this->ProductoView($datos, 0, 3, "active");
+	$this->ProductoView($datos, 3, 6, NULL);
+	$this->ProductoView($datos, 6, 9, NULL);
+    $this->ProductoView($datos, 9, 12, NULL);
 
 
 echo '</div>
@@ -228,24 +229,24 @@ echo '<!--First slide-->
 $rand = rand(1,99);
 
 if($i == $inicio){
-echo '<figure class="col-md-3 d-md-inline-block border-right border-left">';	
+echo '<figure class="col-md-4 d-md-inline-block border-right border-left">';	
 } else {
-echo '<figure class="col-md-3 d-md-inline-block d-none d-sm-block border-right border-left">';
+echo '<figure class="col-md-4 d-md-inline-block d-none d-sm-block border-right border-left">';
 }
 
 
-  echo '<a class="waves-effect waves-light" id="xproducto" cod="'.$datos["productos"][$i]["codigo"].'">
-          <img src="'. BASE_URL .'assets/img/productos/'.$datos["productos"][$i]["imagenes"][0].'"
+  echo '<a class="waves-effect waves-light" id="xproducto" cod="'.$datos["productos"][$i]["cod"].'">
+          <img src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["productos"][$i]["imagenes"][0].'"
             class="img-fluid">
         </a>';
 
         //echo '<span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
        
         echo '<div class="card-body">
-                <div class="row">
-                    <div class="col text-center">
-                        <h3 class="h3-responsive"
-                            style="font-family: Gotham-Light;">'.$datos["productos"][$i]["producto"].'</h3>
+                <div class="row" style="height: 150px;">
+                    <div class="col text-center h-100">
+                        <h4 class="h4-responsive"
+                            style="font-family: Gotham-Light;">'.$datos["productos"][$i]["descripcion"].'</h4>
                     </div>
                 </div>
 
@@ -254,22 +255,22 @@ echo '<figure class="col-md-3 d-md-inline-block d-none d-sm-block border-right b
                     <div class="col-6 col-md-6 col-lg-6 nopadding">
 
                         <h4 class="h4-responsive letra-gotham-black vino">
-                            '.Helpers::Dinero($datos["productos"][$i]["precios"]).'</h4>
+                            '.Helpers::Dinero($datos["productos"][$i]["precio"]).'</h4>
 
-                        <h6 class="letra-gotham-light grey-text">Antes '.Helpers::Dinero($datos["productos"][$i]["precios"]).'
+                        <h6 class="letra-gotham-light grey-text">Antes '.Helpers::Dinero($datos["productos"][$i]["precio"]).'
                         </h6>
                     </div>
                     <div class="col-6 col-md-6 col-lg-6 nopadding">
                         <div class="row no-gutters align-items-center">
                             <div class="col-3 text-center nopadding">
-                                <a id="accion-producto" iden="'.$datos["productos"][$i]["codigo"].'" accion="1" lugar="'.$rand.'"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
+                                <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="1" lugar="'.$rand.'"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
                             </div>
                             <div class="col-6 text-center nopadding">
-                                <input id="'.$rand.'cantidad'.$datos["productos"][$i]["codigo"].'" class="h4-responsive 
+                                <input id="'.$rand.'cantidad'.$datos["productos"][$i]["cod"].'" class="h4-responsive 
   z-depth-1 rounded-pill mt-0 w-75 text-center border-0" value="1"></input>
                             </div>
                             <div class="col-3 text-center nopadding">
-                                <a id="accion-producto" iden="'.$datos["productos"][$i]["codigo"].'" accion="2" lugar="'.$rand.'"><i class="fa fa-plus-circle fa-lg naranja p-1 border-0"></i></a>
+                                <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="2" lugar="'.$rand.'"><i class="fa fa-plus-circle fa-lg naranja p-1 border-0"></i></a>
                             </div>
                         </div>
                         <div class="row no-gutters text-center">

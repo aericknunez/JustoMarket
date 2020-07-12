@@ -20,7 +20,7 @@ include_once 'system/index/InicioModal.php';
   require_once 'system/categorias/OrderbyCategoria.php';
 
   // require_once 'system/categorias/CuerpoCategoria.php';
-	$cat->ProductosCategoria(BASE_URL . "jsonproductos.json");
+	$cat->ProductosCategoria(URL_SERVER . "application/src/api.php?op=12&cantidad=&td=" . TD_SERVER . "&categoria=" . $_REQUEST["categoria"]);
 
 
 

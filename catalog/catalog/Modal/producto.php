@@ -15,13 +15,10 @@
                 <div class="container z-depth-0" id="contenido-modal">
 
 
+<div id="detalle-producto"></div>
 
-<?php   
+<div id="detalle-reomendados"></div>
 
-$indexM->ModalProductos(BASE_URL . "producto.json"); 
-
-$indexM->ProductosRecomendados(BASE_URL . "jsonproductos.json");
-?>
 
 
 

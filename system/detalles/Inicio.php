@@ -51,7 +51,7 @@ echo '<div class="carousel-inner" role="listbox">';
 		} else {
 		echo '<div class="carousel-item">';
 		}
-		echo '<img class="d-block w-100" src="'.BASE_URL .'assets/img/productos/'.$datos["imagenes"][$i].'"
+		echo '<img class="d-block w-100" src="'.URL_SERVER .'assets/img/productos/'.TD_SERVER . '/' .$datos["imagenes"][$i].'"
 	         alt="Third slide">';
 		echo '</div>';
 
@@ -78,7 +78,7 @@ echo '<ol class="carousel-indicators">';
 		if($i == 0){ $c = 'class="active"';	 } else { $c = ''; }
 
 		echo '<li data-target="#carousel-thumb-modal" data-slide-to="'.$i.'" '.$c.'>
-		      <img src="'.BASE_URL .'assets/img/productos/'.$datos["imagenes"][$i].'" width="100">
+		      <img src="'.URL_SERVER .'assets/img/productos/'.TD_SERVER . '/' . $datos["imagenes"][$i].'" width="100">
 		    </li>';
 	}
 
@@ -94,10 +94,10 @@ echo '<div class="col-lg-6 text-center text-md-left p-1">
 
             <h2 class="h2-responsive text-center text-md-left product-name 
               font-weight-bold grey-text mb-1 ml-xl-0 ml-4 letra-gotham-bold">
-                '.$datos["producto"] .'</h2>
+                '.$datos["descripcion"] .'</h2>
             <h3 class="h3-responsive text-center text-md-left mb-2 ml-xl-0 ml-4 
           letra-gotham-light">
-                <span class="grey-text">'.$datos["unidadmedida"] .'</span>
+                <span class="grey-text">'.$datos["medida"] .'</span>
             </h3>
 
             <div class="font-weight-normal">
@@ -105,22 +105,22 @@ echo '<div class="col-lg-6 text-center text-md-left p-1">
                 <p class="ml-xl-0 ml-0 letra-gotham-light">'.$datos["informacion"] .'</p>
 
                 <h2 class="h2-responsive letra-gotham-black vino ml-xl-0 ml-0">
-                '. Helpers::Dinero($datos["precios"]) .'
+                '. Helpers::Dinero($datos["precio"]) .'
                 </h2>
                 <h5 class="h5-responsive letra-gotham-light ml-xl-0 ml-0">
-                Antes '. Helpers::Dinero($datos["precios"]) .'
+                Antes '. Helpers::Dinero($datos["precio"]) .'
                 </h5>
 
                 <div class="row no-gutters align-items-center">
                     <div class="col-3 text-right nopadding">
-                        <a id="accion-producto" iden="'.$datos["codigo"].'" accion="1" lugar="3"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
+                        <a id="accion-producto" iden="'.$datos["cod"].'" accion="1" lugar="3"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
                     </div>
                     <div class="col-6 text-center nopadding">
-                        <input id="3cantidad'.$datos["codigo"].'" class="h4-responsive 
+                        <input id="3cantidad'.$datos["cod"].'" class="h4-responsive 
 z-depth-1 rounded-pill mt-0 w-75 text-center border-0" value="1"></input>
                     </div>
                     <div class="col-3 text-left nopadding">
-                        <a id="accion-producto" iden="'.$datos["codigo"].'" accion="2" lugar="3"><i class="fa fa-plus-circle fa-lg naranja p-1 border-0"></i></a>
+                        <a id="accion-producto" iden="'.$datos["cod"].'" accion="2" lugar="3"><i class="fa fa-plus-circle fa-lg naranja p-1 border-0"></i></a>
                     </div>
                 </div>
                 <div class="row no-gutters text-center">

@@ -99,19 +99,19 @@ echo '<figure class="col-md-3 d-md-inline-block border-right border-left">';
 echo '<figure class="col-md-3 d-md-inline-block d-none d-sm-block border-right border-left">';
 }
 
-  echo '<a class="waves-effect waves-light" id="xproducto" cod="'.$datos["productos"][$i]["codigo"].'">';
+  echo '<a class="waves-effect waves-light" id="xproducto" cod="'.$datos["productos"][$i]["cod"].'">';
 
         // echo '<span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
     
-  echo '<img src="'. BASE_URL .'assets/img/productos/'.$datos["productos"][$i]["imagenes"][0].'"
+  echo '<img src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["productos"][$i]["imagenes"][0].'"
             class="img-fluid">
         </a>
 
                     <div class="card-body">
-                <div class="row">
-                    <div class="col text-center">
+                <div class="row" style="height: 150px;">
+                    <div class="col text-center h-100">
                         <h3 class="h3-responsive"
-                            style="font-family: Gotham-Light;">'.$datos["productos"][$i]["producto"].'</h3>
+                            style="font-family: Gotham-Light;">'.$datos["productos"][$i]["descripcion"].'</h3>
                     </div>
                 </div>
 
@@ -120,22 +120,22 @@ echo '<figure class="col-md-3 d-md-inline-block d-none d-sm-block border-right b
                     <div class="col-6 col-md-6 col-lg-6 nopadding">
 
                         <h4 class="h4-responsive letra-gotham-black vino">
-                            '.Helpers::Dinero($datos["productos"][$i]["precios"]).'</h4>
+                            '.Helpers::Dinero($datos["productos"][$i]["precio"]).'</h4>
 
-                        <h6 class="letra-gotham-light grey-text">Antes '.Helpers::Dinero($datos["productos"][$i]["precios"]).'
+                        <h6 class="letra-gotham-light grey-text">Antes '.Helpers::Dinero($datos["productos"][$i]["precio"]).'
                         </h6>
                     </div>
                     <div class="col-6 col-md-6 col-lg-6 nopadding">
                         <div class="row no-gutters align-items-center">
                             <div class="col-3 text-center nopadding">
-                                <a id="accion-producto" iden="'.$datos["productos"][$i]["codigo"].'" accion="1" lugar="'.$rand.'"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
+                                <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="1" lugar="'.$rand.'"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
                             </div>
                             <div class="col-6 text-center nopadding">
-                                <input id="'.$rand.'cantidad'.$datos["productos"][$i]["codigo"].'" class="h4-responsive 
+                                <input id="'.$rand.'cantidad'.$datos["productos"][$i]["cod"].'" class="h4-responsive 
   z-depth-1 rounded-pill mt-0 w-75 text-center border-0" value="1"></input>
                             </div>
                             <div class="col-3 text-center nopadding">
-                                <a id="accion-producto" iden="'.$datos["productos"][$i]["codigo"].'" accion="2" lugar="'.$rand.'"><i class="fa fa-plus-circle fa-lg naranja p-1 border-0"></i></a>
+                                <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="2" lugar="'.$rand.'"><i class="fa fa-plus-circle fa-lg naranja p-1 border-0"></i></a>
                             </div>
                         </div>
                         <div class="row no-gutters text-center">
