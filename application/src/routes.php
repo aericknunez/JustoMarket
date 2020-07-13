@@ -85,7 +85,7 @@ break;
 case "22": //obtener el total del carrito
 include_once '../../system/config/Inicio.php';
 	$card = new Inicio();
-
+echo "$20.00";
 break;
 
 

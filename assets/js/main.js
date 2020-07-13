@@ -112,7 +112,8 @@ function RegresoCard(cod){
                $("#resultadomodal").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
             },
             success: function(data) {            
-               $("#resultadomodal").html(data); // lo que regresa de la busquea     
+               $("#resultadomodal").html(data); // lo que regresa de la busquea  
+               $("#totalcarrito").load('application/src/routes.php?op=22'); // carga total del carrito  
             }
         });  
 }

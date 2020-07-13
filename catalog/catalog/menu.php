@@ -51,7 +51,7 @@ if($_SESSION["user"]){
                 <a class="nav-link letra-gotham-bold" data-toggle="modal" data-target="#modalCart"
                     role="button" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-shopping-cart fa-lg" aria-hidden="true"></i>
-                    Mi Carrito <span class="badge bg-vino letra-gotham-bold">$0.0</span></a>
+                    Mi Carrito <span class="badge bg-vino letra-gotham-bold" id="totalcarrito">$0.0</span></a>
             </span>
             <span class="d-block d-sm-block d-md-none d-lg-none">
                 <a class="nav-link  letra-gotham-bold" data-toggle="modal" data-target="#modalCart" href="#"
