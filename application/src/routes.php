@@ -59,6 +59,34 @@ break;
 
 
 
+case "20": //agraga productos al carrito
+include_once '../../system/config/Inicio.php';
+	$card = new Inicio();
+
+// $data = array();
+// $data["cod"] = $_POST["cod"]; 
+// $data["cantidad"] = $_POST["cantidad"];
+// $data["usuario"] = $_SESSION["user"];
+// $data["card"] = $_SESSION["card"];
+
+// 	$card->AddItem(URL_SERVER . "application/src/api.php?op=20&td=" . TD_SERVER, $data);
+break;
+
+
+
+case "21": //datalles del producto agredo
+include_once '../../system/config/Inicio.php';
+	$card = new Inicio();
+ 	echo "Producto: " . $_POST["cod"];
+break;
+
+
+
+case "22": //obtener el total del carrito
+include_once '../../system/config/Inicio.php';
+	$card = new Inicio();
+
+break;
 
 
 

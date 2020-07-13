@@ -3,7 +3,6 @@ require_once 'catalog/head.php'
  ?>
 
 <body>
-
 <?php 
     
     require_once 'catalog/menu.php'; 
@@ -19,6 +18,7 @@ require_once 'catalog/head.php'
     require_once 'catalog/Modal/usuario.php';
     require_once 'catalog/Modal/registro.php';
     require_once 'catalog/Modal/producto.php';
+    require_once 'catalog/Modal/cartsuccess.php';
 //
 
 

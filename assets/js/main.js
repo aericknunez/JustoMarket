@@ -69,6 +69,60 @@ $('[data-toggle="popover-click"]').popover({
 
 
 
+/// agregar producto al carrito
+
+    $("body").on("click","#additem", function(){ 
+        
+        var iden = $(this).attr('btniden');
+        var lugar = $(this).attr('lugar');
+        var cod = $(this).attr('cod'); 
+        // 1 = restar .  2 = sumar 
+     
+        AddItemCod(iden, cod, lugar);
+    });
+
+
+    function AddItemCod(iden, cod, lugar){
+
+    var cantidad = parseInt($('#' + lugar + 'cantidad' + iden).val());
+    var dataString = 'op=20&cod=' + cod + '&cantidad=' + cantidad;
+    $.ajax({
+            type: "POST",
+            url: "http://localhost/justomarket/application/src/routes.php",
+            data: dataString,
+            beforeSend: function () {
+               $("a[btniden='"+ cod +"']").html('<i class="spinner-border spinner-border-sm" aria-hidden="true"></i>').addClass('disabled');
+            },
+            success: function(data) {            
+                $("a[btniden='"+ cod +"']").html('<i class="fa fa-shopping-cart" aria-hidden="true"></i>').removeClass('disabled');           
+                RegresoCard(cod);
+            }
+        });
+    }
+
+function RegresoCard(cod){
+  $('#ModalCardSuccess').modal('show');
+    
+    var dataString = 'op=21&cod=' + cod;
+    $.ajax({
+            type: "POST",
+            url: "http://localhost/justomarket/application/src/routes.php",
+            data: dataString,
+            beforeSend: function () {
+               $("#resultadomodal").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
+            },
+            success: function(data) {            
+               $("#resultadomodal").html(data); // lo que regresa de la busquea     
+            }
+        });  
+}
+
+
+
+// termina carrito
+
+
+
 
 
 

@@ -275,10 +275,10 @@ echo '<figure class="col-md-4 d-md-inline-block d-none d-sm-block border-right b
                         </div>
                         <div class="row no-gutters text-center">
                             <div class="col">
-                                <button type="button"
-                                    class="btn btn-sm btn-warning btn-rounded bg-naranja"><i
-                                        class="fa fa-shopping-cart"
-                                        aria-hidden="true"></i></button>
+                                <a id="additem" btniden="'.$datos["productos"][$i]["cod"].'" cod="'.$datos["productos"][$i]["cod"].'" lugar="'.$rand.'"
+                                class="btn btn-sm btn-warning btn-rounded bg-naranja">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
