@@ -65,7 +65,7 @@ return false;
 	$('#btn-registrar').click(function(e){  
 	e.preventDefault();
 	$.ajax({
-			url: "http://localhost/justomarket/http://localhost/justomarket/http://localhost/justomarket/system/user/redirect.php?op=1",
+			url: "http://localhost/justomarket/system/user/redirect.php?op=1",
 			method: "POST",
 			data: $("#form-registrar").serialize(),
 			beforeSend: function () {
@@ -74,9 +74,9 @@ return false;
 			success: function(data){
 				$('#btn-registrar').html('Login').removeClass('disabled');	      
 				$("#form-registrar").trigger("reset");
-				$("#lista_usuarios").load('system/user/redirect.php?op=8');
 				$("#msj").html(data);	
-				$('#ModalAgregar').modal('hide');
+				$('#ModalLogin').modal('show');
+        		$('#ModalRegistro').modal('hide');
 			}
 		})
 	});
@@ -117,7 +117,7 @@ return false;
 
         $.ajax({
             type: "POST",
-            url: "http://localhost/justomarket/http://localhost/justomarket/system/user/redirect.php",
+            url: "http://localhost/justomarket/system/user/redirect.php",
             data: dataString,
             beforeSend: function () {
                $("#lista_usuarios").html('<div class="row justify-content-center" ><img src="assets/img/loa.gif" alt=""></div>');
@@ -164,7 +164,7 @@ return false;
     	$('#btn-changepass').click(function(e){ /// para el formulario
 		e.preventDefault();
 		$.ajax({
-			url: "http://localhost/justomarket/http://localhost/justomarket/http://localhost/justomarket/http://localhost/justomarket/http://localhost/justomarket/system/user/redirect.php?op=5",
+			url: "http://localhost/justomarket/system/user/redirect.php?op=5",
 			method: "POST",
 			data: $("#form-changepass").serialize(),
 			success: function(data){
@@ -190,7 +190,7 @@ return false;
 
 	        $.ajax({
 	            type: "POST",
-	            url: "http://localhost/justomarket/http://localhost/justomarket/http://localhost/justomarket/http://localhost/justomarket/system/user/redirect.php",
+	            url: "http://localhost/justomarket/system/user/redirect.php",
 	            data: dataString,
 	            beforeSend: function () {
 	               $("#vista_update").html('<div class="row justify-content-center" ><img src="assets/img/loa.gif" alt=""></div>');
@@ -205,7 +205,7 @@ return false;
 	$('#btn-actualizar').click(function(e){ /// para el formulario
 			e.preventDefault();
 			$.ajax({
-			url: "http://localhost/justomarket/http://localhost/justomarket/http://localhost/justomarket/system/user/redirect.php?op=2",
+			url: "http://localhost/justomarket/system/user/redirect.php?op=2",
 			method: "POST",
 			data: $("#form-actualizar").serialize(),
 			beforeSend: function () {
@@ -245,7 +245,7 @@ return false;
 
 	        $.ajax({
 	            type: "POST",
-	            url: "http://localhost/justomarket/http://localhost/justomarket/system/user/redirect.php",
+	            url: "http://localhost/justomarket/system/user/redirect.php",
 	            data: dataString,
 	            beforeSend: function () {
 	               $("#vista_avatar").html('<div class="row justify-content-center" ><img src="assets/img/loa.gif" alt=""></div>');

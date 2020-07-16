@@ -26,7 +26,6 @@ include_once 'system/index/InicioModal.php';
 <div id="productos-destacados"></div>
 
 
-
 </div>
 <?
 // baner de footer

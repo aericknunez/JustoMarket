@@ -53,6 +53,9 @@ public function ProductoView($datos, $inicio, $fin, $active = NULL){
 	//bucle para recorrer los elementos del array
 	 for ($i = $inicio; $i < $fin; $i++){
 
+$rand = rand(1,99);
+
+
   echo '<div class="col-12 col-sm-6 col-md-4 col-lg-3 border-right border-left mt-4">
       <div class="card mb-1 z-depth-0">';
     
@@ -79,19 +82,19 @@ public function ProductoView($datos, $inicio, $fin, $active = NULL){
             <div class="col-6 col-md-6 col-lg-6 nopadding">
               <div class="row no-gutters align-items-center">
                 <div class="col-3 text-center nopadding">
-                  <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="1" lugar="1"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
+                  <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="1" lugar="'.$rand.'"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
                 </div>
                 <div class="col-6 text-center nopadding">
-                  <input id="1cantidad'.$datos["productos"][$i]["cod"].'" class="h4-responsive 
+                  <input id="'.$rand.'cantidad'.$datos["productos"][$i]["cod"].'" class="h4-responsive 
 z-depth-1 rounded-pill mt-0 w-75 text-center border-0" value="1"></input>
                 </div>
                 <div class="col-3 text-center nopadding">
-                  <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="2" lugar="1"><i class="fa fa-plus-circle fa-lg naranja p-1 border-0"></i></a>
+                  <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="2" lugar="'.$rand.'"><i class="fa fa-plus-circle fa-lg naranja p-1 border-0"></i></a>
                 </div>
               </div>
               <div class="row no-gutters text-center">
                 <div class="col">
-                  <a id="additem" btniden="'.$datos["productos"][$i]["cod"].'" cod="'.$datos["productos"][$i]["cod"].'" lugar="'.$rand.'"
+                  <a id="additem" btniden="'.$datos["productos"][$i]["cod"].'" cod="'.$datos["productos"][$i]["cod"].'" lugar="'.$rand.'" modact="0"
                                 class="btn btn-sm btn-warning btn-rounded bg-naranja">
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                 </a>

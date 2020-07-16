@@ -37,7 +37,7 @@ $_SESSION["ver_avatar"] = NULL;
             } unset($r);
 
         $inicia = new Inicio();
-        $inicia->CrearVariables(); // revisa si ha caducado
+        $inicia->CrearVariables(); // reemplaza las variables de usuario
         $inicia->RegisterInOut(1); // registra la entrada
 
         header("location: " . $_SESSION["last_url"]);

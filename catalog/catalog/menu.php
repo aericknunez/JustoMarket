@@ -48,16 +48,16 @@ if($_SESSION["user"]){
 
         <li class="nav-item">
             <span class="text ml-2 p-2 d-none d-md-block d-lg-block">
-                <a class="nav-link letra-gotham-bold" data-toggle="modal" data-target="#modalCart"
-                    role="button" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link letra-gotham-bold" id="mcarrito" 
+                aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-shopping-cart fa-lg" aria-hidden="true"></i>
                     Mi Carrito <span class="badge bg-vino letra-gotham-bold" id="totalcarrito">$0.0</span></a>
             </span>
             <span class="d-block d-sm-block d-md-none d-lg-none">
-                <a class="nav-link  letra-gotham-bold" data-toggle="modal" data-target="#modalCart" href="#"
+                <a class="nav-link  letra-gotham-bold" id="mcarrito"
                     role="button" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i><span
-                        class="badge bg-vino ml-2 letra-gotham-bold">$0.0</span>
+                        class="badge bg-vino ml-2 letra-gotham-bold"></span>
                 </a>
             </span>
             

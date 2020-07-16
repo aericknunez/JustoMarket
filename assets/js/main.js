@@ -76,34 +76,44 @@ $('[data-toggle="popover-click"]').popover({
         var iden = $(this).attr('btniden');
         var lugar = $(this).attr('lugar');
         var cod = $(this).attr('cod'); 
+        var modact = $(this).attr('modact'); // 1 activo 0 inactivo
         // 1 = restar .  2 = sumar 
      
-        AddItemCod(iden, cod, lugar);
+        AddItemCod(iden, cod, lugar, modact);
     });
 
 
-    function AddItemCod(iden, cod, lugar){
+    function AddItemCod(iden, cod, lugar, modact){
 
-    var cantidad = parseInt($('#' + lugar + 'cantidad' + iden).val());
+    var cantidad = parseInt($('#' + lugar + 'cantidad' + cod).val());
     var dataString = 'op=20&cod=' + cod + '&cantidad=' + cantidad;
     $.ajax({
             type: "POST",
             url: "http://localhost/justomarket/application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("a[btniden='"+ cod +"']").html('<i class="spinner-border spinner-border-sm" aria-hidden="true"></i>').addClass('disabled');
+              if(modact == 1){
+                $("a[btniden='"+ lugar +''+ cod +"']").html('<h6 class="h5-responsive letra-gotham-light mt-0 pt-0">Espere... <i class="spinner-border spinner-border-sm" aria-hidden="true"></i></h6>').addClass('disabled');
+              } else {
+                $("a[btniden='"+ cod +"']").html('<i class="spinner-border spinner-border-sm" aria-hidden="true"></i>').addClass('disabled');
+              }
             },
-            success: function(data) {            
-                $("a[btniden='"+ cod +"']").html('<i class="fa fa-shopping-cart" aria-hidden="true"></i>').removeClass('disabled');           
-                RegresoCard(cod);
+            success: function(data) { 
+             if(modact == 1){
+              $("a[btniden='"+ lugar +''+ cod +"']").html('<h6 class="h5-responsive letra-gotham-light mt-0 pt-0">Añadir a <br>Carrito <i class="fa fa-shopping-cart" aria-hidden="true"></i></h6>').removeClass('disabled');           
+             } else {
+              $("a[btniden='"+ cod +"']").html('<i class="fa fa-shopping-cart" aria-hidden="true"></i>').removeClass('disabled');           
+             }        
+                RegresoCard(cod, cantidad);
             }
         });
     }
 
-function RegresoCard(cod){
+
+function RegresoCard(cod, cantidad){
   $('#ModalCardSuccess').modal('show');
     
-    var dataString = 'op=21&cod=' + cod;
+    var dataString = 'op=21&cod=' + cod + '&cantidad=' + cantidad;
     $.ajax({
             type: "POST",
             url: "http://localhost/justomarket/application/src/routes.php",
@@ -112,11 +122,76 @@ function RegresoCard(cod){
                $("#resultadomodal").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
             },
             success: function(data) {            
-               $("#resultadomodal").html(data); // lo que regresa de la busquea  
-               $("#totalcarrito").load('application/src/routes.php?op=22'); // carga total del carrito  
+               $("#resultadomodal").html(data); // muestra el resultado en el modal
+               LoadTotal(); // carga total del carrito  
             }
         });  
 }
+
+
+
+function LoadTotal(){
+
+    var dataString = 'op=22';
+    $.ajax({
+            type: "POST",
+            url: "http://localhost/justomarket/application/src/routes.php",
+            data: dataString,
+            beforeSend: function () {
+               $("#totalcarrito").html('<div class="row justify-content-center" > ... </div>');
+            },
+            success: function(data) {            
+                $("#totalcarrito").html(data); // lo que regresa de la busquea     
+            }
+        });
+}
+
+LoadTotal();
+
+
+/// Mostrar modal de carrito
+    $("body").on("click","#mcarrito",function(){ 
+        $('#modalCart').modal('show');
+
+        ContenidoCarritoModal();
+
+    });
+
+
+function ContenidoCarritoModal(){
+            var dataString = 'op=23';
+            $.ajax({
+            type: "POST",
+            url: "http://localhost/justomarket/application/src/routes.php",
+            data: dataString,
+            beforeSend: function () {
+               $("#contenido-carrito").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
+            },
+            success: function(data) {            
+                $("#contenido-carrito").html(data); // lo que regresa de la busquea     
+            }
+        });
+}
+
+
+
+    $("body").on("click","#delete-item",function(){ 
+  
+            var iden = $(this).attr('iden');
+            var dataString = 'op=24&iden=' + iden;
+            $.ajax({
+            type: "POST",
+            url: "http://localhost/justomarket/application/src/routes.php",
+            data: dataString,
+            beforeSend: function () {
+               $("#contenido-carrito").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
+            },
+            success: function(data) {            
+                ContenidoCarritoModal();    
+            }
+        });
+
+    });
 
 
 
@@ -185,26 +260,6 @@ function ModalRecomendados(){
 
 
 
-function ProductosDestacados(){
-
-    var dataString = 'op=11';
-    $.ajax({
-            type: "POST",
-            url: "http://localhost/justomarket/application/src/routes.php",
-            data: dataString,
-            beforeSend: function () {
-               $("#productos-destacados").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
-            },
-            success: function(data) {            
-                $("#productos-destacados").html(data); // lo que regresa de la busquea     
-            }
-        });
-}
-
-ProductosDestacados();
-
-
-
 
 
 function Promociones(){
@@ -228,6 +283,24 @@ Promociones();
 
 
 
+
+function ProductosDestacados(){
+
+    var dataString = 'op=11';
+    $.ajax({
+            type: "POST",
+            url: "http://localhost/justomarket/application/src/routes.php",
+            data: dataString,
+            beforeSend: function () {
+               $("#productos-destacados").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
+            },
+            success: function(data) {            
+                $("#productos-destacados").html(data); // lo que regresa de la busquea     
+            }
+        });
+}
+
+ProductosDestacados();
 
 
 

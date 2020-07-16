@@ -34,12 +34,14 @@ class Login {
 
 				    		$usuario = $user;
 				    		$datos = array();
-						    $datos["nombre"] = $data["nombre"];
+						    $datos["nombre"] = $data["nombre"] . " " . $data["apellido"];
+						    $datos["nombres"] = $data["nombre"];
+						    $datos["apellidos"] = $data["apellido"];
 						    $datos["tipo"] = $data["tipo"];
 						    $datos["user"] = $usuario;
 						    $datos["tkn"] = 1;
 						    $datos["avatar"] = "1.png";
-						    $datos["td"] = $_SESSION['td'];
+						    $datos["td"] = TD_SERVER;
 						    if ($db->insert("login_userdata", $datos)) {
 
 					        Alerts::Alerta("success","Agregado!","Agregado con Exito!");

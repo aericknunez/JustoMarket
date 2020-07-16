@@ -11,6 +11,30 @@ class Inicio{
 	public function CrearVariables(){
 		$db = new dbConn();
 
+		$url = URL_SERVER . "application/src/api.php?op=30&td=" . TD_SERVER;
+		
+		$data["user"] = $_SESSION["user"];
+		$data["usuario"] = $_SESSION["usuario"];
+
+		$ch = curl_init($url);
+		 
+		curl_setopt ($ch, CURLOPT_POST, 1);
+		//le decimos qué paramáetros enviamos (pares nombre/valor, también acepta un array)
+		curl_setopt ($ch, CURLOPT_POSTFIELDS, $data);
+		//le decimos que queremos recoger una respuesta (si no esperas respuesta, ponlo a false)
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+		//recogemos la respuesta
+		$respuesta = curl_exec($ch);
+		$error = curl_error($ch);
+		curl_close ($ch);
+
+		$datos = json_decode($respuesta, true);
+
+		if($_SESSION["orden"] == NULL){
+			 $_SESSION["orden"] = $datos["orden"];
+		}
+
+		$_SESSION["usuario"] = $_SESSION["user"];
 
 	}
 
@@ -35,7 +59,6 @@ class Inicio{
 
 /// aqui va la parte de manejo de los productos del carrito
 public function ObtenerData($url){
-	$db = new dbConn();
 
     $response = array();
 
@@ -50,27 +73,188 @@ public function ObtenerData($url){
 }
 
 
-	public function AddItem($url, $cod){
-		$db = new dbConn();
 
+
+	public function AddItem($url, $data){
 		$ch = curl_init($url);
 		 
 		curl_setopt ($ch, CURLOPT_POST, 1);
-		 
 		//le decimos qué paramáetros enviamos (pares nombre/valor, también acepta un array)
-		curl_setopt ($ch, CURLOPT_POSTFIELDS, "parametro1=valor1&parametro2=valor2");
-		 
+		curl_setopt ($ch, CURLOPT_POSTFIELDS, $data);
 		//le decimos que queremos recoger una respuesta (si no esperas respuesta, ponlo a false)
 		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-		 
 		//recogemos la respuesta
 		$respuesta = curl_exec($ch);
 		$error = curl_error($ch);
 		curl_close ($ch);
 
 		return $respuesta;
+	}
+
+
+
+
+	public function ObtenerTotal($url, $data){
+		$ch = curl_init($url);
+		 
+		curl_setopt ($ch, CURLOPT_POST, 1);
+		//le decimos qué paramáetros enviamos (pares nombre/valor, también acepta un array)
+		curl_setopt ($ch, CURLOPT_POSTFIELDS, $data);
+		//le decimos que queremos recoger una respuesta (si no esperas respuesta, ponlo a false)
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+		//recogemos la respuesta
+		$respuesta = curl_exec($ch);
+		$error = curl_error($ch);
+		curl_close ($ch);
+
+		return $respuesta;
+	}
+
+
+
+
+	public function DataReturnModal($url, $cantidad){
+	$jsondata = $this->ObtenerData($url);
+
+	$datos = json_decode($jsondata, true); 
+
+	$total = $datos["precio"] * $cantidad;
+		echo '<div class="row">
+
+		<div class="col-12 col-md-4">
+			<img src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["imagenes"][0].'"
+		            class="img-fluid">
+		</div>
+		<div class="col-12 col-md-8">
+		<h4 class="h4-responsive">'.$datos["descripcion"].'</h4>
+		<hr>
+		
+		<table class="table table-sm">
+		  <thead>
+		    <tr>
+		      <th scope="col">Cantidad</th>
+		      <th scope="col">Precio</th>
+		      <th scope="col">Total</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <th scope="row">'.$cantidad.'</th>
+		      <td>'. Helpers::Dinero($datos["precio"]) .'</td>
+		      <td><strong>'. Helpers::Dinero($total) .'</strong></td>
+		    </tr>
+		  </tbody>
+		</table>
+
+		</div>
+			
+		</div>';
+	
+	}
+
+
+
+
+	public function ContenidoCarrito($url){
+	$jsondata = $this->ObtenerData($url);
+
+	$datos = json_decode($jsondata, true); 
+
+if(count($datos["productos"])){
+
+		echo '<table class="table table-hover table-sm">
+                <tbody>';
+
+	$total = 0;
+	 for ($i = 0; $i < count($datos["productos"]); $i++){
+
+	echo '<tr>
+		<td class="letra-gotham-light grey-text">'.$datos["productos"][$i]["cant"].'</td>
+        <td class="letra-gotham-light grey-text">'.$datos["productos"][$i]["producto"].'</td>
+        <td class="letra-gotham-bold grey-text">'.Helpers::Dinero($datos["productos"][$i]["total"]).'</td>
+        <td class="letra-gotham-bold red-text"><a id="delete-item" iden="'.$datos["productos"][$i]["id"].'"><i class="fas fa-trash"></i></a></td>
+    	</tr>';
+
+		$total = $total + $datos["productos"][$i]["total"];
+	}
+    
+       
+        echo '<tr class="total">
+            <td colspan="2">
+                <h6 class=" mt-2 letra-gotham-bold grey-text">
+                    SubTotal
+                    <br>
+                    <br>
+                    Delivery
+                </h6>
+            </td>
+            <td>
+                <h6 class="mt-2 letra-gotham-bold grey-text">
+                    '. Helpers::Dinero($total) .'
+                    <br>
+                    <br>
+                    '. Helpers::Dinero(0) .'
+                </h6>
+            </td>
+        </tr>
+
+        <tr class="total">
+        <tr>
+            <td colspan="2">
+                <h6 class="mt-1 letra-gotham-bold grey-text">
+                    Total
+                </h6>
+            </td>
+            <td>
+                <h6 class="mt-1 letra-gotham-bold grey-text" id="Total">
+                '. Helpers::Dinero($total) .'                            
+                </h6>
+            </td>
+        </tr>
+        </tr>';
+echo '</tbody>
+</table>';
+
+} else {
+	echo '<div class="col-12 text-center">
+			<img src="'. BASE_URL .'assets/img/carritovacio.png"
+		            class="img-fluid">
+		</div>';
+}
+
+
 
 	}
+
+
+
+
+
+public function BorrarItem($url){
+
+/// hago la consulta para eliminar el producto
+	
+		$data["usuario"] = $_SESSION["usuario"];
+		$data["orden"] = $_SESSION["orden"];
+
+		$ch = curl_init($url);
+		 
+		curl_setopt ($ch, CURLOPT_POST, 1);
+		//le decimos qué paramáetros enviamos (pares nombre/valor, también acepta un array)
+		curl_setopt ($ch, CURLOPT_POSTFIELDS, $data);
+		//le decimos que queremos recoger una respuesta (si no esperas respuesta, ponlo a false)
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+		//recogemos la respuesta
+		$respuesta = curl_exec($ch);
+		$error = curl_error($ch);
+		curl_close ($ch);
+
+
+}
+
+
+
+
 
 
 

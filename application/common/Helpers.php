@@ -91,7 +91,7 @@ class Helpers{
 
 
     public function Dinero($numero){  
-        $format=  "$ " . number_format($numero,2,'.',',');
+        $format=  "$" . number_format($numero,2,'.',',');
         return $format;
      } 
 

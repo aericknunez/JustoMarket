@@ -17,35 +17,56 @@
 
                         <!--Body-->
                         <div class="modal-body">
-                            <div class="md-form form-sm mb-5">
-                                <i class="fas fa-envelope prefix"></i>
-                                <input type="email" id="modalLRInput12"
-                                    class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right"
-                                    for="modalLRInput12">Email</label>
-                            </div>
+<div id="msj"></div>
+ <form id="form-registrar" name="form-registrar">
 
-                            <div class="md-form form-sm mb-5">
-                                <i class="fas fa-lock prefix"></i>
-                                <input type="password" id="modalLRInput13"
-                                    class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right"
-                                    for="modalLRInput13">Contraseña</label>
-                            </div>
+             <div class="md-form form-sm mb-5">
+                <i class="fas fa-user prefix"></i>
+                <input type="text" id="nombre" name="nombre"
+                    class="form-control form-control-sm validate">
+                <label data-error="wrong" data-success="right"
+                    for="nombre">Nombres</label>
+            </div>
 
-                            <div class="md-form form-sm mb-4">
-                                <i class="fas fa-lock prefix"></i>
-                                <input type="password" id="modalLRInput14"
-                                    class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right"
-                                    for="modalLRInput14">Repetir Contraseña</label>
-                            </div>
+             <div class="md-form form-sm mb-5">
+                <i class="fas fa-user prefix"></i>
+                <input type="text" id="apellido" name="apellido"
+                    class="form-control form-control-sm validate">
+                <label data-error="wrong" data-success="right"
+                    for="apellido">Apellidos</label>
+            </div>
 
-                            <div class="text-center form-sm mt-2 letra-gotham-bold">
-                                <button class="btn btn-info bg-vino">Registrar <i
-                                        class="fas fa-sign-in ml-1"></i></button>
-                            </div>
+               <div class="md-form form-sm mb-5">
+                <i class="fas fa-envelope prefix"></i>
+                <input type="email" id="email" name="email"
+                    class="form-control form-control-sm validate">
+                <label data-error="wrong" data-success="right"
+                    for="email">Email</label>
+            </div>
 
+            <div class="md-form form-sm mb-5">
+                <i class="fas fa-lock prefix"></i>
+                <input type="password" id="password" name="password"
+                    class="form-control form-control-sm validate">
+                <label data-error="wrong" data-success="right"
+                    for="password">Contraseña</label>
+            </div>
+
+            <div class="md-form form-sm mb-4">
+                <i class="fas fa-lock prefix"></i>
+                <input type="password" id="confirmpwd" name="confirmpwd"
+                    class="form-control form-control-sm validate">
+                <label data-error="wrong" data-success="right"
+                    for="confirmpwd">Repetir Contraseña</label>
+            </div>
+
+            <div class="text-center form-sm mt-2 letra-gotham-bold">
+                <button class="btn btn-info bg-vino" id="btn-registrar" name="btn-registrar">Registrar <i
+                        class="fas fa-sign-in ml-1"></i></button>
+            </div>
+<input type="hidden" name="tipo" id="tipo" value="2" />
+
+</form>
                         </div>
                         <!--Footer-->
                         <div class="modal-footer p-3">
@@ -57,6 +78,9 @@
                                 class="btn outline-vino waves-effect ml-auto vino letra-gotham-bold p-3"
                                 data-dismiss="modal">Cerrar</button>
                         </div>
+
+
+
 
         </div>
         <!--/.Content-->

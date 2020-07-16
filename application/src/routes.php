@@ -63,21 +63,25 @@ case "20": //agraga productos al carrito
 include_once '../../system/config/Inicio.php';
 	$card = new Inicio();
 
-// $data = array();
-// $data["cod"] = $_POST["cod"]; 
-// $data["cantidad"] = $_POST["cantidad"];
-// $data["usuario"] = $_SESSION["user"];
-// $data["card"] = $_SESSION["card"];
+$data = array();
+$data["cod"] = $_POST["cod"]; 
+$data["cantidad"] = $_POST["cantidad"];
+$data["usuario"] = $_SESSION["usuario"];
+$data["orden"] = $_SESSION["orden"];
 
-// 	$card->AddItem(URL_SERVER . "application/src/api.php?op=20&td=" . TD_SERVER, $data);
+	$additem = $card->AddItem(URL_SERVER . "application/src/api.php?op=20&td=" . TD_SERVER, $data);
+	$datos = json_decode($additem, true);
+
+	$_SESSION["usuario"] = $datos["usuario"];
+	$_SESSION["orden"] = $datos["orden"];
 break;
 
 
 
-case "21": //datalles del producto agredo
+case "21": //datalles del producto agregado (Modal)
 include_once '../../system/config/Inicio.php';
-	$card = new Inicio();
- 	echo "Producto: " . $_POST["cod"];
+	$ind = new Inicio();
+	$ind->DataReturnModal(URL_SERVER . "application/src/api.php?op=14&cod=".$_POST["cod"]."&td=" . TD_SERVER, $_POST["cantidad"]);
 break;
 
 
@@ -85,9 +89,32 @@ break;
 case "22": //obtener el total del carrito
 include_once '../../system/config/Inicio.php';
 	$card = new Inicio();
-echo "$20.00";
+
+	$data["usuario"] = $_SESSION["usuario"];
+	$data["orden"] = $_SESSION["orden"];
+
+	$ototal = $card->ObtenerTotal(URL_SERVER . "application/src/api.php?op=22&td=" . TD_SERVER, $data);
+	$datos = json_decode($ototal, true);
+
+echo "$ " . $datos["total"];
+
 break;
 
+
+
+case "23": //contenido del carrito
+include_once '../../system/config/Inicio.php';
+	$card = new Inicio();
+	$card->ContenidoCarrito(URL_SERVER . "application/src/api.php?op=23&td=" . TD_SERVER . "&usr=" . $_SESSION["usuario"] . "&orden=" . $_SESSION["orden"]);
+break;
+
+
+
+case "24": //borrar item del carrito
+include_once '../../system/config/Inicio.php';
+	$card = new Inicio();
+	$card->BorrarItem(URL_SERVER . "application/src/api.php?op=24&td=" . TD_SERVER . "&iden=" . $_POST["iden"]);
+break;
 
 
 } // termina switch

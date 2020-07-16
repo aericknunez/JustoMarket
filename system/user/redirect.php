@@ -10,25 +10,30 @@ $seslog->sec_session_start();
 
 
 include_once '../../application/common/Alerts.php';
-$alert = new Alerts;
-$helps = new Helpers;
 include_once '../../application/common/Fechas.php';
 include_once '../../application/common/Encrypt.php';
 
 
-// filtros para cuando no hay session abierta
-if ($seslog->login_check() != TRUE) {
-echo '<script>
-	window.location.href="application/includes/logout.php"
-</script>';
-} 
+if($_REQUEST["op"]!="1"){ // verifica inicio de session
 
-if($_SESSION["user"] == NULL and $_SESSION["td"] == NULL){
-echo '<script>
-	window.location.href="application/includes/logout.php"
-</script>';
-exit();
+		// filtros para cuando no hay session abierta
+		if ($seslog->login_check() != TRUE) {
+		echo '<script>
+			window.location.href="application/includes/logout.php"
+		</script>';
+		} 
+
+		if($_SESSION["user"] == NULL and $_SESSION["td"] == NULL){
+		echo '<script>
+			window.location.href="application/includes/logout.php"
+		</script>';
+		exit();
+		}
+
+
 }
+
+
 
 if($_REQUEST["op"]=="1"){ // redirecciona despues de registrar a llenar datos
 	include_once '../../application/includes/DataLogin.php';

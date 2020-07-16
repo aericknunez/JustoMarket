@@ -42,7 +42,7 @@ echo '<!--Carousel Wrapper-->
 <div id="carousel-thumb-modal" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
   <!--Slides-->';
 
-
+$rand = rand(1,99);
 
 echo '<div class="carousel-inner" role="listbox">';
 	for ($i = 0; $i < count($datos["imagenes"]); $i++){
@@ -113,24 +113,24 @@ echo '<div class="col-lg-6 text-center text-md-left p-1">
 
                 <div class="row no-gutters align-items-center">
                     <div class="col-3 text-right nopadding">
-                        <a id="accion-producto" iden="'.$datos["cod"].'" accion="1" lugar="3"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
+                        <a id="accion-producto" iden="'.$datos["cod"].'" accion="1" lugar="'.$rand.'"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
                     </div>
                     <div class="col-6 text-center nopadding">
-                        <input id="3cantidad'.$datos["cod"].'" class="h4-responsive 
+                        <input id="'.$rand.'cantidad'.$datos["cod"].'" class="h4-responsive 
 z-depth-1 rounded-pill mt-0 w-75 text-center border-0" value="1"></input>
                     </div>
                     <div class="col-3 text-left nopadding">
-                        <a id="accion-producto" iden="'.$datos["cod"].'" accion="2" lugar="3"><i class="fa fa-plus-circle fa-lg naranja p-1 border-0"></i></a>
+                        <a id="accion-producto" iden="'.$datos["cod"].'" accion="2" lugar="'.$rand.'"><i class="fa fa-plus-circle fa-lg naranja p-1 border-0"></i></a>
                     </div>
                 </div>
                 <div class="row no-gutters text-center">
                     <div class="col">
-                        <button type="button"
-                            class="btn btn-sm btn-warning btn-rounded bg-naranja h-75">
-                            <h6 class="h5-responsive letra-gotham-light mt-0 pt-0">
-                                Añadir a <br>Carrito <i class="fa fa-shopping-cart"
-                                    aria-hidden="true"></i></h6>
-                        </button>
+                            <a id="additem" btniden="'.$rand.''.$datos["cod"].'" cod="'.$datos["cod"].'" lugar="'.$rand.'" modact="1"
+                                class="btn btn-sm btn-warning btn-rounded bg-naranja h-75">
+                                <h6 class="h5-responsive letra-gotham-light mt-0 pt-0">
+                                    Añadir a <br>Carrito <i class="fa fa-shopping-cart"
+                                        aria-hidden="true"></i></h6>
+                            </a>
                     </div>
                 </div>
 
