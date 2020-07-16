@@ -187,7 +187,8 @@ function ContenidoCarritoModal(){
                $("#contenido-carrito").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
             },
             success: function(data) {            
-                ContenidoCarritoModal();    
+                ContenidoCarritoModal();  
+                LoadTotal();  
             }
         });
 
