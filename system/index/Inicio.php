@@ -100,6 +100,10 @@ echo '<figure class="col-md-3 d-md-inline-block d-none d-sm-block border-right b
 
   echo '<a class="waves-effect waves-light" id="xproducto" cod="'.$datos["productos"][$i]["cod"].'">';
 
+    if($datos["productos"][$i]["promocion"] == "on"){
+        echo '<span class="badge badge-pill mensaje-promo">PROMOCIÓN!!</span>';
+    }
+    
         // echo '<span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
     
   echo '<img src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["productos"][$i]["imagenes"][0].'"

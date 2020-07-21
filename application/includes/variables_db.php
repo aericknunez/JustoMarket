@@ -21,7 +21,7 @@ define("DATABASE", "justomarket");
 define("BASE_URL", "http://localhost/justomarket/");
 define("HOST_URL", "http://"); 
 
-define("URL_SERVER", "https://localhost/cozto/"); 
+define("URL_SERVER", "http://localhost/cozto/"); 
 define("TD_SERVER", "10");  
 }
 

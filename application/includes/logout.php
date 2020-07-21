@@ -11,6 +11,9 @@ include_once '../common/Fechas.php';
 include_once '../../system/config/Inicio.php';
 
 $redirect = $_SESSION["last_url"];
+if($redirect == BASE_URL . "?perfil"){
+	$redirect = BASE_URL;
+}
 
         $inicia = new Inicio();
         $inicia->RegisterInOut(2); // registra la salida

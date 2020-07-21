@@ -117,6 +117,25 @@ include_once '../../system/config/Inicio.php';
 break;
 
 
+
+case "25": //contenido de cart
+include_once '../../system/checkout/Inicio.php';
+	$card = new CheckOut();
+	$card->ContenidoCarrito(URL_SERVER . "application/src/api.php?op=23&td=" . TD_SERVER . "&usr=" . $_SESSION["usuario"] . "&orden=" . $_SESSION["orden"]);
+break;
+
+
+
+
+
+case "100": //agregar contenido a perfil
+include_once '../../system/user/Inicio.php';
+	$perfil = new Perfil();
+	$perfil->AddPerfil($_POST);
+break;
+
+
+
 } // termina switch
 
 

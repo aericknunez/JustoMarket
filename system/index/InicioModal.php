@@ -42,7 +42,7 @@ public function ModalProductos($url){
 echo '<div class="col-lg-6">';
 
 echo '<!--Carousel Wrapper-->
-<div id="carousel-thumb-modal" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
+<div id="carousel-thumb-modal2" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
   <!--Slides-->';
 
 $rand = rand(1,99);
@@ -59,6 +59,10 @@ echo '<div class="carousel-inner" role="listbox">';
 	         alt="Third slide">';
 		echo '</div>';
 
+    if($datos["promocion"] == "on"){
+        echo '<span class="badge badge-pill mensaje-promo">PROMOCIÓN!!</span>';
+    }
+
         // echo ' <span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
 
 	}
@@ -67,11 +71,11 @@ echo '</div>';
 
   echo '<!--/.Slides-->
   <!--Controls-->
-  <a class="carousel-control-prev" href="#carousel-thumb-modal" role="button" data-slide="prev">
+  <a class="carousel-control-prev" href="#carousel-thumb-modal2" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#carousel-thumb-modal" role="button" data-slide="next">
+  <a class="carousel-control-next" href="#carousel-thumb-modal2" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
@@ -81,7 +85,7 @@ echo '<ol class="carousel-indicators">';
 	for ($i = 0; $i < count($datos["imagenes"]); $i++){
 		if($i == 0){ $c = 'class="active"';	 } else { $c = ''; }
 
-		echo '<li data-target="#carousel-thumb-modal" data-slide-to="'.$i.'" '.$c.'>
+		echo '<li data-target="#carousel-thumb-modal2" data-slide-to="'.$i.'" '.$c.'>
 		      <img src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["imagenes"][$i].'" width="100">
 		    </li>';
 	}
@@ -242,6 +246,10 @@ echo '<figure class="col-md-4 d-md-inline-block d-none d-sm-block border-right b
             class="img-fluid">
         </a>';
 
+    if($datos["productos"][$i]["promocion"] == "on"){
+        echo '<span class="badge badge-pill mensaje-promo">PROMOCIÓN!!</span>';
+    }
+    
         //echo '<span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
        
         echo '<div class="card-body">

@@ -55,6 +55,10 @@ echo '<div class="carousel-inner" role="listbox">';
 	         alt="Third slide">';
 		echo '</div>';
 
+    if($datos["promocion"] == "on"){
+        echo '<span class="badge badge-pill mensaje-promo">PROMOCIÓN!!</span>';
+    }
+
         // echo ' <span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
 
 	}

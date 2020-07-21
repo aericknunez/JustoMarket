@@ -59,6 +59,9 @@ $rand = rand(1,99);
   echo '<div class="col-12 col-sm-6 col-md-4 col-lg-3 border-right border-left mt-4">
       <div class="card mb-1 z-depth-0">';
     
+    if($datos["productos"][$i]["promocion"] == "on"){
+        echo '<span class="badge badge-pill mensaje-promo">PROMOCIÓN!!</span>';
+    }
         // echo '<span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
  
   echo '<a class="waves-effect waves-light" href="'.BASE_URL.'detalle/'.$datos["productos"][$i]["cod"].'/'.Helpers::FormatearTexto($datos["productos"][$i]["descripcion"]).'">

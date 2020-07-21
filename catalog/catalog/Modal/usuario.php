@@ -16,6 +16,9 @@
           
           <div id="msj"></div>
 
+          <a href="<?php echo BASE_URL ?>?perfil" 
+                  class="btn outline-vino waves-effect ml-auto letra-gotham-bold p-3">Ver Perfil</a>
+
           <a href="<?php echo BASE_URL ?>application/includes/logout" 
                   class="btn outline-vino waves-effect ml-auto letra-gotham-bold p-3">Cerrar Sesi&oacuten</a>
 

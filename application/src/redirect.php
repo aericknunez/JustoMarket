@@ -13,6 +13,10 @@ elseif(isset($_GET["promociones"])) include_once 'system/promociones/index.php';
 
 elseif(isset($_GET["contacto"])) include_once 'system/contacto/index.php';
 
+elseif(isset($_GET["cart"])) include_once 'system/checkout/index.php';
+
+elseif(isset($_GET["perfil"])) include_once 'system/user/index.php';
+
 else{
 
 	include_once 'system/index/index.php';

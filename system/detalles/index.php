@@ -19,7 +19,7 @@ include_once 'system/detalles/Inicio.php';
 
 
 
-$detalles->VerDetalles("http://localhost/cozto/application/src/api.php?op=14&cod=".$_REQUEST["id"]."&td=10");
+$detalles->VerDetalles(URL_SERVER . "application/src/api.php?op=14&cod=".$_REQUEST["id"]."&td=10");
 
 // $ind->ProductosDestacados(URL_SERVER . "application/src/api.php?op=11&cantidad=12&td=" . TD_SERVER);
 

@@ -32,9 +32,15 @@ $_SESSION["ver_avatar"] = NULL;
             $_SESSION['avatar'] = $r["avatar"];
             $_SESSION['user'] = $user;
             $_SESSION['td'] = $r["td"];
+            $_SESSION['nombres'] = $r["nombres"];
+            $_SESSION['apellidos'] = $r["apellidos"];
             $_SESSION['secret_key'] = md5($r["td"]);
-
             } unset($r);
+
+            if ($r = $db->select("email", "login_members", "WHERE user = '".$_SESSION["user"]."'")) {    
+                $_SESSION['email'] = $r["email"];
+            }   unset($r);  
+
 
         $inicia = new Inicio();
         $inicia->CrearVariables(); // reemplaza las variables de usuario

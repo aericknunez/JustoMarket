@@ -4,8 +4,12 @@ require_once 'catalog/head.php'
 
 <body>
 <?php 
-    
-    require_once 'catalog/menu.php'; 
+
+ if(isset($_GET["perfil"])){  // mostrar si no es perfil de usuario
+      require_once 'catalog/menuPerfil.php'; 
+} else {
+      require_once 'catalog/menu.php';   
+}
 
 /// redirect del contenido
     require_once 'application/src/redirect.php';
@@ -23,6 +27,8 @@ require_once 'catalog/head.php'
 
 
     require_once 'catalog/query.php';
+
+include_once 'application/src/query.php';   
  ?>
 
 </body>
