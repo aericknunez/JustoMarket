@@ -19,7 +19,6 @@ class Perfil{
     		 $this->AddDatos($datos);
     	}
 
-      
   }
 
 
@@ -44,7 +43,7 @@ class Perfil{
                 $data["usr_departamento"] = $datos["usr_departamento"];
                 $data["usr_municipio"] = $datos["usr_municipio"];
                 $data["usr_telefono"] = $datos["usr_telefono"];
-                $data["f_nacimiento"] = $datos["f_nacimiento"];
+                $data["f_nacimiento"] = $datos["f_nacimiento_submit"];
                 $data["recibe_pais"] = $datos["recibe_pais"];
                 $data["recibe_departamento"] = $datos["recibe_departamento"];
                 $data["recibe_municipio"] = $datos["recibe_municipio"];
@@ -75,7 +74,7 @@ class Perfil{
                 $data["usr_departamento"] = $datos["usr_departamento"];
                 $data["usr_municipio"] = $datos["usr_municipio"];
                 $data["usr_telefono"] = $datos["usr_telefono"];
-                $data["f_nacimiento"] = $datos["f_nacimiento"];
+                $data["f_nacimiento"] = $datos["f_nacimiento_submit"];
                 $data["recibe_pais"] = $datos["recibe_pais"];
                 $data["recibe_departamento"] = $datos["recibe_departamento"];
                 $data["recibe_municipio"] = $datos["recibe_municipio"];

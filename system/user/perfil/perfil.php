@@ -117,15 +117,29 @@
 
 </div>
 <div class="text-left">
-<h2>Informaci&oacuten General</h2>
+<h4>Informaci&oacuten General</h4>
 <ul class="pl-2">
-<li class="linopunto"><span><strong>Fecha de Nacimientos : </strong></span><?php echo $f_nacimiento ?></li>
-<li class="linopunto"><span><strong>Dirección : </strong></span><?php echo $usr_direccion ?></li>
+<li class="linopunto"><span><strong>Fecha de Nacimientos : </strong></span><?php echo Fechas::FechaEscrita($f_nacimiento) ?></li>
+<li class="linopunto"><span><strong>Dirección : </strong></span><?php echo $usr_direccion. ", " .$usr_direccion. ", " .$usr_departamento. ", " .$usr_pais ?></li>
 <li class="linopunto"><span><strong>E-mail : </strong></span><a><?php echo $_SESSION["email"]; ?></a></li>
 <li class="linopunto"><span><strong>Teléfono : </strong></span><?php echo $usr_telefono ?></li>
 </ul>
 </div>
 
+<hr>
+
+<div class="text-left">
+<h4>Informaci&oacuten de envío</h4>
+<ul class="pl-2">
+<li class="linopunto"><span><strong>Dirección : </strong></span><?php echo $recibe_direccion. ", " .$recibe_direccion. ", " .$recibe_departamento. ", " .$usr_pais ?></li>
+<li class="linopunto"><span><strong>Teléfono : </strong></span><?php echo $recibe_telefono ?></li>
+<?php 
+if ($puntoreferencia != NULL) {
+  echo '<li class="linopunto"><span><strong>Punto de referencia : </strong></span>'.$puntoreferencia.'</li>';
+ } ?>
+
+</ul>
+</div>
 
 
   </div>

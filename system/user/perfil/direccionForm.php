@@ -181,7 +181,10 @@
             <div class="switch">
             <label>
              Mi dirección es igual a la dirección de envío ||  NO
-              <input type="checkbox" id="conf_direccion" name="conf_direccion">
+              <input type="checkbox" id="conf_direccion" name="conf_direccion" <?php 
+              if ($usr_direccion == $recibe_direccion) {
+               echo 'checked="checked"';
+              } ?> >
               <span class="lever bg-vino"></span> SI 
             </label>
           </div>
@@ -195,7 +198,7 @@
       <div class="col-md-12">
 
         <div class="md-form form-sm mb-0">
-          <input type="text" id="usr_direccion" name="usr_direccion" class="form-control form-control-sm" value="">
+          <input type="text" id="usr_direccion" name="usr_direccion" class="form-control form-control-sm" value="<?php echo $usr_direccion ?>">
           <label for="form6" class="">Dirección</label>
         </div>
 
@@ -209,7 +212,7 @@
       <div class="col-lg-4 col-md-12">
 
         <div class="md-form form-sm mb-0">
-          <input type="text" id="usr_pais" name="usr_pais" class="form-control form-control-sm disabled" value="">
+          <input type="text" id="usr_pais" name="usr_pais" class="form-control form-control-sm disabled" value="<?php echo $usr_pais ?>">
           <label for="usr_pais" class="">País</label>
         </div>
 
@@ -219,7 +222,7 @@
       <div class="col-lg-4 col-md-6">
 
         <div class="md-form form-sm mb-0">
-          <input type="text" id="usr_departamento" name="usr_departamento" class="form-control form-control-sm" value="">
+          <input type="text" id="usr_departamento" name="usr_departamento" class="form-control form-control-sm" value="<?php echo $usr_departamento ?>">
           <label for="form8" class="">Departamento</label>
         </div>
 
@@ -228,7 +231,7 @@
       <div class="col-lg-4 col-md-6">
 
         <div class="md-form form-sm mb-0">
-          <input type="text" id="usr_municipio" name="usr_municipio" class="form-control form-control-sm" value="">
+          <input type="text" id="usr_municipio" name="usr_municipio" class="form-control form-control-sm" value="<?php echo $usr_municipio ?>">
           <label for="usr_municipio" class="">Municipio</label>
         </div>
 

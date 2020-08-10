@@ -37,7 +37,7 @@ $_SESSION["ver_avatar"] = NULL;
             $_SESSION['secret_key'] = md5($r["td"]);
             } unset($r);
 
-            if ($r = $db->select("email", "login_members", "WHERE user = '".$_SESSION["user"]."'")) {    
+            if ($r = $db->select("email", "login_members", "WHERE username = '".$_SESSION["user"]."'")) {    
                 $_SESSION['email'] = $r["email"];
             }   unset($r);  
 
