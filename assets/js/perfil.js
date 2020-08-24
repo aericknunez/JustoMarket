@@ -65,6 +65,7 @@ $(document).ready(function(){
                 $('#btn-perfil').html('Guardar').removeClass('disabled');       
                 $("#form-perfil").trigger("reset");
                 $("#msj").html(data); 
+                window.location.href="?perfil"
             }
         })
     });

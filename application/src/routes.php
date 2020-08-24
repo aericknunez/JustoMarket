@@ -126,6 +126,21 @@ break;
 
 
 
+case "26": // mandar pedido (terminar)
+include_once '../../system/checkout/Inicio.php';
+	$card = new CheckOut();
+	$card->MandarPedido(URL_SERVER . "application/src/api.php?op=26&td=" . TD_SERVER . "&usr=" . $_SESSION["usuario"] . "&orden=" . $_SESSION["orden"]);
+break;
+
+
+
+
+case "27": //footer del modal
+include_once '../../system/config/Inicio.php';
+	$card = new Inicio();
+	$card->FooterModal(URL_SERVER . "application/src/api.php?op=23&td=" . TD_SERVER . "&usr=" . $_SESSION["usuario"] . "&orden=" . $_SESSION["orden"]);
+break;
+
 
 
 case "100": //agregar contenido a perfil

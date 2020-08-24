@@ -109,18 +109,18 @@
 
 
 
-
-
-
-
-
-
 </div>
+
+
+<?php 
+  if($usr_direccion != NULL and $usr_telefono != NULL){
+ ?>
+
 <div class="text-left">
 <h4>Informaci&oacuten General</h4>
 <ul class="pl-2">
 <li class="linopunto"><span><strong>Fecha de Nacimientos : </strong></span><?php echo Fechas::FechaEscrita($f_nacimiento) ?></li>
-<li class="linopunto"><span><strong>Dirección : </strong></span><?php echo $usr_direccion. ", " .$usr_direccion. ", " .$usr_departamento. ", " .$usr_pais ?></li>
+<li class="linopunto"><span><strong>Dirección : </strong></span><?php echo $usr_direccion. ", " .$usr_departamento. ", " .$usr_municipio. ", " .$usr_pais ?></li>
 <li class="linopunto"><span><strong>E-mail : </strong></span><a><?php echo $_SESSION["email"]; ?></a></li>
 <li class="linopunto"><span><strong>Teléfono : </strong></span><?php echo $usr_telefono ?></li>
 </ul>
@@ -131,15 +131,21 @@
 <div class="text-left">
 <h4>Informaci&oacuten de envío</h4>
 <ul class="pl-2">
-<li class="linopunto"><span><strong>Dirección : </strong></span><?php echo $recibe_direccion. ", " .$recibe_direccion. ", " .$recibe_departamento. ", " .$usr_pais ?></li>
+<li class="linopunto"><span><strong>Dirección : </strong></span><?php echo $recibe_direccion. ", " .$recibe_departamento. ", " .$recibe_municipio. ", " .$usr_pais ?></li>
 <li class="linopunto"><span><strong>Teléfono : </strong></span><?php echo $recibe_telefono ?></li>
 <?php 
 if ($puntoreferencia != NULL) {
-  echo '<li class="linopunto"><span><strong>Punto de referencia : </strong></span>'.$puntoreferencia.'</li>';
+echo '<li class="linopunto"><span><strong>Punto de referencia : </strong></span>'.$puntoreferencia.'</li>';
  } ?>
 
 </ul>
 </div>
+
+<?
+  } else {
+    Alerts::Mensajex("Aún no ha registrado sus datos de envío.","danger",'<a href="?perfil&op=2" class="btn btn-info my-4 waves-effect waves-light"">Agregar Datos</a>');
+  }
+?>
 
 
   </div>

@@ -228,6 +228,26 @@ echo '</tbody>
 
 
 
+public function FooterModal($url){
+
+	$jsondata = $this->ObtenerData($url);
+
+	$datos = json_decode($jsondata, true); 
+
+	if(count($datos["productos"]) > 0){
+	    echo '<a href='. BASE_URL.' ?cart" class="btn btn-primary bg-naranja letra-gotham-black">Ver
+	            Carrito</a>
+	        <a href="'. BASE_URL.' ?checkout" class="btn btn-outline-warning letra-gotham-black">Procesar Pago</a>';	   
+	} else {
+		echo '<a data-dismiss="modal" class="btn btn-outline-warning letra-gotham-black">Agregar Productos</a>';
+	}
+
+
+}
+
+
+
+
 
 
 public function BorrarItem($url){

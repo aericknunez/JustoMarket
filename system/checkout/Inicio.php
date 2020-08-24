@@ -5,6 +5,15 @@ class CheckOut{
 
 	}
 
+/// para contar los productos que hay en la orden
+  public function CantidadProductos($url){
+  $jsondata = $this->ObtenerData($url);
+  $datos = json_decode($jsondata, true); 
+   return count($datos["productos"]);
+}
+
+
+
 
 /// aqui va la parte de manejo de los productos del carrito
 public function ObtenerData($url){
@@ -20,9 +29,6 @@ public function ObtenerData($url){
 
     return $response;
 }
-
-
-
 
 
 
@@ -146,11 +152,19 @@ echo '<tr>
                   </h4>
                 </td>
 
-                <td colspan="2" class="text-right">
-                  <button type="button" class="btn bg-vino white-text btn-rounded">Completar la compra
-                    <i class="fas fa-angle-right right"></i>
-                  </button>
-                </td>
+                <td colspan="2" class="text-right">';
+
+                 if($_SESSION["user"]){
+                  echo '<a href="?checkout" class="btn bg-vino white-text btn-rounded">Completar la compra
+                        <i class="fas fa-angle-right right"></i>
+                      </a>';
+                } else {
+                  echo '<a id="mlogin" class="btn bg-vino white-text btn-rounded">Iniciar para Continuar
+                        <i class="fas fa-angle-right right"></i>
+                      </a>';
+                }
+
+                echo '</td>
 
               </tr>
               <!-- Fourth row -->
@@ -179,6 +193,105 @@ echo '<tr>
 
 
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  public function Pedido($url){
+  $jsondata = $this->ObtenerData($url);
+
+  $datos = json_decode($jsondata, true); 
+
+if(count($datos["productos"])){
+
+echo '<h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Su Pedido</span>
+            <span class="badge bg-vino badge-pill">'.count($datos["productos"]).'</span>
+          </h4>
+          <!-- Cart -->
+          <ul class="list-group mb-3 z-depth-1">';
+
+   $total = 0;
+   for ($i = 0; $i < count($datos["productos"]); $i++){
+
+      echo '<li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">'.$datos["productos"][$i]["producto"].'</h6>
+                <small class="text-muted">Cantidad: '.$datos["productos"][$i]["cant"].'</small>
+              </div>
+              <span class="text-muted">'.Helpers::Dinero($datos["productos"][$i]["total"]).'</span>
+            </li>';
+
+      $total = $total + $datos["productos"][$i]["total"];      
+   }
+
+
+     echo '<li class="list-group-item d-flex justify-content-between">
+              <span>Total (USD)</span>
+              <strong>'. Helpers::Dinero($total) .'</strong>
+            </li>
+          </ul>
+          <!-- Cart -->';
+
+
+
+  }
+
+// print_r($datos["productos"]);
+
+}
+
+
+
+
+
+public function MandarPedido($url){
+
+    $ch = curl_init($url);
+     
+    curl_setopt ($ch, CURLOPT_POST, 1);
+    //le decimos qué paramáetros enviamos (pares nombre/valor, también acepta un array)
+    curl_setopt ($ch, CURLOPT_POSTFIELDS, $data);
+    //le decimos que queremos recoger una respuesta (si no esperas respuesta, ponlo a false)
+    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+    //recogemos la respuesta
+    $respuesta = curl_exec($ch);
+    $error = curl_error($ch);
+    curl_close ($ch);
+
+    $res = json_decode($respuesta, true);
+
+  if($res["mensaje"] == "Realizado"){
+
+    unset($_SESSION["orden"]);
+    Alerts::Alerta("success","Realizado!","Pedido realizado corectamente");
+    sleep(2);
+    echo '<script>
+            window.location.href="?"; 
+          </script>';
+  } else {
+    Alerts::Alerta("error","Error!","No se realizo su pedido, vuelva a intentarlo");
+  }
+
+ 
+}
+
+
+
+
+
+
 
 
 

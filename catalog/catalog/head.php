@@ -21,8 +21,9 @@ if(isset($_GET["cart"])) {
 echo '<link href="' . BASE_URL . 'assets/css/cart.css" rel="stylesheet">';
 } 
 if(isset($_GET["perfil"])) {
-echo '    <link href="' . BASE_URL . 'assets/css/dash-mdb.min.css" rel="stylesheet">';
+echo '<link href="' . BASE_URL . 'assets/css/dash-mdb.min.css" rel="stylesheet">';
 } 
+
 ?>
 
 </head>

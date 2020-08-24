@@ -15,6 +15,8 @@ elseif(isset($_GET["contacto"])) include_once 'system/contacto/index.php';
 
 elseif(isset($_GET["cart"])) include_once 'system/checkout/index.php';
 
+elseif(isset($_GET["checkout"])) include_once 'system/checkout/checkout.php';
+
 elseif(isset($_GET["perfil"])) include_once 'system/user/index.php';
 
 else{

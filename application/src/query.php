@@ -28,6 +28,9 @@ echo '<script type="text/javascript" src="'.BASE_URL.'assets/js/cart.js?v='.$num
 elseif(isset($_GET["perfil"])) {
 echo '<script type="text/javascript" src="'.BASE_URL.'assets/js/perfil.js?v='.$numero.'"></script>';
 } 
+elseif(isset($_GET["checkout"])) {
+echo '<script type="text/javascript" src="'.BASE_URL.'assets/js/checkout.js?v='.$numero.'"></script>';
+} 
 
 
 else{

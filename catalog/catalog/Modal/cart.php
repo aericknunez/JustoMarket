@@ -17,12 +17,10 @@
 
                 </div>
                 <!--Footer Modal-->
-                <div class="modal-footer d-block text-center">
-                    <a href="<?php echo BASE_URL ?>?cart" class="btn btn-primary bg-naranja letra-gotham-black">Ver
-                        Carrito</a>
+                <div class="modal-footer d-block text-center" id="footermodal">
 
-                    <a type="button" class="btn btn-outline-warning letra-gotham-black"
-                        data-dismiss="modal">Procesar Pago</a>
+
+
                 </div>
             </div>
         </div>
