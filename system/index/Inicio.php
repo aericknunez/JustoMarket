@@ -120,14 +120,21 @@ echo '<figure class="col-md-3 d-md-inline-block d-none d-sm-block border-right b
 
                 <div class="row align-items-center ">
 
-                    <div class="col-6 col-md-6 col-lg-6 nopadding">
+                    <div class="col-6 col-md-6 col-lg-6 nopadding">';
 
-                        <h4 class="h4-responsive letra-gotham-black vino">
-                            '.Helpers::Dinero($datos["productos"][$i]["precio"]).'</h4>
+                    if($datos["productos"][$i]["promo"] != NULL){
+                        echo '<h4 class="h4-responsive letra-gotham-black vino">
+                            '.Helpers::Dinero($datos["productos"][$i]["promo"]).'</h4>
 
                         <h6 class="letra-gotham-light grey-text">Antes '.Helpers::Dinero($datos["productos"][$i]["precio"]).'
-                        </h6>
-                    </div>
+                        </h6>';
+                    } else {
+                      echo '<h4 class="h4-responsive letra-gotham-black vino">
+                            '.Helpers::Dinero($datos["productos"][$i]["precio"]).'</h4>';
+                    }
+
+                        
+                    echo '</div>
                     <div class="col-6 col-md-6 col-lg-6 nopadding">
                         <div class="row no-gutters align-items-center">
                             <div class="col-3 text-center nopadding">

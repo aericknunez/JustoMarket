@@ -6,6 +6,10 @@ include_once 'application/common/Fechas.php';
 
 if ($seslog->login_check() == TRUE) {
 
+include_once 'system/checkout/Inicio.php';
+$check = new CheckOut();
+
+
 ?>
 <!-- <div id="contenidocart"></div> -->
 

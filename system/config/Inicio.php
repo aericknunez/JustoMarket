@@ -235,9 +235,9 @@ public function FooterModal($url){
 	$datos = json_decode($jsondata, true); 
 
 	if(count($datos["productos"]) > 0){
-	    echo '<a href='. BASE_URL.' ?cart" class="btn btn-primary bg-naranja letra-gotham-black">Ver
+	    echo '<a href="'. BASE_URL.'?cart" class="btn btn-primary bg-naranja letra-gotham-black">Ver
 	            Carrito</a>
-	        <a href="'. BASE_URL.' ?checkout" class="btn btn-outline-warning letra-gotham-black">Procesar Pago</a>';	   
+	        <a href="'. BASE_URL.'?checkout" class="btn btn-outline-warning letra-gotham-black">Procesar Orden</a>';	   
 	} else {
 		echo '<a data-dismiss="modal" class="btn btn-outline-warning letra-gotham-black">Agregar Productos</a>';
 	}

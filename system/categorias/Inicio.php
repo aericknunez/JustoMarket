@@ -55,8 +55,7 @@ public function ProductoView($datos, $inicio, $fin, $active = NULL){
 
 $rand = rand(1,99);
 
-
-  echo '<div class="col-12 col-sm-6 col-md-4 col-lg-3 border-right border-left mt-4">
+  echo '<div class="col-6 col-sm-6 col-md-4 col-lg-3 border-right border-left mt-4">
       <div class="card mb-1 z-depth-0">';
     
     if($datos["productos"][$i]["promocion"] == "on"){
@@ -76,12 +75,19 @@ $rand = rand(1,99);
 
           <div class="row align-items-center ">
 
-            <div class="col-6 col-md-6 col-lg-6 nopadding">
+            <div class="col-6 col-md-6 col-lg-6 nopadding">';
 
-              <h4 class="h4-responsive letra-gotham-black vino">'.Helpers::Dinero($datos["productos"][$i]["precio"]).'</h4>
+if($datos["productos"][$i]["promo"] != NULL){
 
-              <h6 class="letra-gotham-light grey-text">Antes '.Helpers::Dinero($datos["productos"][$i]["precio"]).'</h6>
-            </div>
+echo '<h4 class="h4-responsive letra-gotham-black vino">'.Helpers::Dinero($datos["productos"][$i]["promo"]).'</h4>
+<h6 class="letra-gotham-light grey-text">Antes '.Helpers::Dinero($datos["productos"][$i]["precio"]).'</h6>';
+} else {
+  echo '<h4 class="h4-responsive letra-gotham-black vino">'.Helpers::Dinero($datos["productos"][$i]["precio"]).'</h4>';
+}
+              
+            
+
+            echo '</div>
             <div class="col-6 col-md-6 col-lg-6 nopadding">
               <div class="row no-gutters align-items-center">
                 <div class="col-3 text-center nopadding">

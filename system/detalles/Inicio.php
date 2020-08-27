@@ -106,16 +106,22 @@ echo '<div class="col-lg-6 text-center text-md-left p-1">
 
             <div class="font-weight-normal">
 
-                <p class="ml-xl-0 ml-0 letra-gotham-light">'.$datos["informacion"] .'</p>
+                <p class="ml-xl-0 ml-0 letra-gotham-light">'.$datos["informacion"] .'</p>';
 
-                <h2 class="h2-responsive letra-gotham-black vino ml-xl-0 ml-0">
-                '. Helpers::Dinero($datos["precio"]) .'
-                </h2>
-                <h5 class="h5-responsive letra-gotham-light ml-xl-0 ml-0">
-                Antes '. Helpers::Dinero($datos["precio"]) .'
-                </h5>
+if($datos["promo"] != NULL){
+echo '<h2 class="h2-responsive letra-gotham-black vino ml-xl-0 ml-0">
+    '. Helpers::Dinero($datos["promo"]) .'</h2>
+    <h5 class="h5-responsive letra-gotham-light ml-xl-0 ml-0">
+     Antes '. Helpers::Dinero($datos["precio"]) .'
+    </h5>';
+} else {
+echo '<h2 class="h2-responsive letra-gotham-black vino ml-xl-0 ml-0">
+    '. Helpers::Dinero($datos["precio"]) .'
+    </h2>'; 
+}
 
-                <div class="row no-gutters align-items-center">
+
+        echo '<div class="row no-gutters align-items-center">
                     <div class="col-3 text-right nopadding">
                         <a id="accion-producto" iden="'.$datos["cod"].'" accion="1" lugar="'.$rand.'"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
                     </div>

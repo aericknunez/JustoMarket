@@ -66,8 +66,13 @@
               <div class="admin-up">
                 <a href="?perfil&op=1"><i class="far fa-money-bill-alt bg-naranja mr-3 z-depth-2"></i></a>
                 <div class="data">
-                  <p class="text-uppercase">Importe</p>
-                  <h4 class="font-weight-bold dark-grey-text">2000$</h4>
+                  <p class="text-uppercase">Productos</p>
+                  <h4 class="font-weight-bold dark-grey-text">
+                  <?php 
+                    echo $check->TotalProductosUsuario(URL_SERVER . "application/src/api.php?op=32&user=".$_SESSION["user"]."&td=" . TD_SERVER);
+                     ?>
+                       
+                     </h4>
                 </div>
               </div>
 
@@ -90,7 +95,13 @@
                 <a href="?perfil&op=1"><i class="fas fa-chart-line bg-vino mr-3 z-depth-2"></i></a>
                 <div class="data">
                   <p class="text-uppercase">Pedidos</p>
-                  <h4 class="font-weight-bold dark-grey-text">200</h4>
+                  <h4 class="font-weight-bold dark-grey-text">
+
+                  <?php 
+                    echo $check->TotalPedidosUsuario(URL_SERVER . "application/src/api.php?op=33&user=".$_SESSION["user"]."&td=" . TD_SERVER);
+                     ?>
+                       
+                     </h4>
                 </div>
               </div>
 

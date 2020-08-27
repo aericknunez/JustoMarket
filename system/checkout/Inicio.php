@@ -13,6 +13,28 @@ class CheckOut{
 }
 
 
+//// para pedidos de usuarioa
+
+  public function OrdenesCliente($url){
+  $jsondata = $this->ObtenerData($url);
+  $datos = json_decode($jsondata, true); 
+   return $datos;
+}
+
+
+  public function TotalProductosUsuario($url){
+  $jsondata = $this->ObtenerData($url);
+  $datos = json_decode($jsondata, true); 
+   return $datos["total"];
+}
+
+
+  public function TotalPedidosUsuario($url){
+  $jsondata = $this->ObtenerData($url);
+  $datos = json_decode($jsondata, true); 
+   return $datos["total"];
+}
+/// termina pedidos de usuario
 
 
 /// aqui va la parte de manejo de los productos del carrito

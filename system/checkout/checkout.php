@@ -32,7 +32,15 @@ Alerts::Mensajex("<h4><strong>Datos de facturación</strong></4>","info"); ?>
 
 
 <?php 
- if( $check->CantidadProductos(URL_SERVER . "application/src/api.php?op=26&td=" . TD_SERVER . "&usr=" . $_SESSION["usuario"] . "&orden=" . $_SESSION["orden"]) > 0){
+
+/// verifico si esta logeado 
+if ($seslog->login_check() == TRUE) {
+
+
+
+
+
+ if( $check->CantidadProductos(URL_SERVER . "application/src/api.php?op=23&td=" . TD_SERVER . "&usr=" . $_SESSION["usuario"] . "&orden=" . $_SESSION["orden"]) > 0){
 
 
   if($usr_direccion != NULL and $usr_telefono != NULL){
@@ -263,7 +271,31 @@ Alerts::Mensajex("<h4><strong>Datos de facturación</strong></4>","info"); ?>
 }
 
 
- ?>
+
+/// si no esta logeado
+} else {
+
+?>
+
+
+<div class="container" style="min-height: 700px;">
+
+  <main>
+    
+    <div class="row d-flex justify-content-center">
+      <div class="col-12 text-center" >
+        <img src="assets/img/error.png" alt=""> <br>
+         <h4>Debes Iniciar sesión para poder continuar.</h4>
+        <a id="mlogin" class="btn bg-vino white-text"> Ingresar</a>
+      </div>
+    </div>
+
+  </main>
+
+</div>
+
+<?
+} ?>
 
 
 
