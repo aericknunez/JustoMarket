@@ -20,7 +20,7 @@ switch ($_REQUEST["op"]) {
 case "1": // detalles del usuario
 	include_once '../../system/api/Api.php';
 	$data = new Api();
-	echo $data->DatosUsuario($_REQUEST["user"], $_REQUEST["secret"]); // datos de usuario
+	echo $data->DatosUsuario($_REQUEST["user"]); // datos de usuario
 break;
 
 
@@ -28,7 +28,7 @@ break;
 case "2": // detalles del usuario
 	include_once '../../system/api/Api.php';
 	$data = new Api();
-	echo $data->ListarUsuarios($_REQUEST["secret"]); // datos de usuario
+	echo $data->ListarUsuarios(); // datos de usuario
 break;
 
 

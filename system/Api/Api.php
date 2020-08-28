@@ -6,9 +6,8 @@ class Api{
 	}
 
 
-public function DatosUsuario($usuario, $secret){
+public function DatosUsuario($usuario){
     $db = new dbConn();
-    $encrypt = new Encrypt();
 
 $data = array();
 
@@ -50,13 +49,12 @@ $data = array();
 
 
 
-public function ListarUsuarios($secret){
+public function ListarUsuarios(){
     $db = new dbConn();
     $encrypt = new Encrypt();
 
 $data = array();
 
-if($encrypt->Decrypt($secret, md5(TD_SERVER))){
 
  $i = 0; 
     $a = $db->query("SELECT nombre, nombres, apellidos, user FROM login_userdata");
@@ -92,9 +90,7 @@ if($encrypt->Decrypt($secret, md5(TD_SERVER))){
 $i++;
     } $a->close();
 
-} else {
- $data["mensaje"] = "No tienes permiso para estar aqui";
-}
+
     $data = json_encode($data);
     return $data;
 }
