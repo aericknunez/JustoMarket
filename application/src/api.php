@@ -24,6 +24,7 @@ case "1": // detalles del usuario
 break;
 
 
+
 case "2": // detalles del usuario
 	include_once '../../system/api/Api.php';
 	$data = new Api();
