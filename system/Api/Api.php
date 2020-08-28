@@ -6,7 +6,6 @@ class Api{
 	}
 
 
-
 public function DatosUsuario($usuario, $secret){
     $db = new dbConn();
     $encrypt = new Encrypt();
