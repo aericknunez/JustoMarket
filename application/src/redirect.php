@@ -19,6 +19,11 @@ elseif(isset($_GET["checkout"])) include_once 'system/checkout/checkout.php';
 
 elseif(isset($_GET["perfil"])) include_once 'system/user/index.php';
 
+elseif(isset($_GET["faq"])) include_once 'system/documentos/preguntas.php';
+
+elseif(isset($_GET["terminos"])) include_once 'system/documentos/terminos.php';
+
+
 else{
 
 	include_once 'system/index/index.php';
