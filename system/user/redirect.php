@@ -12,6 +12,7 @@ $seslog->sec_session_start();
 include_once '../../application/common/Alerts.php';
 include_once '../../application/common/Fechas.php';
 include_once '../../application/common/Encrypt.php';
+include_once '../../application/common/Email.php';
 
 
 if($_REQUEST["op"]!="1"){ // verifica inicio de session

@@ -45,6 +45,8 @@ class Login {
 						    if ($db->insert("login_userdata", $datos)) {
 
 					        Alerts::Alerta("success","Agregado!","Agregado con Exito!");
+
+					        Email::EnviarEmail($email, $data["nombre"] . " " . $data["apellido"], "noreply@justomarket.com", "Justo Market", "Gracias por registrarte!", $plantilla);
 					        	if($data["inicio"] != NULL){
 										echo '<a href="?" class="btn btn-danger btn-rounded  z-depth-0  waves-effect">Iniciar Sesión Aqui</a>';
 									}

@@ -128,6 +128,8 @@ break;
 
 case "26": // mandar pedido (terminar)
 include_once '../../system/checkout/Inicio.php';
+include_once '../common/Email.php';
+
 	$card = new CheckOut();
 	$card->MandarPedido(URL_SERVER . "application/src/api.php?op=26&td=" . TD_SERVER . "&usr=" . $_SESSION["usuario"] . "&orden=" . $_SESSION["orden"]);
 break;
