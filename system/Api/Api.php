@@ -13,8 +13,6 @@ public function DatosUsuario($usuario, $secret){
 
 $data = array();
 
-if($encrypt->Decrypt($secret, md5(TD_SERVER))){
-
         $a = $db->query("SELECT nombre, nombres, apellidos FROM login_userdata WHERE user = '$usuario'");
         foreach ($a as $b) {
             $data["user"] = $b;  
@@ -34,9 +32,7 @@ if($encrypt->Decrypt($secret, md5(TD_SERVER))){
 
  $data["mensaje"] = "Datos adquiridos"; 
 
-} else {
- $data["mensaje"] = "No tienes permiso para estar aqui";
-}
+
     $data = json_encode($data);
     return $data;
 }
