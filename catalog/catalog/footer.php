@@ -1,9 +1,10 @@
 <div class="fixed-action-btn" style="bottom: 10px; right: 10px;">
-    <a id="mcarrito" class="btn-floating btn-md bg-vino waves-effect waves-light">
-      <i class="fas fa-shopping-cart"></i>
+ <div id="mcarrito">
+    <a class="btn-floating btn-md bg-vino waves-effect waves-light">
+      <i  class="fas fa-shopping-cart"></i>
     </a>
-  </div>
-
+ </div>
+</div>
 <!-- <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
     <a class="btn-floating btn-lg red waves-effect waves-light">
       <i class="fas fa-pencil-alt"></i>
