@@ -99,22 +99,33 @@
         <!-- Grid column -->
         <div class="col-lg-4">
 
-          <div class="card-body contact text-center h-100 white-text bg-vino">
+          <div class="card-body contact text-center h-100 white-text bg-naranja">
 
             <h3 class="font-weight-bold my-4 pb-2">Informaci&oacuten de Contacto</h3>
             <ul class="text-lg-left list-unstyled ml-4">
               <li>
-                <p><i class="fas fa-map-marker-alt pr-2 white-text"></i>Direcci&oacuten</p>
+                <p><i class="fas fa-map-marker-alt pr-2 white-text"></i>Direcci&oacuten<br>
+                <strong>10a Avenida Norte, Barrio El Angel, # 1 - 2, Sonsonate, Sonsonate</strong>
+              </p>
               </li>
               <li>
-                <p><i class="fas fa-phone pr-2 white-text"></i>Numero de Tel&eacutefono</p>
+                <p><i class="fas fa-phone pr-2 white-text"></i>Tel&eacutefono<br>
+                  <strong><a href="tel:50324210140" class="text-decoration-none white-text">2421 0140</a></strong>
+                </p>
               </li>
               <li>
-                <p><i class="fas fa-envelope pr-2 white-text"></i>contact@example.com</p>
+                <p><i class="fab fa-whatsapp pr-2 white-text"></i>WhatsApp<br>
+                  <strong><a href="https://api.whatsapp.com/send?phone=50377343433" target="blank" class="text-decoration-none white-text">(+503) 77343433</a></strong>
+                </p>
+              </li>
+              <li>
+                <p><i class="fas fa-envelope pr-2 white-text"></i>Email<br>
+                  <strong><a href="mailto:servicioalcliente@justomarket.com" class="text-decoration-none white-text">servicioalcliente@justomarket.com</a></strong>
+                </p>
               </li>
             </ul>
             <hr class="hr-light my-4">
-            <ul class="list-inline text-center list-unstyled">
+<!--             <ul class="list-inline text-center list-unstyled">
               <li class="list-inline-item">
                 <a class="p-2 fa-lg tw-ic">
                   <i class="fab fa-whatsapp white-text"></i>
@@ -130,7 +141,7 @@
                   <i class="fab fa-instagram white-text"> </i>
                 </a>
               </li>
-            </ul>
+            </ul> -->
 
           </div>
 
