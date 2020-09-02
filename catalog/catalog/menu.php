@@ -165,6 +165,15 @@ if($_SESSION["user"]){
                         <h4 class="h4-responsive">Promociones</h4>
                     </a>
                 </li>
+
+
+                <li class="nav-item ">
+                    <a class="nav-link letra-gotham-black outline-vino  rounded-pill h-75 mr-3 text-center"
+                        href="<?php echo BASE_URL ?>cobertura">
+                        <h4 class="h4-responsive">Cobertura</h4>
+                    </a>
+                </li>
+
                 <li class="nav-item ">
                     <a class="nav-link letra-gotham-black outline-vino  rounded-pill h-75 mr-3 text-center"
                         href="<?php echo BASE_URL ?>contacto">

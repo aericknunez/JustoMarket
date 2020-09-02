@@ -23,6 +23,9 @@ elseif(isset($_GET["faq"])) include_once 'system/documentos/preguntas.php';
 
 elseif(isset($_GET["terminos"])) include_once 'system/documentos/terminos.php';
 
+elseif(isset($_GET["cobertura"])) include_once 'system/documentos/cobertura.php';
+
+
 
 else{
 
