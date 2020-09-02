@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <h4 class="vino"><strong>ZONAS DE COBERTURA</strong></h4>
 
-<iframe src="https://www.google.com/maps/d/embed?mid=1Fuj189S0eINiEGotbtceG7y2MEPZCZk5" width="100%" height="100%"></iframe>
+<iframe src="https://www.google.com/maps/d/embed?mid=1Fuj189S0eINiEGotbtceG7y2MEPZCZk5" width="640" height="480"></iframe>
 
 
 </div>
