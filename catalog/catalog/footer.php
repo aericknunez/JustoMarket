@@ -1,3 +1,22 @@
+<div class="fixed-action-btn" style="bottom: 10px; right: 10px;">
+    <a id="mcarrito" class="btn-floating btn-md bg-vino waves-effect waves-light">
+      <i class="fas fa-shopping-cart"></i>
+    </a>
+  </div>
+
+<!-- <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-lg red waves-effect waves-light">
+      <i class="fas fa-pencil-alt"></i>
+    </a>
+
+    <ul class="list-unstyled">
+      <li><a class="btn-floating red waves-effect waves-light"><i class="fas fa-star"></i></a></li>
+      <li><a class="btn-floating yellow darken-1 waves-effect waves-light"><i class="fas fa-user"></i></a></li>
+      <li><a class="btn-floating green waves-effect waves-light"><i class="fas fa-envelope"></i></a></li>
+      <li><a class="btn-floating blue waves-effect waves-light"><i class="fas fa-shopping-cart"></i></a></li>
+    </ul>
+  </div> -->
+
  <!-- Footer -->
         <footer class="page-footer font-small blue-grey lighten-5">
 
