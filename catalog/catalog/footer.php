@@ -36,7 +36,7 @@
 
                         <!-- Grid column -->
                         <div class="col-md-4  text-center text-md-right mb-4 mb-md-0">
-                            <a href="?faq">Preguntas Frecuentes</a> -  <a href="?terminos">Términos y Condiciones</a>
+                            <a href="?faq" target="_blank">Preguntas Frecuentes</a> -  <a href="?terminos" target="_blank">Términos y Condiciones</a>
                         </div>
                         <!-- Grid column -->
 

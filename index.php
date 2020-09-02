@@ -15,6 +15,6 @@ if ($seslog->login_check() == TRUE) {
 
     include_once 'catalog/index.php';
 }
-print_r($_SESSION);
+// print_r($_SESSION);
 $db->close();
 ?>

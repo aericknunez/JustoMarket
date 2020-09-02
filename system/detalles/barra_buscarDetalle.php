@@ -11,9 +11,9 @@
 
       <nav class="navbar navbar-light   z-depth-0 pt-3">
         <div>
-          <a class="grey-text letra-gotham-light" href="<?php echo BASE_URL ?>">Inicio -</a>
-          <a class="grey-text letra-gotham-light" >CategoriaSeleccionada -</a>
-          <a class="grey-text letra-gotham-light" >Cebolla</a>
+<!--           <a class="grey-text letra-gotham-light" href="<?php echo BASE_URL ?>">Inicio </a>           
+          <a class="grey-text letra-gotham-light" >- CategoriaSeleccionada -</a>
+          <a class="grey-text letra-gotham-light" >Cebolla</a> -->
         </div>
         <form class="form-inline my-1">
           <div class="input-group form-lg form-2 pl-0">

@@ -108,9 +108,15 @@ if(count($datos["productos"])){
 
 $rand = rand(1,99);
 
+if($datos["productos"][$i]["imagen"] != NULL){
+  $img = URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["productos"][$i]["imagen"];
+} else {
+  $img = 'assets/img/productos/producto.png';
+}
+
 echo '<tr>
                 <th scope="row">
-                  <img src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["productos"][$i]["imagen"].'" alt="" class="img-fluid z-depth-0">
+                  <img src="'. $img .'" alt="" class="img-fluid z-depth-0">
                 </th>
                 
                 <td>
