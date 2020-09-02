@@ -64,12 +64,12 @@ $rand = rand(1,99);
         // echo '<span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
  
   echo '<a class="waves-effect waves-light" href="'.BASE_URL.'detalle/'.$datos["productos"][$i]["cod"].'/'.Helpers::FormatearTexto($datos["productos"][$i]["descripcion"]).'">
-          <img class="card-img-top p-3" src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["productos"][$i]["imagenes"][0].'"
+          <img class="card-img-top p-3" src="'.URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["productos"][$i]["imagenes"][0] .'"
             alt="Card image cap"></a>
         <div class="card-body">
           <div class="row">
             <div class="col text-center">
-              <h3 class="h3-responsive" style="font-family: Gotham-Light;">'.$datos["productos"][$i]["descripcion"].'</h3>
+              <h5 class="h5-responsive" style="font-family: Gotham-Light;">'.$datos["productos"][$i]["descripcion"].'</h5>
             </div>
           </div>
 

@@ -118,17 +118,13 @@ public function ObtenerData($url){
 
 	$datos = json_decode($jsondata, true); 
 
-if($datos["imagenes"][0] != NULL){
-  $img = URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["imagenes"][0];
-} else {
-  $img = 'assets/img/productos/producto.png';
-}
+
 
 	$total = $datos["precio"] * $cantidad;
 		echo '<div class="row">
 
 		<div class="col-12 col-md-4">
-			<img src="'. $img .'"
+			<img src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["imagenes"][0] .'"
 		            class="img-fluid">
 		</div>
 		<div class="col-12 col-md-8">

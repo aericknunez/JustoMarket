@@ -103,30 +103,52 @@ $('[data-toggle="popover-click"]').popover({
               $("a[btniden='"+ lugar +''+ cod +"']").html('<h6 class="h5-responsive letra-gotham-light mt-0 pt-0">Añadir a <br>Carrito <i class="fa fa-shopping-cart" aria-hidden="true"></i></h6>').removeClass('disabled');           
              } else {
               $("a[btniden='"+ cod +"']").html('<i class="fa fa-shopping-cart" aria-hidden="true"></i>').removeClass('disabled');           
-             }        
-                RegresoCard(cod, cantidad);
+             }    
+
+                RegresoCard();
+                // RegresoCard(cod, cantidad);
             }
         });
     }
 
-
-function RegresoCard(cod, cantidad){
-  $('#ModalCardSuccess').modal('show');
-    
-    var dataString = 'op=21&cod=' + cod + '&cantidad=' + cantidad;
-    $.ajax({
-            type: "POST",
-            url: "https://justomarket.com/application/src/routes.php",
-            data: dataString,
-            beforeSend: function () {
-               $("#resultadomodal").html('<div class="row justify-content-center" ><img src="https://justomarket.com/assets/img/loa.gif" alt=""></div>');
-            },
-            success: function(data) {            
-               $("#resultadomodal").html(data); // muestra el resultado en el modal
-               LoadTotal(); // carga total del carrito  
-            }
-        });  
+function RegresoCard(){
+          toastr.success("Su producto ha sido agregado a su pedido", "Producto Agregado", {
+              "closeButton": true,
+              "debug": false,
+              "newestOnTop": true,
+              "progressBar": false,
+              "positionClass": "md-toast-bottom-right", 
+              "preventDuplicates": true,
+              "onclick": null,
+              "showDuration": 100,
+              "hideDuration": 100,
+              "timeOut": 2000,
+              "extendedTimeOut": 1000,
+              "showEasing": "swing",
+              "hideEasing": "linear",
+              "showMethod": "fadeIn",
+              "hideMethod": "fadeOut"
+            });
 }
+
+
+// function RegresoCard(cod, cantidad){
+//   $('#ModalCardSuccess').modal('show');
+    
+//     var dataString = 'op=21&cod=' + cod + '&cantidad=' + cantidad;
+//     $.ajax({
+//             type: "POST",
+//             url: "https://justomarket.com/application/src/routes.php",
+//             data: dataString,
+//             beforeSend: function () {
+//                $("#resultadomodal").html('<div class="row justify-content-center" ><img src="https://justomarket.com/assets/img/loa.gif" alt=""></div>');
+//             },
+//             success: function(data) {            
+//                $("#resultadomodal").html(data); // muestra el resultado en el modal
+//                LoadTotal(); // carga total del carrito  
+//             }
+//         });  
+// }
 
 
 

@@ -105,21 +105,17 @@ echo '<figure class="col-md-3 d-md-inline-block d-none d-sm-block border-right b
     }
     
         // echo '<span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
- if($datos["productos"][$i]["imagenes"][0] != NULL){
-  $img = URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["productos"][$i]["imagenes"][0];
-} else {
-  $img = 'assets/img/productos/producto.png';
-}
 
-  echo '<img src="'. $img .'"
+
+  echo '<img src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["productos"][$i]["imagenes"][0] .'"
             class="img-fluid">
         </a>
 
                     <div class="card-body">
                 <div class="row" style="height: 150px;">
                     <div class="col text-center h-100">
-                        <h3 class="h3-responsive"
-                            style="font-family: Gotham-Light;">'.$datos["productos"][$i]["descripcion"].'</h3>
+                        <h5 class="h5-responsive"
+                            style="font-family: Gotham-Light;">'.$datos["productos"][$i]["descripcion"].'</h5>
                     </div>
                 </div>
 

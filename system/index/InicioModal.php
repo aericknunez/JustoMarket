@@ -56,12 +56,8 @@ echo '<div class="carousel-inner" role="listbox">';
 		echo '<div class="carousel-item">';
 		}
 
- if($datos["imagenes"][$i] != NULL){
-  $img = URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["imagenes"][$i];
-} else {
-  $img = 'assets/img/productos/producto.png';
-}
-		echo '<img class="d-block w-100" src="'. $img .'"
+
+		echo '<img class="d-block w-100" src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["imagenes"][$i] .'"
 	         alt="Third slide">';
 		echo '</div>';
 
@@ -91,13 +87,9 @@ echo '<ol class="carousel-indicators">';
 	for ($i = 0; $i < count($datos["imagenes"]); $i++){
 		if($i == 0){ $c = 'class="active"';	 } else { $c = ''; }
 
- if($datos["imagenes"][$i] != NULL){
-  $img = URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["imagenes"][$i];
-} else {
-  $img = 'assets/img/productos/producto.png';
-}
+
 		echo '<li data-target="#carousel-thumb-modal2" data-slide-to="'.$i.'" '.$c.'>
-		      <img src="'. $img .'" width="100">
+		      <img src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["imagenes"][$i] .'" width="100">
 		    </li>';
 	}
 
@@ -258,14 +250,10 @@ echo '<figure class="col-md-4 d-md-inline-block border-right border-left">';
 echo '<figure class="col-md-4 d-md-inline-block d-none d-sm-block border-right border-left">';
 }
 
- if($datos["productos"][$i]["imagenes"][0] != NULL){
-  $img = URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["productos"][$i]["imagenes"][0];
-} else {
-  $img = 'assets/img/productos/producto.png';
-}
+
 
   echo '<a class="waves-effect waves-light" id="xproducto" cod="'.$datos["productos"][$i]["cod"].'">
-          <img src="'. $img .'"
+          <img src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["productos"][$i]["imagenes"][0] .'"
             class="img-fluid">
         </a>';
 
@@ -278,8 +266,8 @@ echo '<figure class="col-md-4 d-md-inline-block d-none d-sm-block border-right b
         echo '<div class="card-body">
                 <div class="row" style="height: 150px;">
                     <div class="col text-center h-100">
-                        <h4 class="h4-responsive"
-                            style="font-family: Gotham-Light;">'.$datos["productos"][$i]["descripcion"].'</h4>
+                        <h5 class="h5-responsive"
+                            style="font-family: Gotham-Light;">'.$datos["productos"][$i]["descripcion"].'</h5>
                     </div>
                 </div>
 

@@ -51,13 +51,8 @@ echo '<div class="carousel-inner" role="listbox">';
 		} else {
 		echo '<div class="carousel-item">';
 		}
-
-if($datos["imagenes"][$i] != NULL){
-  $img = URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["imagenes"][$i];
-} else {
-  $img = 'assets/img/productos/producto.png';
-}       
-		echo '<img class="d-block w-100" src="'.$img.'"
+       
+		echo '<img class="d-block w-100" src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["imagenes"][$i] .'"
 	         alt="Third slide">';
 		echo '</div>';
 
@@ -87,13 +82,9 @@ echo '<ol class="carousel-indicators">';
 	for ($i = 0; $i < count($datos["imagenes"]); $i++){
 		if($i == 0){ $c = 'class="active"';	 } else { $c = ''; }
 
-if($datos["imagenes"][$i] != NULL){
-  $img = URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["imagenes"][$i];
-} else {
-  $img = 'assets/img/productos/producto.png';
-}
+
 		echo '<li data-target="#carousel-thumb-modal" data-slide-to="'.$i.'" '.$c.'>
-		      <img src="'.$img.'" width="100">
+		      <img src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["imagenes"][$i] .'" width="100">
 		    </li>';
 	}
 
