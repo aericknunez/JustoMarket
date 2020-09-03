@@ -42,7 +42,7 @@ $check = new CheckOut();
                 <!-- Name -->
                 <h3 class="mb-3 font-weight-bold"><strong><?php echo $_SESSION["nombre"] ?></strong></h3>
                 <h6 class="font-weight-bold cyan-text mb-4">
-                <?php if($_SESSION["tipo"] == 1){ echo "Usario"; } else { echo "Mayorista"; } ?>
+                 <?php // if($_SESSION["tipo"] == 1){ echo "Usario"; } else { echo "Mayorista"; } ?>
 
                 </h6>
               </div>

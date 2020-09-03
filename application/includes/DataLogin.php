@@ -52,6 +52,8 @@ class Login {
 									}
 							}
 
+							Alerts::Mensajex("Inicie sesión para poder continuar","info");
+
 				   	}
 				   } else {
 				   	Alerts::Alerta("error","Error!","Email ya esta vinculado a otra cuenta!");

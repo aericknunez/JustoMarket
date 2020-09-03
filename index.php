@@ -9,12 +9,14 @@ $seslog->sec_session_start();
 
 $_SESSION["last_url"] = HOST_URL . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 
+// print_r($_SESSION);
+
 if ($seslog->login_check() == TRUE) {
     include_once 'catalog/index.php';
 } else {
 
     include_once 'catalog/index.php';
 }
-// print_r($_SESSION);
+
 $db->close();
 ?>

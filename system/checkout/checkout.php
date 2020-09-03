@@ -26,7 +26,18 @@ $check = new CheckOut();
    
     }   unset($r);  
 
-Alerts::Mensajex("<h4><strong>Datos de facturación</strong></4>","info"); ?>
+    if ($r = $db->select("municipio, tiempo", "cobertura_municipio", "WHERE id = '".$recibe_municipio."'")) {     
+        $municipio = $r["municipio"];
+        $tiempo = $r["tiempo"];
+    }   unset($r);  
+
+    if ($r = $db->select("departamento", "cobertura_departamento", "WHERE id = '".$recibe_departamento."'")) {     
+        $departamento = $r["departamento"];
+    }   unset($r);  
+
+
+
+ ?>
 
 
 
@@ -53,7 +64,7 @@ if ($seslog->login_check() == TRUE) {
 
 
 
-
+<h4 class="bg-naranja white-text text-center pt-3 pb-3"><strong>DATOS DE FACTURACIÓN</strong></h4>
  <main>
     <div class="container wow fadeIn">
       <!--Grid row-->
@@ -127,7 +138,7 @@ if ($seslog->login_check() == TRUE) {
                 <div class="col-lg-4 col-md-6 mb-4 md-form">
 
                   <label>Departamento</label>
-                  <input type="text" class="form-control" value="<?php echo $recibe_departamento; ?>" readonly>
+                  <input type="text" class="form-control" value="<?php echo $departamento; ?>" readonly>
                 </div>
                 <!--Grid column-->
 
@@ -135,7 +146,7 @@ if ($seslog->login_check() == TRUE) {
                 <div class="col-lg-4 col-md-6 mb-4 md-form">
 
                   <label>Municipio</label>
-                  <input type="text" class="form-control" value="<?php echo $recibe_municipio; ?>" readonly>
+                  <input type="text" class="form-control" value="<?php echo $municipio; ?>" readonly>
                 </div>
                 <!--Grid column-->
 
@@ -205,6 +216,14 @@ if ($seslog->login_check() == TRUE) {
                   </div>
                 </div>
               </div> -->
+
+              <hr class="mb-4">
+        <?php 
+
+        if($tiempo != NULL){
+        Alerts::Mensajex("Su orden llegará en un máximo de $tiempo","info"); }
+        ?>
+              
               <hr class="mb-4">
               <a id="mandarpedido" class="btn btn-primary bg-vino btn-lg btn-block">Terminar mi pedido</a>
 

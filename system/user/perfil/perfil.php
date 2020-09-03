@@ -20,6 +20,26 @@
     }   unset($r);  
 
 
+    if ($r = $db->select("municipio", "cobertura_municipio", "WHERE id = '".$usr_municipio."'")) {     
+        $xmunicipio = $r["municipio"];
+    }   unset($r);  
+
+    if ($r = $db->select("departamento", "cobertura_departamento", "WHERE id = '".$usr_departamento."'")) {     
+        $xdepartamento = $r["departamento"];
+    }   unset($r);  
+
+
+
+
+    if ($r = $db->select("municipio, tiempo, costo", "cobertura_municipio", "WHERE id = '".$recibe_municipio."'")) {     
+        $municipio = $r["municipio"];
+        $tiempo = $r["tiempo"];
+        $costo = $r["costo"];
+    }   unset($r);  
+
+    if ($r = $db->select("departamento", "cobertura_departamento", "WHERE id = '".$recibe_departamento."'")) {     
+        $departamento = $r["departamento"];
+    }   unset($r);  
 
  ?>
 
@@ -131,7 +151,7 @@
 <h4>Informaci&oacuten General</h4>
 <ul class="pl-2">
 <li class="linopunto"><span><strong>Fecha de Nacimientos : </strong></span><?php echo Fechas::FechaEscrita($f_nacimiento) ?></li>
-<li class="linopunto"><span><strong>Dirección : </strong></span><?php echo $usr_direccion. ", " .$usr_departamento. ", " .$usr_municipio. ", " .$usr_pais ?></li>
+<li class="linopunto"><span><strong>Dirección : </strong></span><?php echo $usr_direccion. ", " .$xmunicipio. ", " .$xdepartamento. ", " .$usr_pais ?></li>
 <li class="linopunto"><span><strong>E-mail : </strong></span><a><?php echo $_SESSION["email"]; ?></a></li>
 <li class="linopunto"><span><strong>Teléfono : </strong></span><?php echo $usr_telefono ?></li>
 </ul>
@@ -142,7 +162,7 @@
 <div class="text-left">
 <h4>Informaci&oacuten de envío</h4>
 <ul class="pl-2">
-<li class="linopunto"><span><strong>Dirección : </strong></span><?php echo $recibe_direccion. ", " .$recibe_departamento. ", " .$recibe_municipio. ", " .$usr_pais ?></li>
+<li class="linopunto"><span><strong>Dirección : </strong></span><?php echo $recibe_direccion. ", " .$municipio. ", " .$departamento. ", " .$usr_pais ?></li>
 <li class="linopunto"><span><strong>Teléfono : </strong></span><?php echo $recibe_telefono ?></li>
 <?php 
 if ($puntoreferencia != NULL) {
@@ -153,6 +173,12 @@ echo '<li class="linopunto"><span><strong>Punto de referencia : </strong></span>
 </div>
 
 <?
+
+    if($tiempo != NULL){
+   echo '<p class="bg-vino white-text text-center pt-2 pb-2 mr-1 ml-1">Todas sus órdenes llegarán en un máximo de '.$tiempo.' hasta su dirección de envío, con un costo de $' . $costo. ' Dólares</p>'; }
+   
+
+
   } else {
     Alerts::Mensajex("Aún no ha registrado sus datos de envío.","danger",'<a href="?perfil&op=2" class="btn btn-info my-4 waves-effect waves-light"">Agregar Datos</a>');
   }

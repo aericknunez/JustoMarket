@@ -46,13 +46,55 @@ $_SESSION["ver_avatar"] = NULL;
         $inicia->CrearVariables(); // reemplaza las variables de usuario
         $inicia->RegisterInOut(1); // registra la entrada
 
-        header("location: " . $_SESSION["last_url"]);
+
+        /// obtengo la ultima orden si cloncluir del servidor
+        $jsondata = $inicia->ObtenerOrdenNo(URL_SERVER . "application/src/api.php?op=28&td=" . TD_SERVER . "&usr=" . $_SESSION["user"]);   
+
+        $datos = json_decode($jsondata, true);
+        if($datos["orden"] != NULL){
+            $_SESSION["orden"] = $datos["orden"];
+            $_SESSION["usuario"] = $_SESSION['user'];
+        }
+        
+
+        /// si no tengo llenos los datos, manadar a llenarlos
+            if ($r = $db->select("*", "login_direcciones", "WHERE user = '".$_SESSION["user"]."'")) { 
+            $usr_direccion = $r["usr_direccion"];
+            $usr_municipio = $r["usr_municipio"];
+            $usr_telefono = $r["usr_telefono"];
+            $recibe_municipio = $r["recibe_municipio"];
+            }   unset($r);  
+
+
+/// CREO A LA DELIVERY
+    if ($r = $db->select("costo", "cobertura_municipio", "WHERE id = '".$recibe_municipio."'")) {     
+        $_SESSION["delivery"] = $r["costo"];
+    }   unset($r);
+
+
+
+         if($usr_direccion == NULL || $usr_municipio == NULL || $usr_telefono == NULL){
+            header("location: ".BASE_URL."?perfil&op=2&msj=1");
+         }   
+
+        /// si vengo del carrito o del check out, mandarlo a checkuot
+        else if($_SESSION["redirect_checkout"] == TRUE){
+            header("location: ".BASE_URL."?checkout");
+        }
+
+        /// sino mandarlo a la url anterior  
+        else {
+            header("location: " . $_SESSION["last_url"]);
+        }
+
 
     }
 
 
 
 UserInicio($user);
+
+
 
 } else {
    header("location: logout.php");

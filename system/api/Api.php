@@ -28,6 +28,18 @@ $data = array();
             $data["direccion"] = $b;
         } $a->close();
 
+  
+    if ($r = $db->select("municipio, costo, tiempo", "cobertura_municipio", "WHERE id = '".$data["direccion"]["recibe_municipio"]."'")) {     
+        $data["direccion"]["recibe_municipio"] = $r["municipio"];
+        $data["costo"] = $r["costo"];
+        $data["tiempo"] = $r["tiempo"];
+    }   unset($r);
+
+    if ($r = $db->select("departamento", "cobertura_departamento", "WHERE id = '".$data["direccion"]["recibe_departamento"]."'")) {     
+        $data["direccion"]["recibe_departamento"] = $r["departamento"];
+    }   unset($r);
+
+
  $data["mensaje"] = "Datos adquiridos"; 
 
 

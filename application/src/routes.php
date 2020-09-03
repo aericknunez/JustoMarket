@@ -82,7 +82,7 @@ case "21": //datalles del producto agregado (Modal)
 include_once '../../system/config/Inicio.php';
 	$ind = new Inicio();
 	$ind->DataReturnModal(URL_SERVER . "application/src/api.php?op=14&cod=".$_POST["cod"]."&td=" . TD_SERVER, $_POST["cantidad"]);
-break;
+break; 
 
 
 
@@ -96,7 +96,9 @@ include_once '../../system/config/Inicio.php';
 	$ototal = $card->ObtenerTotal(URL_SERVER . "application/src/api.php?op=22&td=" . TD_SERVER, $data);
 	$datos = json_decode($ototal, true);
 
-echo "$ " . $datos["total"];
+$total = $datos["total"] + $_SESSION["delivery"];
+
+echo "$ " . $total;
 
 break;
 
@@ -129,6 +131,19 @@ break;
 case "26": // mandar pedido (terminar)
 include_once '../../system/checkout/Inicio.php';
 include_once '../common/Email.php';
+include_once '../../system/config/Inicio.php';
+	$adddely = new Inicio();
+
+$data = array();
+$data["cod"] = 9999999; 
+$data["precio"] = $_SESSION["delivery"];
+$data["cantidad"] = 1;
+$data["usuario"] = $_SESSION["usuario"];
+$data["orden"] = $_SESSION["orden"];
+
+	$additem = $adddely->AddDelivery(URL_SERVER . "application/src/api.php?op=21&td=" . TD_SERVER, $data);
+	$datos = json_decode($additem, true);
+
 
 	$card = new CheckOut();
 	$card->MandarPedido(URL_SERVER . "application/src/api.php?op=26&td=" . TD_SERVER . "&usr=" . $_SESSION["usuario"] . "&orden=" . $_SESSION["orden"]);
@@ -145,11 +160,32 @@ break;
 
 
 
+case "28": //obtener el ultimo pedido (no es llamado de ningun lugar de momento)
+include_once '../../system/config/Inicio.php';
+	$card = new Inicio();
+	$card->ObtenerOrdenNo(URL_SERVER . "application/src/api.php?op=28&td=" . TD_SERVER . "&usr=" . $_SESSION["usuario"]);
+break;
+
+
+
 case "100": //agregar contenido a perfil
 include_once '../../system/user/Inicio.php';
 	$perfil = new Perfil();
 	$perfil->AddPerfil($_POST);
 break;
+
+
+
+case "101": //cambia el municipio
+	$a = $db->query("SELECT id, municipio FROM cobertura_municipio WHERE departamento = '".$_POST["id"]."'");
+      echo '<option selected disabled>* Seleccione</option>';
+      foreach ($a as $b) {  
+
+       echo '<option value="'. $b["id"] .'">'. $b["municipio"] .'</option>'; 
+          
+      } $a->close(); 
+break;
+
 
 
 

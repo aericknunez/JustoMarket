@@ -316,7 +316,7 @@ public static function UpdateId($tabla, $dato, $condicion){
    static public function SelectData($select, $tabla, $iden, $nombre, $selected = NULL) { // NOmbre, tabla, iden = hash nombre= listado
     $db = new dbConn();
 
-      $a = $db->query("SELECT $iden, $nombre FROM $tabla WHERE td = ".$_SESSION["td"]."");
+      $a = $db->query("SELECT $iden, $nombre FROM $tabla");
       echo '<option selected disabled>'.$select.'</option>';
       foreach ($a as $b) {  
 
@@ -339,7 +339,7 @@ public static function UpdateId($tabla, $dato, $condicion){
    $selected = NULL) { // NOmbre, tabla, iden = hash nombre= listado
     $db = new dbConn();
 
-      $a = $db->query("SELECT $iden, $nombre FROM $tabla WHERE td = ".$_SESSION["td"]."");
+      $a = $db->query("SELECT $iden, $nombre FROM $tabla");
       echo '<option selected disabled>'.$select.'</option>';
       foreach ($a as $b) {  
         echo '<optgroup label="'.$b[$nombre].'">';

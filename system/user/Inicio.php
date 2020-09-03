@@ -54,12 +54,30 @@ class Perfil{
                 if ($db->insert("login_direcciones", $data)) {
 
                     Alerts::Alerta("success","Realizado!","Registro realizado correctamente!");  
+
+/// CREO A LA DELIVERY
+if ($r = $db->select("costo", "cobertura_municipio", "WHERE id = '".$datos["recibe_municipio"]."'")) {     
+    $_SESSION["delivery"] = $r["costo"];
+}   unset($r);
+
                 }
 
         } else {
           Alerts::Alerta("error","Error!","Faltan Datos!");
         }
-        print_r($datos);
+
+      sleep(1);
+      /// si vengo del carrito o del check out, mandarlo a checkuot
+        if($_SESSION["redirect_checkout"] == TRUE){
+                echo '<script>
+                        window.location.href="'.BASE_URL.'?checkout"
+                      </script>';
+        } else {
+                echo '<script>
+                        window.location.href="'.BASE_URL.'?perfil"
+                      </script>';
+        }
+
   }
 
 
@@ -84,9 +102,11 @@ class Perfil{
                 $data["puntoreferencia"] = $datos["puntoreferencia"];
               if ($db->update("login_direcciones", $data, "WHERE user = '".$_SESSION["user"]."'")) {
                   Alerts::Alerta("success","Realizado!","Cambio realizado exitsamente!");
-                  // echo '<script>
-                  //       window.location.href="?clientever"
-                  //     </script>';
+/// CREO A LA DELIVERY
+if ($r = $db->select("costo", "cobertura_municipio", "WHERE id = '".$datos["recibe_municipio"]."'")) {     
+$_SESSION["delivery"] = $r["costo"];
+}   unset($r);
+
               } else {
               	Alerts::Alerta("error","Error!","Algo Ocurrió!");
               }          
@@ -94,6 +114,19 @@ class Perfil{
       } else {
         Alerts::Alerta("error","Error!","Faltan Datos!");
       }
+
+      sleep(1);
+      
+      /// si vengo del carrito o del check out, mandarlo a checkuot
+        if($_SESSION["redirect_checkout"] == TRUE){
+                echo '<script>
+                        window.location.href="'.BASE_URL.'?checkout"
+                      </script>';
+        }  else {
+                echo '<script>
+                        window.location.href="'.BASE_URL.'?perfil"
+                      </script>';
+        }
   }
 
 

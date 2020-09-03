@@ -138,6 +138,11 @@ echo '<table class="table table-sm">
 echo '</tbody>
 </table>';
 
+if($datos["ordenes"][$i]["edo"] == 1){
+ echo '<a href="?checkout" class="btn btn-primary btn-lg">Finzalizar Pedido</a>';
+}
+
+
   echo '</div>
     </div>
 

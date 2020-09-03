@@ -20,17 +20,21 @@
     }   unset($r);  
 
 
-
  ?>
  <div id="msj"></div>
-
-
 <div class="card card-cascade cascading-admin-card user-card">
 
   <div class="admin-up d-flex justify-content-start ml-3 mt-4">
       <h5 class="font-weight-bold dark-grey-text"><i class="fas fa-users"></i> Datos Personales - <span class="text-muted">Agregue su direcci&oacuten</span></h5>
   </div>
- 
+ <?php 
+
+ if($_GET["msj"] == 1){
+  echo '<div class="text-center white-text bg-vino">Por favor ingrese sus datos</div>';
+ }
+
+  ?>
+
   <div class="card-body card-body-cascade">
 
 <form name="form-perfil" method="post" id="form-perfil">
@@ -120,8 +124,24 @@
       <div class="col-lg-4 col-md-6">
 
         <div class="md-form form-sm mb-0">
-          <input type="text" id="recibe_departamento" name="recibe_departamento" class="form-control form-control-sm" value="<?php echo $recibe_departamento ?>">
-          <label for="recibe_departamento" class="">Departamento</label>
+
+        <select class="browser-default custom-select md-form form-sm mb-0" id="recibe_departamento" name="recibe_departamento">
+      <?php 
+
+                $a = $db->query("SELECT id, departamento FROM cobertura_departamento");
+                  echo '<option>* Seleccione</option>';
+                  foreach ($a as $b) {  
+
+                      if($recibe_departamento == $b["id"]){
+                          echo '<option value="'. $b["id"] .'" selected >'. $b["departamento"] .'</option>'; 
+                      } else {
+                          echo '<option value="'. $b["id"] .'">'. $b["departamento"] .'</option>'; 
+                      }
+
+                  } $a->close(); 
+
+       ?>
+      </select>
         </div>
 
       </div>
@@ -129,8 +149,23 @@
       <div class="col-lg-4 col-md-6">
 
         <div class="md-form form-sm mb-0">
-          <input type="text" id="recibe_municipio" name="recibe_municipio" class="form-control form-control-sm" value="<?php echo $recibe_municipio ?>">
-          <label for="recibe_municipio" class="">Municipio</label>
+         <select class="browser-default custom-select md-form form-sm mb-0" id="recibe_municipio" name="recibe_municipio">
+          <?php 
+
+                $a = $db->query("SELECT id, municipio FROM cobertura_municipio WHERE departamento = '".$recibe_departamento."'");
+                  echo '<option>* Seleccione</option>';
+                  foreach ($a as $b) {  
+
+                      if($recibe_municipio == $b["id"]){
+                          echo '<option value="'. $b["id"] .'" selected >'. $b["municipio"] .'</option>'; 
+                      } else {
+                          echo '<option value="'. $b["id"] .'">'. $b["municipio"] .'</option>'; 
+                      }
+
+                  } $a->close(); 
+           ?>
+        </select>
+
         </div>
 
       </div>
@@ -144,7 +179,7 @@
       <div class="col-md-9">
 
         <div class="md-form form-sm mb-0">
-          <input type="text" id="recibe_nombre" name="recibe_nombre" class="form-control form-control-sm" value="<?php echo $recibe_telefono ?>">
+          <input type="text" id="recibe_nombre" name="recibe_nombre" class="form-control form-control-sm" value="<?php echo $recibe_nombre ?>">
           <label for="recibe_nombre" class="">Nombre de la persona que recibe el pedido</label>
         </div>
 
@@ -182,7 +217,7 @@
             <label>
              Mi dirección es igual a la dirección de envío ||  NO
               <input type="checkbox" id="conf_direccion" name="conf_direccion" <?php 
-              if ($usr_direccion == $recibe_direccion) {
+              if ($usr_direccion != NULL and ($usr_direccion == $recibe_direccion)) {
                echo 'checked="checked"';
               } ?> >
               <span class="lever bg-vino"></span> SI 
@@ -222,8 +257,23 @@
       <div class="col-lg-4 col-md-6">
 
         <div class="md-form form-sm mb-0">
-          <input type="text" id="usr_departamento" name="usr_departamento" class="form-control form-control-sm" value="<?php echo $usr_departamento ?>">
-          <label for="form8" class="">Departamento</label>
+          <select class="browser-default custom-select md-form form-sm mb-0" id="usr_departamento" name="usr_departamento">
+      <?php 
+
+                $a = $db->query("SELECT id, departamento FROM cobertura_departamento");
+                  echo '<option>* Seleccione</option>';
+                  foreach ($a as $b) {  
+
+                      if($usr_departamento == $b["id"]){
+                          echo '<option value="'. $b["id"] .'" selected >'. $b["departamento"] .'</option>'; 
+                      } else {
+                          echo '<option value="'. $b["id"] .'">'. $b["departamento"] .'</option>'; 
+                      }
+
+                  } $a->close(); 
+
+       ?>
+      </select>
         </div>
 
       </div>
@@ -231,8 +281,22 @@
       <div class="col-lg-4 col-md-6">
 
         <div class="md-form form-sm mb-0">
-          <input type="text" id="usr_municipio" name="usr_municipio" class="form-control form-control-sm" value="<?php echo $usr_municipio ?>">
-          <label for="usr_municipio" class="">Municipio</label>
+          <select class="browser-default custom-select md-form form-sm mb-0" id="usr_municipio" name="usr_municipio">
+          <?php 
+
+                $a = $db->query("SELECT id, municipio FROM cobertura_municipio WHERE departamento = '".$usr_departamento."'");
+                  echo '<option>* Seleccione</option>';
+                  foreach ($a as $b) {  
+
+                      if($usr_municipio == $b["id"]){
+                          echo '<option value="'. $b["id"] .'" selected >'. $b["municipio"] .'</option>'; 
+                      } else {
+                          echo '<option value="'. $b["id"] .'">'. $b["municipio"] .'</option>'; 
+                      }
+
+                  } $a->close(); 
+           ?>
+        </select>
         </div>
 
       </div>

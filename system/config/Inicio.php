@@ -93,6 +93,23 @@ public function ObtenerData($url){
 
 
 
+	public function AddDelivery($url, $data){
+		$ch = curl_init($url);
+		 
+		curl_setopt ($ch, CURLOPT_POST, 1);
+		//le decimos qué paramáetros enviamos (pares nombre/valor, también acepta un array)
+		curl_setopt ($ch, CURLOPT_POSTFIELDS, $data);
+		//le decimos que queremos recoger una respuesta (si no esperas respuesta, ponlo a false)
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+		//recogemos la respuesta
+		$respuesta = curl_exec($ch);
+		$error = curl_error($ch);
+		curl_close ($ch);
+
+		return $respuesta;
+	}
+
+
 
 	public function ObtenerTotal($url, $data){
 		$ch = curl_init($url);
@@ -109,6 +126,23 @@ public function ObtenerData($url){
 
 		return $respuesta;
 	}
+
+
+
+
+public function ObtenerOrdenNo($url){
+
+    $response = array();
+
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    $response = curl_exec($ch);
+
+    curl_close($ch);
+
+    return $response;
+}
 
 
 
@@ -158,7 +192,10 @@ public function ObtenerData($url){
 
 
 	public function ContenidoCarrito($url){
+
+
 	$jsondata = $this->ObtenerData($url);
+
 
 	$datos = json_decode($jsondata, true); 
 
@@ -185,37 +222,48 @@ if(count($datos["productos"])){
             <td colspan="2">
                 <h6 class=" mt-2 letra-gotham-bold grey-text">
                     SubTotal
-                    <br>
-                    <br>
-                    Delivery
-                </h6>
+                    <br>';
+                    if($_SESSION["delivery"] != NULL){
+                      echo '<br>
+                    Delivery';
+                    }
+                    
+         echo '</h6>
             </td>
             <td>
                 <h6 class="mt-2 letra-gotham-bold grey-text">
                     '. Helpers::Dinero($total) .'
-                    <br>
-                    <br>
-                    '. Helpers::Dinero(0) .'
-                </h6>
+                    <br>';
+
+                    if($_SESSION["delivery"] != NULL){
+                    echo '<br>
+                    '. Helpers::Dinero($_SESSION["delivery"]);
+                	}
+            echo '</h6>
             </td>
         </tr>
 
         <tr class="total">
         <tr>
             <td colspan="2">
-                <h6 class="mt-1 letra-gotham-bold grey-text">
+                <h6 class="mt-1 letra-gotham-bold black-text">
                     Total
                 </h6>
             </td>
             <td>
-                <h6 class="mt-1 letra-gotham-bold grey-text" id="Total">
-                '. Helpers::Dinero($total) .'                            
+                <h6 class="mt-1 letra-gotham-bold black-text" id="Total">
+                '. Helpers::Dinero($_SESSION["delivery"] + $total) .'                            
                 </h6>
             </td>
         </tr>
         </tr>';
 echo '</tbody>
 </table>';
+
+if($_SESSION["delivery"] == NULL){
+echo '<p class="text-center bg-naranja white-text pt-1 pb-1 rounded">Inicie sesión para conocer el cargo de delivery</p>';
+}
+
 
 } else {
 	echo '<div class="col-12 text-center">

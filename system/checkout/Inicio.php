@@ -156,6 +156,8 @@ echo '<tr>
 
               </tr>';
 
+
+
 		$total = $total + $datos["productos"][$i]["total"];
 	}
     
@@ -170,7 +172,7 @@ echo '<tr>
 
                 <td class="text-center">
                   <h4 class="mt-2">
-                    <strong><div id="carttotal">'. Helpers::Dinero($total) .'</div></strong>
+                    <strong><div id="carttotal">'. Helpers::Dinero($total + $_SESSION["delivery"]) .'</div></strong>
                   </h4>
                 </td>
 
@@ -258,10 +260,19 @@ echo '<h4 class="d-flex justify-content-between align-items-center mb-3">
       $total = $total + $datos["productos"][$i]["total"];      
    }
 
+if($_SESSION["delivery"] != NULL){
+     echo '<li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">DELIVERY</h6>
+              </div>
+              <span class="text-muted">'.Helpers::Dinero($_SESSION["delivery"]).'</span>
+            </li>';
+}
+
 
      echo '<li class="list-group-item d-flex justify-content-between">
               <span>Total (USD)</span>
-              <strong>'. Helpers::Dinero($total) .'</strong>
+              <strong>'. Helpers::Dinero($total + $_SESSION["delivery"]) .'</strong>
             </li>
           </ul>
           <!-- Cart -->';
