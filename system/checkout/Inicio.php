@@ -194,7 +194,7 @@ echo '<tr>
 
                  if($_SESSION["user"]){
 
-                  if($cant_minima < $tot){
+                  if($cant_minima < $total){
                     echo '<a href="?checkout" class="btn bg-vino white-text btn-rounded">Completar la compra
                         <i class="fas fa-angle-right right"></i>
                       </a>';
@@ -223,8 +223,8 @@ echo '<tr>
 
     </div>';
 
-    if($cant_minima > $tot){
-      echo '<div class="bg-naranja pt-3 pb-3 white-text text-center">La cantidad minima de su compra debe ser ' . Helpers::Dinero($cant_minima) . ' y de momento solo tiene en el carrito ' . Helpers::Dinero($tot) . ' continúe comprando para poder procesar su pedido </div>';
+    if($cant_minima > $total){
+      echo '<div class="bg-naranja pt-3 pb-3 white-text text-center">La cantidad minima de su compra debe ser ' . Helpers::Dinero($cant_minima) . ' y de momento solo tiene en el carrito ' . Helpers::Dinero($total) . ' continúe comprando para poder procesar su pedido </div>';
 
     echo '<div class="text-center"><a id="continuarcomprando" class="btn bg-vino white-text btn-rounded">continuar comprando <i class="fas fa-cart-arrow-down"></i></a></div>';
     }

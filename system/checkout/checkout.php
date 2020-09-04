@@ -178,7 +178,7 @@ if ($seslog->login_check() == TRUE) {
   $datax = json_decode($ototal, true);
 
 if($datax["total"] != NULL){
-  $total = $datax["total"] + $_SESSION["delivery"];
+  $total = $datax["total"];
 }
 
 if($cant_minima < $total){
