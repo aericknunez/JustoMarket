@@ -110,7 +110,7 @@ style="-webkit-font-smoothing: antialiased; width: 100% !important; -webkit-text
             <td width="6.25%" valign="middle" style="border: none; margin: 0px; padding: 0px; width: 6.25%;"></td>
             <td valign="middle" style="border: none; margin: 0px; padding: 0px;">
                 <a href="https://justomarket.com" style="border: none; margin: 0px; padding: 0px; text-decoration: none;"><img class="logo" src="https://justomarket.com/assets/Logo/logopequeno.png"
-                        width="122" height="37" alt="" style="border: none; margin: 0px; padding: 0px; display: block; max-width: 100%; width: 122px; height: 37px;"></a>
+                        width="122" alt="" style="border: none; margin: 0px; padding: 0px; display: block; max-width: 100%; width: 122px; height: auto;"></a>
             </td>
             <td width="6.25%" valign="middle" 
             style="border: none; margin: 0px; padding: 0px; width: 6.25%;"></td>
@@ -250,7 +250,7 @@ Este mensaje fué enviado el '. Fechas::FechaEscrita(date("d-m-Y")) .' a las'. d
         <tr valign="middle" style="border: none; margin: 0px; padding: 0px;">
             <td valign="middle" style="border: none; margin: 0px; padding: 0px; width: 6.25%;"></td>
             <td valign="middle" style="border: none; margin: 0px; padding: 0px;"><img class="footer-logo" src="https://justomarket.com/assets/Logo/logopequeno.png"
-                    width="77" height="23" alt="" style="border: none; margin: 0px; padding: 0px; display: block; max-width: 100%; width: 77px; height: 23px;"></td>
+                    alt="" style="border: none; margin: 0px; padding: 0px; display: block; max-width: 100%; width: 77px; height: auto;"></td>
             <td valign="middle" style="border: none; margin: 0px; padding: 0px; width: 6.25%;"></td>
         </tr>
 
@@ -258,7 +258,7 @@ Este mensaje fué enviado el '. Fechas::FechaEscrita(date("d-m-Y")) .' a las'. d
 
     </tbody>
 </table>
-<p> Tel&eacutefono
+<p> Teléfono
 2421 0140 ||  
 WhatsApp
 (+503) 77343433</p>
