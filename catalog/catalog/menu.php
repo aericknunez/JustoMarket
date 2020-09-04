@@ -2,7 +2,7 @@
 <!--Navbar -->
 <div class="container-fluid">
 
-<nav class="mb-1 navbar navbar-dark navbar-expand-sm bg-naranja info-color z-depth-0">
+<nav class="mb-1 navbar navbar-dark navbar-expand-sm bg-naranja info-color z-depth-0 bordeado3">
 
     <button class="navbar-toggler" type="button" data-toggle="collapse"
         data-target="#navbarNav" aria-controls="navbarSupportedContent-4"

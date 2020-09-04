@@ -1,5 +1,5 @@
     <section>
-      <div class="container bg-verde text-center p-4">
+      <div class="container bg-verde text-center p-4 bordeado2">
         <h1 class="letra-gotham-black white-text w-100">PROMOCIONES!!</h1>
       </div>
     </section>

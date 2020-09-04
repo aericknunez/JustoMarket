@@ -1,3 +1,7 @@
+     <div class="container bg-verde text-center p-4 bordeado2 mb-4">
+        <h1 class="letra-gotham-black white-text w-100">CONTACTO</h1>
+      </div>
+
 <!-- Start your project here-->
 <div class="container my-5">
 
@@ -24,6 +28,8 @@
 
             <!-- Header -->
             <h3 class="font-weight-bold dark-grey-text mt-4"><i class="fas fa-envelope pr-2 mr-1"></i>Contacto</h3>
+
+            Si tienes alguna duda o consulta no dudes en contactarnos
 
             <!-- Grid row -->
             <div class="row">
