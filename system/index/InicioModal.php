@@ -254,7 +254,7 @@ echo '<figure class="col-md-4 d-md-inline-block d-none d-sm-block border-right b
 
   echo '<a class="waves-effect waves-light" id="xproducto" cod="'.$datos["productos"][$i]["cod"].'">
           <img src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["productos"][$i]["imagenes"][0] .'"
-            class="img-fluid">
+            class="img-fluid imgproductos">
         </a>';
 
     if($datos["productos"][$i]["promocion"] == "on"){
