@@ -8,10 +8,10 @@ $(document).ready(function(){
             var dataString = 'op=24&iden=' + iden;
             $.ajax({
             type: "POST",
-            url: "https://justomarket.com/application/src/routes.php",
+            url: "http://localhost/justomarket/application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#contenidocart").html('<div class="row justify-content-center" ><img src="https://justomarket.com/assets/img/loa.gif" alt=""></div>');
+               $("#contenidocart").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
             },
             success: function(data) {             
                 ContenidoCart();
@@ -28,10 +28,10 @@ function ContenidoCart(){
             var dataString = 'op=25';
             $.ajax({
             type: "POST",
-            url: "https://justomarket.com/application/src/routes.php",
+            url: "http://localhost/justomarket/application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#contenidocart").html('<div class="row justify-content-center" ><img src="https://justomarket.com/assets/img/loa.gif" alt=""></div>');
+               $("#contenidocart").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
             },
             success: function(data) {            
                 $("#contenidocart").html(data); // lo que regresa de la busquea     
@@ -88,7 +88,7 @@ ContenidoCart();
     var dataString = 'op=20&cod=' + cod + '&cantidad=' + cantidad;
     $.ajax({
             type: "POST",
-            url: "https://justomarket.com/application/src/routes.php",
+            url: "http://localhost/justomarket/application/src/routes.php",
             data: dataString,
             beforeSend: function () {
                 $('#' + rand + 'monto' + cod).html('<i class="fas fa-spinner fa-pulse"></i>');
@@ -96,8 +96,8 @@ ContenidoCart();
             },
             success: function(data) { 
                 $('#' + rand + 'monto' + cod).html("$" + monto);
-                $("#carttotal").load('https://justomarket.com/application/src/routes.php?op=22');
-                $("#totalcarrito").load('https://justomarket.com/application/src/routes.php?op=22');
+                $("#carttotal").load('http://localhost/justomarket/application/src/routes.php?op=22');
+                $("#totalcarrito").load('http://localhost/justomarket/application/src/routes.php?op=22');
             }
         });
     }

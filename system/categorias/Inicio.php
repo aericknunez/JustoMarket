@@ -68,7 +68,7 @@ $rand = rand(1,99);
             alt="Card image cap"></a>
         <div class="card-body">
           <div class="row">
-            <div class="col text-center">
+            <div class="col text-center" style="height: 100px;">
               <h5 class="h5-responsive" style="font-family: Gotham-Light;">'.$datos["productos"][$i]["descripcion"].'</h5>
             </div>
           </div>

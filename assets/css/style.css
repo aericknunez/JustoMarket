@@ -181,3 +181,10 @@ height:100%;
 width:100%;
 position:absolute;
 }
+
+
+
+/*/ imagen de detacados*/
+.img-detacados{
+  max-height: 400px;
+}
