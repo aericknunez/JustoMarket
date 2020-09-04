@@ -400,4 +400,13 @@ ProductosDestacados();
 
 
 
+
+
+
+    $("body").on("click","#vercobertura",function(){ 
+        $('#ModalCobertura').modal('show');
+    });
+
+
+
 });

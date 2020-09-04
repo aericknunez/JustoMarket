@@ -31,10 +31,11 @@
 
 
 
-    if ($r = $db->select("municipio, tiempo, costo", "cobertura_municipio", "WHERE id = '".$recibe_municipio."'")) {     
+    if ($r = $db->select("municipio, tiempo, costo, cant_minima", "cobertura_municipio", "WHERE id = '".$recibe_municipio."'")) {     
         $municipio = $r["municipio"];
         $tiempo = $r["tiempo"];
         $costo = $r["costo"];
+        $cant_minima = $r["cant_minima"];
     }   unset($r);  
 
     if ($r = $db->select("departamento", "cobertura_departamento", "WHERE id = '".$recibe_departamento."'")) {     
@@ -175,7 +176,12 @@ echo '<li class="linopunto"><span><strong>Punto de referencia : </strong></span>
 <?
 
     if($tiempo != NULL){
-   echo '<p class="bg-vino white-text text-center pt-2 pb-2 mr-1 ml-1">Todas sus órdenes llegarán en un máximo de '.$tiempo.' hasta su dirección de envío, con un costo de $' . $costo. ' Dólares</p>'; }
+   echo '<p class="bg-vino white-text text-center pt-2 pb-2 mr-1 ml-1">Todas sus órdenes llegarán en un máximo de '.$tiempo.' hasta su dirección de envío, con un costo de ' . Helpers::Dinero($costo). ' Dólares</p>';
+
+   echo '<p class="bg-naranja white-text text-center pt-2 pb-2 mr-1 ml-1">Para un mejor servicio, la cantidad mínima de compra es de '.Helpers::Dinero($cant_minima).' Dólares</p>';
+
+
+    }
    
 
 

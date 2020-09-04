@@ -90,7 +90,7 @@
 
 <h4 class="mt-3">Dirección de envio</h4>
 <div class="alert alert-danger" role="alert">
-  <strong>Importante:</strong> La dirección de envío debe estar en el rango establecido por la empresa. Revise el listado de ciudades cubiertas <a >Aqui</a>
+  <strong>Importante:</strong> La dirección de envío debe estar en el rango establecido por la empresa. Revise el listado de ciudades cubiertas <a id="vercobertura">Aqui</a>
 </div>
 
 <div class="row">
@@ -307,7 +307,8 @@
 
 
 <div class="row d-flex float-right">
-    <button class="btn btn-info my-4" type="submit" id="btn-perfil" name="btn-perfil">Guardar</button>
+    <button class="btn bg-vino white-text my-4 z-depth-2" type="submit" id="btn-perfil" name="btn-perfil">
+      <i class="far fa-save"></i> Guardar </button>
  </form>
 </div>
 

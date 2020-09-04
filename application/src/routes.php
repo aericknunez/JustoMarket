@@ -140,10 +140,17 @@ include_once '../../system/config/Inicio.php';
 
 $data = array();
 $data["cod"] = 9999999; 
-$data["precio"] = $_SESSION["delivery"];
+
+if($_SESSION["entienda"] == "on"){
+	$data["precio"] = 0;
+} else { // si esta activo en tienda
+	$data["precio"] = $_SESSION["delivery"];
+}
+	
 $data["cantidad"] = 1;
 $data["usuario"] = $_SESSION["usuario"];
 $data["orden"] = $_SESSION["orden"];
+
 
 	$additem = $adddely->AddDelivery(URL_SERVER . "application/src/api.php?op=21&td=" . TD_SERVER, $data);
 	$datos = json_decode($additem, true);
@@ -151,6 +158,11 @@ $data["orden"] = $_SESSION["orden"];
 
 	$card = new CheckOut();
 	$card->MandarPedido(URL_SERVER . "application/src/api.php?op=26&td=" . TD_SERVER . "&usr=" . $_SESSION["usuario"] . "&orden=" . $_SESSION["orden"]);
+	
+unset($_SESSION["entienda"]);
+
+include_once '../phpMailer/Email.php';
+Email::EnviarEmail($_SESSION["email"], $_SESSION["nombre"], 2);
 break;
 
 
@@ -169,6 +181,18 @@ include_once '../../system/config/Inicio.php';
 	$card = new Inicio();
 	$card->ObtenerOrdenNo(URL_SERVER . "application/src/api.php?op=28&td=" . TD_SERVER . "&usr=" . $_SESSION["usuario"]);
 break;
+
+
+
+case "30": //cambiar el estado de ver en tienda
+if($_POST["edo"] == 0){
+	unset($_SESSION["entienda"]);
+} else {
+	$_SESSION["entienda"] = "on";
+	echo '<div class="text-center text-uppercase"><a href="https://www.google.com/maps/d/edit?mid=1MgdX1iArlCXkCc6VfQ31rZVjURMjKvNb&usp=sharing" target="_blank">Ver el mapa de nuestra ubicación</a></div>';
+}
+break;
+
 
 
 
@@ -199,9 +223,6 @@ $_SESSION["mayordeedad"] = TRUE;
 Alerts::Alerta("info","Accedido!","Ya puedes ver nuestros productos");
 setcookie("mayordeedad", TRUE, time() + 60*60*24*365); 
 break;
-
-
-
 
 
 

@@ -32,9 +32,38 @@ $(document).ready(function(){
 
 
 
+/// para activar o desactivoar en tienda
+    $("body").on("click","#entienda",function(){ /// para el los botones de opciones
+
+        if($(this).attr('checked')){ // es por que estaba activo
+            $('#entienda').removeAttr("checked","checked"); // inactivo
+            var dir = 'op=30&edo=0';
+        } else {
+            $('#entienda').attr("checked","checked"); // activo
+            var dir = 'op=30&edo=1';
+        }
+        
+        QueryGo(dir);
+    });
 
 
+function QueryGo(dir){
 
+        var dataString = dir;
+
+        $.ajax({
+            type: "POST",
+            url: "application/src/routes.php",
+            data: dataString,
+            beforeSend: function () {
+               $("#verentienda").html('<div class="row justify-content-md-center" ><img src="https://justomarket.com/assets/img/LoaderIcon.gif" alt=""></div>');
+            },
+            success: function(data) {            
+                $("#verentienda").html(data); // lo que regresa de la busquea 
+            }
+
+    });      
+}
 
 
 

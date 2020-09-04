@@ -231,10 +231,14 @@ echo '<tr>
 
 
 } else {
+echo '<div class="bg-vino pt-3 pb-3 white-text text-center mb-5">No existen productos agregados en su carrito de compras. Puede seguir explorando nuestro catálogo y elegir los productos que mas desee </div>';
+
 	echo '<div class="col-12 text-center">
 			<img src="'. BASE_URL .'assets/img/carritovacio.png"
 		            class="img-fluid">
 		</div>';
+
+ echo '<div class="text-center"><a id="continuarcomprando" class="btn btn-primary bg-naranja btn-md ">continuar comprando <i class="fas fa-cart-arrow-down"></i></a></div>';
 }
 
 

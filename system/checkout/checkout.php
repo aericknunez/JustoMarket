@@ -242,9 +242,27 @@ if($cant_minima < $total){
         if($tiempo != NULL){
         Alerts::Mensajex("Su orden llegará en un máximo de $tiempo","info"); }
         ?>
-              
+
+        <p>También puede pasar por nuestra tienda por su orden, estará lista para usted 
+<div class="switch">
+<label>
+Off
+<input type="checkbox" id="entienda" <?php if($_SESSION["entienda"] == "on") echo "checked"; ?> name="entienda">
+<span class="lever"></span> 
+On 
+  || Recoger en tienda
+</label>
+</div>
+        </p>
+ <div id="verentienda">
+   <?php 
+if($_SESSION["entienda"] = "on"){
+  echo '<div class="text-center text-uppercase"><a href="https://www.google.com/maps/d/edit?mid=1MgdX1iArlCXkCc6VfQ31rZVjURMjKvNb&usp=sharing" target="_blank">Ver el mapa de nuestra ubicación</a></div>';
+} ?>
+ </div>    
+          
               <hr class="mb-4">
-              <a id="mandarpedido" class="btn btn-primary bg-vino btn-lg btn-block">Terminar mi pedido</a>
+              <a id="mandarpedido" class="btn btn-primary bg-vino btn-lg btn-block">Realizar mi pedido</a>
 
 <?php 
 } else { // termina cantidad minima
@@ -310,12 +328,15 @@ if($cant_minima < $total){
 
 } else { /// la cantidad es 0
 
+echo '<div class="bg-vino pt-3 pb-3 white-text text-center mb-5">No existen productos agregados para realizar el pedido. Puede seguir explorando nuestro catálogo y elegir los productos que mas desee </div>';
+
   echo '<div class="col-12 text-center mb-4">
       <img src="'. BASE_URL .'assets/img/carritovacio.png"
                 class="img-fluid">
     </div>';
 
-    Alerts::Mensajex("No existen productos agregados para facturar. Puede seguir explorando nuestro catálogo y elegir sus productos","danger");
+
+ echo '<div class="text-center"><a id="continuarcomprando" class="btn btn-primary bg-naranja btn-md ">continuar comprando <i class="fas fa-cart-arrow-down"></i></a></div>';
 }
 
 

@@ -56,18 +56,18 @@ $check = new CheckOut();
                 <i class="fas fa-arrow-right"></i>
               </li>
 
-              <a href="?perfil"><li class="list-group-item d-flex justify-content-between align-items-center">
-                Cuenta
+              <a href="?perfil"><li class="list-group-item d-flex justify-content-between align-items-center vino">
+                <strong>Cuenta</strong>
                 <i class="fas fa-cogs"></i>
               </li></a>
 
-              <a href="?perfil&op=1"><li class="list-group-item d-flex justify-content-between align-items-center">
-                Mis Pedidos
+              <a href="?perfil&op=1"><li class="list-group-item d-flex justify-content-between align-items-center vino">
+                <strong>Mis Pedidos</strong>
                 <i class="far fa-gem"></i>
               </li></a>
 
-              <a href="?perfil&op=2"><li class="list-group-item d-flex justify-content-between align-items-center">
-                Modificar Mis Datos
+              <a href="?perfil&op=2"><li class="list-group-item d-flex justify-content-between align-items-center vino">
+                <strong>Modificar Mis Datos</strong>
                 <i class="fas fa-edit"></i>
               </li></a>
             </ul>
@@ -135,3 +135,59 @@ $check = new CheckOut();
 
 <?
 } ?>
+
+
+
+
+<!-- modal para seguir comprando en el checkout -->
+<div class="modal fade" id="ModalCobertura" tabindex="-1" role="dialog" aria-labelledby="ModalCobertura"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content bordeado2 p-2">
+            <!--Header-->
+            <div class="modal-header p-1 border-0 text-center">
+              <h2 class="mt-4 pl-5">NUESTRA COBERTURA</h2>
+            </div>
+            <!--Body-->
+            <div class="modal-body p-4">
+                <div class="container z-depth-0 text-center">
+<?php 
+
+    $a = $db->query("SELECT * FROM cobertura_municipio");
+    if($a->num_rows > 0){
+      echo '<table class="table table-hover table-sm">
+            <thead class="vino font-weight-bold">
+              <tr>
+                <th>Departamento</th>
+                <th>Municipio</th>
+                <th>Tiempo de Entrega</th>
+              </tr>
+            </thead>
+            <tbody>';
+
+    foreach ($a as $b) {
+          
+  if ($r = $db->select("departamento", "cobertura_departamento", "WHERE id = '".$b["departamento"]."'")) { 
+    $departamento = $r["departamento"];
+}  unset($r);  
+
+        echo '<tr>
+              <td>'.$departamento.'</td>
+              <td>'.$b["municipio"].'</td>
+              <td>'.$b["tiempo"].'</td>
+            </tr>';
+    } 
+    $a->close();
+
+    echo '</tbody>
+        </table>';
+
+  }
+
+     ?>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
