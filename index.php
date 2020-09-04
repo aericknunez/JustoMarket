@@ -21,7 +21,9 @@ $_SESSION["last_url"] = HOST_URL . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI
 if ($seslog->login_check() == TRUE) {
     include_once 'catalog/index.php';
 } else {
-
+	if(isset($_GET["perfil"])){
+		header("location: ?");
+	}
     include_once 'catalog/index.php';
 }
 
