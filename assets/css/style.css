@@ -189,3 +189,16 @@ position:absolute;
     width:auto;
     height:200px;
 }
+
+
+.bordeado{
+  border-radius: 4rem !important;
+}
+
+.bordeado2{
+  border-radius: 2rem !important;
+}
+
+.bordeado3{
+  border-radius: 1rem !important;
+}
