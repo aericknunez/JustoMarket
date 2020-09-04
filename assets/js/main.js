@@ -376,4 +376,28 @@ ProductosDestacados();
 
 
 
+/// mayoria de edad
+  $("body").on("click","#mayoriadeedad",function(){ 
+    
+    var recuerdame = $("#recuerdame").val();
+    var dataString = 'op=105&recuerdame='+recuerdame;
+    $.ajax({
+            type: "POST",
+            url: "https://justomarket.com/application/src/routes.php",
+            data: dataString,
+            beforeSend: function () {
+               $("#msjedad").html('<div class="row justify-content-center" ><img src="https://justomarket.com/assets/img/loa.gif" alt=""></div>');
+            },
+            success: function(data) {            
+                $("#msjedad").html(data); // lo que regresa de la busquea     
+            }
+        });
+
+    $('#ModalVinos').modal('hide');
+
+  });
+
+
+
+
 });

@@ -37,5 +37,21 @@ else{
 
 
 }
-	
+
+
+
+
+if($_REQUEST["categoria"] == "vinos y licores" and $_SESSION["mayordeedad"] == FALSE){
+?>
+
+	<script>
+		$(document).ready(function()
+		{
+		  $("#ModalVinos").modal("show");
+		});
+	</script>
+
+<?
+} 
+
 ?>

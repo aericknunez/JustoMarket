@@ -154,7 +154,10 @@ if($_SESSION["user"]){
                             class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100">
                             Snacks
                         </a> <br>
-
+                        <a href="<?php echo BASE_URL ?>categoria/vinos"
+                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100">
+                            Vinos y Licores
+                        </a> <br>
 
                     </div>
                 </li>

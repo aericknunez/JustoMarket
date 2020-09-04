@@ -189,6 +189,19 @@ break;
 
 
 
+case "105": //mayoria de edad
+
+$_SESSION["mayordeedad"] = TRUE;
+Alerts::Alerta("info","Accedido!","Ya puedes ver nuestros productos");
+setcookie("mayordeedad", TRUE, time() + 60*60*24*365); 
+break;
+
+
+
+
+
+
+
 } // termina switch
 
 

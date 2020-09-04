@@ -93,6 +93,21 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <div class="carousel-item no-gutters p-1">
+                        <div class="col-12 col-md-3 col-lg-2 ">
+                            <div class="card mb-2 z-depth-0">
+                                <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/vinos">
+                                    <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/drink.svg" alt="Card image cap"></a>
+                                <div class="card-body">
+                                    <h5 class="h5-responsive card-title font-weight-bold text-center">Vinos</h5>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="carousel-item no-gutters p-1">
                         <div class="col-12 col-md-3 col-lg-2  ">
                             <div class="card mb-2 z-depth-0">
@@ -141,6 +156,18 @@
                             </div>
                         </div>
                     </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
                 </div>
 

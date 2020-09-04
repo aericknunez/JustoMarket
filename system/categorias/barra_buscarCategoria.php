@@ -1,6 +1,13 @@
     <section>
       <div class="container bg-verde text-center p-4">
-        <h1 class="letra-gotham-black white-text w-100"><?php echo strtoupper($_REQUEST["categoria"]); ?></h1>
+        <h1 class="letra-gotham-black white-text w-100">
+
+          <?php 
+                if($_REQUEST["categoria"] == "vinos"){
+                  $_REQUEST["categoria"] = "vinos y licores";
+                }
+
+          echo strtoupper($_REQUEST["categoria"]); ?></h1>
       </div>
     </section>
 
@@ -30,3 +37,8 @@
 
     </section>
     <!-- Fin Barra Buscar -->
+
+
+
+
+    
