@@ -108,7 +108,7 @@ echo '<figure class="col-md-3 d-md-inline-block d-none d-sm-block border-right b
 
 
   echo '<img src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["productos"][$i]["imagenes"][0] .'"
-            class="img-fluid">
+            class="img-fluid imgproductos">
         </a>
 
                     <div class="card-body">
