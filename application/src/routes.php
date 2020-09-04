@@ -96,7 +96,11 @@ include_once '../../system/config/Inicio.php';
 	$ototal = $card->ObtenerTotal(URL_SERVER . "application/src/api.php?op=22&td=" . TD_SERVER, $data);
 	$datos = json_decode($ototal, true);
 
-$total = $datos["total"] + $_SESSION["delivery"];
+if($total != NULL){
+	$total = $datos["total"] + $_SESSION["delivery"];
+} else {
+	$total = "0.00";
+}
 
 echo "$ " . $total;
 
