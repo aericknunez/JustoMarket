@@ -7,6 +7,8 @@ include_once 'application/common/Fechas.php';
 include_once 'system/checkout/Inicio.php';
 $check = new CheckOut();
 
+include_once 'system/config/Inicio.php';
+  $ini = new Inicio();
 
     if ($r = $db->select("*", "login_direcciones", "WHERE user = '".$_SESSION["user"]."'")) { 
        
@@ -26,9 +28,10 @@ $check = new CheckOut();
    
     }   unset($r);  
 
-    if ($r = $db->select("municipio, tiempo", "cobertura_municipio", "WHERE id = '".$recibe_municipio."'")) {     
+    if ($r = $db->select("municipio, tiempo, cant_minima", "cobertura_municipio", "WHERE id = '".$recibe_municipio."'")) {     
         $municipio = $r["municipio"];
         $tiempo = $r["tiempo"];
+        $cant_minima = $r["cant_minima"];
     }   unset($r);  
 
     if ($r = $db->select("departamento", "cobertura_departamento", "WHERE id = '".$recibe_departamento."'")) {     
@@ -166,9 +169,25 @@ if ($seslog->login_check() == TRUE) {
 
               <hr>
 
+<?php 
+// verifico que el total de venta sea mayor a la cantidad minima
+  $data["usuario"] = $_SESSION["usuario"];
+  $data["orden"] = $_SESSION["orden"];
+
+  $ototal = $ini->ObtenerTotal(URL_SERVER . "application/src/api.php?op=22&td=" . TD_SERVER, $data);
+  $datax = json_decode($ototal, true);
+
+if($datax["total"] != NULL){
+  $total = $datax["total"] + $_SESSION["delivery"];
+}
+
+if($cant_minima < $total){
+
+ ?>
+
               <div class="d-block my-3">
 
-              	<?php Alerts::Mensajex("En este momento sólo está disponible el pago contra entrega","success"); ?>
+              	<?php  Alerts::Mensajex("En este momento sólo está disponible el pago contra entrega","success"); ?>
 
                 <div class="custom-control custom-radio">
                   <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" disabled unchecked>
@@ -226,6 +245,16 @@ if ($seslog->login_check() == TRUE) {
               
               <hr class="mb-4">
               <a id="mandarpedido" class="btn btn-primary bg-vino btn-lg btn-block">Terminar mi pedido</a>
+
+<?php 
+} else { // termina cantidad minima
+
+ echo '<div class="bg-vino pt-3 pb-3 white-text text-center">La cantidad minima de su compra debe ser ' . Helpers::Dinero($cant_minima) . ' y de momento solo tiene en el carrito ' . Helpers::Dinero($total) . ' continúe comprando para poder procesar su pedido </div>
+
+ <div class="text-center"><a id="continuarcomprando" class="btn btn-primary bg-naranja btn-md ">continuar comprando <i class="fas fa-cart-arrow-down"></i></a></div>';
+}
+
+ ?>
 
             </form>
 
@@ -346,3 +375,214 @@ if ($seslog->login_check() == TRUE) {
 ?>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- modal para seguir comprando en el checkout -->
+<div class="modal fade" id="ModalSeguirComprando" tabindex="-1" role="dialog" aria-labelledby="ModalSeguirComprando"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content modal-border-rounded p-2">
+            <!--Header-->
+            <div class="modal-header p-1 border-0 text-center">
+              <h2 class="mt-4 pl-5">¿QUE MÁS DESEAS AGREGAR?</h2>
+            </div>
+            <!--Body-->
+            <div class="modal-body p-4">
+                <div class="container z-depth-0 text-center">
+
+
+
+          <!-- Categorias -->
+        <section>
+            <div class="container-fluid">
+
+            <div id="carouselCategorias" class="carousel carousel-multi-item v-2 d-flex flex-column-reverse mr-4 ml-4"
+                data-ride="carousel">
+
+                <!--Controls-->
+
+
+                <a class="carousel-control-prev" href="#carouselCategorias" role="button" data-slide="prev">
+                    <img src="<?php echo BASE_URL ?>assets/Iconos/next.svg" class="img-fluid h-25 mt-5" alt="Responsive image" id="prev">
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next " href="#carouselCategorias" role="button" data-slide="next">
+                    <img src="<?php echo BASE_URL ?>assets/Iconos/next.svg" class="img-fluid h-25 mt-5 " alt="Responsive image">
+                    <span class="sr-only">Next</span>
+                </a>
+                <!--/.Controls-->
+
+
+                <div class="carousel-inner v-2 " role="listbox">
+
+                    <div class="carousel-item active no-gutters">
+                        <div class="col-6 col-md-4">
+                            <div class="card mb-2 z-depth-0">
+                                <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/bebidas">
+                                    <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/drink.svg" alt="Card image cap"></a>
+                                <div class="card-body">
+                                    <h5 class="h5-responsive card-title font-weight-bold text-center">Bebidas</h5>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item no-gutters">
+                        <div class="col-6 col-md-4">
+                            <div class="card mb-2  z-depth-0">
+                                <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/carnes">
+                                    <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/meat.svg" alt="Card image cap"></a>
+                                <div class="card-body">
+                                    <h5 class="h5-responsive card-title font-weight-bold text-center">Carnes</h5>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item no-gutters p-1">
+                        <div class="col-6 col-md-4">
+                            <div class="card mb-2 z-depth-0">
+                                <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/frutas">
+                                    <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/viburnum-fruit.svg" alt="Card image cap"></a>
+                                <div class="card-body">
+                                    <h5 class="h5-responsive card-title font-weight-bold text-center">Frutas</h5>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item no-gutters p-1">
+                        <div class="col-6 col-md-4">
+                            <div class="card mb-2 z-depth-0">
+                                <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/abarrotes">
+                                    <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/flour.svg" alt="Card image cap"></a>
+                                <div class="card-body">
+                                    <h5 class="h5-responsive card-title font-weight-bold text-center">Abarrotes</h5>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item no-gutters p-1">
+                        <div class="col-6 col-md-4">
+                            <div class="card mb-2 z-depth-0">
+                                <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/mariscos">
+                                    <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/seafood.svg" alt="Card image cap"></a>
+                                <div class="card-body">
+                                    <h5 class="h5-responsive card-title font-weight-bold text-center">Mariscos</h5>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item no-gutters p-1 ">
+                        <div class="col-6 col-md-4">
+                            <div class="card mb-2 z-depth-0">
+                                <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/vegetales">
+                                    <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/vegetable.svg" alt="Card image cap"></a>
+                                <div class="card-body">
+                                    <h5 class="h5-responsive card-title font-weight-bold text-center">Vegetales</h5>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="carousel-item no-gutters p-1">
+                        <div class="col-6 col-md-4">
+                            <div class="card mb-2 z-depth-0">
+                                <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/vinos">
+                                    <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/drink.svg" alt="Card image cap"></a>
+                                <div class="card-body">
+                                    <h5 class="h5-responsive card-title font-weight-bold text-center">Vinos</h5>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item no-gutters p-1">
+                        <div class="col-6 col-md-4">
+                            <div class="card mb-2 z-depth-0">
+                                <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/granos">
+                                    <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/beans.svg" alt="Card image cap"></a>
+                                <div class="card-body">
+                                    <h5 class="h5-responsive card-title font-weight-bold text-center">Granos</h5>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item no-gutters p-1">
+                        <div class="col-6 col-md-4">
+                            <div class="card mb-2 z-depth-0">
+                                <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/lacteos">
+                                    <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/milk.svg" alt="Card image cap"></a>
+                                <div class="card-body">
+                                    <h5 class="h5-responsive card-title font-weight-bold text-center">Lacteos</h5>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item no-gutters p-1">
+                        <div class="col-6 col-md-4">
+                            <div class="card mb-2 z-depth-0">
+                                <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/limpieza">
+                                    <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/soap.svg" alt="Card image cap"></a>
+                                <div class="card-body">
+                                    <h5 class="h5-responsive card-title font-weight-bold text-center">Limpieza</h5>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item no-gutters p-1">
+                        <div class="col-6 col-md-4">
+                            <div class="card mb-2 z-depth-0">
+                                <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/snacks">
+                                    <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/snacks.svg" alt="Card image cap"></a>
+                                <div class="card-body">
+                                    <h5 class="h5-responsive card-title font-weight-bold text-center">Snacks</h5>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>  
+</section>
+        <!-- Fin Categorias -->
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

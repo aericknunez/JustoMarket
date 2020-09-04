@@ -57,6 +57,17 @@ public function ObtenerData($url){
 
 
 	public function ContenidoCarrito($url){
+     $db = new dbConn();
+
+if ($r = $db->select("recibe_municipio", "login_direcciones", "WHERE user = '".$_SESSION["user"]."'")) { 
+$recibe_municipio = $r["recibe_municipio"];
+}   unset($r);  
+
+if ($r = $db->select("cant_minima", "cobertura_municipio", "WHERE id = '".$recibe_municipio."'")) {     
+$cant_minima = $r["cant_minima"];
+}   unset($r);  
+
+
 	$jsondata = $this->ObtenerData($url);
 
 	$datos = json_decode($jsondata, true); 
@@ -160,7 +171,10 @@ echo '<tr>
 
 		$total = $total + $datos["productos"][$i]["total"];
 	}
-    
+    $tot = $total + $_SESSION["delivery"];
+
+
+
 echo '<tr>
                 <td></td>
 
@@ -172,16 +186,20 @@ echo '<tr>
 
                 <td class="text-center">
                   <h4 class="mt-2">
-                    <strong><div id="carttotal">'. Helpers::Dinero($total + $_SESSION["delivery"]) .'</div></strong>
+                    <strong><div id="carttotal">'. Helpers::Dinero($tot) .'</div></strong>
                   </h4>
                 </td>
 
                 <td colspan="2" class="text-right">';
 
                  if($_SESSION["user"]){
-                  echo '<a href="?checkout" class="btn bg-vino white-text btn-rounded">Completar la compra
+
+                  if($cant_minima < $tot){
+                    echo '<a href="?checkout" class="btn bg-vino white-text btn-rounded">Completar la compra
                         <i class="fas fa-angle-right right"></i>
                       </a>';
+                  } 
+
                 } else {
                   echo '<a id="mlogin" class="btn bg-vino white-text btn-rounded">Iniciar para Continuar
                         <i class="fas fa-angle-right right"></i>
@@ -205,6 +223,11 @@ echo '<tr>
 
     </div>';
 
+    if($cant_minima > $tot){
+      echo '<div class="bg-naranja pt-3 pb-3 white-text text-center">La cantidad minima de su compra debe ser ' . Helpers::Dinero($cant_minima) . ' y de momento solo tiene en el carrito ' . Helpers::Dinero($tot) . ' continúe comprando para poder procesar su pedido </div>';
+
+    echo '<div class="text-center"><a id="continuarcomprando" class="btn bg-vino white-text btn-rounded">continuar comprando <i class="fas fa-cart-arrow-down"></i></a></div>';
+    }
 
 
 } else {

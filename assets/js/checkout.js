@@ -24,6 +24,10 @@ $(document).ready(function(){
 
 
 
+    $("body").on("click","#continuarcomprando",function(){ 
+        $('#ModalSeguirComprando').modal('show');
+    });
+
 
 
 
