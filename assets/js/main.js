@@ -89,7 +89,7 @@ $('[data-toggle="popover-click"]').popover({
     var dataString = 'op=20&cod=' + cod + '&cantidad=' + cantidad;
     $.ajax({
             type: "POST",
-            url: "http://localhost/justomarket/application/src/routes.php",
+            url: "https://justomarket.com/application/src/routes.php",
             data: dataString,
             beforeSend: function () {
               if(modact == 1){
@@ -140,10 +140,10 @@ function RegresoCard(){
 //     var dataString = 'op=21&cod=' + cod + '&cantidad=' + cantidad;
 //     $.ajax({
 //             type: "POST",
-//             url: "http://localhost/justomarket/application/src/routes.php",
+//             url: "https://justomarket.com/application/src/routes.php",
 //             data: dataString,
 //             beforeSend: function () {
-//                $("#resultadomodal").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
+//                $("#resultadomodal").html('<div class="row justify-content-center" ><img src="https://justomarket.com/assets/img/loa.gif" alt=""></div>');
 //             },
 //             success: function(data) {            
 //                $("#resultadomodal").html(data); // muestra el resultado en el modal
@@ -159,7 +159,7 @@ function LoadTotal(){
     var dataString = 'op=22';
     $.ajax({
             type: "POST",
-            url: "http://localhost/justomarket/application/src/routes.php",
+            url: "https://justomarket.com/application/src/routes.php",
             data: dataString,
             beforeSend: function () {
                $("#totalcarrito").html('<div class="row justify-content-center" > ... </div>');
@@ -187,10 +187,10 @@ function ContenidoCarritoModal(){
             var dataString = 'op=23';
             $.ajax({
             type: "POST",
-            url: "http://localhost/justomarket/application/src/routes.php",
+            url: "https://justomarket.com/application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#contenido-carrito").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
+               $("#contenido-carrito").html('<div class="row justify-content-center" ><img src="https://justomarket.com/assets/img/loa.gif" alt=""></div>');
             },
             success: function(data) {            
                 $("#contenido-carrito").html(data); // lo que regresa de la busquea     
@@ -202,10 +202,10 @@ function ContenidoFooter(){
             var dataString = 'op=27';
             $.ajax({
             type: "POST",
-            url: "http://localhost/justomarket/application/src/routes.php",
+            url: "https://justomarket.com/application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#footermodal").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/load.gif" alt=""></div>');
+               $("#footermodal").html('<div class="row justify-content-center" ><img src="https://justomarket.com/assets/img/load.gif" alt=""></div>');
             },
             success: function(data) {            
                 $("#footermodal").html(data); // lo que regresa de la busquea     
@@ -223,10 +223,10 @@ function ContenidoFooter(){
             var dataString = 'op=24&iden=' + iden;
             $.ajax({
             type: "POST",
-            url: "http://localhost/justomarket/application/src/routes.php",
+            url: "https://justomarket.com/application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#contenido-carrito").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
+               $("#contenido-carrito").html('<div class="row justify-content-center" ><img src="https://justomarket.com/assets/img/loa.gif" alt=""></div>');
             },
             success: function(data) {            
                 ContenidoCarritoModal();  
@@ -247,10 +247,10 @@ function ContenidoFooter(){
             var dataString = 'op=24&iden=' + iden;
             $.ajax({
             type: "POST",
-            url: "http://localhost/justomarket/application/src/routes.php",
+            url: "https://justomarket.com/application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#contenido-carrito").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
+               $("#contenido-carrito").html('<div class="row justify-content-center" ><img src="https://justomarket.com/assets/img/loa.gif" alt=""></div>');
             },
             success: function(data) {            
                 ContenidoCarritoModal();  
@@ -287,10 +287,10 @@ function ContenidoFooter(){
     var dataString = 'op=14&cod=' + cod;
     $.ajax({
             type: "POST",
-            url: "http://localhost/justomarket/application/src/routes.php",
+            url: "https://justomarket.com/application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#detalle-producto").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
+               $("#detalle-producto").html('<div class="row justify-content-center" ><img src="https://justomarket.com/assets/img/loa.gif" alt=""></div>');
             },
             success: function(data) {            
                 $("#detalle-producto").html(data); // lo que regresa de la busquea     
@@ -307,10 +307,10 @@ function ModalRecomendados(){
     var dataString = 'op=15';
     $.ajax({
             type: "POST",
-            url: "http://localhost/justomarket/application/src/routes.php",
+            url: "https://justomarket.com/application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#detalle-reomendados").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
+               $("#detalle-reomendados").html('<div class="row justify-content-center" ><img src="https://justomarket.com/assets/img/loa.gif" alt=""></div>');
             },
             success: function(data) {            
                 $("#detalle-reomendados").html(data); // lo que regresa de la busquea     
@@ -332,10 +332,10 @@ function Promociones(){ // solo para promociones
     var dataString = 'op=13';
     $.ajax({
             type: "POST",
-            url: "http://localhost/justomarket/application/src/routes.php",
+            url: "https://justomarket.com/application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#todas-promociones").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
+               $("#todas-promociones").html('<div class="row justify-content-center" ><img src="https://justomarket.com/assets/img/loa.gif" alt=""></div>');
             },
             success: function(data) {            
                 $("#todas-promociones").html(data); // lo que regresa de la busquea     
@@ -354,10 +354,10 @@ function ProductosDestacados(){ /// solo en detalle y en index
     var dataString = 'op=11';
     $.ajax({
             type: "POST",
-            url: "http://localhost/justomarket/application/src/routes.php",
+            url: "https://justomarket.com/application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#productos-destacados").html('<div class="row justify-content-center" ><img src="http://localhost/justomarket/assets/img/loa.gif" alt=""></div>');
+               $("#productos-destacados").html('<div class="row justify-content-center" ><img src="https://justomarket.com/assets/img/loa.gif" alt=""></div>');
             },
             success: function(data) {            
                 $("#productos-destacados").html(data); // lo que regresa de la busquea     
