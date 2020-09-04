@@ -16,10 +16,10 @@
     </style>
 
     <!-- Form with header -->
-    <div class="card">
+    <div class="card bordeado2">
 
       <!-- Grid row -->
-      <div class="row">
+      <div class="row ">
 
         <!-- Grid column -->
         <div class="col-lg-8">
@@ -103,9 +103,9 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-lg-4">
+        <div class="col-lg-4 ">
 
-          <div class="card-body contact text-center h-100 white-text bg-naranja">
+          <div class="card-body contact text-center h-100 white-text bg-naranja bordeado2">
 
             <h3 class="font-weight-bold my-4 pb-2">Informaci&oacuten de Contacto</h3>
             <ul class="text-lg-left list-unstyled ml-4">
