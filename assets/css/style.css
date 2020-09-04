@@ -186,5 +186,7 @@ position:absolute;
 
 /*/ imagen de detacados*/
 .imgproductos{
-  height: 200px;
+    width:180px;
+    height:200px;
+    overflow:hidden;
 }
