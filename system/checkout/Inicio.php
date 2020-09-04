@@ -336,7 +336,7 @@ public function MandarPedido($url){
 
     unset($_SESSION["orden"]);
     Alerts::Alerta("success","Realizado!","Pedido realizado corectamente");
-    Email::EnviarEmail($_SESSION["email"], $_SESSION["nombres"], "noreply@justomarket.com", "Justo Market", "Gracias su compra!", $plantilla);
+    Email::EnviarEmail($_SESSION["email"], $_SESSION["nombre"], 2);
     sleep(2);
     echo '<script>
             window.location.href="?"; 

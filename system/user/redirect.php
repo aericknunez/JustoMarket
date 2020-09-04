@@ -12,8 +12,6 @@ $seslog->sec_session_start();
 include_once '../../application/common/Alerts.php';
 include_once '../../application/common/Fechas.php';
 include_once '../../application/common/Encrypt.php';
-include_once '../../application/phpMailer/Email.php';
-
 
 if($_REQUEST["op"]!="1"){ // verifica inicio de session
 
@@ -37,6 +35,11 @@ if($_REQUEST["op"]!="1"){ // verifica inicio de session
 
 
 if($_REQUEST["op"]=="1"){ // redirecciona despues de registrar a llenar datos
+include_once '../../application/phpMailer/Email.php';
+require '../../application/phpMailer/Exception.php';
+require '../../application/phpMailer/PHPMailer.php';
+require '../../application/phpMailer/SMTP.php';
+
 	include_once '../../application/includes/DataLogin.php';
 	$seslog->Register($_POST);
 

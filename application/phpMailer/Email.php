@@ -2,10 +2,6 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../phpMailer/Exception.php';
-require '../phpMailer/PHPMailer.php';
-require '../phpMailer/SMTP.php';
-
 
 class Email{
 
@@ -13,13 +9,13 @@ class Email{
    static public function EnviarEmail($destinatario, $nombre_destinatario, $asunto = NULL, $plantilla = NULL){
    				// email destino / nombre destino, asunto. 1, registro, 2, compra, 3 en camino
 if($asunto == 1) { 
-    $titulo = 'Gracias por registarse';
+    $titulo = 'GRACIAS POR REGISTRARSE';
 }
 if($asunto == 2){ // registro
-    $titulo = 'Gracias por su compra';
+    $titulo = 'GRACIAS POR SU COMPRA';
 } 
 if($asunto == 3){
-     $titulo = 'Su orden est&aacute en camino';
+     $titulo = 'SU ORDEN EST&Aacute EN CAMINO';
 } 
 
 
@@ -72,10 +68,10 @@ if($asunto == 1) {
     $mesaje = $nombre_destinatario . " Gracias por ser parte de nuestra gran familia, queremos atenderle como usted se lo merece, si tiene alguna duda no dude en ponerse en contacto con nosotros";
 }
 if($asunto == 2){ // registro
-     $mesaje = $nombre_destinatario . " Gracias con confiar en Justo Market, su pedido proceder&aacute a ser empacado, desinfectado para posteriormente ser entregado a su destino";
+     $mesaje = $nombre_destinatario . " Gracias con confiar en Justo Market, su pedido procederá a ser empacado, desinfectado para posteriormente ser entregado a su destino";
 } 
 if($asunto == 3){
-     $mesaje = $nombre_destinatario . " Su pedido ha sido enviado a la direcci&oacuten que nos proporcion&oacute, en breve estar&aacute con usted. Muchas gracias por su preferencia, esperamos pronto volver a saber de usted.";
+     $mesaje = $nombre_destinatario . " Su pedido ha sido enviado a la dirección que nos proporcionó, en breve estará con usted. Muchas gracias por su preferencia, esperamos pronto volver a saber de usted.";
 } 
 
 
@@ -83,9 +79,9 @@ return '<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" style="margin: 0; padding: 0
 ">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8
-" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title></title>
 <style type="text/css">
 @media only screen and (min-device-width: 481px) {
@@ -212,7 +208,7 @@ style="-webkit-font-smoothing: antialiased; width: 100% !important; -webkit-text
                             <td class="font text-paragraph" align="left" style="border: none; margin: 0px; padding: 0px 0px 5px; font-family: Circular, Helvetica, Arial, sans-serif; font-weight: 200; text-align: left; text-decoration: none; color: rgb(97, 100, 103); font-size: 14px; line-height: 20px;">
                                 <center style="border: none; margin: 0px; padding: 0px;">
 
-                        <h3>No olvides que puedes pagarnos contra entrega y con tarjeta de credito o d&eacutebito</h3>
+                        <h3>No olvides que puedes pagarnos contra entrega y con tarjeta de credito o débito</h3>
 
                                 </center>
                             </td>
@@ -229,7 +225,7 @@ style="-webkit-font-smoothing: antialiased; width: 100% !important; -webkit-text
 </table>
 
 
-Este mensaje fu&eacute enviado el '. Fechas::FechaEscrita(date("d-m-Y")) .' a las'. date("H:i:s") .'
+Este mensaje fué enviado el '. Fechas::FechaEscrita(date("d-m-Y")) .' a las'. date("H:i:s") .'
 
 
 <table class="footer-padding-root" width="100%" cellpadding="0" cellspacing="0" style="border: none; margin: 0px; border-collapse: collapse; padding: 0px; width: 100%;">

@@ -134,8 +134,13 @@ break;
 
 case "26": // mandar pedido (terminar)
 include_once '../../system/checkout/Inicio.php';
-include_once '../common/Email.php';
 include_once '../../system/config/Inicio.php';
+
+include_once '../phpMailer/Email.php';
+include_once '../phpMailer/Exception.php';
+include_once '../phpMailer/PHPMailer.php';
+include_once '../phpMailer/SMTP.php';
+
 	$adddely = new Inicio();
 
 $data = array();
@@ -156,13 +161,11 @@ $data["orden"] = $_SESSION["orden"];
 	$datos = json_decode($additem, true);
 
 
+
 	$card = new CheckOut();
 	$card->MandarPedido(URL_SERVER . "application/src/api.php?op=26&td=" . TD_SERVER . "&usr=" . $_SESSION["usuario"] . "&orden=" . $_SESSION["orden"]);
 	
 unset($_SESSION["entienda"]);
-
-include_once '../phpMailer/Email.php';
-Email::EnviarEmail($_SESSION["email"], $_SESSION["nombre"], 2);
 break;
 
 
