@@ -22,7 +22,7 @@
                 <div class="carousel-inner v-2 " role="listbox">
 
                     <div class="carousel-item active no-gutters">
-                        <div class="col-12 col-md-3 col-lg-2  ">
+                        <div class="col-6 col-md-3 col-lg-2  ">
                             <div class="card mb-2 z-depth-0">
                                 <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/bebidas">
                                     <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/drink.svg" alt="Card image cap"></a>
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="carousel-item no-gutters">
-                        <div class="col-12 col-md-3 col-lg-2  ">
+                        <div class="col-6 col-md-3 col-lg-2  ">
                             <div class="card mb-2  z-depth-0">
                                 <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/carnes">
                                     <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/meat.svg" alt="Card image cap"></a>
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="carousel-item no-gutters p-1">
-                        <div class="col-12 col-md-3 col-lg-2  ">
+                        <div class="col-6 col-md-3 col-lg-2  ">
                             <div class="card mb-2 z-depth-0">
                                 <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/frutas">
                                     <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/viburnum-fruit.svg" alt="Card image cap"></a>
@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <div class="carousel-item no-gutters p-1">
-                        <div class="col-12 col-md-3 col-lg-2  ">
+                        <div class="col-6 col-md-3 col-lg-2  ">
                             <div class="card mb-2 z-depth-0">
                                 <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/abarrotes">
                                     <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/flour.svg" alt="Card image cap"></a>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <div class="carousel-item no-gutters p-1">
-                        <div class="col-12 col-md-3 col-lg-2  ">
+                        <div class="col-6 col-md-3 col-lg-2  ">
                             <div class="card mb-2 z-depth-0">
                                 <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/mariscos">
                                     <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/seafood.svg" alt="Card image cap"></a>
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <div class="carousel-item no-gutters p-1 ">
-                        <div class="col-12 col-md-3 col-lg-2  ">
+                        <div class="col-6 col-md-3 col-lg-2  ">
                             <div class="card mb-2 z-depth-0">
                                 <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/vegetales">
                                     <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/vegetable.svg" alt="Card image cap"></a>
@@ -96,7 +96,7 @@
 
 
                     <div class="carousel-item no-gutters p-1">
-                        <div class="col-12 col-md-3 col-lg-2 ">
+                        <div class="col-6 col-md-3 col-lg-2 ">
                             <div class="card mb-2 z-depth-0">
                                 <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/vinos">
                                     <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/drink.svg" alt="Card image cap"></a>
@@ -109,7 +109,7 @@
                     </div>
 
                     <div class="carousel-item no-gutters p-1">
-                        <div class="col-12 col-md-3 col-lg-2  ">
+                        <div class="col-6 col-md-3 col-lg-2  ">
                             <div class="card mb-2 z-depth-0">
                                 <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/granos">
                                     <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/beans.svg" alt="Card image cap"></a>
@@ -121,7 +121,7 @@
                         </div>
                     </div>
                     <div class="carousel-item no-gutters p-1">
-                        <div class="col-12 col-md-3 col-lg-2  ">
+                        <div class="col-6 col-md-3 col-lg-2  ">
                             <div class="card mb-2 z-depth-0">
                                 <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/lacteos">
                                     <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/milk.svg" alt="Card image cap"></a>
@@ -133,7 +133,7 @@
                         </div>
                     </div>
                     <div class="carousel-item no-gutters p-1">
-                        <div class="col-12 col-md-3 col-lg-2 ">
+                        <div class="col-6 col-md-3 col-lg-2 ">
                             <div class="card mb-2 z-depth-0">
                                 <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/limpieza">
                                     <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/soap.svg" alt="Card image cap"></a>
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                     <div class="carousel-item no-gutters p-1">
-                        <div class="col-12 col-md-3 col-lg-2 ">
+                        <div class="col-6 col-md-3 col-lg-2 ">
                             <div class="card mb-2 z-depth-0">
                                 <a class="waves-effect waves-light p-4" href="<?php echo BASE_URL ?>categoria/snacks">
                                     <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/snacks.svg" alt="Card image cap"></a>

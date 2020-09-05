@@ -256,7 +256,7 @@ On
         </p>
  <div id="verentienda">
    <?php 
-if($_SESSION["entienda"] = "on"){
+if($_SESSION["entienda"] == "on"){
   echo '<div class="text-center text-uppercase"><a href="https://www.google.com/maps/d/edit?mid=1MgdX1iArlCXkCc6VfQ31rZVjURMjKvNb&usp=sharing" target="_blank">Ver el mapa de nuestra ubicación</a></div>';
 } ?>
  </div>    

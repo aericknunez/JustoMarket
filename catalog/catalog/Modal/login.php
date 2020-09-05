@@ -3,11 +3,11 @@
     aria-labelledby="ModalLogin" aria-hidden="true">
     <div class="modal-dialog modal-success" role="document">
         <!--Content-->
-        <div class="modal-content">
+        <div class="modal-content bordeado3">
 
 
       <!--Header-->
-      <div class="modal-header text-center bg-vino">
+      <div class="modal-header text-center bg-vino bordeado3">
         <h4 class="modal-title white-text w-100 font-weight-bold py-2">Iniciar Sesi&oacuten</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" class="white-text">&times;</span>

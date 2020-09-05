@@ -1,7 +1,7 @@
 <div class="modal bounceIn" id="ModalUser" tabindex="-1" role="dialog" aria-labelledby="ModalUser" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog cascading-modal modal-avatar modal-sm" role="document">
         <!--Content-->
-<div class="modal-content">
+<div class="modal-content bordeado3">
 
           <!--Header-->
           <div class="modal-header">

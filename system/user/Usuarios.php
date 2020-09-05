@@ -167,21 +167,21 @@ echo '<label>Tipo de Cuenta</label>
 
 	public function CompararPass($pass1, $pass2) {
 		if($pass1 == $pass2){
-			if(strlen($pass1) > 6){
-				if($this->MayusCount($pass1) > 0) {
-					if($this->NumCount($pass1) > 0) {
-						$this->CambiarPass($pass1);
-					} else { echo "Debe contener al menos un numero"; } 
+			// if(strlen($pass1) > 6){
+			// 	if($this->MayusCount($pass1) > 0) {
+			// 		if($this->NumCount($pass1) > 0) {
+			// 			$this->CambiarPass($pass1);
+			// 		} else { echo "Debe contener al menos un numero"; } 
 					
-				} else {
-					Alerts::Alerta("error","Error!","Debe tener al manos una Mayuscula");
-				}
+			// 	} else {
+			// 		Alerts::Alerta("error","Error!","Debe tener al manos una Mayuscula");
+			// 	}
 
 				
-			}
-			else { 
-				Alerts::Alerta("error","Error!","El password debe tener mas de 6 Caracteres");
-			}
+			// }
+			// else { 
+			// 	Alerts::Alerta("error","Error!","El password debe tener mas de 6 Caracteres");
+			// }
 			
 		} else {
 			Alerts::Alerta("error","Error!","Los password no son iguales");

@@ -11,8 +11,8 @@
     </button>
 
     <div class="collapse navbar-collapse " id="navbarSupportedContent-4">
-        <a class="navbar-brand bg-amarillo rounded-pill p-1 letra-gotham-bold" href="<?php echo BASE_URL ?>">&nbsp Descarga nuestro
-            cat&aacutelogo &nbsp</a>
+     <!--    <a class="navbar-brand bg-amarillo rounded-pill p-1 letra-gotham-bold" href="<?php echo BASE_URL ?>">&nbsp Descarga nuestro
+            cat&aacutelogo &nbsp</a> -->
     </div>
 
     <ul class="navbar-nav navbar-expand">
@@ -93,13 +93,13 @@ if($_SESSION["user"]){
             <ul class="navbar-nav">
 
 
-                <li class="nav-item d-block d-sm-none">
+<!--                 <li class="nav-item d-block d-sm-none">
                     <a class="nav-link letra-gotham-black bg-amarillo rounded-pill text-center"
                         href="<?php echo BASE_URL ?>">
                         <h4 class="h4-responsive">&nbsp Descarga nuestro
     cat&aacutelogo &nbsp</h4>
                     </a>
-                </li>
+                </li> -->
 
                 <li class="nav-item ">
                     <a class="nav-link letra-gotham-black outline-vino h-75 mr-3 rounded-pill text-center"

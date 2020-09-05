@@ -171,7 +171,7 @@ echo '<tr>
 
 		$total = $total + $datos["productos"][$i]["total"];
 	}
-    $tot = $total + $_SESSION["delivery"];
+    // $tot = $total + $_SESSION["delivery"];
 
 
 
@@ -186,7 +186,7 @@ echo '<tr>
 
                 <td class="text-center">
                   <h4 class="mt-2">
-                    <strong><div id="carttotal">'. Helpers::Dinero($tot) .'</div></strong>
+                    <strong><div id="carttotal">'. Helpers::Dinero($total) .'</div></strong>
                   </h4>
                 </td>
 

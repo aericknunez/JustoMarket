@@ -97,7 +97,8 @@ include_once '../../system/config/Inicio.php';
 	$datos = json_decode($ototal, true);
 
 if($datos["total"] != NULL){
-	$total = $datos["total"] + $_SESSION["delivery"];
+	$total = $datos["total"];
+	// $total = $total + $_SESSION["delivery"];
 } else {
 	$total = "0.00";
 }

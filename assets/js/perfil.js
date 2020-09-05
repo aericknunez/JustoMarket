@@ -1,18 +1,24 @@
 $(document).ready(function(){
 
-        $('.datepicker').pickadate({
-          weekdaysShort: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
-          weekdaysFull: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
-          monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre',
-          'Noviembre', 'Diciembre'],
-          monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct',
-          'Nov', 'Dic'],
-          showMonthsShort: true,
-          formatSubmit: 'dd-mm-yyyy',
-          close: 'Cancelar',
-          clear: 'Limpiar',
-          today: 'Hoy'
-        })
+// var Url = "http://localhost/justomarket/";
+var Url = "https://justomarket.com/";
+
+
+    $('.datepicker').pickadate({
+      selectYears: 60,
+      weekdaysShort: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+      weekdaysFull: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
+      monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre',
+      'Noviembre', 'Diciembre'],
+      monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct',
+      'Nov', 'Dic'],
+      showMonthsShort: true,
+      formatSubmit: 'dd-mm-yyyy',
+      close: 'Cancelar',
+      clear: 'Limpiar',
+      today: 'Hoy',
+      max: true
+    });
     
 
     $("body").on("click","#conf_direccion",function(){ /// para el los botones de opciones
@@ -54,7 +60,7 @@ $(document).ready(function(){
     $('#btn-perfil').click(function(e){ /// agregar un producto 
     e.preventDefault();
     $.ajax({
-            url: "application/src/routes.php?op=100",
+            url: Url+"application/src/routes.php?op=100",
             method: "POST",
             data: $("#form-perfil").serialize(),
             beforeSend: function () {
@@ -93,7 +99,7 @@ return false;
         $.ajax
         ({
             type: "POST",
-            url: "application/src/routes.php?op=101", 
+            url: Url+"application/src/routes.php?op=101", 
             data: dataString,
             cache: false,
             success: function(html){
@@ -111,7 +117,7 @@ return false;
         $.ajax
         ({
             type: "POST",
-            url: "application/src/routes.php?op=101", 
+            url: Url+"application/src/routes.php?op=101", 
             data: dataString,
             cache: false,
             success: function(html){

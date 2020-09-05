@@ -223,10 +223,10 @@ if(count($datos["productos"])){
                 <h6 class=" mt-2 letra-gotham-bold grey-text">
                     SubTotal
                     <br>';
-                    if($_SESSION["delivery"] != NULL){
-                      echo '<br>
-                    Delivery';
-                    }
+                    // if($_SESSION["delivery"] != NULL){
+                    //   echo '<br>
+                    // Delivery';
+                    // }
                     
          echo '</h6>
             </td>
@@ -235,10 +235,10 @@ if(count($datos["productos"])){
                     '. Helpers::Dinero($total) .'
                     <br>';
 
-                    if($_SESSION["delivery"] != NULL){
-                    echo '<br>
-                    '. Helpers::Dinero($_SESSION["delivery"]);
-                	}
+                 //    if($_SESSION["delivery"] != NULL){
+                 //    echo '<br>
+                 //    '. Helpers::Dinero($_SESSION["delivery"]);
+                	// }
             echo '</h6>
             </td>
         </tr>
@@ -250,19 +250,19 @@ if(count($datos["productos"])){
                     Total
                 </h6>
             </td>
-            <td>
-                <h6 class="mt-1 letra-gotham-bold black-text" id="Total">
-                '. Helpers::Dinero($_SESSION["delivery"] + $total) .'                            
-                </h6>
-            </td>
+            <td>';
+            echo '<h6 class="mt-1 letra-gotham-bold black-text" id="Total">
+                '. Helpers::Dinero($total) .'                            
+                </h6>';
+        echo '</td>
         </tr>
         </tr>';
 echo '</tbody>
 </table>';
 
-if($_SESSION["delivery"] == NULL){
-echo '<p class="text-center bg-naranja white-text pt-1 pb-1 rounded">Inicie sesión para conocer el cargo de delivery</p>';
-}
+// if($_SESSION["delivery"] == NULL){
+// echo '<p class="text-center bg-naranja white-text pt-1 pb-1 rounded">Inicie sesión para conocer el cargo de delivery</p>';
+// }
 
 
 } else {

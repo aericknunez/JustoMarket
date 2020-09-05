@@ -1,5 +1,7 @@
-$(document).ready(function()
-{
+$(document).ready(function(){
+
+// var Url = "http://localhost/justomarket/";
+var Url = "https://justomarket.com/";
 
 /// login modal
     $("body").on("click","#mlogin",function(){ 
@@ -21,7 +23,7 @@ $(document).ready(function()
 	$('#btn-login').click(function(e){ /// agregar un producto 
 	e.preventDefault();
 	$.ajax({
-			url: "https://justomarket.com/application/includes/process_login.php",
+			url: Url+"application/includes/process_login.php",
 			method: "POST",
 			data: $("#form-login").serialize(),
 			beforeSend: function () {
@@ -65,7 +67,7 @@ return false;
 	$('#btn-registrar').click(function(e){  
 	e.preventDefault();
 	$.ajax({
-			url: "https://justomarket.com/system/user/redirect.php?op=1",
+			url: Url+"system/user/redirect.php?op=1",
 			method: "POST",
 			data: $("#form-registrar").serialize(),
 			beforeSend: function () {
@@ -117,13 +119,13 @@ return false;
 
         $.ajax({
             type: "POST",
-            url: "https://justomarket.com/system/user/redirect.php",
+            url: Url+"system/user/redirect.php",
             data: dataString,
             beforeSend: function () {
-               $("#lista_usuarios").html('<div class="row justify-content-center" ><img src="assets/img/loa.gif" alt=""></div>');
+               $("#lista_usuarios").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
             },
             success: function(data) {            
-				$("#lista_usuarios").load('system/user/redirect.php?op=8');
+				$("#lista_usuarios").load(Url+'system/user/redirect.php?op=8');
 				$("#msj").html(data);	
 				$('#ConfirmDelete').modal('hide');
             }
@@ -150,10 +152,10 @@ return false;
 
 	        $.ajax({
 	            type: "POST",
-	            url: "https://justomarket.com/system/user/redirect.php",
+	            url: Url+"system/user/redirect.php",
 	            data: dataString,
 	            beforeSend: function () {
-	               $("#vista_password").html('<div class="row justify-content-center" ><img src="assets/img/loa.gif" alt=""></div>');
+	               $("#vista_password").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
 	            },
 	            success: function(data) {            
 					$("#vista_password").html(data);	
@@ -164,7 +166,7 @@ return false;
     	$('#btn-changepass').click(function(e){ /// para el formulario
 		e.preventDefault();
 		$.ajax({
-			url: "https://justomarket.com/system/user/redirect.php?op=5",
+			url: Url+"system/user/redirect.php?op=5",
 			method: "POST",
 			data: $("#form-changepass").serialize(),
 			success: function(data){
@@ -190,10 +192,10 @@ return false;
 
 	        $.ajax({
 	            type: "POST",
-	            url: "https://justomarket.com/system/user/redirect.php",
+	            url: Url+"system/user/redirect.php",
 	            data: dataString,
 	            beforeSend: function () {
-	               $("#vista_update").html('<div class="row justify-content-center" ><img src="assets/img/loa.gif" alt=""></div>');
+	               $("#vista_update").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
 	            },
 	            success: function(data) {            
 					$("#vista_update").html(data);	
@@ -205,17 +207,17 @@ return false;
 	$('#btn-actualizar').click(function(e){ /// para el formulario
 			e.preventDefault();
 			$.ajax({
-			url: "https://justomarket.com/system/user/redirect.php?op=2",
+			url: Url+"system/user/redirect.php?op=2",
 			method: "POST",
 			data: $("#form-actualizar").serialize(),
 			beforeSend: function () {
 				$('#btn-registrar').html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Loading...').addClass('disabled');
-				$("#lista_usuarios").html('<div class="row justify-content-center" ><img src="assets/img/loa.gif" alt=""></div>');
+				$("#lista_usuarios").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
 	        },
 			success: function(data){
 				$('#btn-actualizar').html('Login').removeClass('disabled');	      
 				$("#form-actualizar").trigger("reset");
-				$("#lista_usuarios").load('system/user/redirect.php?op=8');
+				$("#lista_usuarios").load(Url+'system/user/redirect.php?op=8');
 				$("#msj").html(data);	
 				$('#ModalUpdate').modal('hide');
 			}
@@ -245,10 +247,10 @@ return false;
 
 	        $.ajax({
 	            type: "POST",
-	            url: "https://justomarket.com/system/user/redirect.php",
+	            url: Url+"system/user/redirect.php",
 	            data: dataString,
 	            beforeSend: function () {
-	               $("#vista_avatar").html('<div class="row justify-content-center" ><img src="assets/img/loa.gif" alt=""></div>');
+	               $("#vista_avatar").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
 	            },
 	            success: function(data) {            
 					$("#vista_avatar").html(data);	
@@ -267,10 +269,10 @@ return false;
 
         $.ajax({
             type: "POST",
-            url: "https://justomarket.com/system/user/redirect.php",
+            url: Url+"system/user/redirect.php",
             data: dataString,
             beforeSend: function () {
-               $("#avatar-select").html('<div class="row justify-content-center" ><img src="assets/img/loa.gif" alt=""></div>');
+               $("#avatar-select").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
             },
             success: function(data) {            
 				$("#avatar-select").html(data);
