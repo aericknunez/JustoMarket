@@ -71,12 +71,11 @@ $rand = rand(1,99);
             <div class="col text-center" style="height: 100px;">
               <h5 class="h5-responsive" style="font-family: Gotham-Light;">'.$datos["productos"][$i]["descripcion"].'</h5>
             </div>
-          </div>
+          </div>';
 
-          <div class="row text-center">
-
-            <div class="col-12 nopadding">';
-
+// pequeno
+echo '<div class="d-block d-sm-block d-md-none d-lg-none">';
+ echo '<div class="row text-center"><div class="col-12 nopadding">';
 if($datos["productos"][$i]["promo"] != NULL){
 
 echo '<h4 class="h4-responsive letra-gotham-black vino">'.Helpers::Dinero($datos["productos"][$i]["promo"]).'</h4>
@@ -84,35 +83,80 @@ echo '<h4 class="h4-responsive letra-gotham-black vino">'.Helpers::Dinero($datos
 } else {
   echo '<h4 class="h4-responsive letra-gotham-black vino">'.Helpers::Dinero($datos["productos"][$i]["precio"]).'</h4>';
 }
-              
-            
+ echo '</div>';
 
-            echo '</div>
-            <div class="col-12 nopadding">
-              <div class="row no-gutters text-center">
-                <div class="col-3 text-center nopadding">
-                  <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="1" lugar="'.$rand.'"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
-                </div>
-                <div class="col-6 text-center nopadding">
-                  <input id="'.$rand.'cantidad'.$datos["productos"][$i]["cod"].'" class="h4-responsive 
+
+
+echo '<div class="col-12 nopadding">
+    <div class="row no-gutters text-center">
+      <div class="col-3 text-center nopadding">
+        <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="1" lugar="'.$rand.'"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
+      </div>
+      <div class="col-6 text-center nopadding">
+        <input id="'.$rand.'cantidad'.$datos["productos"][$i]["cod"].'" class="h4-responsive 
 z-depth-1 rounded-pill mt-0 w-75 text-center border-0" value="1"></input>
-                </div>
-                <div class="col-3 text-center nopadding">
-                  <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="2" lugar="'.$rand.'"><i class="fa fa-plus-circle fa-lg naranja p-1 border-0"></i></a>
-                </div>
-              </div>
-              <div class="row no-gutters text-center">
-                <div class="col">
-                  <a id="additem" btniden="'.$datos["productos"][$i]["cod"].'" cod="'.$datos["productos"][$i]["cod"].'" lugar="'.$rand.'" modact="0"
-                                class="btn btn-sm btn-warning btn-rounded bg-naranja">
-                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                </a>
-                </div>
-              </div>
-            </div>
+      </div>
+      <div class="col-3 text-center nopadding">
+        <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="2" lugar="'.$rand.'"><i class="fa fa-plus-circle fa-lg naranja p-1 border-0"></i></a>
+      </div>
+    </div>
+    <div class="row no-gutters text-center">
+      <div class="col">
+        <a id="additem" btniden="'.$datos["productos"][$i]["cod"].'" cod="'.$datos["productos"][$i]["cod"].'" lugar="'.$rand.'" modact="0"
+                      class="btn btn-sm btn-warning btn-rounded bg-naranja">
+                      <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                      </a>
+      </div>
+    </div>
+  </div></div>';
+echo '</div>'; // termina pequeno
 
-          </div>
-        </div>
+
+
+
+
+// grande
+echo '<div class="d-none d-md-block d-lg-block">';
+ echo '<div class="row text-center">
+ <div class="col-6 col-md-6 col-lg-6 nopadding">';
+if($datos["productos"][$i]["promo"] != NULL){
+
+echo '<h4 class="h4-responsive letra-gotham-black vino">'.Helpers::Dinero($datos["productos"][$i]["promo"]).'</h4>
+<h6 class="letra-gotham-light grey-text">Antes '.Helpers::Dinero($datos["productos"][$i]["precio"]).'</h6>';
+} else {
+  echo '<h4 class="h4-responsive letra-gotham-black vino">'.Helpers::Dinero($datos["productos"][$i]["precio"]).'</h4>';
+}
+ echo '</div>';
+
+
+
+echo '<div class="col-6 col-md-6 col-lg-6 nopadding">
+    <div class="row no-gutters align-items-center">
+      <div class="col-3 text-center nopadding">
+        <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="1" lugar="'.$rand.'"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
+      </div>
+      <div class="col-6 text-center nopadding">
+        <input id="'.$rand.'cantidad'.$datos["productos"][$i]["cod"].'" class="h4-responsive 
+z-depth-1 rounded-pill mt-0 w-75 text-center border-0" value="1"></input>
+      </div>
+      <div class="col-3 text-center nopadding">
+        <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="2" lugar="'.$rand.'"><i class="fa fa-plus-circle fa-lg naranja p-1 border-0"></i></a>
+      </div>
+    </div>
+    <div class="row no-gutters text-center">
+      <div class="col">
+        <a id="additem" btniden="'.$datos["productos"][$i]["cod"].'" cod="'.$datos["productos"][$i]["cod"].'" lugar="'.$rand.'" modact="0"
+                      class="btn btn-sm btn-warning btn-rounded bg-naranja">
+                      <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                      </a>
+      </div>
+    </div>
+  </div></div>';
+echo '</div>'; // termina grande
+
+
+
+     echo '</div>
       </div>
     </div>';
 
