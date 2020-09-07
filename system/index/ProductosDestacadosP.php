@@ -112,7 +112,7 @@ echo '<div class="col-6 border-bottom mt-2">';
                         
 echo '</div>
 <div class="col-12 nopadding">
-<div class="row no-gutters align-items-center">
+<div class="row no-gutters text-center">
 <div class="col-3 text-center nopadding">
     <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="1" lugar="'.$rand.'"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
 </div>
