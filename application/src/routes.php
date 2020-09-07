@@ -236,6 +236,7 @@ include_once '../phpMailer/Exception.php';
 include_once '../phpMailer/PHPMailer.php';
 include_once '../phpMailer/SMTP.php';
 
+if($_POST["email"] != NULL){
     $a = $db->query("SELECT email FROM login_userdata WHERE email = '".$_POST["email"]."'");
     
 if($a->num_rows > 0){
@@ -249,7 +250,9 @@ if($a->num_rows > 0){
 Alerts::Mensajex("El Email ingresado no existe en nuestros registros, verifique su email", "danger");
 }
   $a->close();
-
+} {
+	Alerts::Mensajex("Ingrese un email", "danger");
+}
 break;
 
 
