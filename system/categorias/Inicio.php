@@ -53,7 +53,6 @@ public function ProductoView($datos, $inicio, $fin, $active = NULL){
 	//bucle para recorrer los elementos del array
 	 for ($i = $inicio; $i < $fin; $i++){
 
-$rand = rand(1,99);
 
   echo '<div class="col-6 col-sm-6 col-md-4 col-lg-3 border-right border-left mt-4">
       <div class="card mb-1 z-depth-0">';
@@ -74,6 +73,7 @@ $rand = rand(1,99);
           </div>';
 
 // pequeno
+$rand = rand(1,99);
 echo '<div class="d-block d-sm-block d-md-none d-lg-none">';
  echo '<div class="row text-center"><div class="col-12 nopadding">';
 if($datos["productos"][$i]["promo"] != NULL){
@@ -116,6 +116,7 @@ echo '</div>'; // termina pequeno
 
 
 // grande
+$rand = rand(1,99);
 echo '<div class="d-none d-md-block d-lg-block">';
  echo '<div class="row text-center">
  <div class="col-6 col-md-6 col-lg-6 nopadding">';
