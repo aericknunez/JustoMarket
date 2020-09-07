@@ -15,17 +15,17 @@
                     <div class="carousel-inner" role="listbox">
                         <!--First slide-->
                         <div class="carousel-item active">
-                            <img class="d-block w-100 bordeado2" src="<?php echo Helpers::Img("https://justomarket.com/assets/img/banner1.jpg") ?>" alt="First slide">
+                            <img class="d-block w-100 bordeado2" src="https://justomarket.com/assets/img/banner1.jpg" alt="First slide">
                         </div>
                         <!--/First slide-->
                         <!--Second slide-->
                         <div class="carousel-item">
-                            <img class="d-block w-100 bordeado2" src="<?php echo Helpers::Img("https://justomarket.com/assets/img/banner2.jpg") ?>" alt="Second slide">
+                            <img class="d-block w-100 bordeado2" src="https://justomarket.com/assets/img/banner2.jpg" alt="Second slide">
                         </div>
                         <!--/Second slide-->
                         <!--Third slide-->
                         <div class="carousel-item">
-                            <img class="d-block w-100 bordeado2" src="<?php echo Helpers::Img("https://justomarket.com/assets/img/banner3.jpg") ?>" alt="Third slide">
+                            <img class="d-block w-100 bordeado2" src="https://justomarket.com/assets/img/banner3.jpg" alt="Third slide">
                         </div>
                         <!--/Third slide-->
                     </div>
