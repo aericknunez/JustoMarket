@@ -553,4 +553,35 @@ Promociones();
 
 
 
+
+
+////////////// busqueda de productos
+  // $('#btn-buscar').click(function(e){ /// agregar un producto 
+  // e.preventDefault();
+  // $.ajax({
+  //     url: Url+"application/src/routes.php?op=50",
+  //     method: "POST",
+  //     data: $("#form-buscar").serialize(),
+  //     beforeSend: function () {
+  //       $('#btn-buscar').html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Loading...').addClass('disabled');
+  //         },
+  //     success: function(data){
+  //       $('#btn-buscar').html('Ingresar').removeClass('disabled');       
+  //       $("#form-buscar").trigger("reset");
+  //       $("#busquedas").html(data); 
+  //     }
+  //   })
+  // });
+
+
+
+
+
+
+
+
+
+
+
+
 });

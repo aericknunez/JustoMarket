@@ -51,6 +51,8 @@ elseif(isset($_GET["recovery"])) include_once 'system/user/recoverpass.php';
 
 elseif(isset($_GET["recoverypass"])) include_once 'system/user/recoverpass2.php';
 
+elseif(isset($_GET["search"])) include_once 'system/busqueda/index.php';
+
 
 else{
 
