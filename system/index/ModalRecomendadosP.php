@@ -89,6 +89,8 @@ echo '<div class="col-6 border-bottom mt-2">';
             class="img-fluid imgproductos">
         </a>
 
+
+
  <div class="card-body">
     <div class="row" style="height: 100px;">
         <div class="col text-center h-100">
@@ -97,7 +99,7 @@ echo '<div class="col-6 border-bottom mt-2">';
         </div>
     </div>
 
-    <div class="row align-items-center ">
+    <div class="row text-center">
 
         <div class="col-12 nopadding">';
 
@@ -115,7 +117,7 @@ echo '<div class="col-6 border-bottom mt-2">';
 echo '</div>
 
 
-<div class="col-6 col-md-6 col-lg-6 nopadding">
+<div class="col-12 nopadding">
 <div class="row no-gutters align-items-center">
 <div class="col-3 text-center nopadding">
     <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="1" lugar="'.$rand.'"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
@@ -128,6 +130,8 @@ z-depth-1 rounded-pill mt-0 w-75 text-center border-0" value="1"></input>
     <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="2" lugar="'.$rand.'"><i class="fa fa-plus-circle fa-lg naranja p-1 border-0"></i></a>
 </div>
 </div>
+
+
 <div class="row no-gutters text-center">
 <div class="col">
     <a id="additem" btniden="'.$datos["productos"][$i]["cod"].'" cod="'.$datos["productos"][$i]["cod"].'" lugar="'.$rand.'" modact="0"
@@ -135,6 +139,7 @@ z-depth-1 rounded-pill mt-0 w-75 text-center border-0" value="1"></input>
     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
     </a>
 </div>
+
 </div>
 </div>
 

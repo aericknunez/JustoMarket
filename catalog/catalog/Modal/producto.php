@@ -11,7 +11,7 @@
                 </button>
             </div>
             <!--Body-->
-            <div class="modal-body p-4">
+            <div class="modal-body">
                 <div class="container z-depth-0" id="contenido-modal">
 
 
