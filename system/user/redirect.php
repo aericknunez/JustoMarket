@@ -48,6 +48,8 @@ include_once '../config/Inicio.php';
 
 $_POST["password"] = $_POST["fpassword"];
 $_POST["confirmpwd"] = $_POST["fconfirmpwd"];
+$_POST["recibe_departamento"] = $_POST["recibe_departamentoi"];
+$_POST["recibe_municipio"] = $_POST["recibe_municipioi"];
 
 if($_POST["password"] != NULL){
 
@@ -104,6 +106,8 @@ include_once '../../application/phpMailer/Email.php';
 require '../../application/phpMailer/Exception.php';
 require '../../application/phpMailer/PHPMailer.php';
 require '../../application/phpMailer/SMTP.php';
+$_POST["recibe_departamento"] = $_POST["recibe_departamentor"];
+$_POST["recibe_municipio"] = $_POST["recibe_municipior"];
 
 
 	include_once '../../application/includes/DataLogin.php';

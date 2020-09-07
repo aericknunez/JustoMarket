@@ -555,6 +555,88 @@ Promociones();
 
 
 
+
+
+
+//// departamento y municipio
+//// cambiar munnicipio
+    $("#recibe_departamentor").change(function(){
+
+        var id=$(this).val();
+        var dataString = 'id='+ id;
+    
+        $.ajax
+        ({
+            type: "POST",
+            url: Url+"application/src/routes.php?op=101", 
+            data: dataString,
+            cache: false,
+            success: function(html){
+                $("#recibe_municipior").html(html);
+            } 
+        });
+    });
+
+
+    $("#usr_departamentor").change(function(){
+
+        var id=$(this).val();
+        var dataString = 'id='+ id;
+    
+        $.ajax
+        ({
+            type: "POST",
+            url: Url+"application/src/routes.php?op=101", 
+            data: dataString,
+            cache: false,
+            success: function(html){
+                $("#usr_municipior").html(html);
+            } 
+        });
+    });
+
+
+
+
+    $("#recibe_departamentoi").change(function(){
+
+        var id=$(this).val();
+        var dataString = 'id='+ id;
+    
+        $.ajax
+        ({
+            type: "POST",
+            url: Url+"application/src/routes.php?op=101", 
+            data: dataString,
+            cache: false,
+            success: function(html){
+                $("#recibe_municipioi").html(html);
+            } 
+        });
+    });
+
+
+    $("#usr_departamentoi").change(function(){
+
+        var id=$(this).val();
+        var dataString = 'id='+ id;
+    
+        $.ajax
+        ({
+            type: "POST",
+            url: Url+"application/src/routes.php?op=101", 
+            data: dataString,
+            cache: false,
+            success: function(html){
+                $("#usr_municipioi").html(html);
+            } 
+        });
+    });
+
+
+
+  
+
 ////////////// busqueda de productos
   // $('#btn-buscar').click(function(e){ /// agregar un producto 
   // e.preventDefault();

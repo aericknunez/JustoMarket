@@ -94,41 +94,6 @@ return false;
 
 
 
-//// cambiar munnicipio
-    $("#recibe_departamento").change(function(){
-
-        var id=$(this).val();
-        var dataString = 'id='+ id;
-    
-        $.ajax
-        ({
-            type: "POST",
-            url: Url+"application/src/routes.php?op=101", 
-            data: dataString,
-            cache: false,
-            success: function(html){
-                $("#recibe_municipio").html(html);
-            } 
-        });
-    });
-
-
-    $("#usr_departamento").change(function(){
-
-        var id=$(this).val();
-        var dataString = 'id='+ id;
-    
-        $.ajax
-        ({
-            type: "POST",
-            url: Url+"application/src/routes.php?op=101", 
-            data: dataString,
-            cache: false,
-            success: function(html){
-                $("#usr_municipio").html(html);
-            } 
-        });
-    });
 
 
 

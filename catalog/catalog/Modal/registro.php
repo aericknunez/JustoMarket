@@ -54,23 +54,48 @@
 
 
     <div class="row">
-        <div class="col-6">
+        <div class="col-1"><div class="md-form form-sm mb-3">
+            <i class="fas fa-map-marker prefix"></i>
+        </div></div>
+        <div class="col-5">
                 <div class="md-form form-sm mb-3">
-                    <i class="fas fa-map-marker prefix"></i>
-                    <input type="text" id="recibe_departamento" name="recibe_departamento"
-                        class="form-control form-control-sm validate">
-                    <label data-error="wrong" data-success="right"
-                        for="recibe_departamento">Departamento</label>
+                    
+        <select class="browser-default custom-select md-form form-sm mb-0" id="recibe_departamentor" name="recibe_departamentor">
+      <?php 
+
+                $a = $db->query("SELECT id, departamento FROM cobertura_departamento");
+                  echo '<option>* Departamento</option>';
+                  foreach ($a as $b) {  
+
+                      if($recibe_departamento == $b["id"]){
+                          echo '<option value="'. $b["id"] .'" selected >'. $b["departamento"] .'</option>'; 
+                      } else {
+                          echo '<option value="'. $b["id"] .'">'. $b["departamento"] .'</option>'; 
+                      }
+
+                  } $a->close(); 
+
+       ?>
+      </select>
                 </div>
         </div>
 
-        <div class="col-6">
+        <div class="col-1"><div class="md-form form-sm mb-3">
+             <i class="fas fa-map-marker-alt prefix"></i>
+        </div></div>
+
+        <div class="col-5">
                 <div class="md-form form-sm mb-3">
-                    <i class="fas fa-map-marker-alt prefix"></i>
-                    <input type="text" id="recibe_municipio" name="recibe_municipio"
-                        class="form-control form-control-sm validate">
-                    <label data-error="wrong" data-success="right"
-                        for="recibe_municipio">Municipio</label>
+                     <select class="browser-default custom-select md-form form-sm mb-0" id="recibe_municipior" name="recibe_municipior">
+                      <?php 
+
+                            $a = $db->query("SELECT id, municipio FROM cobertura_municipio WHERE departamento = '".$recibe_departamento."'");
+                              echo '<option>* Municipio</option>';
+                              foreach ($a as $b) {  
+                            echo '<option value="'. $b["id"] .'">'. $b["municipio"] .'</option>'; 
+                              } $a->close(); 
+                       ?>
+                    </select>
                 </div>
         </div>
         
