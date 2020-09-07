@@ -34,9 +34,9 @@ include_once 'application/common/Encrypt.php';
 
 
   </div>
-  
-  <div id="msj"></div>
+
 </div>
+<div id="msj"></div>
 <br><br>
 
 
