@@ -3,7 +3,7 @@
 <div class="modal fade" id="ModalProductos" tabindex="-1" role="dialog" aria-labelledby="ModalProductos"
     aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content modal-border-rounded ">
+        <div class="modal-content bordeado2">
             <!--Header-->
             <div class="modal-header p-1 border-0">
                 <button type="button" class="close mr-4" data-dismiss="modal" aria-label="Close">
