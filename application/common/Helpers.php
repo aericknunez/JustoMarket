@@ -44,7 +44,14 @@ class Helpers{
 
 
     static public function Img($img){
-    $img_content = file_get_contents($img);
+
+$ch = curl_init();
+curl_setopt ($ch, CURLOPT_URL, $img);
+curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 5);
+curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
+$img_content = curl_exec($ch);
+
+    // $img_content = file_get_contents($img);
     $img_base64 = chunk_split(base64_encode($img_content));
     return "data:image/jpg;base64,$img_base64";
     }
