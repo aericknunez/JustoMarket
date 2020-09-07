@@ -30,13 +30,12 @@ include_once 'application/common/Encrypt.php';
 
     <button class="btn bg-naranja mt-2 text-white" type="submit" id="btn-recovery" name="btn-recovery">RECUPERAR</button>
 
-  
-
-
     </form>
 
-<div id="msj"></div>
+
   </div>
+  
+  <div id="msj"></div>
 </div>
 <br><br>
 

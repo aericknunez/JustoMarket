@@ -66,8 +66,9 @@ if($_REQUEST["hash"] == md5($_REQUEST["u"])){
           </div>';
 
 }?>
-<div id="msj"></div>
+
   </div>
+  <div id="msj"></div>
 </div>
 <br><br>
 
