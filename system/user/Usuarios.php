@@ -165,6 +165,20 @@ echo '<label>Tipo de Cuenta</label>
 	}
 
 
+	public function Cambio($pass1, $pass2) {
+		if($pass1 == $pass2){
+
+			$this->CambiarPass($pass1);
+	
+		} else {
+			Alerts::Alerta("error","Error!","Los password no son iguales");
+		}
+
+	}
+
+
+	
+
 	public function CompararPass($pass1, $pass2) {
 		if($pass1 == $pass2){
 			// if(strlen($pass1) > 6){

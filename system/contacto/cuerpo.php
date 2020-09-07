@@ -166,3 +166,10 @@
 
 </div>
 <!-- Start your project here-->
+
+
+<!-- <div class="row">
+  <div class="col-12">
+    <img src="assets/img/mapa2.png" alt="Contacto" class="img-fluid">
+  </div>
+</div> -->

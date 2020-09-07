@@ -39,14 +39,16 @@ include_once 'system/index/InicioModal.php';
 
 
 <!-- Modal: vinos y locores -->
-<div class="modal fade" id="ModalVinos" tabindex="-1" role="dialog" aria-labelledby="ModalVinos"
+<!-- <div class="modal fade" id="ModalVinos" tabindex="-1" role="dialog" aria-labelledby="ModalVinos"
     aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-md modal-dialog-centered" role="document">
         <div class="modal-content modal-border-rounded p-2">
-            <!--Header-->
+
+
             <div class="modal-header p-1 border-0">
             </div>
-            <!--Body-->
+   
+   
             <div class="modal-body p-4">
                 <div class="container z-depth-0 text-center">
 
@@ -71,7 +73,7 @@ include_once 'system/index/InicioModal.php';
         </div>
     </div>
 </div>
-
+ -->
 
 
 

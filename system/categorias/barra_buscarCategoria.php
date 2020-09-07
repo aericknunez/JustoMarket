@@ -3,11 +3,18 @@
         <h1 class="letra-gotham-black white-text w-100">
 
           <?php 
+                $categoria = $_REQUEST["categoria"];
                 if($_REQUEST["categoria"] == "vinos"){
-                  $_REQUEST["categoria"] = "vinos y licores";
+                  $categoria = "vinos y licores";
+                }
+                if($_REQUEST["categoria"] == "carnes"){
+                  $categoria = "Carnes y Pollo";
+                }
+                if($_REQUEST["categoria"] == "frutas"){
+                  $categoria = "Frutas y Vegetales";
                 }
 
-          echo strtoupper($_REQUEST["categoria"]); ?></h1>
+          echo strtoupper($categoria); ?></h1>
       </div>
     </section>
 
@@ -17,7 +24,7 @@
       <nav class="navbar navbar-light   z-depth-0 p-3">
         <div>
           <a class="grey-text letra-gotham-light" href="<?php echo BASE_URL ?>">Inicio -</a>
-          <a class="grey-text letra-gotham-light"><?php echo ucfirst($_REQUEST["categoria"]); ?></a>
+          <a class="grey-text letra-gotham-light"><?php echo ucfirst($categoria); ?></a>
         </div>
         <form class="form-inline my-1">
           <div class="input-group form-lg form-2 pl-0">

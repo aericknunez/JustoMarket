@@ -32,6 +32,13 @@ elseif(isset($_GET["checkout"])) {
 echo '<script type="text/javascript" src="'.BASE_URL.'assets/js/checkout.js?v='.$numero.'"></script>';
 } 
 
+elseif(isset($_GET["recovery"])) {
+echo '<script type="text/javascript" src="'.BASE_URL.'assets/js/checkout.js?v='.$numero.'"></script>';
+} 
+elseif(isset($_GET["recoverypass"])) {
+echo '<script type="text/javascript" src="'.BASE_URL.'assets/js/checkout.js?v='.$numero.'"></script>';
+} 
+
 
 else{
 
@@ -44,14 +51,15 @@ else{
 if($_REQUEST["categoria"] == "vinos y licores" and $_SESSION["mayordeedad"] == FALSE){
 ?>
 
-	<script>
+<!-- 	<script>
 		$(document).ready(function()
 		{
 		  $("#ModalVinos").modal("show");
 		});
-	</script>
+	</script> -->
 
 <?
 } 
 
 ?>
+

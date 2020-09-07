@@ -1,7 +1,12 @@
 $(document).ready(function(){
 
-// var Url = "http://localhost/justomarket/";
-var Url = "https://justomarket.com/";
+
+if(location.hostname == "localhost"){
+    var Url = "http://localhost/justomarket/";
+} else {
+    var Url = "https://justomarket.com/";
+}
+
 
 
 /// borrar un item desde el cart

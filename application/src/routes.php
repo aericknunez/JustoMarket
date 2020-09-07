@@ -18,9 +18,17 @@ include_once '../common/Dinero.php';
 switch ($_REQUEST["op"]) {
 
 
+case "10": // destacados del index pequenos
+include_once '../../system/index/ProductosDestacadosP.php';
+	$ind = new Index(); //&order=DESC
+	$cantidad = $_POST["cantidad"];
+	$ind->ProductosDestacados(URL_SERVER . "application/src/api.php?op=11&order=ASC&cantidad=".$cantidad."&td=" . TD_SERVER);
+break;
 
-case "11": // destacados
-include_once '../../system/index/Inicio.php';
+
+
+case "11": // destacados del index // grandes en multiplos de 4
+include_once '../../system/index/ProductosDestacados.php';
 	$ind = new Index(); 
 	$ind->ProductosDestacados(URL_SERVER . "application/src/api.php?op=11&cantidad=12&td=" . TD_SERVER);
 break;
@@ -37,7 +45,7 @@ break;
 
 case "13": // promociones (Quitarle la cantidad para que muestre todas las promociones)
 include_once '../../system/categorias/Inicio.php';
-	$cat = new Categorias(); 
+	$cat = new Categorias(); //&order=DESC
 	$cat->ProductosCategoria(URL_SERVER . "application/src/api.php?op=13&cantidad=12&td=" . TD_SERVER);
 break;
 
@@ -46,15 +54,26 @@ break;
 case "14": // producto detalles
 include_once '../../system/index/InicioModal.php';
 	$ind = new IndexModal(); 
+	$cantidad = $_POST["cantidad"];
 	$ind->ModalProductos(URL_SERVER . "application/src/api.php?op=14&cod=".$_POST["cod"]."&td=" . TD_SERVER);
 break;
 
 
 
 case "15": // modal recomendados
-include_once '../../system/index/InicioModal.php';
-	$ind = new IndexModal(); 
+include_once '../../system/index/ModalRecomendados.php';
+	$ind = new ModalRec(); 
 	$ind->ProductosRecomendados(URL_SERVER . "application/src/api.php?op=11&cantidad=12&td=" . TD_SERVER);
+break;
+
+
+
+
+case "16": // modal recomendados Pequeno
+include_once '../../system/index/ModalRecomendadosP.php';
+	$ind = new ModalRec(); 
+	$cantidad = $_POST["cantidad"];
+	$ind->ProductosRecomendados(URL_SERVER . "application/src/api.php?op=11&order=ASC&cantidad=".$cantidad."&td=" . TD_SERVER);
 break;
 
 
@@ -180,10 +199,22 @@ break;
 
 
 
+
 case "28": //obtener el ultimo pedido (no es llamado de ningun lugar de momento)
 include_once '../../system/config/Inicio.php';
 	$card = new Inicio();
 	$card->ObtenerOrdenNo(URL_SERVER . "application/src/api.php?op=28&td=" . TD_SERVER . "&usr=" . $_SESSION["usuario"]);
+break;
+
+
+
+case "29": //contenido de cart
+include_once '../../system/checkout/Inicio.php';
+	$card = new CheckOut();
+	$cant = $card->CantidadProductos(URL_SERVER . "application/src/api.php?op=23&td=" . TD_SERVER . "&usr=" . $_SESSION["usuario"] . "&orden=" . $_SESSION["orden"]);
+	if($cant != 0){
+		echo $cant;
+	}
 break;
 
 
@@ -196,6 +227,31 @@ if($_POST["edo"] == 0){
 	echo '<div class="text-center text-uppercase"><a href="https://www.google.com/maps/d/edit?mid=1MgdX1iArlCXkCc6VfQ31rZVjURMjKvNb&usp=sharing" target="_blank">Ver el mapa de nuestra ubicación</a></div>';
 }
 break;
+
+
+
+case "32": // recuperar Pass
+include_once '../phpMailer/Email.php';
+include_once '../phpMailer/Exception.php';
+include_once '../phpMailer/PHPMailer.php';
+include_once '../phpMailer/SMTP.php';
+
+    $a = $db->query("SELECT email FROM login_userdata WHERE email = '".$_POST["email"]."'");
+    
+if($a->num_rows > 0){
+		if(Email::EnviarEmail($_POST["email"], "Estimado Cliente", 5, 5) == TRUE){
+			Alerts::Mensajex("Se ha enviado un enlace de recuperación a su email. Por favor revise su email", "success");
+		} else {
+			Alerts::Mensajex("Ocurrio un error al intentar enviar el email, por fevor intente mas tarde", "danger");
+		}
+
+} else {
+Alerts::Mensajex("El Email ingresado no existe en nuestros registros, verifique su email", "danger");
+}
+  $a->close();
+
+break;
+
 
 
 

@@ -1,9 +1,10 @@
+<div class="container">
 <!-- Barra Buscar -->
 <section>
 
     <nav class="navbar navbar-light d-flex flex-column-reverse flex-lg-row flex-md-row  z-depth-0 p-5">
 
-        <h1 class="letra-gotham-black vino">Categorias</h1>
+        <h1 class="letra-gotham-black vino">Categorías</h1>
         <form class="form-inline my-1">
             <div class="input-group form-lg form-2 pl-0">
                 <input class="form-control my-0 py-3 z-depth-1 buscar-left" type="text" placeholder="Buscar"
@@ -22,3 +23,4 @@
 
 </section>
 <!-- Fin Barra Buscar -->
+</div>

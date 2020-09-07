@@ -31,15 +31,12 @@ $_SESSION["ver_avatar"] = NULL;
             $_SESSION['tkn'] = $r["tkn"];
             $_SESSION['avatar'] = $r["avatar"];
             $_SESSION['user'] = $user;
+            $_SESSION['email'] = $r["email"];
             $_SESSION['td'] = $r["td"];
             $_SESSION['nombres'] = $r["nombres"];
             $_SESSION['apellidos'] = $r["apellidos"];
             $_SESSION['secret_key'] = md5($r["td"]);
             } unset($r);
-
-            if ($r = $db->select("email", "login_members", "WHERE username = '".$_SESSION["user"]."'")) {    
-                $_SESSION['email'] = $r["email"];
-            }   unset($r);  
 
 
         $inicia = new Inicio();
@@ -61,7 +58,6 @@ $_SESSION["ver_avatar"] = NULL;
             if ($r = $db->select("*", "login_direcciones", "WHERE user = '".$_SESSION["user"]."'")) { 
             $usr_direccion = $r["usr_direccion"];
             $usr_municipio = $r["usr_municipio"];
-            $usr_telefono = $r["usr_telefono"];
             $recibe_municipio = $r["recibe_municipio"];
             }   unset($r);  
 
@@ -73,7 +69,7 @@ $_SESSION["ver_avatar"] = NULL;
 
 
 
-         if($usr_direccion == NULL || $usr_municipio == NULL || $usr_telefono == NULL){
+         if($usr_direccion == NULL || $usr_municipio == NULL){
             header("location: ".BASE_URL."?perfil&op=2&msj=1");
          }   
 

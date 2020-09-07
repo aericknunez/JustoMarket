@@ -1,6 +1,6 @@
 <!--Modal: Login / Register Form-->
-<div class="modal fade" id="ModalRegistro" tabindex="-1" role="dialog"
-    aria-labelledby="ModalRegistro" aria-hidden="true">
+<div class="modal fade" id="ModalInvitado" tabindex="-1" role="dialog"
+    aria-labelledby="ModalInvitado" aria-hidden="true">
     <div class="modal-dialog modal-success" role="document">
         <!--Content-->
         <div class="modal-content bordeado3">
@@ -8,8 +8,8 @@
 
       <!--Header-->
       <div class="modal-header text-center bg-vino bordeado3">
-        <h4 class="modal-title white-text w-100 font-weight-bold py-2">Registrarse</h4>
-        <button id="CloseModal" op="1" class="close">
+        <h4 class="modal-title white-text w-100 font-weight-bold py-2">INVITADO</h4>
+        <button id="CloseModal" op="3" class="close" aria-label="Close">
           <span aria-hidden="true" class="white-text">&times;</span>
         </button>
       </div>
@@ -17,8 +17,9 @@
 
                         <!--Body-->
 <div class="modal-body">
-<div id="msjregister"></div>
-<form id="form-registrar" name="form-registrar">
+<div id="msjinvitado"></div>
+<form id="form-invitado" name="form-invitado">
+
  <div class="md-form form-sm mb-3">
     <i class="fas fa-user prefix"></i>
     <input type="text" id="nombre" name="nombre"
@@ -80,6 +81,7 @@
 
 
 
+
     <div class="row">
         <div class="col-6">
                 <div class="md-form form-sm mb-3">
@@ -122,29 +124,41 @@
 </div>
 
 
-<div class="showpass">
+
+<div class="switch">
+    <label>
+    Off
+    <input type="checkbox" id="cuenta" name="cuenta">
+    <span class="lever"></span> 
+    On 
+      || ¿Crear Cuenta?
+    </label>
+</div>
+
+
+<div id="showpass">
     <div class="md-form form-sm mb-3">
     <i class="fas fa-lock prefix"></i>
-    <input type="password" id="password" name="password"
+    <input type="password" id="fpassword" name="fpassword"
         class="form-control form-control-sm validate">
     <label data-error="wrong" data-success="right"
-        for="password">Contraseña</label>
+        for="fpassword">Contraseña</label>
 </div>
 
 <div class="md-form form-sm mb-3">
     <i class="fas fa-lock prefix"></i>
-    <input type="password" id="confirmpwd" name="confirmpwd"
+    <input type="password" id="fconfirmpwd" name="fconfirmpwd"
         class="form-control form-control-sm validate">
     <label data-error="wrong" data-success="right"
-        for="confirmpwd">Repetir Contraseña</label>
+        for="fconfirmpwd">Repetir Contraseña</label>
 </div>
 </div>
 
 <div class="text-center form-sm mt-2 letra-gotham-bold">
-    <button class="btn btn-info bg-vino" id="btn-registrar" name="btn-registrar">Registrar <i
+    <button class="btn btn-info bg-vino" id="btn-invitado" name="btn-invitado">Registrar <i
             class="fas fa-sign-in ml-1"></i></button>
 </div>
-<input type="hidden" name="tipo" id="tipo" value="2" />
+<input type="hidden" name="tipo" id="tipo" value="0" />
 
 </form>
             </div>
@@ -156,7 +170,7 @@
                 </div>
                 <button type="button"
                     class="btn outline-vino waves-effect ml-auto vino letra-gotham-bold p-3"
-                    id="CloseModal" op="1">Cerrar</button>
+                    id="CloseModal" op="3">Cerrar</button>
             </div>
 
 

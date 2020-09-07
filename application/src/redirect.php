@@ -47,6 +47,9 @@ elseif(isset($_GET["terminos"])) include_once 'system/documentos/terminos.php';
 
 elseif(isset($_GET["cobertura"])) include_once 'system/documentos/cobertura.php';
 
+elseif(isset($_GET["recovery"])) include_once 'system/user/recoverpass.php';
+
+elseif(isset($_GET["recoverypass"])) include_once 'system/user/recoverpass2.php';
 
 
 else{

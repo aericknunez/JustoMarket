@@ -23,7 +23,7 @@ if($_SESSION["user"]){
         <li class="nav-item">
             <span class="text ml-2 p-2 d-none d-md-block d-lg-block">
                 <a class="nav-link letra-gotham-bold" id="muser">
-                    <i class="far fa-user fa-lg"></i> <?php echo $_SESSION["nombre"] ?> </a>
+                    <i class="far fa-user fa-lg"></i> <?php echo $_SESSION["nombre"] . $_SESSION["invitado"] ?> </a>
             </span>
             <span class="d-block d-sm-block d-md-none d-lg-none">
                 <a class="nav-link"  id="muser"><i
@@ -51,7 +51,7 @@ if($_SESSION["user"]){
                 <a class="nav-link letra-gotham-bold" id="mcarrito" 
                 aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-shopping-cart fa-lg" aria-hidden="true"></i>
-                    Mi Carrito <span class="badge bg-vino letra-gotham-bold" id="totalcarrito">$0.0</span></a>
+                    Mi Carrito</a>
             </span>
             <span class="d-block d-sm-block d-md-none d-lg-none">
                 <a class="nav-link  letra-gotham-bold" id="mcarrito"
@@ -60,8 +60,14 @@ if($_SESSION["user"]){
                         class="badge bg-vino ml-2 letra-gotham-bold"></span>
                 </a>
             </span>
-            
         </li>
+
+        <li class="nav-item ">
+            <span class="badge bg-naranja letra-gotham-bold text ml-2 p-2 mt-2" id="totalcarrito"></span>
+        </li>
+
+
+
     </ul>
 </nav>
 
@@ -115,48 +121,42 @@ if($_SESSION["user"]){
                     <div id="popover_content_list" style="display: none">
 
                         <a href="<?php echo BASE_URL ?>categoria/bebidas"
-                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 h-100 w-100">
+                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 h-100 w-100 p-2 font-weight-bold">
                             Bebidas
                         </a> <br>
                         <a href="<?php echo BASE_URL ?>categoria/carnes"
-                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100">
-                            Carnes
+                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100 p-2 font-weight-bold">
+                            Justo Grill - Carnes y Pollo
                         </a> <br>
                         <a href="<?php echo BASE_URL ?>categoria/frutas"
-                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100">
-                            Frutas
+                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100 p-2 font-weight-bold">
+                            Frutas y Vegetales
                         </a> <br>
                         <a href="<?php echo BASE_URL ?>categoria/abarrotes"
-                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100">
+                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100 p-2 font-weight-bold">
                             Abarrotes
                         </a> <br>
                         <a href="<?php echo BASE_URL ?>categoria/mariscos"
-                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100">
+                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100 p-2 font-weight-bold">
                             Mariscos
                         </a> <br>
-                        <a href="<?php echo BASE_URL ?>categoria/vegetales"
-                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100">
-                            Vegetales
-                        </a> <br>
+ 
                         <a href="<?php echo BASE_URL ?>categoria/granos"
-                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100">
+                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100 p-2 font-weight-bold">
                             Granos
                         </a> <br>
                         <a href="<?php echo BASE_URL ?>categoria/lacteos"
-                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100">
+                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100 p-2 font-weight-bold">
                             Lacteos
                         </a> <br>
-                        <a href="<?php echo BASE_URL ?>categoria/limpieza"
-                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100">
-                            Limpieza
-                        </a> <br>
+                        
                         <a href="<?php echo BASE_URL ?>categoria/snacks"
-                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100">
+                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100 p-2 font-weight-bold">
                             Snacks
                         </a> <br>
                         <a href="<?php echo BASE_URL ?>categoria/vinos"
-                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100">
-                            Vinos y Licores
+                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100 p-2 font-weight-bold">
+                            Justo Bar - Vinos y Licores
                         </a> <br>
 
                     </div>

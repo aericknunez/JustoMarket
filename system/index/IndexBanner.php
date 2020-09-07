@@ -1,4 +1,4 @@
-
+<div class="container">
 <!-- Publicidad -->
 <section>
 
@@ -21,3 +21,4 @@
 
 </section>
 <!-- Fin Publicidad -->
+</div>

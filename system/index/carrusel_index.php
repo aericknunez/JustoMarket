@@ -1,7 +1,8 @@
+<div class="container">
         <!-- Carousel -->
         <section>
             <!--Carousel Wrapper-->
-            <div class="container">
+            <div class="container-fluid">
                 <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
                     <!--Indicators-->
                     <ol class="carousel-indicators">
@@ -14,17 +15,17 @@
                     <div class="carousel-inner" role="listbox">
                         <!--First slide-->
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="assets/imagenes/carusel.jpg" alt="First slide">
+                            <img class="d-block w-100 bordeado2" src="<?php echo Helpers::Img("http://localhost/justomarket/assets/img/banner1.jpg") ?>" alt="First slide">
                         </div>
                         <!--/First slide-->
                         <!--Second slide-->
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="assets/imagenes/carusel.jpg" alt="Second slide">
+                            <img class="d-block w-100 bordeado2" src="<?php echo Helpers::Img("http://localhost/justomarket/assets/img/banner2.jpg") ?>" alt="Second slide">
                         </div>
                         <!--/Second slide-->
                         <!--Third slide-->
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="assets/imagenes/carusel.jpg" alt="Third slide">
+                            <img class="d-block w-100 bordeado2" src="<?php echo Helpers::Img("http://localhost/justomarket/assets/img/banner3.jpg") ?>" alt="Third slide">
                         </div>
                         <!--/Third slide-->
                     </div>
@@ -38,3 +39,5 @@
 
         </section>
         <!-- Fin carousel -->
+
+</div>

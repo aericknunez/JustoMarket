@@ -1,7 +1,11 @@
 $(document).ready(function(){
 
-// var Url = "http://localhost/justomarket/";
-var Url = "https://justomarket.com/";
+if(location.hostname == "localhost"){
+    var Url = "http://localhost/justomarket/";
+} else {
+    var Url = "https://justomarket.com/";
+}
+
 
 
 // solo para el carrusel de las categorias
@@ -134,6 +138,7 @@ function RegresoCard(){
             });
           
           LoadTotal(); // carga total del carrito  
+          LoadCantidadItems(); // cantidad de items
 }
 
 
@@ -164,9 +169,9 @@ function LoadTotal(){
             type: "POST",
             url: Url+"application/src/routes.php",
             data: dataString,
-            beforeSend: function () {
-               $("#totalcarrito").html('<div class="row justify-content-center" > ... </div>');
-            },
+            // beforeSend: function () {
+            //    $("#totalcarrito").html('<div class="row justify-content-center" > ... </div>');
+            // },
             success: function(data) {            
                 $("#totalcarrito").html(data); // lo que regresa de la busquea     
             }
@@ -174,6 +179,27 @@ function LoadTotal(){
 }
 
 LoadTotal();
+
+
+
+function LoadCantidadItems(){
+
+    var dataString = 'op=29';
+    $.ajax({
+            type: "POST",
+            url: Url+"application/src/routes.php",
+            data: dataString,
+            // beforeSend: function () {
+            //    $("#NoItems").html('<div class="row justify-content-center" > ... </div>');
+            // },
+            success: function(data) {            
+                $("#NoItems").html(data); // lo que regresa de la busquea     
+            }
+        });
+}
+
+LoadCantidadItems();
+
 
 
 /// Mostrar modal de carrito
@@ -235,6 +261,7 @@ function ContenidoFooter(){
                 ContenidoCarritoModal();  
                 LoadTotal();  
                 ContenidoFooter();
+                LoadCantidadItems(); // cantidad de items
             }
         });
 
@@ -277,13 +304,14 @@ function ContenidoFooter(){
 
 
 
-
-
-
+var inicio = 0;
+var fin = 8;
+var Minicio = 0;
+var Mfin = 4;
 
 /// llamar modal producto
   $("body").on("click","#xproducto",function(){ 
-    
+
     $('#ModalProductos').modal('show');
     
     var cod = $(this).attr('cod');
@@ -300,31 +328,164 @@ function ContenidoFooter(){
             }
         });
 
-    ModalRecomendados();
+    if(screen.width < 720){ 
+        ModalRecomendados(16); 
+    } else { 
+        ModalRecomendados(15); 
+    }
 
   });
 
 
-function ModalRecomendados(){
 
-    var dataString = 'op=15';
+
+function ModalRecomendados(op){
+
+  if(op == 15){
+     var dataString = 'op='+op;
+  } else {
+    var dataString = 'op=16&cantidad=0,4';
+  }
+    var Minicio = 0;
+    var Mfin = 4;
+   
     $.ajax({
             type: "POST",
             url: Url+"application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#detalle-reomendados").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
-            },
-            success: function(data) {            
-                $("#detalle-reomendados").html(data); // lo que regresa de la busquea     
+                $("#detalle-reomendados").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
+              },
+            success: function(data) {    
+                $("#detalle-reomendados").html(data); // lo que regresa de la busquea         
             }
         });
 }
 
 
 
-
+function ModalRecomendadosPlus(){
     
+    Minicio = Minicio + 4;
+    var cantidad = Minicio+','+Mfin;
+
+    var dataString = 'op=16&cantidad='+cantidad;
+    $.ajax({
+            type: "POST",
+            url: Url+"application/src/routes.php",
+            data: dataString,
+            beforeSend: function () {
+                $("#Mbtnvermas").remove();
+                $("#Mloader").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/spinner.gif" alt=""></div>');           
+              },
+            success: function(data) { 
+                // $("#detalle-reomendados").empty();  
+                $("#Mloader").remove(); 
+                $("#detalle-reomendados").html(data); // lo que regresa de la busquea      
+               
+            }
+        });
+}
+
+/// cargar mas productos destacados
+  $("body").on("click","#Mvermas",function(){ 
+    
+    var cantidad = Minicio+','+Mfin;
+    ModalRecomendadosPlus();
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+function ProductosDestacados(){ /// solo en detalle y en index
+
+    var dataString = 'op=11';
+    $.ajax({
+            type: "POST",
+            url: Url+"application/src/routes.php",
+            data: dataString,
+            beforeSend: function () {
+               $("#productos-destacados").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
+            },
+            success: function(data) {            
+                $("#productos-destacados").html(data); // lo que regresa de la busquea     
+            }
+        });
+}
+if(screen.width >= 720){
+  ProductosDestacados();
+}
+
+
+
+function DestacadosPeque(){ /// solo en detalle y en index
+  
+    var cantidad = inicio+','+fin;
+
+
+    var dataString = 'op=10&cantidad='+cantidad;
+    $.ajax({
+            type: "POST",
+            url: Url+"application/src/routes.php",
+            data: dataString,
+            beforeSend: function () {
+               $("#productos-destacados").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
+            },
+            success: function(data) {            
+                $("#productos-destacados").html(data); // lo que regresa de la busquea    
+              inicio = inicio + 8;
+            }
+        });
+}
+if(screen.width < 720){
+  DestacadosPeque();
+}
+
+/// cargar mas productos destacados
+  $("body").on("click","#vermas",function(){ 
+    
+    var cantidad = inicio+','+fin;
+
+    var dataString = 'op=10&cantidad='+cantidad;
+    $.ajax({
+            type: "POST",
+            url: Url+"application/src/routes.php",
+            data: dataString,
+            beforeSend: function () {
+              $("#btnvermas").remove();
+              $("#loader").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/spinner.gif" alt=""></div>');
+            },
+            success: function(data) {           
+              $("#loader").remove(); 
+              $("#productos-destacados").append(data); // lo que regresa de la busquea   
+              inicio = inicio + 8;
+            }
+        });
+
+  });
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -349,26 +510,6 @@ function Promociones(){ // solo para promociones
 Promociones();
 
 
-
-
-
-function ProductosDestacados(){ /// solo en detalle y en index
-
-    var dataString = 'op=11';
-    $.ajax({
-            type: "POST",
-            url: Url+"application/src/routes.php",
-            data: dataString,
-            beforeSend: function () {
-               $("#productos-destacados").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
-            },
-            success: function(data) {            
-                $("#productos-destacados").html(data); // lo que regresa de la busquea     
-            }
-        });
-}
-
-ProductosDestacados();
 
 
 

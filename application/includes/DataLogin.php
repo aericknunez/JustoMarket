@@ -39,21 +39,17 @@ class Login {
 						    $datos["apellidos"] = $data["apellido"];
 						    $datos["tipo"] = $data["tipo"];
 						    $datos["user"] = $usuario;
+						    $datos["email"] = $email;
 						    $datos["tkn"] = 1;
 						    $datos["avatar"] = "1.png";
 						    $datos["td"] = TD_SERVER;
 						    if ($db->insert("login_userdata", $datos)) {
 
-					        Alerts::Alerta("success","Agregado!","Agregado con Exito!");
-
 					        Email::EnviarEmail($email, $data["nombre"] . " " . $data["apellido"], 1);
 
-					        	if($data["inicio"] != NULL){
-										echo '<a href="?" class="btn btn-danger btn-rounded  z-depth-0  waves-effect">Iniciar Sesión Aqui</a>';
-									}
+					        	$_SESSION["userInvitado"] = $user;
+								return TRUE;
 							}
-
-							Alerts::Mensajex("Inicie sesión para poder continuar","info");
 
 				   	}
 				   } else {
@@ -66,6 +62,8 @@ class Login {
 		}
 
 	}
+
+
 
 
 
@@ -166,14 +164,13 @@ public function VerificarEmail($email){
 			// if(strlen($pass1) > 6){
 			// 	if($this->MayusCount($pass1) > 0) {
 			// 		if($this->NumCount($pass1) > 0) {
-			// 			return TRUE;
+						return TRUE;
 			// 		} else { Alerts::Alerta("error","Error!","Debe contener al menos un numero"); } 
 					
 			// 	} else { Alerts::Alerta("error","Error!","Debe tener al manos una Mayuscula");  }
 				
 			// }
 			// else { Alerts::Alerta("error","Error!","El password debe tener mas de 6 Caracteres"); }
-			
 		} else { Alerts::Alerta("error","Error!","Los password no son iguales"); }
 
 	}

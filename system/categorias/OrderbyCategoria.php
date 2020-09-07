@@ -1,6 +1,6 @@
 
     <!-- Barra Ordenar -->
-    <section>
+<!--     <section>
       <nav class="navbar navbar-expand navbar-light z-depth-0 mb-4 ">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
@@ -21,5 +21,5 @@
         </ul>
       </nav>
 
-    </section>
+    </section> -->
     <!-- Barra Ordenar -->

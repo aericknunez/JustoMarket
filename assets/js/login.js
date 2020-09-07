@@ -1,18 +1,24 @@
 $(document).ready(function(){
 
-// var Url = "http://localhost/justomarket/";
-var Url = "https://justomarket.com/";
+if(location.hostname == "localhost"){
+    var Url = "http://localhost/justomarket/";
+} else {
+    var Url = "https://justomarket.com/";
+}
+
+
 
 /// login modal
     $("body").on("click","#mlogin",function(){ 
         $('#ModalLogin').modal('show');
     });
 
-/// login user
+/// login user con session iniciada
     $("body").on("click","#muser",function(){ 
         $('#ModalUser').modal('show');
-    });
-/// login user cerrar
+    }); 
+
+/// login user cerrar con session iniciada
     $("body").on("click","#cerrarModal",function(){ 
         $('#ModalUser').modal('hide');
     });
@@ -31,7 +37,7 @@ var Url = "https://justomarket.com/";
 	        },
 			success: function(data){
 				$('#btn-login').html('Ingresar').removeClass('disabled');	      
-				$("#form-login").trigger("reset");
+				// $("#form-login").trigger("reset");
 				$("#msj").html(data);	
 			}
 		})
@@ -50,17 +56,36 @@ return false;
 
 /// registrar modal
     $("body").on("click","#mregistro",function(){ 
-        
+
         $('#ModalRegistro').modal('show');
-        $('#ModalLogin').modal('hide');
+        // $('#ModalLogin').modal('hide');
     });
 
-/// registrar modal
+/// iniciar modal
     $("body").on("click","#iniciarsesion",function(){ 
-        
         $('#ModalLogin').modal('show');
-        $('#ModalRegistro').modal('hide');
+        $('#ModalRegistro').modal('hide'); 
     });
+
+/// invitado modal
+    $("body").on("click","#minvitado",function(){ 
+        $('#ModalInvitado').modal('show');
+    });
+
+/// cerrar modal de registro, login e invitado
+    $("body").on("click","#CloseModal",function(){ 
+    	var op = $(this).attr('op');
+    	if(op == 1){
+    		$('#ModalRegistro').modal('hide');
+    	}
+    	if(op == 2){
+    		$('#ModalLogin').modal('hide');
+    	}
+    	if(op == 3){
+    		$('#ModalInvitado').modal('hide');
+    	}
+    });
+
 
 
 
@@ -75,9 +100,9 @@ return false;
 	        },
 			success: function(data){
 				$('#btn-registrar').html('Login').removeClass('disabled');	      
-				$("#form-registrar").trigger("reset");
-				$("#msj").html(data);	
-				$('#ModalLogin').modal('show');
+				// $("#form-registrar").trigger("reset");
+				$("#msjregister").html(data);	
+				$('#ModalLogin').modal('hide');
         		$('#ModalRegistro').modal('hide');
 			}
 		})
@@ -92,6 +117,57 @@ return false;
 
 //// termina registrar
 
+
+
+
+	$('#btn-invitado').click(function(e){  
+	e.preventDefault();
+	$.ajax({
+			url: Url+"system/user/redirect.php?op=11",
+			method: "POST",
+			data: $("#form-invitado").serialize(),
+			beforeSend: function () {
+				$('#btn-invitado').html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Loading...').addClass('disabled');
+	        },
+			success: function(data){
+				$('#btn-invitado').html('Login').removeClass('disabled');	      
+				// $("#form-registrar").trigger("reset");
+				$("#msjinvitado").html(data);	
+        		$('#ModalInvitado').modal('hide');
+			}
+		})
+	});
+    
+
+$("#form-invitado").keypress(function(e) {//Para deshabilitar el uso de la tecla "Enter"
+if (e.which == 13) {
+return false;
+}
+});
+
+function ShowFormPass(){
+	$('#showpass').hide();
+	$('#fpassword').attr("readonly","readonly"); 
+	$('#fconfirmpwd').attr("readonly","readonly"); 
+}
+
+ShowFormPass();
+
+    $("body").on("click","#cuenta",function(){ /// para el los botones de opciones
+
+        if($(this).attr('checked')){ // es por que estaba activo
+            $('#cuenta').removeAttr("checked","checked"); // inactivo
+            	$('#showpass').hide();
+            		$('#fpassword').attr("readonly","readonly"); 
+					$('#fconfirmpwd').attr("readonly","readonly"); 
+        } else {
+            $('#cuenta').attr("checked","checked"); // activo
+            	$('#showpass').show();
+            		$('#fpassword').removeAttr("readonly","readonly"); 
+					$('#fconfirmpwd').removeAttr("readonly","readonly"); 
+        }
+        
+    });
 
 
 

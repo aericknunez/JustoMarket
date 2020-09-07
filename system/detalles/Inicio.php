@@ -52,7 +52,7 @@ echo '<div class="carousel-inner" role="listbox">';
 		echo '<div class="carousel-item">';
 		}
        
-		echo '<img class="d-block w-100" src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["imagenes"][$i] .'"
+		echo '<img class="d-block w-100" src="'. Helpers::Img(URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["imagenes"][$i]) .'"
 	         alt="Third slide">';
 		echo '</div>';
 
@@ -84,7 +84,7 @@ echo '<ol class="carousel-indicators">';
 
 
 		echo '<li data-target="#carousel-thumb-modal" data-slide-to="'.$i.'" '.$c.'>
-		      <img src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["imagenes"][$i] .'" width="100">
+		      <img src="'. Helpers::Img(URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["imagenes"][$i]) .'" width="100">
 		    </li>';
 	}
 

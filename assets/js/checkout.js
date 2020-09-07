@@ -1,7 +1,10 @@
 $(document).ready(function(){
 
-// var Url = "http://localhost/justomarket/";
-var Url = "https://justomarket.com/";
+if(location.hostname == "localhost"){
+    var Url = "http://localhost/justomarket/";
+} else {
+    var Url = "https://justomarket.com/";
+}
 
 
 /// borrar un item desde el cart
@@ -17,8 +20,14 @@ var Url = "https://justomarket.com/";
                $("#mensaje").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
             },
             success: function(data) { 
-                $('#mandarpedido').html('TERMINAR MI PEDIDO').removeClass('disabled');              
-                $("#mensaje").html(data);
+                $('#mandarpedido').html('TERMINAR MI PEDIDO').removeClass('disabled');  
+                // $('#ModalGracias').modal('show');            
+                if(data === "realizado"){
+                    $('#ModalGracias').modal('show');
+                    $("#mensaje").hide();
+                } else {
+                    $("#mensaje").html(data);
+                }
             }
         });
 
@@ -67,6 +76,71 @@ function QueryGo(dir){
 
     });      
 }
+
+
+
+
+
+
+
+/// recuperar password
+    $('#btn-recovery').click(function(e){ /// agregar un producto 
+    e.preventDefault();
+    $.ajax({
+            url: Url+"application/src/routes.php?op=32",
+            method: "POST",
+            data: $("#form-recovery").serialize(),
+            beforeSend: function () {
+                $('#btn-recovery').html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Loading...').addClass('disabled');
+            },
+            success: function(data){
+                $('#btn-recovery').html('RECUPERAR').removeClass('disabled');         
+                $("#form-recovery").trigger("reset");
+                $("#msj").html(data);   
+            }
+        })
+    });
+    
+
+
+
+$("#form-recovery").keypress(function(e) {//Para deshabilitar el uso de la tecla "Enter"
+if (e.which == 13) {
+return false;
+}
+});
+
+
+
+
+    $('#btn-cambio').click(function(e){ /// agregar un producto 
+    e.preventDefault();
+    $.ajax({
+            url: Url+"system/user/redirect.php?op=15",
+            method: "POST",
+            data: $("#form-cambio").serialize(),
+            beforeSend: function () {
+                $('#btn-cambio').html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Loading...').addClass('disabled');
+            },
+            success: function(data){
+                $('#btn-cambio').html('RECUPERAR').removeClass('disabled');         
+                $("#form-cambio").trigger("reset");
+                $("#msj").html(data);   
+            }
+        })
+    });
+    
+
+
+
+$("#form-cambio").keypress(function(e) {//Para deshabilitar el uso de la tecla "Enter"
+if (e.which == 13) {
+return false;
+}
+});
+
+
+
 
 
 

@@ -13,24 +13,89 @@ include_once '../../application/common/Alerts.php';
 include_once '../../application/common/Fechas.php';
 include_once '../../application/common/Encrypt.php';
 
-if($_REQUEST["op"]!="1"){ // verifica inicio de session
 
-		// filtros para cuando no hay session abierta
-		if ($seslog->login_check() != TRUE) {
-		echo '<script>
-			window.location.href="application/includes/logout.php"
-		</script>';
-		} 
+// if($_REQUEST["op"] != "1" or $_REQUEST["op"] != "11"){ // verifica inicio de session
 
-		if($_SESSION["user"] == NULL and $_SESSION["td"] == NULL){
-		echo '<script>
-			window.location.href="application/includes/logout.php"
-		</script>';
-		exit();
+// 		// filtros para cuando no hay session abierta
+// 		if ($seslog->login_check() != TRUE) {
+// 		echo '<script>
+// 			window.location.href="application/includes/logout.php"
+// 		</script>';
+// 		} 
+
+// 		if($_SESSION["user"] == NULL and $_SESSION["td"] == NULL){
+// 		echo '<script>
+// 			window.location.href="application/includes/logout.php"
+// 		</script>';
+// 		exit();
+// 		}
+
+
+// }
+
+/// para invitado
+
+if($_REQUEST["op"]=="11"){ // redirecciona despues de registrar a llenar datos
+	
+	include_once '../../application/phpMailer/Email.php';
+	require '../../application/phpMailer/Exception.php';
+	require '../../application/phpMailer/PHPMailer.php';
+	require '../../application/phpMailer/SMTP.php'; 
+
+    include_once '../../application/includes/DataLogin.php';
+
+include_once '../config/Inicio.php';
+
+$_POST["password"] = $_POST["fpassword"];
+$_POST["confirmpwd"] = $_POST["fconfirmpwd"];
+
+if($_POST["password"] != NULL){
+
+$_POST["tipo"] = 2;
+
+	if($seslog->Register($_POST) == TRUE){
+
+		include_once 'Inicio.php';
+		$perfiles = new Perfil();
+			if($_SESSION["userInvitado"] == NULL){
+				$_SESSION["userInvitado"] = $seslog->NewUser();
+			}
+
+		if($perfiles->AddDatosCliente($_POST) == TRUE){
+
+			    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+			    $password = $seslog->ValidaPass($_POST['password']); // The hashed password.
+			    
+			    if ($seslog->LogOn($email, $password) == true) {
+			    	 Alerts::Alerta("success","Realizado!","Registro realizado correctamente!");
+			        // Login success 
+			         echo '<script>
+			            window.location.href="'. BASE_URL .'application/includes/iniciar.php"
+			        </script>';
+			        exit();
+			    }
+
 		}
+
+	}
+
+
+} else {
+
+		include_once 'Inicio.php';
+		$perfiles = new Perfil();
+		$_SESSION["userInvitado"] = $seslog->NewUser();
+
+	if($perfiles->AddDatosUsuarioInvitado($_POST) == TRUE){
+		$perfiles->AddDatosInvitado($_POST);
+	}
+}
 
 
 }
+
+
+
 
 
 
@@ -40,8 +105,34 @@ require '../../application/phpMailer/Exception.php';
 require '../../application/phpMailer/PHPMailer.php';
 require '../../application/phpMailer/SMTP.php';
 
+
 	include_once '../../application/includes/DataLogin.php';
-	$seslog->Register($_POST);
+	if($seslog->Register($_POST) == TRUE){
+
+		include_once 'Inicio.php';
+		$perfiles = new Perfil();
+			if($_SESSION["userInvitado"] == NULL){
+				$_SESSION["userInvitado"] = $seslog->NewUser();
+			}
+
+		if($perfiles->AddDatosCliente($_POST) == TRUE){
+
+			    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+			    $password = $seslog->ValidaPass($_POST['password']); // The hashed password.
+			    
+			    if ($seslog->LogOn($email, $password) == true) {
+			    	 Alerts::Alerta("success","Realizado!","Registro realizado correctamente!");
+			        // Login success 
+			         echo '<script>
+			            window.location.href="'. BASE_URL .'application/includes/iniciar.php"
+			        </script>';
+			        exit();
+			    }
+
+		}
+
+	}
+
 
 }
 
@@ -123,5 +214,20 @@ $usuarios->ModalUpdate($_REQUEST["username"]);
 }
 
 
+
+if($_REQUEST["op"]=="15"){ /// cambio de pass
+include_once 'Usuarios.php'; 
+$usuarios = new Usuarios;
+
+    if ($r = $db->select("user", "login_userdata", "WHERE email = '".$_POST["email"]."'")) { 
+        $_SESSION["username"] = $r["user"];
+    } unset($r);  
+
+
+
+$passw1 = filter_input(INPUT_POST, 'pass1', FILTER_SANITIZE_STRING);
+$passw2 = filter_input(INPUT_POST, 'pass2', FILTER_SANITIZE_STRING);
+$usuarios->Cambio($passw1, $passw2); 
+}
 
 ?>

@@ -9,7 +9,7 @@
       <!--Header-->
       <div class="modal-header text-center bg-vino bordeado3">
         <h4 class="modal-title white-text w-100 font-weight-bold py-2">Iniciar Sesi&oacuten</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button id="CloseModal" op="2" class="close" aria-label="Close">
           <span aria-hidden="true" class="white-text">&times;</span>
         </button>
       </div>
@@ -48,11 +48,11 @@
                         <div class="modal-footer p-3">
                             <div class="options text-center text-md-right mt-1">
                                 <p>¿No tienes cuenta? <a id="mregistro" class="vino">Registrate</a></p>
-                                <p><a href="#" class="vino">Olvide la Contraseña</a></p>
+                                <p><a href="?recovery" class="vino">Olvide la Contraseña</a></p>
                             </div>
                             <button type="button"
                                 class="btn outline-vino waves-effect ml-auto letra-gotham-bold p-3"
-                                data-dismiss="modal">Cerrar</button>
+                                id="CloseModal" op="2">Cerrar</button>
                         </div>
                         
                          </form>

@@ -43,7 +43,12 @@ class Helpers{
     }
 
 
-    
+    static public function Img($img){
+    $img_content = file_get_contents($img);
+    $img_base64 = chunk_split(base64_encode($img_content));
+    return "data:image/jpg;base64,$img_base64";
+    }
+
 
    public function InOut($string) {
     if($string == "1") return '<p class="text-success font-weight-bold">Entrada</p>';

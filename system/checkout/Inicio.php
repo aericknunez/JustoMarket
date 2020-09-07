@@ -121,7 +121,7 @@ $rand = rand(1,99);
 
 echo '<tr>
                 <th scope="row">
-                  <img src="'. URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["productos"][$i]["imagen"] .'" alt="" class="img-fluid z-depth-0">
+                  <img src="'. Helpers::Img(URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["productos"][$i]["imagen"]) .'" alt="" class="img-fluid z-depth-0">
                 </th>
                 
                 <td>
@@ -176,7 +176,6 @@ echo '<tr>
 
 
 echo '<tr>
-                <td></td>
 
                 <td>
                   <h4 class="mt-2">
@@ -190,7 +189,7 @@ echo '<tr>
                   </h4>
                 </td>
 
-                <td colspan="2" class="text-right">';
+                <td colspan="3" class="text-right">';
 
                  if($_SESSION["user"]){
 
@@ -201,7 +200,10 @@ echo '<tr>
                   } 
 
                 } else {
-                  echo '<a id="mlogin" class="btn bg-vino white-text btn-rounded">Iniciar para Continuar
+                  echo '<a id="mlogin" class="btn bg-vino white-text btn-rounded mb-4">Iniciar sesión para Continuar
+                        <i class="fas fa-angle-right right"></i>
+                      </a>';
+                  echo '<a id="minvitado" class="btn btn-sm bg-naranja white-text btn-rounded ml-4">Comprar como invitado
                         <i class="fas fa-angle-right right"></i>
                       </a>';
                 }
@@ -335,12 +337,9 @@ public function MandarPedido($url){
   if($res["mensaje"] == "Realizado"){
 
     unset($_SESSION["orden"]);
-    Alerts::Alerta("success","Realizado!","Pedido realizado corectamente");
+    // Alerts::Alerta("success","Realizado!","Pedido realizado corectamente");
     Email::EnviarEmail($_SESSION["email"], $_SESSION["nombre"], 2);
-    sleep(2);
-    echo '<script>
-            window.location.href="?"; 
-          </script>';
+    echo "realizado";
   } else {
     Alerts::Alerta("error","Error!","No se realizo su pedido, vuelva a intentarlo");
   }
