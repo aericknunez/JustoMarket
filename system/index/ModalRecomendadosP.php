@@ -92,7 +92,7 @@ echo '<div class="col-6 border-bottom mt-2">';
  <div class="card-body">
     <div class="row" style="height: 100px;">
         <div class="col text-center h-100">
-            <h6 class="h6-responsive font-weight-bold"
+            <h6 class="h6-responsive font-weight-bold text-uppercase"
                 style="font-family: Gotham-Light;">'.$datos["productos"][$i]["descripcion"].'</h6>
         </div>
     </div>
