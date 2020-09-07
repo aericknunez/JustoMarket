@@ -99,7 +99,7 @@ echo '<div class="col-6 border-bottom mt-2">';
 
     <div class="row align-items-center ">
 
-        <div class="col-6 col-md-6 col-lg-6 nopadding">';
+        <div class="col-12 nopadding">';
 
         if($datos["productos"][$i]["promo"] != NULL){
             echo '<h4 class="h4-responsive letra-gotham-black vino">
@@ -111,9 +111,10 @@ echo '<div class="col-6 border-bottom mt-2">';
           echo '<h4 class="h4-responsive letra-gotham-black vino">
                 '.Helpers::Dinero($datos["productos"][$i]["precio"]).'</h4>';
         }
-
-                        
+               
 echo '</div>
+
+
 <div class="col-6 col-md-6 col-lg-6 nopadding">
 <div class="row no-gutters align-items-center">
 <div class="col-3 text-center nopadding">
