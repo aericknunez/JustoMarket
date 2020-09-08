@@ -460,41 +460,6 @@ if(screen.width < 720){
 
 
 
-function CategoriasP(){ /// solo en detalle y en index
-
-    $.ajax({
-            type: "POST",
-            url: Url+"system/cagerias/pequeno.php",
-            success: function(data) {            
-                $("#botonesCategoria").html(data); // lo que regresa de la busquea     
-            }
-        });
-}
-if(screen.width >= 720){
-  CategoriasP();
-}
-
-
-
-
-function CategoriasG(){ /// solo en detalle y en index
-
-    $.ajax({
-            type: "POST",
-            url: Url+"system/cagerias/grande.php",
-            success: function(data) {            
-                $("#botonesCategoria").html(data); // lo que regresa de la busquea     
-            }
-        });
-}
-if(screen.width >= 720){
-  CategoriasG();
-}
-
-
-
-
-
 
 
 

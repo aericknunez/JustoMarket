@@ -24,6 +24,7 @@ if(location.hostname == "localhost"){
             success: function(data) {             
                 ContenidoCart();
                 LoadTotal();
+                LoadCantidadItems(); // cantidad de items
                   
             }
         });

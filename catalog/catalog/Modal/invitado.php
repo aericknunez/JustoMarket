@@ -50,7 +50,7 @@
     <input type="text" id="recibe_direccion" name="recibe_direccion"
         class="form-control form-control-sm validate">
     <label data-error="wrong" data-success="right"
-        for="recibe_direccion">Dirrecón de entrega</label>
+        for="recibe_direccion">Direcioón de entrega</label>
 </div>
 
 

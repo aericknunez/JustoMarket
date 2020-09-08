@@ -120,7 +120,9 @@ echo '<div class="row border-top border-light pt-4">
         
         <div class="col-5 col-md-3"><small>Total</small><br><strong><div id="'.$rand.'monto'.$datos["productos"][$i]["cod"].'">'.Helpers::Dinero($datos["productos"][$i]["total"]).'</div></strong></div>
         
-        <div class="col-2 col-md-1"><small>Eliminar</small><br><a class="btn btn-sm bg-vino white-text"  title="Remove item" id="delete-i" iden="'.$datos["productos"][$i]["id"].'">X</a>
+        <div class="col-2 col-md-1"><small>Eliminar</small><br>
+        <a class="btn-sm btn-secondary bg-vino text-white" id="delete-i" iden="'.$datos["productos"][$i]["id"].'"><i class="fas fa-trash"></i></a>
+
         </div>
 
       </div>
@@ -156,10 +158,7 @@ echo '<div class="row">
             echo '<a id="minvitado" class="btn btn-sm bg-naranja white-text btn-rounded ml-4">Comprar como invitado<i class="fas fa-angle-right right"></i></a>';
           }
 
-      echo '</div>
-
-
-    </div>';
+      echo '</div>';
 
 
 
@@ -186,7 +185,7 @@ echo '<div class="bg-vino pt-3 pb-3 white-text text-center mb-5">No existen prod
 
 
 
-
+echo '</div>';
 
 	}
 
