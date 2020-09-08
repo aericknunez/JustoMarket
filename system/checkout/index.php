@@ -5,6 +5,7 @@ include_once 'application/common/Alerts.php';
 include_once 'application/common/Fechas.php';
 
 ?>
+
 <div id="contenidocart"></div>
 <?
 // baner de footer

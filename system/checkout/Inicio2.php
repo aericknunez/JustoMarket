@@ -75,93 +75,155 @@ $cant_minima = $r["cant_minima"];
 
 if(count($datos["productos"])){
 
-		echo '<div class="container">';
+		echo '<div class="container">
+
+      <section class="section my-5 pb-5">
+
+        <!-- Shopping Cart table -->
+        <div class="table-responsive">
+
+          <table class="table product-table">
+
+            <!-- Table head -->
+            <thead>
+              <tr>
+                <th></th>
+
+                <th class="font-weight-bold">
+                  <strong>Producto</strong>
+                </th>
+
+                <th class="font-weight-bold">
+                  <strong>Precio</strong>
+                </th>
+
+                <th class="font-weight-bold">
+                  <strong>Cantidad</strong>
+                </th>
+
+                <th class="font-weight-bold">
+                  <strong>Monto</strong>
+                </th>
+
+                <th></th>
+
+              </tr>
+            </thead>
+            <!-- /.Table head -->
+
+            <!-- Table body -->
+            <tbody>';
 
 	$total = 0;
 	 for ($i = 0; $i < count($datos["productos"]); $i++){
 
 $rand = rand(1,99);
 
-echo '<div class="row border-top border-light pt-4">
-<div class="col-md-3"><img src="'. Helpers::Img(URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["productos"][$i]["imagen"]) .'" alt="" class="img-fluid z-depth-0"></div>
-    
-    <div class="col-md-9">
-     <h3 class="h3-responsive"><strong>'.$datos["productos"][$i]["producto"].'</strong></h3>';
-     if($datos["productos"][$i]["promocion"] =="on"){
-      echo '<p class="text-muted green-text">Producto en Promoción!</p>';
-    }
+echo '<tr>
+                <th scope="row">
+                  <img src="'. Helpers::Img(URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["productos"][$i]["imagen"]) .'" alt="" class="img-fluid z-depth-0">
+                </th>
+                
+                <td>
+                  <h5 class="mt-3">
+                    <strong>'.$datos["productos"][$i]["producto"].'</strong>
+                  </h5>';
+                  
+                  if($datos["productos"][$i]["promocion"] =="on"){
+                    echo '<p class="text-muted green-text">Producto en Promoción!</p>';
+                  }
+                  
+                echo '</td>
 
- echo '<div class="row pt-4 text-center">
-        <div class="col-md-4">
-                  <small>Cantidad</small><br>
-
-                  <span class="qty mr-3 h5"><input 
+                <td>'.Helpers::Dinero($datos["productos"][$i]["pv"]).'</td>
+                
+                <td class="text-center text-md-left">
+                  <span class="qty"><input 
                   id="'.$rand.'cantidad'.$datos["productos"][$i]["cod"].'"
-                  class="w-5 text-center" 
+                  class="w-1 text-center" 
                   style="border: 0;
-                          width: 45px;
+                          width: 20px;
                           outline: none;" 
                   value="'.$datos["productos"][$i]["cant"].'"></input></span>
 
                   <div class="btn-group radio-group ml-2" data-toggle="buttons">
-                    <label class="btn btn-sm bg-vino white-text btn-rounded" 
-                    id="accion-pcard" iden="'.$datos["productos"][$i]["cod"].'" accion="1" lugar="'.$rand.'" pv="'.$datos["productos"][$i]["pv"].'">
-                    &mdash;
+                    <label class="btn btn-sm bg-vino white-text btn-rounded">
+                    <a id="accion-pcard" iden="'.$datos["productos"][$i]["cod"].'" accion="1" lugar="'.$rand.'" pv="'.$datos["productos"][$i]["pv"].'">&mdash;</a>
                     </label>
-                    <label class="btn btn-sm bg-vino white-text btn-rounded"
-                    id="accion-pcard" iden="'.$datos["productos"][$i]["cod"].'" accion="2" lugar="'.$rand.'" pv="'.$datos["productos"][$i]["pv"].'">
-                    +
+                    <label class="btn btn-sm bg-vino white-text btn-rounded">
+                    <a id="accion-pcard" iden="'.$datos["productos"][$i]["cod"].'" accion="2" lugar="'.$rand.'" pv="'.$datos["productos"][$i]["pv"].'">+</a>
                     </label>
                   </div>
+                </td>
 
-        </div>
-        
-        <div class="col-5 col-md-4"><small>Precio</small><br>'.Helpers::Dinero($datos["productos"][$i]["pv"]).'</div>
-        
-        <div class="col-5 col-md-3"><small>Total</small><br><strong><div id="'.$rand.'monto'.$datos["productos"][$i]["cod"].'">'.Helpers::Dinero($datos["productos"][$i]["total"]).'</div></strong></div>
-        
-        <div class="col-2 col-md-1"><small>Eliminar</small><br><a class="btn btn-sm bg-vino white-text"  title="Remove item" id="delete-i" iden="'.$datos["productos"][$i]["id"].'">X</a>
-        </div>
+                <td class="font-weight-bold">
+                  <strong><div id="'.$rand.'monto'.$datos["productos"][$i]["cod"].'">'.Helpers::Dinero($datos["productos"][$i]["total"]).'</div></strong>
+                </td>
 
-      </div>
-    </div>
+                <td>
+                  <a class="btn btn-sm bg-vino white-text" data-toggle="tooltip" data-placement="top" title="Remove item" id="delete-i" iden="'.$datos["productos"][$i]["id"].'">X
+                  </a>
+                </td>
+
+              </tr>';
 
 
-  </div>';
 
 		$total = $total + $datos["productos"][$i]["total"];
 	}
     // $tot = $total + $_SESSION["delivery"];
 
-echo '<div class="row">
-        <div class="col-6 col-md-2 text-right">
+
+
+echo '<tr>
+
+                <td>
                   <h4 class="mt-2">
-                    <strong>Total: </strong>
-                  </h4></div>
-        <div class="col-6 col-md-2">
+                    <strong>Total</strong>
+                  </h4>
+                </td>
+
+                <td class="text-center">
                   <h4 class="mt-2">
                     <strong><div id="carttotal">'. Helpers::Dinero($total) .'</div></strong>
-                  </h4></div>
-        <div class="col-12 col-md-8 text-center">';
+                  </h4>
+                </td>
 
-          if($_SESSION["user"]){
+                <td colspan="3" class="text-right">';
 
-            if($cant_minima < $total){
-            echo '<a href="?checkout" class="btn bg-vino white-text btn-rounded">Completar la compra
-                  <i class="fas fa-angle-right right"></i></a>';
-            } 
+                 if($_SESSION["user"]){
 
-          } else {
-            echo '<a id="mlogin" class="btn bg-vino white-text btn-rounded mb-4">Iniciar sesión para Continuar<i class="fas fa-angle-right right"></i></a>';
-            echo '<a id="minvitado" class="btn btn-sm bg-naranja white-text btn-rounded ml-4">Comprar como invitado<i class="fas fa-angle-right right"></i></a>';
-          }
+                  if($cant_minima < $total){
+                    echo '<a href="?checkout" class="btn bg-vino white-text btn-rounded">Completar la compra
+                        <i class="fas fa-angle-right right"></i>
+                      </a>';
+                  } 
 
-      echo '</div>
+                } else {
+                  echo '<a id="mlogin" class="btn bg-vino white-text btn-rounded mb-4">Iniciar sesión para Continuar
+                        <i class="fas fa-angle-right right"></i>
+                      </a>';
+                  echo '<a id="minvitado" class="btn btn-sm bg-naranja white-text btn-rounded ml-4">Comprar como invitado
+                        <i class="fas fa-angle-right right"></i>
+                      </a>';
+                }
 
+                echo '</td>
+
+              </tr>
+              <!-- Fourth row -->
+
+            </tbody>
+            <!-- /.Table body -->
+
+          </table>
+
+        </div>
+        <!-- Shopping Cart table -->
+
+      </section>
 
     </div>';
-
-
 
     if($cant_minima > $total){
       echo '<div class="bg-naranja pt-3 pb-3 white-text text-center">La cantidad minima de su compra debe ser ' . Helpers::Dinero($cant_minima) . ' y de momento solo tiene en el carrito ' . Helpers::Dinero($total) . ' continúe comprando para poder procesar su pedido </div>';
@@ -170,21 +232,16 @@ echo '<div class="row">
     }
 
 
-
-
-
 } else {
 echo '<div class="bg-vino pt-3 pb-3 white-text text-center mb-5">No existen productos agregados en su carrito de compras. Puede seguir explorando nuestro catálogo y elegir los productos que mas desee </div>';
 
-  echo '<div class="col-12 text-center">
-      <img src="'. BASE_URL .'assets/img/carritovacio.png"
-                class="img-fluid">
-    </div>';
+	echo '<div class="col-12 text-center">
+			<img src="'. BASE_URL .'assets/img/carritovacio.png"
+		            class="img-fluid">
+		</div>';
 
  echo '<div class="text-center"><a id="continuarcomprando" class="btn btn-primary bg-naranja btn-md ">continuar comprando <i class="fas fa-cart-arrow-down"></i></a></div>';
 }
-
-
 
 
 
