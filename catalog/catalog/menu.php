@@ -193,5 +193,3 @@ if($_SESSION["user"]){
 
 
 </header>
-
-<?php print_r($_SESSION); ?>
