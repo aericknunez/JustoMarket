@@ -154,8 +154,10 @@ echo '<div class="row">
             } 
 
           } else {
-            echo '<a id="mlogin" class="btn bg-vino white-text btn-rounded mb-4">Iniciar sesión para Continuar<i class="fas fa-angle-right right"></i></a>';
-            echo '<a id="minvitado" class="btn btn-sm bg-naranja white-text btn-rounded ml-4">Comprar como invitado<i class="fas fa-angle-right right"></i></a>';
+            echo '<a id="mlogin" class="btn bg-vino white-text btn-rounded mb-4">Iniciar sesión para Continuar
+<i class="fas fa-angle-right right"></i></a>
+<a id="minvitado" class="btn bg-naranja white-text btn-rounded ml-4 mb-4">Comprar como invitado
+<i class="fas fa-angle-right right"></i></a>';
           }
 
       echo '</div>';

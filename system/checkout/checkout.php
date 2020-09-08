@@ -356,7 +356,7 @@ echo '<div class="bg-vino pt-3 pb-3 white-text text-center mb-5">No existen prod
 <div class="row justify-content-center mb-3">
   <div class="col-md-6 col-11 bordeado3 bg-verde pt-2">
     <h4 class="text-uppercase">Debes Iniciar sesión para completar su pedido.</h4>
-         <p class="font-weight-bold">O también puedes comprar como invitado</p>
+         <p class="h6 font-weight-bold">O también puedes comprar como invitado</p>
   </div>
 </div>
          
@@ -364,7 +364,7 @@ echo '<div class="bg-vino pt-3 pb-3 white-text text-center mb-5">No existen prod
 
 <a id="mlogin" class="btn bg-vino white-text btn-rounded mb-4">Iniciar sesión para Continuar
 <i class="fas fa-angle-right right"></i></a>
-<a id="minvitado" class="btn btn-sm bg-naranja white-text btn-rounded ml-4">Comprar como invitado
+<a id="minvitado" class="btn bg-naranja white-text btn-rounded ml-4 mb-4">Comprar como invitado
 <i class="fas fa-angle-right right"></i></a>
 
       </div>
