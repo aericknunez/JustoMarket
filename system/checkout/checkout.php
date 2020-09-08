@@ -67,6 +67,7 @@ if ($_SESSION["user"] != NULL) {
 
 <div class="container">
 
+
 <h4 class="bg-naranja white-text text-center pt-3 pb-3"><strong>DATOS DE FACTURACIÓN</strong></h4>
  <main>
     <div class="container wow fadeIn">
