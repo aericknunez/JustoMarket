@@ -1,23 +1,23 @@
-<div class="fixed-action-btn" style="bottom: 10px; right: 10px;" id="btn-cantCart">
+<!-- <div class="fixed-action-btn" style="bottom: 10px; right: 10px;" id="btn-cantCart">
  <div id="mcarrito">
     <a class="btn-floating btn-md bg-vino waves-effect waves-light">
       <i  class="fas fa-shopping-cart"></i>
     </a>
 <span class="cantidadDeProductos" id="NoItems"></span>
  </div>
-</div>
-<!-- <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-    <a class="btn-floating btn-lg red waves-effect waves-light">
-      <i class="fas fa-pencil-alt"></i>
+</div> -->
+
+<div class="fixed-action-btn" style="bottom: 10px; right: 10px;">
+     <span class="cantidadDeProductos" id="NoItems"></span>
+    <a class="btn-floating btn-md red waves-effect waves-light bg-vino">
+      <i class="fas fa-shopping-cart"></i>
     </a>
 
     <ul class="list-unstyled">
-      <li><a class="btn-floating red waves-effect waves-light"><i class="fas fa-star"></i></a></li>
-      <li><a class="btn-floating yellow darken-1 waves-effect waves-light"><i class="fas fa-user"></i></a></li>
-      <li><a class="btn-floating green waves-effect waves-light"><i class="fas fa-envelope"></i></a></li>
-      <li><a class="btn-floating blue waves-effect waves-light"><i class="fas fa-shopping-cart"></i></a></li>
+      <li><a href="https://wa.me/50377343433?text=Quiero%20hacer%20un%20pedido" target="_blank" class="btn-floating green waves-effect waves-light"><i class="fab fa-whatsapp"></i></a></li>
+      <li><a id="mcarrito" class="btn-floating bg-vino waves-effect waves-light"><i class="fas fa-shopping-cart"></i></a></li>
     </ul>
-  </div> -->
+  </div>
 
  <!-- Footer -->
         <footer class="page-footer font-small blue-grey lighten-5">
