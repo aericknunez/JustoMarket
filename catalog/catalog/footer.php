@@ -14,6 +14,9 @@
     </a>
 
     <ul class="list-unstyled">
+
+      <li class="invisible"><a href="https://wa.me/50377343433?text=Quiero%20hacer%20un%20pedido" target="_blank" class="btn-floating green waves-effect waves-light"><i class="fab fa-whatsapp"></i></a></li>
+      <li class="invisible"><a id="mcarrito" class="btn-floating bg-vino waves-effect waves-light"><i class="fas fa-shopping-cart"></i></a></li>
       <li><a href="https://wa.me/50377343433?text=Quiero%20hacer%20un%20pedido" target="_blank" class="btn-floating green waves-effect waves-light"><i class="fab fa-whatsapp"></i></a></li>
       <li><a id="mcarrito" class="btn-floating bg-vino waves-effect waves-light"><i class="fas fa-shopping-cart"></i></a></li>
     </ul>
