@@ -9,7 +9,7 @@ $seslog->sec_session_start();
 
 $_SESSION["last_url"] = HOST_URL . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 
-// print_r($_SESSION);
+print_r($_SESSION);
 
 	if($_SESSION["mayordeedad"] == FALSE){
 		if($_COOKIE["mayordeedad"] == TRUE){
