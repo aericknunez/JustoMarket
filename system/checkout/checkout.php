@@ -65,7 +65,7 @@ if ($_SESSION["user"] != NULL) {
 
 
 
-
+<div class="container">
 
 <h4 class="bg-naranja white-text text-center pt-3 pb-3"><strong>DATOS DE FACTURACIÓN</strong></h4>
  <main>
@@ -382,8 +382,8 @@ echo '<div class="bg-vino pt-3 pb-3 white-text text-center mb-5">No existen prod
 
 
 
-
-
+<!-- container -->
+</div>
 
 
 
