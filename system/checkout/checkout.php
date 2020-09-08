@@ -344,13 +344,13 @@ echo '<div class="bg-vino pt-3 pb-3 white-text text-center mb-5">No existen prod
 ?>
 
 
-<div class="container-fluid" style="min-height: 700px;">
+<div class="container" style="min-height: 700px;">
 
   <main>
     
     <div class="row d-flex justify-content-center">
       <div class="col-12 text-center" >
-        <img src="assets/img/error.png" alt=""> <br>
+        <img src="assets/img/error.png" class="img-fluid" alt=""> <br>
 
 
 <div class="row justify-content-center mb-3">
