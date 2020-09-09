@@ -41,6 +41,11 @@ if(location.hostname == "localhost"){
     });
 
 
+    $("body").on("click","#cambiardireccion",function(){ 
+        $('#ModalCambiarDireccion').modal('show');
+    });
+
+
 
 
 
@@ -139,6 +144,44 @@ return false;
 }
 });
 
+
+
+
+
+
+
+
+
+
+
+
+/// recuperar password
+    $('#btn-cambios').click(function(e){ /// agregar un producto 
+    e.preventDefault();
+    $.ajax({
+            url: Url+"system/user/redirect.php?op=18",
+            method: "POST",
+            data: $("#form-cambios").serialize(),
+            beforeSend: function () {
+                $('#btn-cambios').html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Loading...').addClass('disabled');
+            },
+            success: function(data){
+                $('#btn-cambios').html('CAMBIAR DIRECCION').removeClass('disabled');         
+                $("#form-cambios").trigger("reset");
+                $('#ModalCambiarDireccion').modal('hide');
+                $("#msj").html(data);   
+            }
+        })
+    });
+    
+
+
+
+$("#form-cambios").keypress(function(e) {//Para deshabilitar el uso de la tecla "Enter"
+if (e.which == 13) {
+return false;
+}
+});
 
 
 

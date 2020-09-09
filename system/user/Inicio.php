@@ -271,5 +271,59 @@ public function AddDatosUsuarioInvitado($data){
 
 
 
+
+
+
+
+
+  public function CambiarDatos($datos){ // lo que viede del formulario principal
+    $db = new dbConn();
+
+if($datos["cdepartamento"] != NULL and $datos["cmunicipio"] != NULL){
+      $data["recibe_departamento"] = $datos["cdepartamento"];
+      $data["recibe_municipio"] = $datos["cmunicipio"];
+
+      if($datos["cdireccion"] != NULL){ $data["recibe_direccion"] = $datos["cdireccion"]; }
+      if($datos["cnombre"] != NULL){ $data["recibe_nombre"] = $datos["cnombre"]; }
+      if($datos["ctelefono"] != NULL){ $data["recibe_telefono"] = $datos["ctelefono"]; }
+      if($datos["creferencia"] != NULL){ $data["puntoreferencia"] = $datos["creferencia"]; }
+
+    if ($db->update("login_direcciones", $data, "WHERE user = '".$_SESSION["user"]."'")) {
+        Alerts::Alerta("success","Realizado!","Cambio realizado exitsamente!");
+/// CREO A LA DELIVERY
+if ($r = $db->select("costo", "cobertura_municipio", "WHERE id = '".$datos["cmunicipio"]."'")) {     
+$_SESSION["delivery"] = $r["costo"];
+}   unset($r);
+
+sleep(1);
+
+/// si vengo del carrito o del check out, mandarlo a checkuot
+echo '<script>
+  window.location.href="'.BASE_URL.'?checkout"
+</script>';
+
+    } else {
+      sleep(1);
+      Alerts::Alerta("error","Error!","Algo Ocurrió!");
+    }   
+
+
+} else {
+  sleep(1);
+   Alerts::Alerta("error","Error!","Faltan Datos!");
+}
+
+
+  }
+
+
+
+
+
+
+
+
+
+
 } // class
 ?>

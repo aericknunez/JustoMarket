@@ -49,7 +49,7 @@ if ($_SESSION["user"] != NULL) {
   if($recibe_direccion != NULL and $usr_telefono != NULL){
  ?>
 
-
+<div id="msj"></div>
 
 
 
@@ -119,13 +119,13 @@ if ($_SESSION["user"] != NULL) {
      
 
               <!--email-->
-              <div class="md-form mb-5">
+              <div class="md-form mb-2">
                 <input type="text"  class="form-control" value="<?php echo $_SESSION["email"]; ?>" readonly>
                 <label>Email</label>
               </div>
 
               <!--address-->
-              <div class="md-form mb-5">
+              <div class="md-form mb-2">
                 <input type="text" class="form-control" value="<?php echo $recibe_direccion; ?>" readonly>
                 <label>Dirección</label>
               </div>
@@ -134,7 +134,7 @@ if ($_SESSION["user"] != NULL) {
               <div class="row">
 
                 <!--Grid column-->
-                <div class="col-lg-4 col-md-12 mb-4 md-form">
+                <div class="col-lg-4 col-md-12 mb-2 md-form">
 
                   <label>Pais</label>
                   <input type="text" class="form-control" value="<?php echo $recibe_pais; ?>" readonly>
@@ -142,7 +142,7 @@ if ($_SESSION["user"] != NULL) {
                 <!--Grid column-->
 
                 <!--Grid column-->
-                <div class="col-lg-4 col-md-6 mb-4 md-form">
+                <div class="col-lg-4 col-md-6 mb-2 md-form">
 
                   <label>Departamento</label>
                   <input type="text" class="form-control" value="<?php echo $departamento; ?>" readonly>
@@ -150,7 +150,7 @@ if ($_SESSION["user"] != NULL) {
                 <!--Grid column-->
 
                 <!--Grid column-->
-                <div class="col-lg-4 col-md-6 mb-4 md-form">
+                <div class="col-lg-4 col-md-6 mb-2 md-form">
 
                   <label>Municipio</label>
                   <input type="text" class="form-control" value="<?php echo $municipio; ?>" readonly>
@@ -158,7 +158,20 @@ if ($_SESSION["user"] != NULL) {
                 <!--Grid column-->
 
               </div>
+
+              <!--address-->
+              <div class="md-form mb-2">
+                <input type="text" class="form-control" value="<?php echo $recibe_nombre; ?>" readonly>
+                <label>Nombre de la persona que recibe</label>
+              </div>
+
               <!--Grid row-->
+<?php if($_SESSION["tipo_cuenta"] != 0){
+echo '<div class="text-right mt-3">
+<a id="cambiardireccion" class="btn bg-verde btn-sm btn-rounded">Cambiar Dirección de Envío </a></div>';  
+} ?>
+              
+
 </div></div></div>
 
 <div class="text-right mt-3">
@@ -378,6 +391,7 @@ echo '<div class="bg-vino pt-3 pb-3 white-text text-center mb-5">No existen prod
  require_once 'catalog/catalog/BannerInferior.php';
  require_once 'catalog/catalog/Modal/seguircomprando.php';
  require_once 'catalog/catalog/Modal/gracias.php';
+ require_once 'catalog/catalog/Modal/cambiardireccion.php';
 
 
 ?>

@@ -24,6 +24,28 @@ public function ObtenerData($url){
 
 
 
+public function ProductosPromociones($url){
+  $jsondata = $this->ObtenerData($url);
+
+  $datos = json_decode($jsondata, true); 
+
+
+echo '<section>
+  <div class="row no-gutters d-flex justify-content-center mb-3">';
+
+
+
+ $this->ProductoView($datos, 0, count($datos["productos"]), NULL);
+
+
+
+
+echo '</div>';
+echo '</section>';
+}
+
+
+
 
 public function ProductosCategoria($url){
 	$jsondata = $this->ObtenerData($url);
@@ -39,8 +61,20 @@ echo '<section>
  $this->ProductoView($datos, 0, count($datos["productos"]), NULL);
 
 
-echo '</div>
-	</section>';
+
+
+echo '</div>';
+  if(count($datos["productos"]) != 0){
+  echo '<div id="cbtnvermas" class="justify-content-center text-center">
+        <a id="Cvermas" class="btn btn-default bg-vino white-text btn-sm btn-rounded waves-effect">Ver Mas <i class="fas fa-magic ml-1"></i></a>
+        </div>
+        <div id="cloader"></div>';
+} else { 
+  echo '<div id="cbtnvermas" class="justify-content-center text-center">
+          <small class="text-muted">FIN DE LOS PRODUCTOS</small></div>';
+}
+
+echo '</section>';
 }
 
 

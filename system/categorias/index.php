@@ -8,23 +8,21 @@ include_once 'system/categorias/Inicio.php';
 include_once 'system/index/InicioModal.php';
 	$indexM = new IndexModal(); 
 
+    $_SESSION["categoria"] = $_REQUEST["categoria"];
 
 ?>
 <div class="container">
 <?
 
-// echo "Cat: " . $_REQUEST["categoria"];
-
   require_once 'system/categorias/barra_buscarCategoria.php';
-
   require_once 'system/categorias/OrderbyCategoria.php';
 
   // require_once 'system/categorias/CuerpoCategoria.php';
-	$cat->ProductosCategoria(URL_SERVER . "application/src/api.php?op=12&cantidad=&td=" . TD_SERVER . "&categoria=" . $_REQUEST["categoria"]);
-
-
-
+	// $cat->ProductosCategoria(URL_SERVER . "application/src/api.php?op=12&cantidad=&td=" . TD_SERVER . "&categoria=" . $_REQUEST["categoria"]);
 ?>
+
+<div id="productos-categorias"></div>
+
 </div>
 <?
 // baner de footer

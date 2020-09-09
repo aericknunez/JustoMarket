@@ -234,4 +234,14 @@ $passw2 = filter_input(INPUT_POST, 'pass2', FILTER_SANITIZE_STRING);
 $usuarios->Cambio($passw1, $passw2); 
 }
 
+
+
+if($_REQUEST["op"]=="18"){
+include_once 'Inicio.php';
+$change = new Perfil();
+$change->CambiarDatos($_POST);
+}
+
+
+
 ?>

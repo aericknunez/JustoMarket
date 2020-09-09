@@ -504,23 +504,6 @@ if(screen.width < 720){
 
 
 
-function Promociones(){ // solo para promociones
-
-    var dataString = 'op=13';
-    $.ajax({
-            type: "POST",
-            url: Url+"application/src/routes.php",
-            data: dataString,
-            beforeSend: function () {
-               $("#todas-promociones").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
-            },
-            success: function(data) {            
-                $("#todas-promociones").html(data); // lo que regresa de la busquea     
-            }
-        });
-}
-
-Promociones();
 
 
 

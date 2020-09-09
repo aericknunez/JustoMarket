@@ -42,12 +42,24 @@ break;
 // break;
 
 
+ 
+case "12": // promociones (Quitarle la cantidad para que muestre todas las promociones)
+include_once '../../system/categorias/Inicio.php';
+	$cat = new Categorias(); //&order=DESC
+	$cantidad = $_POST["cantidad"];
+	$cat->ProductosCategoria(URL_SERVER . "application/src/api.php?op=12&cantidad=".$cantidad."&td=" . TD_SERVER . "&categoria=" . $_SESSION["categoria"]);
+
+break;
+
+
 
 case "13": // promociones (Quitarle la cantidad para que muestre todas las promociones)
 include_once '../../system/categorias/Inicio.php';
 	$cat = new Categorias(); //&order=DESC
-	$cat->ProductosCategoria(URL_SERVER . "application/src/api.php?op=13&cantidad=12&td=" . TD_SERVER);
+	$cat->ProductosPromociones(URL_SERVER . "application/src/api.php?op=13&cantidad=&td=" . TD_SERVER . "&categoria=" . $_SESSION["categoria"]);
+
 break;
+
 
 
 
