@@ -55,7 +55,21 @@ if ($_SESSION["user"] != NULL) {
 
 <h4 class="bg-naranja white-text text-center pt-3 pb-3"><strong>DATOS DE FACTURACIÓN</strong></h4>
  
+  <?php 
+// verifico que el total de venta sea mayor a la cantidad minima
+  $data["usuario"] = $_SESSION["usuario"];
+  $data["orden"] = $_SESSION["orden"];
 
+  $ototal = $ini->ObtenerTotal(URL_SERVER . "application/src/api.php?op=22&td=" . TD_SERVER, $data);
+  $datax = json_decode($ototal, true);
+
+if($datax["total"] != NULL){
+  $total = $datax["total"];
+}
+
+if($cant_minima < $total){
+
+ ?>
 <!-- inicia stepper -->
 <div class="container">
   <div class="stepwizard">
@@ -187,21 +201,7 @@ echo '<div class="text-right mt-3">
   <!-- contenido -->
 
 <div class="redondeado2  wow fadeIn">
-  <?php 
-// verifico que el total de venta sea mayor a la cantidad minima
-  $data["usuario"] = $_SESSION["usuario"];
-  $data["orden"] = $_SESSION["orden"];
 
-  $ototal = $ini->ObtenerTotal(URL_SERVER . "application/src/api.php?op=22&td=" . TD_SERVER, $data);
-  $datax = json_decode($ototal, true);
-
-if($datax["total"] != NULL){
-  $total = $datax["total"];
-}
-
-if($cant_minima < $total){
-
- ?>
 
   <p class="bg-naranja p-3 text-white h5 bordeado3"> Seleccione el método de pago</p>
 
@@ -257,16 +257,6 @@ if($_SESSION["entienda"] == "on"){
           
               <hr class="mb-4">
         
-
-<?php 
-} else { // termina cantidad minima
-
- echo '<div class="bg-vino pt-3 pb-3 white-text text-center">La cantidad minima de su compra debe ser ' . Helpers::Dinero($cant_minima) . ' y de momento solo tiene en el carrito ' . Helpers::Dinero($total) . ' continúe comprando para poder procesar su pedido </div>
-
- <div class="text-center"><a id="continuarcomprando" class="btn btn-primary bg-naranja btn-md ">continuar comprando <i class="fas fa-cart-arrow-down"></i></a></div>';
-}
-
- ?>
 </div>
 
 
@@ -317,7 +307,15 @@ $check->Pedido(URL_SERVER . "application/src/api.php?op=23&td=" . TD_SERVER . "&
 </div>
 <!-- termina el stepper -->
 
+<?php 
+} else { // termina cantidad minima
 
+ echo '<div class="bg-vino pt-3 pb-3 white-text text-center">La cantidad minima de su compra debe ser ' . Helpers::Dinero($cant_minima) . ' y de momento solo tiene en el carrito ' . Helpers::Dinero($total) . ' continúe comprando para poder procesar su pedido </div>
+
+ <div class="text-center"><a id="continuarcomprando" class="btn btn-primary bg-naranja btn-md ">continuar comprando <i class="fas fa-cart-arrow-down"></i></a></div>';
+}
+
+ ?>
 
 
 
