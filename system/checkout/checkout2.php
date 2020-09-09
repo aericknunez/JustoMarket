@@ -56,35 +56,19 @@ if ($_SESSION["user"] != NULL) {
 <h4 class="bg-naranja white-text text-center pt-3 pb-3"><strong>DATOS DE FACTURACIÓN</strong></h4>
  
 
-<!-- inicia stepper -->
-<div class="container">
-  <div class="stepwizard">
-      <div class="stepwizard-row setup-panel">
-          <div class="stepwizard-step col-xs-3"> 
-              <a id="btn-1" type="button" class="btn bg-vino text-white btn-circle">1</a>
-              <p><small>Dirección de Envío</small></p>
-          </div>
-          <div class="stepwizard-step col-xs-3"> 
-              <a id="btn-2" type="button" class="btn bg-vino text-white btn-circle">2</a>
-              <p><small>Forma de Pago</small></p>
-          </div>
-          <div class="stepwizard-step col-xs-3"> 
-              <a id="btn-3" type="button" class="btn bg-vino text-white btn-circle">3</a>
-              <p><small>Finalizar</small></p>
-          </div>
-      </div>
-  </div>
-    
-
-
-        <div class="panel panel-primary setup-content" id="step-1">
-  <!-- contenido -->
+ <main>
     <div class="container wow fadeIn">
       <!--Grid row-->
       <div class="row">
 
+        <!--Grid column-->
+        <div class="col-md-8 mb-4">
+
           <!--Card-->
-          <div class="card card-body bordeado2">
+          <div class="card">
+
+            <!--Card content-->
+            <form class="card-body">
 
               <!--Grid row-->
               <div class="row">
@@ -159,22 +143,21 @@ if ($_SESSION["user"] != NULL) {
 
               </div>
               <!--Grid row-->
-</div></div></div>
 
-<div class="text-right mt-3">
-  <a id="btn-2" class="btn btn-default btn-rounded">Siguiente <i class="fas fa-angle-right ml-1"></i></a>
-</div>
+              <!-- <hr> -->
 
+<!--               <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="same-address">
+                <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="save-info">
+                <label class="custom-control-label" for="save-info">Save this information for next time</label>
+              </div> -->
 
-  <!-- contenido -->
-        </div>
-        
-        
-        <div class="panel panel-primary setup-content" id="step-2">
-  <!-- contenido -->
+              <hr>
 
-<div class="redondeado2  wow fadeIn">
-  <?php 
+<?php 
 // verifico que el total de venta sea mayor a la cantidad minima
   $data["usuario"] = $_SESSION["usuario"];
   $data["orden"] = $_SESSION["orden"];
@@ -190,34 +173,58 @@ if($cant_minima < $total){
 
  ?>
 
-  <p class="bg-naranja p-3 text-white h5 bordeado3"> Seleccione el método de pago</p>
-
               <div class="d-block my-3">
 
-                <div class="custom-control custom-radio">
-                  <input id="pcredito" name="pago" value="tarjeta" type="radio" class="custom-control-input"  unchecked>
-                  <label class="custom-control-label" for="pcredito">Tarjeta de Crédito</label>
-                </div>
+              	<?php  Alerts::Mensajex("En este momento sólo está disponible el pago contra entrega","success"); ?>
 
                 <div class="custom-control custom-radio">
-                  <input id="pentrega" name="pago" value="entrega" type="radio" class="custom-control-input" checked required>
-                  <label class="custom-control-label" for="pentrega">Pago en Efectivo</label>
+                  <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" disabled unchecked>
+                  <label class="custom-control-label" for="credit">Tarjeta de credito</label>
+                </div>
+<!--                 <div class="custom-control custom-radio">
+                  <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                  <label class="custom-control-label" for="debit">Debit card</label>
+                </div> -->
+                <div class="custom-control custom-radio">
+                  <input id="entrega" name="entrega" type="radio" class="custom-control-input" checked required>
+                  <label class="custom-control-label" for="entrega">Pago contra entrega</label>
                 </div>
               </div>
+<!--               <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="cc-name">Name on card</label>
+                  <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                  <small class="text-muted">Full name as displayed on card</small>
+                  <div class="invalid-feedback">
+                    Name on card is required
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="cc-number">Credit card number</label>
+                  <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Credit card number is required
+                  </div>
+                </div>
+              </div> -->
+<!--               <div class="row">
+                <div class="col-md-3 mb-3">
+                  <label for="cc-expiration">Expiration</label>
+                  <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Expiration date required
+                  </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label for="cc-expiration">CVV</label>
+                  <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Security code required
+                  </div>
+                </div>
+              </div> -->
 
-            <div id="msj-entrega">
-              <div class="row justify-content-center">
-                <div class="col-10 col-md-8 text-center"><p class="bg-verde p-3 text-white bordeado3">Cuando llegue el mensajero con tu orden deberá pagar en efectivo</p></div>
-              </div>
-            </div>
-              <div id="msj-credito">
-              <div class="row justify-content-center">
-                <div class="col-10 col-md-8 text-center"><p class="bg-verde p-3 text-white bordeado3">Su orden será pagada con tarjeta de crédito con el POS móvil que nuestro mensajero le proporcionará al momento de entregarle su orden </p></div>
-              </div>
-            </div>
-
-
-              <hr class="mb-4 border border-dark">
+              <hr class="mb-4">
         <?php 
 
         if($tiempo != NULL){
@@ -243,7 +250,7 @@ if($_SESSION["entienda"] == "on"){
  </div>    
           
               <hr class="mb-4">
-        
+              <a id="mandarpedido" class="btn btn-primary bg-vino btn-lg btn-block">completar pedido</a>
 
 <?php 
 } else { // termina cantidad minima
@@ -254,55 +261,46 @@ if($_SESSION["entienda"] == "on"){
 }
 
  ?>
-</div>
 
+            </form>
 
-<div class="text-right mt-3">
-  <a id="btn-1" class="btn btn-default btn-sm btn-rounded"><i class="fas fa-angle-left mr-1"></i> Anterior </a>
-  <a id="btn-3" class="btn btn-default btn-rounded">Siguiente <i class="fas fa-angle-right ml-1"></i></a>
-</div>
-  <!-- contenido -->
+          </div>
+          <!--/.Card-->
+
         </div>
-        
-        
-        <div class="panel panel-primary setup-content" id="step-3">
-  <!-- contenido -->
-<div class="redondeado2  wow fadeIn">
+        <!--Grid column-->
 
-  <div class="row">
-    <div class="col-md-6">
-<?php 
+        <!--Grid column-->
+        <div class="col-md-4 mb-4">
 
-$check->Pedido(URL_SERVER . "application/src/api.php?op=23&td=" . TD_SERVER . "&usr=" . $_SESSION["usuario"] . "&orden=" . $_SESSION["orden"]);
+          <?php 
 
-?>
+          $check->Pedido(URL_SERVER . "application/src/api.php?op=23&td=" . TD_SERVER . "&usr=" . $_SESSION["usuario"] . "&orden=" . $_SESSION["orden"]);
 
-   <div id="mensaje"></div>
-   <a id="mandarpedido" class="btn btn-primary bg-vino btn-lg btn-block">completar pedido</a>   
-      
-    </div>
-    
-    <div class="col-md-6 d-none d-md-block d-lg-block">
-      <div class="text-center">
-        <p class="bg-verde p-3 text-white bordeado3">Casi hemos terminado. Sólo debe completar su pedido</p>
-      <img src="assets/img/gracias.png" class="img-fluid" alt="">
-    </div>
-    </div>
-      
+           ?>
 
-  </div>
+      <!-- Promo code -->
+  <!--    <form class="card p-2">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Promo code" aria-label="Recipient's username" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-secondary btn-md waves-effect m-0" type="button">Redeem</button>
+              </div>
+            </div>
+          </form> -->
+          <!-- Promo code -->
 
-      
-</div>
+            <div id="mensaje"></div>
 
-<div class="text-right mt-3">
-  <a id="btn-2" class="btn btn-default btn-sm btn-rounded"><i class="fas fa-angle-left mr-1"></i> Anterior </a>
-</div>
-  <!-- contenido -->
         </div>
+        <!--Grid column-->
 
-</div>
-<!-- termina el stepper -->
+      </div>
+      <!--Grid row-->
+
+    </div>
+  </main>
+
 
 
 
@@ -381,3 +379,21 @@ echo '<div class="bg-vino pt-3 pb-3 white-text text-center mb-5">No existen prod
 
 
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -213,7 +213,7 @@ echo '</div>';
 if(count($datos["productos"])){
 
 echo '<h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">Su Pedido</span>
+            <span class="text-muted">SU PEDIDO</span>
             <span class="badge bg-vino badge-pill">'.count($datos["productos"]).'</span>
           </h4>
           <!-- Cart -->
@@ -225,7 +225,7 @@ echo '<h4 class="d-flex justify-content-between align-items-center mb-3">
       echo '<li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
                 <h6 class="my-0">'.$datos["productos"][$i]["producto"].'</h6>
-                <small class="text-muted">Cantidad: '.$datos["productos"][$i]["cant"].'</small>
+                <small class="text-muted">'.$datos["productos"][$i]["cant"].' x '.Helpers::Dinero($datos["productos"][$i]["pv"]).'</small>
               </div>
               <span class="text-muted">'.Helpers::Dinero($datos["productos"][$i]["total"]).'</span>
             </li>';
@@ -233,17 +233,24 @@ echo '<h4 class="d-flex justify-content-between align-items-center mb-3">
       $total = $total + $datos["productos"][$i]["total"];      
    }
 
+     echo '<li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="font-weight-bold">SUBTOTAL</h6>
+              </div>
+              <span class="font-weight-bold">'.Helpers::Dinero($total).'</span>
+            </li>';
+
 if($_SESSION["delivery"] != NULL){
      echo '<li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
-                <h6 class="my-0">DELIVERY</h6>
+                <h6 class="my-0">COSTO DE ENVÍO</h6>
               </div>
               <span class="text-muted">'.Helpers::Dinero($_SESSION["delivery"]).'</span>
             </li>';
 }
 
 
-     echo '<li class="list-group-item d-flex justify-content-between">
+     echo '<li class="list-group-item d-flex justify-content-between font-weight-bold">
               <span>Total (USD)</span>
               <strong>'. Helpers::Dinero($total + $_SESSION["delivery"]) .'</strong>
             </li>

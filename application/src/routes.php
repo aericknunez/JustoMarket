@@ -123,7 +123,6 @@ if($datos["total"] != NULL){
 }
 
 echo Helpers::Dinero($total);
-
 break;
 
 

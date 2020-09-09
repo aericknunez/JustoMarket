@@ -24,6 +24,10 @@ if(isset($_GET["perfil"])) {
 echo '<link href="' . BASE_URL . 'assets/css/dash-mdb.min.css" rel="stylesheet">';
 } 
 
+
+if(isset($_GET["checkout"])) {
+echo '<link href="' . BASE_URL . 'assets/css/stepper.css" rel="stylesheet">';
+} 
 ?>
 
 </head>

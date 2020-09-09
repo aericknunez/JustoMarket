@@ -30,6 +30,7 @@ echo '<script type="text/javascript" src="'.BASE_URL.'assets/js/perfil.js?v='.$n
 } 
 elseif(isset($_GET["checkout"])) {
 echo '<script type="text/javascript" src="'.BASE_URL.'assets/js/checkout.js?v='.$numero.'"></script>';
+echo '<script type="text/javascript" src="'.BASE_URL.'assets/js/stepper.js?v='.$numero.'"></script>';
 } 
 
 elseif(isset($_GET["recovery"])) {
