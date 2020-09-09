@@ -240,10 +240,10 @@ echo '<div class="text-right mt-3">
         <p>También puede pasar por nuestra tienda por su orden, estará lista para usted 
 <div class="switch">
 <label>
-Off
+No
 <input type="checkbox" id="entienda" <?php if($_SESSION["entienda"] == "on") echo "checked"; ?> name="entienda">
 <span class="lever"></span> 
-On 
+Si 
   || Recoger en tienda
 </label>
 </div>
