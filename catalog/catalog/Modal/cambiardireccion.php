@@ -69,7 +69,7 @@
                             $a = $db->query("SELECT id, municipio FROM cobertura_municipio WHERE departamento = '".$recibe_departamento."'");
                               echo '<option>Municipio</option>';
                               foreach ($a as $b) {  
-                            echo '<option value="'. $b["id"] .'">'. $b["municipio"] .'</option>'; 
+                            echo '<option value="'. $b["id"] .'"'; if($recibe_municipio == $b["id"]){ echo "selected"; }  echo'>'. $b["municipio"] .'</option>'; 
                               } $a->close(); 
                        ?>
                     </select>
