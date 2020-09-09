@@ -24,7 +24,7 @@
 <div class="md-form form-sm mb-3">
     <i class="fas fa-map-marked prefix"></i>
     <input type="text" id="cdireccion" name="cdireccion"
-        class="form-control form-control-sm validate">
+        class="form-control form-control-sm validate" value="<?php echo $recibe_direccion ?>">
     <label data-error="wrong" data-success="right"
         for="cdireccion">Dirección de Envío</label>
 </div>
@@ -87,7 +87,7 @@
         <div class="col-12">
                 <div class="md-form form-sm mb-3">
                     <i class="fas fa-phone prefix"></i>
-                    <input type="text" id="ctelefono" name="ctelefono"
+                    <input type="text" id="ctelefono" value="<?php echo $recibe_telefono ?>" name="ctelefono"
                         class="form-control form-control-sm validate">
                     <label data-error="wrong" data-success="right"
                         for="ctelefono">Teléfono</label>
@@ -98,7 +98,7 @@
 
 <div class="md-form form-sm mb-3">
     <i class="fas fa-user-check prefix"></i>
-    <input type="text" id="cnombre" name="cnombre"
+    <input type="text" id="cnombre" value="<?php echo $recibe_nombre ?>" name="cnombre"
         class="form-control form-control-sm validate">
     <label data-error="wrong" data-success="right"
         for="cnombre">Nombre de quien recibe</label>
@@ -107,7 +107,7 @@
 
 <div class="md-form form-sm mb-3">
     <i class="fas fa-map-pin prefix"></i>
-    <input type="text" id="creferencia" name="creferencia"
+    <input type="text" id="creferencia" value="<?php echo $puntoreferencia ?>" name="creferencia"
         class="form-control form-control-sm validate">
     <label data-error="wrong" data-success="right"
         for="creferencia">Punto de referencia</label>
