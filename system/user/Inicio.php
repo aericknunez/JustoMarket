@@ -163,6 +163,7 @@ public function AddDatosUsuarioInvitado($data){
 
                 $data["user"] = $_SESSION["userInvitado"];
                 $data["recibe_pais"] = "El Salvador";
+                $data["usr_pais"] = "El Salvador";
                 $data["usr_departamento"] = $datos["recibe_departamento"];
                 $data["usr_municipio"] = $datos["recibe_municipio"];
                 $data["usr_direccion"] = $datos["recibe_direccion"];
@@ -192,13 +193,12 @@ public function AddDatosUsuarioInvitado($data){
             $_SESSION['secret_key'] = md5($r["td"]);
             } unset($r);
 
-            if ($r = $db->select("email", "login_members", "WHERE username = '$user'")) {    
-                $_SESSION['email'] = $r["email"];
-            }   unset($r);  
 
          $_SESSION['invitado'] = " (Invitado)";
              
         $inicia = new Inicio();
+        $inicia->CrearVariables(); // reemplaza las variables de usuario
+        /// obtengo la ultima orden si cloncluir del servidor
         $jsondata = $inicia->ObtenerOrdenNo(URL_SERVER . "application/src/api.php?op=28&td=" . TD_SERVER . "&usr=" . $_SESSION["user"]);   
 
         $datos = json_decode($jsondata, true);
@@ -206,11 +206,20 @@ public function AddDatosUsuarioInvitado($data){
             $_SESSION["orden"] = $datos["orden"];
             $_SESSION["usuario"] = $_SESSION['user'];
         }
+        
 
-        /// CREO A LA DELIVERY
-        if ($r = $db->select("costo", "cobertura_municipio", "WHERE id = '".$datos["recibe_municipio"]."'")) {     
-            $_SESSION["delivery"] = $r["costo"];
-        }   unset($r);
+        /// si no tengo llenos los datos, manadar a llenarlos
+            if ($r = $db->select("*", "login_direcciones", "WHERE user = '".$_SESSION["user"]."'")) { 
+            $usr_direccion = $r["usr_direccion"];
+            $usr_municipio = $r["usr_municipio"];
+            $recibe_municipio = $r["recibe_municipio"];
+            }   unset($r);  
+
+
+/// CREO A LA DELIVERY
+    if ($r = $db->select("costo", "cobertura_municipio", "WHERE id = '".$recibe_municipio."'")) {     
+        $_SESSION["delivery"] = $r["costo"];
+    }   unset($r);
 
       } // si registr los primeros datos
 

@@ -11,17 +11,10 @@ public function DatosUsuario($usuario){
 
 $data = array();
 
-        $a = $db->query("SELECT nombre, nombres, apellidos FROM login_userdata WHERE user = '$usuario'");
+        $a = $db->query("SELECT email, nombre, nombres, apellidos FROM login_userdata WHERE user = '$usuario'");
         foreach ($a as $b) {
             $data["user"] = $b;  
         } $a->close();
-
-
-        $a = $db->query("SELECT email FROM login_members WHERE username = '$usuario'");
-        foreach ($a as $b) {
-            $data["email"] = $b;  
-        } $a->close();
-
 
         $a = $db->query("SELECT * FROM login_direcciones WHERE user = '$usuario'");
         foreach ($a as $b) {
@@ -38,6 +31,20 @@ $data = array();
     if ($r = $db->select("departamento", "cobertura_departamento", "WHERE id = '".$data["direccion"]["recibe_departamento"]."'")) {     
         $data["direccion"]["recibe_departamento"] = $r["departamento"];
     }   unset($r);
+
+
+
+  
+    if ($r = $db->select("municipio", "cobertura_municipio", "WHERE id = '".$data["direccion"]["usr_municipio"]."'")) {     
+        $data["direccion"]["usr_municipio"] = $r["municipio"];
+    }   unset($r);
+
+    if ($r = $db->select("departamento", "cobertura_departamento", "WHERE id = '".$data["direccion"]["usr_departamento"]."'")) {     
+        $data["direccion"]["usr_departamento"] = $r["departamento"];
+    }   unset($r);
+
+
+
 
 
  $data["mensaje"] = "Datos adquiridos"; 
@@ -93,10 +100,34 @@ $data = array();
          $data[$i]["recibe_direccion"]= $r["recibe_direccion"];
          $data[$i]["recibe_nombre"]= $r["recibe_nombre"];
          $data[$i]["recibe_telefono"]= $r["recibe_telefono"];
-         $data[$i]["punto_referencia"]= $r["punto_referencia"];
+         $data[$i]["punto_referencia"]= $r["puntoreferencia"];
          $data[$i]["m_longitud"]= $r["m_longitud"];
          $data[$i]["m_latitud"]= $r["m_latitud"];
+
+    if ($r = $db->select("municipio", "cobertura_municipio", "WHERE id = '".$data[$i]["recibe_municipio"]."'")) {     
+        $data[$i]["recibe_municipio"] = $r["municipio"];
+    }   unset($r);
+
+    if ($r = $db->select("departamento", "cobertura_departamento", "WHERE id = '".$data[$i]["recibe_departamento"]."'")) {     
+        $data[$i]["recibe_departamento"] = $r["departamento"];
+    }   unset($r);
+
+
+    if ($r = $db->select("municipio", "cobertura_municipio", "WHERE id = '".$data[$i]["usr_municipio"]."'")) {     
+        $data[$i]["usr_municipio"] = $r["municipio"];
+    }   unset($r);
+
+    if ($r = $db->select("departamento", "cobertura_departamento", "WHERE id = '".$data[$i]["usr_departamento"]."'")) {     
+        $data[$i]["usr_departamento"] = $r["departamento"];
+    }   unset($r);
+
+
+
     } unset($r);
+
+
+
+
 
 
 $i++;
