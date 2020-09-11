@@ -22,7 +22,7 @@ function ProductosCategorias(){ /// solo en detalle y en index
             url: Url+"application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#productos-categorias").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
+               $("#productos-categorias").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/spinner.gif" alt=""></div>');
             },
             success: function(data) {            
                 $("#productos-categorias").html(data); // lo que regresa de la busquea  
@@ -72,7 +72,7 @@ function Promociones(){ // solo para promociones
             url: Url+"application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#todas-promociones").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
+               $("#todas-promociones").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/spinner.gif" alt=""></div>');
             },
             success: function(data) {            
                 $("#todas-promociones").html(data); // lo que regresa de la busquea     

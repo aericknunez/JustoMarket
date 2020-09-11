@@ -151,7 +151,7 @@ function RegresoCard(){
 //             url: Url+"application/src/routes.php",
 //             data: dataString,
 //             beforeSend: function () {
-//                $("#resultadomodal").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
+//                $("#resultadomodal").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/spinner.gif" alt=""></div>');
 //             },
 //             success: function(data) {            
 //                $("#resultadomodal").html(data); // muestra el resultado en el modal
@@ -219,7 +219,7 @@ function ContenidoCarritoModal(){
             url: Url+"application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#contenido-carrito").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
+               $("#contenido-carrito").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/spinner.gif" alt=""></div>');
             },
             success: function(data) {            
                 $("#contenido-carrito").html(data); // lo que regresa de la busquea     
@@ -255,7 +255,7 @@ function ContenidoFooter(){
             url: Url+"application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#contenido-carrito").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
+               $("#contenido-carrito").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/spinner.gif" alt=""></div>');
             },
             success: function(data) {            
                 ContenidoCarritoModal();  
@@ -280,7 +280,7 @@ function ContenidoFooter(){
             url: Url+"application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#contenido-carrito").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
+               $("#contenido-carrito").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/spinner.gif" alt=""></div>');
             },
             success: function(data) {            
                 ContenidoCarritoModal();  
@@ -321,7 +321,7 @@ var Mfin = 4;
             url: Url+"application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#detalle-producto").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
+               $("#detalle-producto").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/spinner.gif" alt=""></div>');
             },
             success: function(data) {            
                 $("#detalle-producto").html(data); // lo que regresa de la busquea     
@@ -354,7 +354,7 @@ function ModalRecomendados(op){
             url: Url+"application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-                $("#detalle-reomendados").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
+                $("#detalle-reomendados").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/spinner.gif" alt=""></div>');
               },
             success: function(data) {    
                 $("#detalle-reomendados").html(data); // lo que regresa de la busquea         
@@ -418,7 +418,7 @@ function ProductosDestacados(){ /// solo en detalle y en index
             url: Url+"application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#productos-destacados").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
+               $("#productos-destacados").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/spinner.gif" alt=""></div>');
             },
             success: function(data) {            
                 $("#productos-destacados").html(data); // lo que regresa de la busquea     
@@ -442,7 +442,7 @@ function DestacadosPeque(){ /// solo en detalle y en index
             url: Url+"application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#productos-destacados").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
+               $("#productos-destacados").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/spinner.gif" alt=""></div>');
             },
             success: function(data) {            
                 $("#productos-destacados").html(data); // lo que regresa de la busquea    
@@ -526,7 +526,7 @@ if(screen.width < 720){
             url: Url+"application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#msjedad").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
+               $("#msjedad").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/spinner.gif" alt=""></div>');
             },
             success: function(data) {            
                 $("#msjedad").html(data); // lo que regresa de la busquea     

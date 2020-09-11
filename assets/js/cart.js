@@ -19,7 +19,7 @@ if(location.hostname == "localhost"){
             url: Url+"application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#contenidocart").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
+               $("#contenidocart").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/spinner.gif" alt=""></div>');
             },
             success: function(data) {             
                 ContenidoCart();
@@ -40,7 +40,7 @@ function ContenidoCart(){
             url: Url+"application/src/routes.php",
             data: dataString,
             beforeSend: function () {
-               $("#contenidocart").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
+               $("#contenidocart").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/spinner.gif" alt=""></div>');
             },
             success: function(data) {            
                 $("#contenidocart").html(data); // lo que regresa de la busquea     

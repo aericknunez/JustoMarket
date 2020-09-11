@@ -17,7 +17,7 @@ if(location.hostname == "localhost"){
             data: dataString,
             beforeSend: function () {
                $('#mandarpedido').html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>ENVIANDO PEDIDO...').addClass('disabled'); 
-               $("#mensaje").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/loa.gif" alt=""></div>');
+               $("#mensaje").html('<div class="row justify-content-center" ><img src="'+Url+'assets/img/spinner.gif" alt=""></div>');
             },
             success: function(data) { 
                 $('#mandarpedido').html('TERMINAR MI PEDIDO').removeClass('disabled');  

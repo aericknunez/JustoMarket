@@ -69,7 +69,7 @@ if(location.hostname == "localhost"){
             data: $("#form-perfil").serialize(),
             beforeSend: function () {
                 $('#btn-perfil').html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Loading...').addClass('disabled');
-               // $("#contenido").html('<div class="row justify-content-center" ><img src="assets/img/loa.gif" alt=""></div>');
+               // $("#contenido").html('<div class="row justify-content-center" ><img src="assets/img/spinner.gif" alt=""></div>');
             },
             success: function(data){
                 $('#btn-perfil').html('Guardar').removeClass('disabled');       
