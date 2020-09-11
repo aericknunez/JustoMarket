@@ -99,7 +99,7 @@ echo '<figure class="col-md-4 d-md-inline-block d-none d-sm-block border-right b
 
 
   echo '<a class="waves-effect waves-light" id="xproducto" cod="'.$datos["productos"][$i]["cod"].'">
-          <img src="'. Helpers::Img(URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["productos"][$i]["imagenes"][0]) .'"
+          <img src="'. Helpers::Img(URL_SERVER .'assets/img/productos/'. TD_SERVER .'/tmb/tmb_'.$datos["productos"][$i]["imagenes"][0]) .'"
             class="img-fluid imgproductos">
         </a>';
 

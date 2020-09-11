@@ -85,7 +85,7 @@ echo '<div class="col-6 border-bottom mt-2">';
         // echo '<span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
 
 
-  echo '<img src="'. Helpers::Img(URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["productos"][$i]["imagenes"][0]) .'"
+  echo '<img src="'. Helpers::Img(URL_SERVER .'assets/img/productos/'. TD_SERVER .'/tmb/tmb_'.$datos["productos"][$i]["imagenes"][0]) .'"
             class="img-fluid imgproductos">
         </a>
 
