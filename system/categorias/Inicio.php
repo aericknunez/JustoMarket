@@ -89,7 +89,7 @@ public function ProductoView($datos, $inicio, $fin, $active = NULL){
 
 
   echo '<div class="col-6 col-sm-6 col-md-4 col-lg-3 border-right border-left mt-4">
-      <div class="card mb-1 z-depth-0">';
+      <div class="card mb-1 z-depth-0" text-center>';
     
     if($datos["productos"][$i]["promocion"] == "on"){
         echo '<span class="badge badge-pill mensaje-promo">PROMOCIÓN!!</span>';
