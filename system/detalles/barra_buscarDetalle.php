@@ -1,9 +1,9 @@
     <!-- Baner texto -->
-    <section>
+<!--     <section>
       <div class="container bg-verde text-center p-4">
         <h1 class="letra-gotham-black white-text w-100">VERDURAS</h1>
       </div>
-    </section>
+    </section> -->
     <!-- Baner Texto -->
 
     <!-- Barra Buscar -->

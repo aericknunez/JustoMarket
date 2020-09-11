@@ -9,7 +9,7 @@ if(location.hostname == "localhost"){
 
 
 var Cinicio = 0;
-var Cfin = 16;
+var Cfin = 12;
 
 
 function ProductosCategorias(){ /// solo en detalle y en index
@@ -26,7 +26,7 @@ function ProductosCategorias(){ /// solo en detalle y en index
             },
             success: function(data) {            
                 $("#productos-categorias").html(data); // lo que regresa de la busquea  
-                Cinicio = Cinicio + 16;   
+                Cinicio = Cinicio + 12;   
             }
         });
 }
@@ -54,7 +54,7 @@ function ProductosCategorias(){ /// solo en detalle y en index
             success: function(data) {           
               $("#cloader").remove(); 
               $("#productos-categorias").append(data); // lo que regresa de la busquea   
-              Cinicio = Cinicio + 16;
+              Cinicio = Cinicio + 12;
             }
         });
 
