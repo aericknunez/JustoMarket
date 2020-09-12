@@ -7,7 +7,7 @@ $db = new dbConn();
 $seslog = new Login();
 $seslog->sec_session_start();
 
-echo '<p style="color: red; background: black; font-size: 18px; text-align: center;">ESTAMOS REALIZANDO PRUEBAS EN ESTE MOMENTO ES POBABLE QUE EL SISTEMA ESTE FALLANDO</p>';
+echo '<p style="color: red; background: black; font-size: 18px; text-align: center;">ESTAMOS REALIZANDO PRUEBAS EN ESTE MOMENTO ES PROBABLE QUE EL SISTEMA ESTE FALLANDO</p>';
 print_r($_SESSION);
 
 

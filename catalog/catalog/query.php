@@ -18,9 +18,9 @@
 
       </script>    
 
+<?php $random = rand(0,9999) ?>
         <!-- Extra JavaScript -->
-         <script type="text/javascript" src="<?php echo BASE_URL ?>assets/js/main.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL ?>assets/js/main.js?v=<? echo $ramdom ?>"></script>
 
-        <!-- login -->
-        <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/login.js"></script>
-   
+<!-- login -->
+<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/login.js?v=<? echo $ramdom ?>"></script>
