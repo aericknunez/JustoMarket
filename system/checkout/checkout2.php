@@ -255,7 +255,7 @@ if($_SESSION["entienda"] == "on"){
 <?php 
 } else { // termina cantidad minima
 
- echo '<div class="bg-vino pt-3 pb-3 white-text text-center">La cantidad minima de su compra debe ser ' . Helpers::Dinero($cant_minima) . ' y de momento solo tiene en el carrito ' . Helpers::Dinero($total) . ' continúe comprando para poder procesar su pedido </div>
+ echo '<div class="bg-vino pt-3 pb-3 white-text text-center">¡Hola! En tu municipio el pedido mínimo para poder despacharte es de ' . Helpers::Dinero($cant_minima) . ' te invitamos a que puedas aumentar el monto de tu compra. ¡Gracias!</div>
 
  <div class="text-center"><a id="continuarcomprando" class="btn btn-primary bg-naranja btn-md ">continuar comprando <i class="fas fa-cart-arrow-down"></i></a></div>';
 }

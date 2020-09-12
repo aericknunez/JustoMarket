@@ -239,7 +239,8 @@ if($_POST["edo"] == 0){
 	unset($_SESSION["entienda"]);
 } else {
 	$_SESSION["entienda"] = "on";
-	echo '<div class="text-center text-uppercase"><a href="https://www.google.com/maps/d/edit?mid=1MgdX1iArlCXkCc6VfQ31rZVjURMjKvNb&usp=sharing" target="_blank">Ver el mapa de nuestra ubicación</a></div>';
+	// echo '<div class="text-center text-uppercase"><a href="https://www.google.com/maps/d/edit?mid=1MgdX1iArlCXkCc6VfQ31rZVjURMjKvNb&usp=sharing" target="_blank">Ver el mapa de nuestra ubicación</a></div>';
+	echo '<img src="assets/img/mapa2.png" class="img-fluid" alt="Mapa de nuestra ubicación">';
 }
 break;
 

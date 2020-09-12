@@ -164,7 +164,7 @@
                 <a class="waves-effect waves-light" href="<?php echo BASE_URL ?>categoria/bebidas">
                     <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/drink.svg" alt="Card image cap"></a>
                 <div class="card-body">
-                    <h6 class="msjCategoria font-weight-bold text-center">Bebidas</h6>
+                    <div class="msjCategoria font-weight-bold text-center text-justify">Bebidas</div>
 
                 </div>
             </div>
@@ -174,7 +174,7 @@
                 <a class="waves-effect waves-light " href="<?php echo BASE_URL ?>categoria/carnes">
                     <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/meat.svg" alt="Card image cap"></a>
                 <div class="card-body">
-                    <h6 class="msjCategoria font-weight-bold text-center">Justo Grill - Carnes y Pollo</h6>
+                    <div class="msjCategoria font-weight-bold text-center text-justify">Justo Grill - Carnes y Pollo</div>
                 </div>
             </div>
         </div>  
@@ -183,7 +183,7 @@
                 <a class="waves-effect waves-light " href="<?php echo BASE_URL ?>categoria/frutas">
                     <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/viburnum-fruit.svg" alt="Card image cap"></a>
                 <div class="card-body">
-                    <h6 class="msjCategoria font-weight-bold text-center">Frutas y Vegetales</h6>
+                    <div class="msjCategoria font-weight-bold text-center text-justify">Frutas y Vegetales</div>
                 </div>
             </div>
         </div>  
@@ -197,7 +197,7 @@
                 <a class="waves-effect waves-light " href="<?php echo BASE_URL ?>categoria/abarrotes">
                     <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/flour.svg" alt="Card image cap"></a>
                 <div class="card-body">
-                    <h6 class="msjCategoria font-weight-bold text-center">Abarrotes</h6>
+                    <div class="msjCategoria font-weight-bold text-center text-justify">Abarrotes</div>
                 </div>
             </div>
         </div>        
@@ -206,7 +206,7 @@
                 <a class="waves-effect waves-light " href="<?php echo BASE_URL ?>categoria/mariscos">
                     <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/seafood.svg" alt="Card image cap"></a>
                 <div class="card-body">
-                    <h6 class="msjCategoria font-weight-bold text-center">Mariscos</h6>
+                    <div class="msjCategoria font-weight-bold text-center text-justify">Mariscos</div>
                 </div>
             </div>
         </div>  
@@ -215,7 +215,7 @@
                 <a class="waves-effect waves-light " href="<?php echo BASE_URL ?>categoria/vinos">
                     <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/drink.svg" alt="Card image cap"></a>
                 <div class="card-body">
-                    <h6 class="msjCategoria font-weight-bold text-center">Justo Bar -<br> Vinos y Licores</h6>
+                    <div class="msjCategoria font-weight-bold text-center text-justify">Justo Bar -<br> Vinos y Licores</div>
                 </div>
             </div>
         </div>  
@@ -229,7 +229,7 @@
                 <a class="waves-effect waves-light " href="<?php echo BASE_URL ?>categoria/granos">
                     <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/beans.svg" alt="Card image cap"></a>
                 <div class="card-body">
-                    <h6 class="msjCategoria font-weight-bold text-center">Granos</h6>
+                    <div class="msjCategoria font-weight-bold text-center text-justify">Granos</div>
                 </div>
             </div>
         </div>        
@@ -238,7 +238,7 @@
                 <a class="waves-effect waves-light " href="<?php echo BASE_URL ?>categoria/lacteos">
                     <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/milk.svg" alt="Card image cap"></a>
                 <div class="card-body">
-                    <h6 class="msjCategoria font-weight-bold text-center">Lacteos</h6>
+                    <div class="msjCategoria font-weight-bold text-center text-justify">Lacteos</div>
                 </div>
             </div>
         </div>  
@@ -247,7 +247,7 @@
                 <a class="waves-effect waves-light " href="<?php echo BASE_URL ?>categoria/snacks">
                     <img class="card-img-top" src="<?php echo BASE_URL ?>assets/Iconos/snacks.svg" alt="Card image cap"></a>
                 <div class="card-body">
-                    <h6 class="msjCategoria font-weight-bold text-center" >Snacks</h6>
+                    <div class="msjCategoria font-weight-bold text-center text-justify" >Snacks</div>
                 </div>
             </div>
         </div>  

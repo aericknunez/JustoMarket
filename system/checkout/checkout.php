@@ -220,12 +220,12 @@ echo '<div class="text-right mt-3">
 
             <div id="msj-entrega">
               <div class="row justify-content-center">
-                <div class="col-10 col-md-8 text-center"><p class="bg-verde p-3 text-white bordeado3">Cuando llegue el mensajero con tu orden deberá pagar en efectivo</p></div>
+                <div class="col-10 col-md-8 text-center"><p class="bg-verde p-3 text-white bordeado3">Paga en el momento que te entregan tu pedido</p></div>
               </div>
             </div>
               <div id="msj-credito">
               <div class="row justify-content-center">
-                <div class="col-10 col-md-8 text-center"><p class="bg-verde p-3 text-white bordeado3">Su orden será pagada con tarjeta de crédito con el POS móvil que nuestro mensajero le proporcionará al momento de entregarle su orden </p></div>
+                <div class="col-10 col-md-8 text-center"><p class="bg-verde p-3 text-white bordeado3">Paga con tu tarjeta de crédito o débito cuando Justo llegue a tu domicilio </p></div>
               </div>
             </div>
 
@@ -234,10 +234,24 @@ echo '<div class="text-right mt-3">
         <?php 
 
         if($tiempo != NULL){
-        Alerts::Mensajex("Su orden llegará en un máximo de $tiempo","info"); }
-        ?>
 
-        <p>También puede pasar por nuestra tienda por su orden, estará lista para usted 
+          $rest = substr($tiempo, 0, 1);
+          $date = date("H");
+
+          $hora =  $rest + $date;
+         if($hora <= "17" and $hora >= "8"){
+            $msj = "Su orden llegará en un máximo de $tiempo **";
+         } else {
+            $msj = "Su orden llegará a tu domicilio en las primeras horas de la mañana **";
+         }
+
+        Alerts::Mensajex($msj,"info"); 
+        echo '<small>** Puedes ver las condiciones de entrega referentes a tu municipio en el apartado de <a href="'.BASE_URL.'cobertura" target="_blank">COBERTURA</a></small>'; 
+        }
+        ?>
+<hr class="mb-4 border">
+
+        <p class="mt-4">También puede pasar por nuestra tienda por su orden, estará lista para usted 
 <div class="switch">
 <label>
 No
@@ -251,14 +265,14 @@ Si
  <div id="verentienda">
    <?php 
 if($_SESSION["entienda"] == "on"){
-  echo '<div class="text-center text-uppercase"><a href="https://www.google.com/maps/d/edit?mid=1MgdX1iArlCXkCc6VfQ31rZVjURMjKvNb&usp=sharing" target="_blank">Ver el mapa de nuestra ubicación</a></div>';
+  // echo '<div class="text-center text-uppercase"><a href="https://www.google.com/maps/d/edit?mid=1MgdX1iArlCXkCc6VfQ31rZVjURMjKvNb&usp=sharing" target="_blank">Ver el mapa de nuestra ubicación</a></div>';
+ echo '<img src="assets/img/mapa2.png" class="img-fluid" alt="Mapa de nuestra ubicación">';
 } ?>
  </div>    
           
               <hr class="mb-4">
         
 </div>
-
 
 <div class="text-right mt-3">
   <a id="btn-1" class="btn btn-default btn-sm btn-rounded"><i class="fas fa-angle-left mr-1"></i> Anterior </a>
@@ -310,7 +324,7 @@ $check->Pedido(URL_SERVER . "application/src/api.php?op=23&td=" . TD_SERVER . "&
 <?php 
 } else { // termina cantidad minima
 
- echo '<div class="bg-vino pt-3 pb-3 white-text text-center">La cantidad minima de su compra debe ser ' . Helpers::Dinero($cant_minima) . ' y de momento solo tiene en el carrito ' . Helpers::Dinero($total) . ' continúe comprando para poder procesar su pedido </div>
+ echo '<div class="bg-vino pt-3 pb-3 white-text text-center">¡Hola! En tu municipio el pedido mínimo para poder despacharte es de ' . Helpers::Dinero($cant_minima) . ' te invitamos a que puedas aumentar el monto de tu compra. ¡Gracias!</div>
 
  <div class="text-center"><a id="continuarcomprando" class="btn btn-primary bg-naranja btn-md ">continuar comprando <i class="fas fa-cart-arrow-down"></i></a></div>';
 }
@@ -359,7 +373,7 @@ echo '<div class="bg-vino pt-3 pb-3 white-text text-center mb-5">No existen prod
 
 <div class="row justify-content-center mb-3">
   <div class="col-md-6 col-11 bordeado3 bg-verde pt-2">
-    <h4 class="text-uppercase">Debes Iniciar sesión para completar su pedido.</h4>
+    <h4 class="text-uppercase">Debes Iniciar sesión para completar tu pedido.</h4>
          <p class="h6 font-weight-bold">O también puedes comprar como invitado</p>
   </div>
 </div>
