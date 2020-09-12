@@ -83,7 +83,7 @@ if(count($datos["productos"])){
 $rand = rand(1,99);
 
 echo '<div class="row border-top border-light pt-4">
-<div class="col-md-3"><img src="'. Helpers::Img(URL_SERVER .'assets/img/productos/'. TD_SERVER .'/'.$datos["productos"][$i]["imagen"]) .'" alt="" class="img-fluid z-depth-0"></div>
+<div class="col-md-3"><img src="'. Helpers::Img(URL_SERVER .'assets/img/productos/'. TD_SERVER .'/tmb/tmb_'.$datos["productos"][$i]["imagen"]) .'" alt="" class="img-fluid z-depth-0"></div>
     
     <div class="col-md-9">
      <h3 class="h3-responsive"><strong>'.$datos["productos"][$i]["producto"].'</strong></h3>';
