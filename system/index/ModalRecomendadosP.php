@@ -120,14 +120,14 @@ echo '</div>
 <div class="col-12 nopadding">
 <div class="row no-gutters text-center">
 <div class="col-3 text-center nopadding">
-    <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="1" lugar="'.$rand.'"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
+    <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="1" lugar="'.$rand.'" cantidad="'.$datos["productos"][$i]["cantidad"].'"><i class="fa fa-minus-circle fa-lg naranja p-1 border-0"></i></a>
 </div>
 <div class="col-6 text-center nopadding">
     <input id="'.$rand.'cantidad'.$datos["productos"][$i]["cod"].'" class="h4-responsive 
 z-depth-1 rounded-pill mt-0 w-75 text-center border-0" value="1"></input>
 </div>
 <div class="col-3 text-center nopadding">
-    <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="2" lugar="'.$rand.'"><i class="fa fa-plus-circle fa-lg naranja p-1 border-0"></i></a>
+    <a id="accion-producto" iden="'.$datos["productos"][$i]["cod"].'" accion="2" lugar="'.$rand.'" cantidad="'.$datos["productos"][$i]["cantidad"].'"><i class="fa fa-plus-circle fa-lg naranja p-1 border-0"></i></a>
 </div>
 </div>
 

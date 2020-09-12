@@ -43,19 +43,25 @@ $('[data-toggle="popover-click"]').popover({
 
 /// modifica la cantidad de productos de cada form (iden = id del form, action =  (mas o menos))
   
-   function Mcantidad(iden, action, lugar){ 
+   function Mcantidad(iden, action, lugar, cantidad){ 
 
       var valuex = parseInt($('#' + lugar + 'cantidad' + iden).val());
 
-      if(action == "1"){
+
+    if(action == "1"){
         if(valuex != 1){
           var valor = parseInt(valuex) - 1;
         } else {
           var valor = 1;
         }
-      } else {
-        var valor = parseInt(valuex) + 1;
-      }
+    } else {
+        if(valuex < cantidad){
+           var valor = parseInt(valuex) + 1;
+        } else {
+          MaximoCantidad();
+        }   
+    }
+
 
        $('#' + lugar + 'cantidad' + iden).attr("value", valor);
        // $('#' + lugar + 'cantidad' + iden).val(valor)
@@ -69,9 +75,10 @@ $('[data-toggle="popover-click"]').popover({
         var iden = $(this).attr('iden');
         var accion = $(this).attr('accion'); 
         var lugar = $(this).attr('lugar'); 
+        var cantidad = $(this).attr('cantidad'); 
         // 1 = restar .  2 = sumar 
      
-        Mcantidad(iden, accion, lugar);
+        Mcantidad(iden, accion, lugar, cantidad);
     });
 
 
@@ -143,6 +150,29 @@ function RegresoCard(){
           LoadCantidadItems(); // cantidad de items
 }
 
+
+function MaximoCantidad(){
+          toastr.error("Ha llegado al máximo de productos disponibles en stock", "Limite de compra", {
+              "closeButton": true,
+              "debug": false,
+              "newestOnTop": true,
+              "progressBar": false,
+              "positionClass": "md-toast-bottom-right", 
+              "preventDuplicates": true,
+              "onclick": null,
+              "showDuration": 100,
+              "hideDuration": 100,
+              "timeOut": 2000,
+              "extendedTimeOut": 1000,
+              "showEasing": "swing",
+              "hideEasing": "linear",
+              "showMethod": "fadeIn",
+              "hideMethod": "fadeOut"
+            });
+          
+          LoadTotal(); // carga total del carrito  
+          LoadCantidadItems(); // cantidad de items
+}
 
 // function RegresoCard(cod, cantidad){
 //   $('#ModalCardSuccess').modal('show');
