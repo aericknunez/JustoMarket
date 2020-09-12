@@ -290,10 +290,6 @@ public function MandarPedido($url){
     unset($_SESSION["orden"]);
     // Alerts::Alerta("success","Realizado!","Pedido realizado corectamente");
     Email::EnviarEmail($_SESSION["email"], $_SESSION["nombre"], 2);
-
-    // if($_SESSION["invitado"] != NULL){
-    //   session_destroy();
-    // }
     echo "realizado";
   } else {
     Alerts::Alerta("error","Error!","No se realizo su pedido, vuelva a intentarlo");

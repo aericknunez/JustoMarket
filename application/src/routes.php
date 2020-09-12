@@ -197,6 +197,10 @@ $data["orden"] = $_SESSION["orden"];
 	$card->MandarPedido(URL_SERVER . "application/src/api.php?op=26&td=" . TD_SERVER . "&usr=" . $_SESSION["usuario"] . "&orden=" . $_SESSION["orden"]);
 	
 unset($_SESSION["entienda"]);
+
+if(isset($_SESSION["invitado"])){
+  session_destroy();
+}
 break;
 
 
