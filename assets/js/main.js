@@ -104,13 +104,15 @@ $('[data-toggle="popover-click"]').popover({
               } else {
                 $("a[btniden='"+ cod +"']").html('<i class="spinner-border spinner-border-sm" aria-hidden="true"></i>').addClass('disabled');
               }
+              $(".btn-additem").addClass("disabled");
             },
             success: function(data) { 
              if(modact == 1){
               $("a[btniden='"+ lugar +''+ cod +"']").html('<h6 class="h5-responsive letra-gotham-light mt-0 pt-0">Añadir a <br>Carrito <i class="fa fa-shopping-cart" aria-hidden="true"></i></h6>').removeClass('disabled');           
              } else {
               $("a[btniden='"+ cod +"']").html('<i class="fa fa-shopping-cart" aria-hidden="true"></i>').removeClass('disabled');           
-             }    
+             } 
+             $(".btn-additem").removeClass("disabled");   
 
                 RegresoCard();
                 // RegresoCard(cod, cantidad);

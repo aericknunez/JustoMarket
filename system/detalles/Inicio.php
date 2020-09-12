@@ -138,7 +138,7 @@ z-depth-1 rounded-pill mt-0 w-75 text-center border-0" value="1"></input>
                 <div class="row no-gutters text-center">
                     <div class="col">
                             <a id="additem" btniden="'.$rand.''.$datos["cod"].'" cod="'.$datos["cod"].'" lugar="'.$rand.'" modact="1"
-                                class="btn btn-sm btn-warning btn-rounded bg-naranja h-75">
+                                class="btn btn-sm btn-warning btn-rounded bg-naranja h-75 btn-additem">
                                 <h6 class="h5-responsive letra-gotham-light mt-0 pt-0">
                                     Añadir a <br>Carrito <i class="fa fa-shopping-cart"
                                         aria-hidden="true"></i></h6>

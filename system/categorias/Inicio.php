@@ -137,7 +137,7 @@ z-depth-1 rounded-pill mt-0 w-75 text-center border-0" value="1"></input>
     <div class="row no-gutters text-center">
       <div class="col">
         <a id="additem" btniden="'.$datos["productos"][$i]["cod"].'" cod="'.$datos["productos"][$i]["cod"].'" lugar="'.$rand.'" modact="0"
-                      class="btn btn-sm btn-warning btn-rounded bg-naranja">
+                      class="btn btn-sm btn-warning btn-rounded bg-naranja btn-additem">
                       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                       </a>
       </div>
@@ -181,7 +181,7 @@ z-depth-1 rounded-pill mt-0 w-75 text-center border-0" value="1"></input>
     <div class="row no-gutters text-center">
       <div class="col">
         <a id="additem" btniden="'.$datos["productos"][$i]["cod"].'" cod="'.$datos["productos"][$i]["cod"].'" lugar="'.$rand.'" modact="0"
-                      class="btn btn-sm btn-warning btn-rounded bg-naranja">
+                      class="btn btn-sm btn-warning btn-rounded bg-naranja btn-additem">
                       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                       </a>
       </div>
