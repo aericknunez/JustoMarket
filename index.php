@@ -16,7 +16,7 @@ if($_SESSION["mayordeedad"] == FALSE){
 
 
 
-echo '<p style="color: red; background: black; font-size: 18px; text-align: center;">ESTAMOS REALIZANDO PRUEBAS EN ESTE MOMENTO ES PROBABLE QUE EL SISTEMA ESTE FALLANDO</p>';
+// echo '<p style="color: red; background: black; font-size: 18px; text-align: center;">ESTAMOS REALIZANDO PRUEBAS EN ESTE MOMENTO ES PROBABLE QUE EL SISTEMA ESTE FALLANDO</p>';
 
 
 $_SESSION["last_url"] = HOST_URL . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
