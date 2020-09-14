@@ -22,7 +22,7 @@ case "10": // destacados del index pequenos
 include_once '../../system/index/ProductosDestacadosP.php';
 	$ind = new Index(); //&order=DESC
 	$cantidad = $_POST["cantidad"];
-	$ind->ProductosDestacados(URL_SERVER . "application/src/api.php?op=11&order=ASC&cantidad=".$cantidad."&td=" . TD_SERVER);
+	$ind->ProductosDestacados(URL_SERVER . "application/src/api.php?op=11&cantidad=".$cantidad."&td=" . TD_SERVER);
 break;
 
 
@@ -43,7 +43,7 @@ break;
 
 
  
-case "12": // promociones (Quitarle la cantidad para que muestre todas las promociones)
+case "12": // categoria (Quitarle la cantidad para que muestre todas las promociones)
 include_once '../../system/categorias/Inicio.php';
 	$cat = new Categorias(); //&order=DESC
 	$cantidad = $_POST["cantidad"];
