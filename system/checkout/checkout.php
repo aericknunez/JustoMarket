@@ -324,9 +324,9 @@ $check->Pedido(URL_SERVER . "application/src/api.php?op=23&td=" . TD_SERVER . "&
 <?php 
 } else { // termina cantidad minima
 
- echo '<div class="bg-vino pt-3 pb-3 white-text text-center">¡Hola! En tu municipio el pedido mínimo para poder despacharte es de ' . Helpers::Dinero($cant_minima) . ' te invitamos a que puedas aumentar el monto de tu compra. ¡Gracias!</div>
+ echo '<div class="bg-vino pt-3 pb-3 white-text text-center mt-4 bordeado3 ml-2 mr-2 pr-2 pl-2">¡Hola! En tu municipio el pedido mínimo para poder despacharte es de ' . Helpers::Dinero($cant_minima) . ' te invitamos a que puedas aumentar el monto de tu compra. ¡Gracias!</div>
 
- <div class="text-center"><a id="continuarcomprando" class="btn btn-primary bg-naranja btn-md ">continuar comprando <i class="fas fa-cart-arrow-down"></i></a></div>';
+ <div class="text-center mt-4"><a id="continuarcomprando" class="btn btn-primary bg-naranja btn-md ">continuar comprando <i class="fas fa-cart-arrow-down"></i></a></div>';
 }
 
  ?>

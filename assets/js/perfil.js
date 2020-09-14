@@ -73,7 +73,7 @@ if(location.hostname == "localhost"){
             },
             success: function(data){
                 $('#btn-perfil').html('Guardar').removeClass('disabled');       
-                $("#form-perfil").trigger("reset");
+                // $("#form-perfil").trigger("reset");
                 $("#msj").html(data); 
             }
         })

@@ -14,6 +14,7 @@ include_once '../../application/common/Fechas.php';
 include_once '../../application/common/Encrypt.php';
 
 
+
 // if($_REQUEST["op"] != "1" or $_REQUEST["op"] != "11"){ // verifica inicio de session
 
 // 		// filtros para cuando no hay session abierta
@@ -35,8 +36,20 @@ include_once '../../application/common/Encrypt.php';
 
 /// para invitado
 
-if($_REQUEST["op"]=="11"){ // redirecciona despues de registrar a llenar datos
-	
+if($_REQUEST["op"] == "11"){ // redirecciona despues de registrar a llenar datos
+
+// compruebo formulario vacio
+if(($_POST["nombre"] != NULL &&
+   $_POST["apellido"] != NULL &&
+   $_POST["email"] != NULL &&
+   $_POST["recibe_direccion"] != NULL &&
+   $_POST["telefono"] != NULL &&
+   $_POST["celular"] != NULL &&
+   $_POST["puntodereferencia"] != NULL &&
+   $_POST["nombrerecibe"] != NULL) &&
+  (is_numeric($_POST["recibe_departamentoi"]) ||
+   is_numeric($_POST["recibe_municipioi"]))){
+
 	include_once '../../application/phpMailer/Email.php';
 	require '../../application/phpMailer/Exception.php';
 	require '../../application/phpMailer/PHPMailer.php';
@@ -50,6 +63,8 @@ $_POST["password"] = $_POST["fpassword"];
 $_POST["confirmpwd"] = $_POST["fconfirmpwd"];
 $_POST["recibe_departamento"] = $_POST["recibe_departamentoi"];
 $_POST["recibe_municipio"] = $_POST["recibe_municipioi"];
+
+
 
 if($_POST["password"] != NULL){
 
@@ -93,8 +108,12 @@ $_POST["tipo"] = 2;
 	}
 }
 
-
-}
+/// aqui terminaria la comprobacion de vacios
+	} else {
+		Alerts::Alerta("error","Error!", "Debellenar todos los datos");
+	}
+	
+} // termina el op
 
 
 

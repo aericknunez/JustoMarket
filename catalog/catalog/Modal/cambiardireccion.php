@@ -17,7 +17,7 @@
 
                         <!--Body-->
 <div class="modal-body">
-<div id="msjinvitado"></div>
+<div id="msjdireccion"></div>
 <form id="form-cambios" name="form-cambios">
 
 

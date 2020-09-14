@@ -165,7 +165,7 @@ echo '<div class="row">
 
 
     if($cant_minima > $total){
-      echo '<div class="bg-naranja pt-3 pb-3 white-text text-center">La cantidad minima de su compra debe ser ' . Helpers::Dinero($cant_minima) . ' y de momento solo tiene en el carrito ' . Helpers::Dinero($total) . ' continúe comprando para poder procesar su pedido </div>';
+      echo '<div class="bg-naranja pt-3 pb-3 white-text text-center mt-4 bordeado3 ml-2 mr-2 pr-2 pl-2">¡Hola! En tu municipio el pedido mínimo para poder despacharte es de ' . Helpers::Dinero($cant_minima) . ' te invitamos a que puedas aumentar el monto';
 
     echo '<div class="text-center"><a id="continuarcomprando" class="btn bg-vino white-text btn-rounded">continuar comprando <i class="fas fa-cart-arrow-down"></i></a></div>';
     }

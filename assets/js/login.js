@@ -130,10 +130,10 @@ return false;
 				$('#btn-invitado').html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Loading...').addClass('disabled');
 	        },
 			success: function(data){
-				$('#btn-invitado').html('Login').removeClass('disabled');	      
-				// $("#form-registrar").trigger("reset");
+				$('#btn-invitado').html('Completar compra').removeClass('disabled');	      
 				$("#msjinvitado").html(data);	
-        		$('#ModalInvitado').modal('hide');
+        		// $('#ModalInvitado').modal('hide');
+        		// $("#form-registrar").trigger("reset");
 			}
 		})
 	});

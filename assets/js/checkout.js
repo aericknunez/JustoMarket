@@ -129,7 +129,7 @@ return false;
             },
             success: function(data){
                 $('#btn-cambio').html('RECUPERAR').removeClass('disabled');         
-                $("#form-cambio").trigger("reset");
+                // $("#form-cambio").trigger("reset");
                 $("#msj").html(data);   
             }
         })
@@ -167,9 +167,9 @@ return false;
             },
             success: function(data){
                 $('#btn-cambios').html('CAMBIAR DIRECCION').removeClass('disabled');         
-                $("#form-cambios").trigger("reset");
+                // $("#form-cambios").trigger("reset");
                 $('#ModalCambiarDireccion').modal('hide');
-                $("#msj").html(data);   
+                $("#msjdireccion").html(data);   
             }
         })
     });
