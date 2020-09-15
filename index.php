@@ -13,8 +13,13 @@ if($_SESSION["mayordeedad"] == FALSE){
 	}
 }
 
-
-
+unset($_SESSION["categorias_menu"]);
+if($_SESSION["categorias_menu"] == NULL){
+	include_once 'system/index/IndexCategorias.php';
+	$catex = new GetCategorias();
+	$datacat = $catex->GetCategorias(URL_SERVER . "application/src/api.php?op=35&td=" . TD_SERVER);	
+	$_SESSION["categorias_menu"] = $datacat;
+}
 
 // echo '<p style="color: red; background: black; font-size: 18px; text-align: center;">ESTAMOS REALIZANDO PRUEBAS EN ESTE MOMENTO ES PROBABLE QUE EL SISTEMA ESTE FALLANDO</p>';
 

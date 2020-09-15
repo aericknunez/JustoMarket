@@ -120,44 +120,19 @@ if($_SESSION["user"]){
                     </a>
                     <div id="popover_content_list" style="display: none">
 
-                        <a href="<?php echo BASE_URL ?>categoria/bebidas"
-                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 h-100 w-100 p-2 font-weight-bold">
-                            Bebidas
-                        </a> <br>
-                        <a href="<?php echo BASE_URL ?>categoria/carnes"
-                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100 p-2 font-weight-bold">
-                            Justo Grill - Carnes y Pollo
-                        </a> <br>
-                        <a href="<?php echo BASE_URL ?>categoria/frutas"
-                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100 p-2 font-weight-bold">
-                            Frutas y Vegetales
-                        </a> <br>
-                        <a href="<?php echo BASE_URL ?>categoria/abarrotes"
-                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100 p-2 font-weight-bold">
-                            Abarrotes
-                        </a> <br>
-                        <a href="<?php echo BASE_URL ?>categoria/mariscos"
-                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100 p-2 font-weight-bold">
-                            Mariscos
-                        </a> <br>
- 
-                        <a href="<?php echo BASE_URL ?>categoria/granos"
-                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100 p-2 font-weight-bold">
-                            Granos
-                        </a> <br>
-                        <a href="<?php echo BASE_URL ?>categoria/lacteos"
-                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100 p-2 font-weight-bold">
-                            Lacteos
-                        </a> <br>
-                        
-                        <a href="<?php echo BASE_URL ?>categoria/snacks"
-                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100 p-2 font-weight-bold">
-                            Snacks
-                        </a> <br>
-                        <a href="<?php echo BASE_URL ?>categoria/vinos"
-                            class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 w-100 p-2 font-weight-bold">
-                            Justo Bar - Vinos y Licores
-                        </a> <br>
+
+                        <?php 
+
+for ($i=0; $i < count($_SESSION["categorias_menu"]); $i++) { 
+    
+echo '<a href="'. BASE_URL.'categoria/'.$_SESSION["categorias_menu"][$i]["pronombre"].'"
+        class="letra-gotham-light grey-text outline-naranja pr-5 pl-3 mt-2 mr-5 h-100 w-100 p-2 font-weight-bold">
+        '.$_SESSION["categorias_menu"][$i]["subcategoria"].'
+    </a> <br>';
+
+}
+ ?>
+
 
                     </div>
                 </li>
