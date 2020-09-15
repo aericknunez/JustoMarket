@@ -43,7 +43,7 @@ $('[data-toggle="popover-click"]').popover({
 
 /// modifica la cantidad de productos de cada form (iden = id del form, action =  (mas o menos))
   
-   function Mcantidad(iden, action, lugar, cantidad){ 
+   function Mcantidad(iden, action, lugar, cantidad, ilimitado){ 
 
       var valuex = parseInt($('#' + lugar + 'cantidad' + iden).val());
 
@@ -58,7 +58,12 @@ $('[data-toggle="popover-click"]').popover({
         if(valuex < cantidad){
            var valor = parseInt(valuex) + 1;
         } else {
-          MaximoCantidad();
+          if(ilimitado == "on"){
+            var valor = parseInt(valuex) + 1;
+          } else {
+            MaximoCantidad();
+          }
+          
         }   
     }
 
@@ -76,9 +81,10 @@ $('[data-toggle="popover-click"]').popover({
         var accion = $(this).attr('accion'); 
         var lugar = $(this).attr('lugar'); 
         var cantidad = $(this).attr('cantidad'); 
+        var ilimitado = $(this).attr('ilimitado'); 
         // 1 = restar .  2 = sumar 
      
-        Mcantidad(iden, accion, lugar, cantidad);
+        Mcantidad(iden, accion, lugar, cantidad, ilimitado);
     });
 
 
