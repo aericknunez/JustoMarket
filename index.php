@@ -13,6 +13,8 @@ if($_SESSION["mayordeedad"] == FALSE){
 	}
 }
 
+// print_r($_SESSION);
+
 unset($_SESSION["categorias_menu"]);
 if($_SESSION["categorias_menu"] == NULL){
 	include_once 'system/index/IndexCategorias.php';

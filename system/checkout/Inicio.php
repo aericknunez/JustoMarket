@@ -240,7 +240,7 @@ echo '<h4 class="d-flex justify-content-between align-items-center mb-3">
               <span class="font-weight-bold">'.Helpers::Dinero($total).'</span>
             </li>';
 
-if($_SESSION["delivery"] != NULL){
+if($_SESSION["delivery"] != NULL and $_SESSION["entienda"] != "on"){
      echo '<li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
                 <h6 class="my-0">COSTO DE ENVÍO</h6>
@@ -249,10 +249,15 @@ if($_SESSION["delivery"] != NULL){
             </li>';
 }
 
+if($_SESSION["entienda"] != "on"){
+  $del = $_SESSION["delivery"];
+} else {
+  $del = 0;
+}
 
      echo '<li class="list-group-item d-flex justify-content-between font-weight-bold">
               <span>Total (USD)</span>
-              <strong>'. Helpers::Dinero($total + $_SESSION["delivery"]) .'</strong>
+              <strong>'. Helpers::Dinero($total + $del) .'</strong>
             </li>
           </ul>
           <!-- Cart -->';

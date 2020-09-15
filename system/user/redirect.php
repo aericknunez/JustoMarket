@@ -38,6 +38,7 @@ include_once '../../application/common/Encrypt.php';
 
 if($_REQUEST["op"] == "11"){ // redirecciona despues de registrar a llenar datos
 
+
 if($_POST["celular"] != NULL and $_POST["telefono"] == NULL){
 	$_POST["telefono"] = $_POST["celular"];
 }
@@ -45,12 +46,11 @@ if($_POST["celular"] != NULL and $_POST["telefono"] == NULL){
 if($_POST["telefono"] != NULL and $_POST["celular"] == NULL){
 	$_POST["celular"] = $_POST["telefono"];
 }
-
 // compruebo formulario vacio
 if(($_POST["nombre"] != NULL &&
    $_POST["apellido"] != NULL &&
    $_POST["recibe_direccion"] != NULL &&
-   $_POST["telefono"] != NULL &&
+   $_POST["telefono"] != NULL) &&
   (is_numeric($_POST["recibe_departamentoi"]) ||
    is_numeric($_POST["recibe_municipioi"]))){
 
