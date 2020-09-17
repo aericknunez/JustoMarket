@@ -1,3 +1,5 @@
+<?php $rand = rand(1,99) ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -14,7 +16,7 @@
     <link href="<?php echo BASE_URL; ?>assets/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
 
-    <link href="<?php echo BASE_URL; ?>assets/css/style.css" rel="stylesheet">
+    <link href="<?php echo BASE_URL; ?>assets/css/style.css?v=<?php echo $rand; ?>" rel="stylesheet">
 
 <?php 
 if(isset($_GET["cart"])) {
