@@ -102,7 +102,7 @@ public function ProductoView($datos, $inicio, $fin, $active = NULL){
         <div class="card-body">
           <div class="row">
             <div class="col text-center" style="height: 100px;">
-              <h5 class="h5-responsive" style="font-family: Gotham-Light;">'.$datos["productos"][$i]["descripcion"].'</h5>
+              <div class="ProductosP font-weight-bold text-uppercase" style="font-family: Gotham-Light;">'.$datos["productos"][$i]["descripcion"].'</div>
             </div>
           </div>';
 

@@ -25,6 +25,13 @@ $detalles->VerDetalles(URL_SERVER . "application/src/api.php?op=14&cod=".$_REQUE
 
 ?>
 <!-- llamar productos destacados desde jquery -->
+<nav class="navbar navbar-default bg-white z-depth-0">
+  <div class="container ">
+      <a class="navbar-brand ">
+          <h3 class="font-weight-bold vino">Destacados</h3>
+      </a>
+  </div>
+</nav>
 <div id="productos-destacados">Destacados</div>
 
 

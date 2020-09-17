@@ -250,3 +250,14 @@ position:absolute;
      margin-top: -22px;
      overflow-wrap: normal;
 }
+
+
+/*// tamano de letras de productos*/
+.ProductosG {
+  font-size: 18px;
+}
+
+
+.ProductosP {
+  font-size: 18px;
+}

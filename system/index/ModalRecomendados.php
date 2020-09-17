@@ -112,8 +112,8 @@ echo '<figure class="col-md-4 d-md-inline-block d-none d-sm-block border-right b
         echo '<div class="card-body">
                 <div class="row" style="height: 100px;">
                     <div class="col text-center h-100">
-                        <h5 class="h5-responsive"
-                            style="font-family: Gotham-Light;">'.$datos["productos"][$i]["descripcion"].'</h5>
+                        <div class="ProductosG font-weight-bold text-uppercase"
+                            style="font-family: Gotham-Light;">'.$datos["productos"][$i]["descripcion"].'</div>
                     </div>
                 </div>
 
