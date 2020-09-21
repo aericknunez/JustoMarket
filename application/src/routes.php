@@ -271,7 +271,7 @@ if($a->num_rows > 0){
 Alerts::Mensajex("El Email ingresado no existe en nuestros registros, verifique su email", "danger");
 }
   $a->close();
-} {
+} else {
 	Alerts::Mensajex("Ingrese un email", "danger");
 }
 break;
