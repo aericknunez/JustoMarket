@@ -268,7 +268,7 @@ if($a->num_rows > 0){
 		}
 
 } else {
-Alerts::Mensajex("El Email ingresado no existe en nuestros registros, verifique su email", "danger");
+Alerts::Mensajex("El Email ingresado no esta relacionado a ninguna cuenta, verifique su email", "danger");
 }
   $a->close();
 } else {
