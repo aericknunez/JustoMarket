@@ -258,7 +258,7 @@ include_once '../phpMailer/PHPMailer.php';
 include_once '../phpMailer/SMTP.php';
 
 if($_POST["email"] != NULL){
-    $a = $db->query("SELECT email FROM login_userdata WHERE email = '".$_POST["email"]."'");
+    $a = $db->query("SELECT email FROM login_members WHERE email = '".$_POST["email"]."'");
     
 if($a->num_rows > 0){
 		if(Email::EnviarEmail($_POST["email"], "Estimado Cliente", 5, 5) == TRUE){
