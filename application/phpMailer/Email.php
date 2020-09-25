@@ -38,13 +38,13 @@ $mail = new PHPMailer(true);
     $mail->isSMTP();                                            // Send using SMTP
     $mail->Host       = 'mail.justomarket.com';                    // Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-    $mail->Username   = 'no-reply@justomarket.com';                     // SMTP username
-    $mail->Password   = 'caca007125-';                               // SMTP password
+    $mail->Username   = 'atencion@justomarket.com';                     // SMTP username
+    $mail->Password   = 'Justo2020';                               // SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
     $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
     //Recipients
-    $mail->setFrom('no-reply@justomarket.com', 'Justo Market');
+    $mail->setFrom('atencion@justomarket.com', 'Justo Market');
     $mail->addAddress($destinatario, $nombre_destinatario);     // Add a recipient
 
 
