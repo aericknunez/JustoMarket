@@ -24,13 +24,13 @@ if($asunto == 5){
 
 $mail = new PHPMailer(true);
 
- $mail->SMTPOptions = array(
-		'ssl' => array(
-		'verify_peer' => false,
-		'verify_peer_name' => false,
-		'allow_self_signed' => true
-		)
-	);
+ // $mail->SMTPOptions = array(
+	// 	'ssl' => array(
+	// 	'verify_peer' => false,
+	// 	'verify_peer_name' => false,
+	// 	'allow_self_signed' => true
+	// 	)
+	// );
 //Tell PHPMailer to use SMTP
 
     //Server settings
