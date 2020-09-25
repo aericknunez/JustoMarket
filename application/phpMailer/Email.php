@@ -34,7 +34,7 @@ $mail = new PHPMailer(true);
 //Tell PHPMailer to use SMTP
 
     //Server settings
-    $mail->SMTPDebug = false;                      // Enable verbose debug output
+    $mail->SMTPDebug = 3;                      // Enable verbose debug output
     $mail->isSMTP();                                            // Send using SMTP
     $mail->Host       = 'mail.justomarket.com';                    // Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
