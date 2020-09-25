@@ -24,13 +24,13 @@ if($asunto == 5){
 
 $mail = new PHPMailer(true);
 
- // $mail->SMTPOptions = array(
-	// 	'ssl' => array(
-	// 	'verify_peer' => false,
-	// 	'verify_peer_name' => false,
-	// 	'allow_self_signed' => true
-	// 	)
-	// );
+ $mail->SMTPOptions = array(
+		'ssl' => array(
+		'verify_peer' => false,
+		'verify_peer_name' => false,
+		'allow_self_signed' => true
+		)
+	);
 //Tell PHPMailer to use SMTP
 
     //Server settings
@@ -40,7 +40,7 @@ $mail = new PHPMailer(true);
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
     $mail->Username   = 'no-reply@justomarket.com';                     // SMTP username
     $mail->Password   = 'caca007125-';                               // SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+    $mail->SMTPSecure = 'tls';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
     $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
     //Recipients
