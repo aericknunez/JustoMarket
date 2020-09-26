@@ -52,6 +52,7 @@ case "12": // categoria (Quitarle la cantidad para que muestre todas las promoci
 // 	if($numx == 3) $ordex = "";
 // 	$cat->ProductosCategoria(URL_SERVER . "application/src/api.php?op=12".$ordex."&cantidad=".$cantidad."&td=" . TD_SERVER . "&categoria=" . $_SESSION["categoria"]);
 print_r($_SESSION);
+echo "Estoy Aqui";
 break;
 
 
