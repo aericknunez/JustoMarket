@@ -9,7 +9,7 @@ include_once 'system/index/InicioModal.php';
 	$indexM = new IndexModal(); 
 
     $_SESSION["categoria"] = $_REQUEST["categoria"];
-
+echo $_SESSION["categoria"];
 ?>
 <div class="container">
 <?
