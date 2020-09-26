@@ -51,6 +51,8 @@ include_once '../../system/categorias/Inicio.php';
 	if($numx == 2) $ordex = "&order=ASC";
 	if($numx == 3) $ordex = "";
 	$cat->ProductosCategoria(URL_SERVER . "application/src/api.php?op=12".$ordex."&cantidad=".$cantidad."&td=" . TD_SERVER . "&categoria=" . $_SESSION["categoria"]);
+
+	echo $_SESSION["categoria"];
 break;
 
 
