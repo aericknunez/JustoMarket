@@ -13,7 +13,7 @@ include_once '../common/Fechas.php';
 include_once '../common/Encrypt.php';
 include_once '../common/Dinero.php';
 
-$numx = rand(1, 3);
+$numx = rand(1, 2);
 
 switch ($_REQUEST["op"]) {
 
