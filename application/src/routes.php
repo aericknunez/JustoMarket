@@ -52,7 +52,7 @@ case "12":
 // 	if($numx == 3) $ordex = "";
 // 	$cat->ProductosCategoria(URL_SERVER . "application/src/api.php?op=12".$ordex."&cantidad=".$cantidad."&td=" . TD_SERVER . "&categoria=" . $_SESSION["categoria"]);
 
-print_r($_SESSION);
+var_dump($_SESSION);
 break;
 
 
