@@ -44,13 +44,14 @@ break;
 
  
 case "12": // categoria (Quitarle la cantidad para que muestre todas las promociones)
-include_once '../../system/categorias/Inicio.php';
-	$cat = new Categorias(); //&order=DESC
-	$cantidad = $_POST["cantidad"];
-	if($numx == 1) $ordex = "&order=DESC";
-	if($numx == 2) $ordex = "&order=ASC";
-	if($numx == 3) $ordex = "";
-	$cat->ProductosCategoria(URL_SERVER . "application/src/api.php?op=12".$ordex."&cantidad=".$cantidad."&td=" . TD_SERVER . "&categoria=" . $_SESSION["categoria"]);
+// include_once '../../system/categorias/Inicio.php';
+// 	$cat = new Categorias(); //&order=DESC
+// 	$cantidad = $_POST["cantidad"];
+// 	if($numx == 1) $ordex = "&order=DESC";
+// 	if($numx == 2) $ordex = "&order=ASC";
+// 	if($numx == 3) $ordex = "";
+// 	$cat->ProductosCategoria(URL_SERVER . "application/src/api.php?op=12".$ordex."&cantidad=".$cantidad."&td=" . TD_SERVER . "&categoria=" . $_SESSION["categoria"]);
+print_r($_SESSION);
 break;
 
 
