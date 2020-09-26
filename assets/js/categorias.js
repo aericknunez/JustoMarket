@@ -1,7 +1,10 @@
 $(document).ready(function(){
 
-
+if(location.hostname == "localhost"){
+    var Url = "http://localhost/justomarket/";
+} else {
     var Url = "https://justomarket.com/";
+}
 
 
 
