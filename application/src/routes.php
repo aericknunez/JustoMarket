@@ -13,7 +13,7 @@ include_once '../common/Fechas.php';
 include_once '../common/Encrypt.php';
 include_once '../common/Dinero.php';
 
-$numx = rand(1, 3);
+$numx = rand(1, 2);
 
 switch ($_REQUEST["op"]) {
 
@@ -49,7 +49,6 @@ include_once '../../system/categorias/Inicio.php';
 	$cantidad = $_POST["cantidad"];
 	if($numx == 1) $ordex = "&order=DESC";
 	if($numx == 2) $ordex = "&order=ASC";
-	if($numx == 3) $ordex = "";
 	$cat->ProductosCategoria(URL_SERVER . "application/src/api.php?op=12".$ordex."&cantidad=".$cantidad."&td=" . TD_SERVER . "&categoria=" . $_SESSION["categoria"]);
 break;
 
@@ -60,7 +59,6 @@ include_once '../../system/categorias/Inicio.php';
 	$cat = new Categorias(); //&order=DESC
 	if($numx == 1) $ordex = "&order=DESC";
 	if($numx == 2) $ordex = "&order=ASC";
-	if($numx == 3) $ordex = "";
 	$cat->ProductosPromociones(URL_SERVER . "application/src/api.php?op=13".$ordex."&cantidad=&td=" . TD_SERVER . "&categoria=" . $_SESSION["categoria"]);
 
 break;
