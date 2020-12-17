@@ -81,9 +81,11 @@ echo '<div class="col-6 border-bottom mt-2">';
     if($datos["productos"][$i]["promocion"] == "on"){
         echo '<span class="badge badge-pill mensaje-promo">PROMOCIÓN!!</span>';
     }
-    
-        // echo '<span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
-
+  
+      if($datos["productos"][$i]["cantidad"] == 0){
+        echo '<span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
+    }  
+     
 
   echo '<img src="'. Helpers::Img(URL_SERVER .'assets/img/productos/'. TD_SERVER .'/tmb/tmb_'.$datos["productos"][$i]["imagenes"][0]) .'"
             class="img-fluid imgproductos">

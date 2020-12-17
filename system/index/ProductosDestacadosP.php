@@ -79,6 +79,9 @@ echo '<div class="col-6 border-bottom mt-2">';
         echo '<span class="badge badge-pill mensaje-promo">PROMOCIÓN!!</span>';
     }
     
+    if($datos["productos"][$i]["cantidad"] == 0){
+        echo '<span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
+    }
         // echo '<span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
 
 

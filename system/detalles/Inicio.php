@@ -60,6 +60,9 @@ echo '<div class="carousel-inner" role="listbox">';
         echo '<span class="badge badge-pill mensaje-promo">PROMOCIÓN!!</span>';
     }
 
+    if($datos["cantidad"] == 0){
+        echo '<span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
+    }
         // echo ' <span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
 
 	}

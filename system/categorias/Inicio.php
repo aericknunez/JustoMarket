@@ -94,6 +94,12 @@ public function ProductoView($datos, $inicio, $fin, $active = NULL){
     if($datos["productos"][$i]["promocion"] == "on"){
         echo '<span class="badge badge-pill mensaje-promo">PROMOCIÓN!!</span>';
     }
+  
+
+    if($datos["productos"][$i]["cantidad"] == 0){
+        echo '<span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
+    }
+
         // echo '<span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
  
   echo '<a class="waves-effect waves-light" href="'.BASE_URL.'detalle/'.$datos["productos"][$i]["cod"].'/'.Helpers::FormatearTexto($datos["productos"][$i]["descripcion"]).'">

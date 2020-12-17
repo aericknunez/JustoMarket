@@ -107,7 +107,10 @@ echo '<figure class="col-md-4 d-md-inline-block d-none d-sm-block border-right b
         echo '<span class="badge badge-pill mensaje-promo">PROMOCIÓN!!</span>';
     }
     
-        //echo '<span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
+    if($datos["productos"][$i]["cantidad"] == 0){
+        echo '<span class="badge badge-pill mensaje-agotado">AGOTADO</span>';
+    }
+        
        
         echo '<div class="card-body">
                 <div class="row" style="height: 100px;">
